@@ -3,393 +3,343 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MHT CET Law Portal — India's most trusted platform for MHT CET Law 3 Year, 5 Year & CLAT preparation. Premium notes, PYQs, test papers & more." />
-  <meta name="keywords" content="MHT CET Law, CLAT, law entrance exam, law notes, previous year papers, MHT CET 5 year, MHT CET 3 year" />
-  <meta property="og:title" content="MHT CET Law Portal — Crack Law Exams" />
-  <meta property="og:description" content="Join thousands of students cracking law entrance exams with MHT CET Law Portal. Premium study material, PYQs & expert guidance." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mhtcetlaw.netlify.app" />
+  <meta name="description" content="MHT CET Law Portal — India's most trusted platform for MHT CET Law 3 Year, 5 Year & CLAT preparation." />
+  <meta name="keywords" content="MHT CET Law, CLAT, law entrance exam, law notes, previous year papers, MHT CET 5 year" />
   <meta name="google-site-verification" content="dWf4omkOqjnpJ1AWVAqfWMt7W7avqo8Fc7sJMRE05_I" />
-  <title>Login — MHT CET Law Portal</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3097/3097444.png" />
+  <!-- Open Graph -->
+  <meta property="og:title"       content="MHT CET Law Portal — Login" />
+  <meta property="og:description" content="India's #1 platform for MHT CET Law & CLAT preparation." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://mhtcetlaw.netlify.app" />
 
-  <!-- Fonts loaded via styling.css @import -->
+  <title>MHT CET Law Portal — Login</title>
+
+  <!-- Favicon: your official logo -->
+  <link rel="icon" type="image/png"
+        href="https://uploads.onecompiler.io/439q4yegy/44dyk7z45/WhatsApp_Image_2025-11-09_at_10.21.28_AM-removebg-preview.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styling.css" />
+  <!-- Your styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase v9 compat (CDN — no ESM, works on any static host) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
+
 <body>
 
-  <!-- ══ Animated Background ════════════════════════════════ -->
-  <div class="bg-scene" aria-hidden="true">
-    <div class="bg-grid"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
+<!-- ══ BG LAYERS ══════════════════════════════════ -->
+<div class="bg-wrap" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+</div>
 
-  <!-- ══ Page Wrapper ═══════════════════════════════════════ -->
-  <div class="page-wrapper">
+<!-- ══ PAGE ═══════════════════════════════════════ -->
+<div class="page">
 
-    <!-- ── Top Navigation Bar ────────────────────────────── -->
-    <header class="top-bar" role="banner">
-      <a href="https://mhtcetlaw.netlify.app" class="top-bar-brand" aria-label="MHT CET Law Portal Home">
-        <span class="brand-icon">⚖️</span>
-        <span>MHT CET Law Portal</span>
-      </a>
-      <nav class="top-bar-links" aria-label="Social links">
-        <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener noreferrer"
-           class="social-link" aria-label="Telegram Channel" title="Join our Telegram">
-          <i class="fab fa-telegram-plane"></i>
-        </a>
-        <a href="https://youtube.com/@mhtcetlaw" target="_blank" rel="noopener noreferrer"
-           class="social-link" aria-label="YouTube Channel" title="Watch on YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://instagram.com/spotify.piux" target="_blank" rel="noopener noreferrer"
-           class="social-link" aria-label="Instagram" title="Follow on Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </nav>
-    </header>
+  <!-- ── TOPBAR ─────────────────────────────────── -->
+  <header class="topbar">
+    <a href="https://mhtcetlaw.netlify.app" class="tb-brand" aria-label="MHT CET Law Portal">
+      <img class="tb-logo"
+           src="https://uploads.onecompiler.io/439q4yegy/44dyk7z45/WhatsApp_Image_2025-11-09_at_10.21.28_AM-removebg-preview.png"
+           alt="MHT CET Law Logo" />
+      <span class="tb-name">MHT CET Law Portal</span>
+    </a>
+    <nav class="tb-socials" aria-label="Social links">
+      <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener"
+         class="soc" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+      <a href="https://youtube.com/@mhtcetlaw" target="_blank" rel="noopener"
+         class="soc" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://instagram.com/spotify.piux" target="_blank" rel="noopener"
+         class="soc" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </nav>
+  </header>
 
-    <!-- ── Main Auth Area ─────────────────────────────────── -->
-    <main class="auth-main" role="main">
-      <div class="auth-card">
+  <!-- ── MAIN ───────────────────────────────────── -->
+  <main class="main">
+    <div class="card">
 
-        <!-- ════ LEFT PANEL ════════════════════════════════ -->
-        <aside class="panel-left" aria-label="Portal information">
+      <!-- ════ LEFT PANEL ════════════════════════ -->
+      <aside class="left">
 
-          <!-- Logo -->
-          <div class="portal-logo">
-            <div class="logo-badge" aria-hidden="true">⚖️</div>
-            <div class="logo-text-block">
-              <span class="logo-title">MHT CET Law Portal</span>
-              <span class="logo-sub">India's #1 Law Exam Hub</span>
-            </div>
+        <!-- Brand -->
+        <div class="brand-row">
+          <div class="brand-box">
+            <img src="https://uploads.onecompiler.io/439q4yegy/44dyk7z45/WhatsApp_Image_2025-11-09_at_10.21.28_AM-removebg-preview.png"
+                 alt="Logo" />
           </div>
-
-          <!-- Trust Badge -->
-          <div class="trust-badge">
-            <i class="fas fa-circle-check blue-tick" aria-label="Verified"></i>
-            <span>Trusted by <strong>10,000+</strong> Students</span>
-          </div>
-
-          <!-- Headline -->
           <div>
-            <p class="panel-headline">
-              Crack Law Exams with <span class="highlight">Confidence</span> &amp; Clarity
-            </p>
-            <p class="hashtag" style="margin-top:0.6rem;">#DilMeLaw ⚖️</p>
+            <div class="brand-name">MHT CET Law Portal</div>
+            <div class="brand-sub">India's #1 Law Exam Hub</div>
           </div>
+        </div>
 
-          <!-- Features -->
-          <ul class="features-list" aria-label="Platform features">
-            <li>
-              <div class="feat-icon"><i class="fas fa-file-alt"></i></div>
-              <span>Previous Year Question Papers (PYQs)</span>
-            </li>
-            <li>
-              <div class="feat-icon"><i class="fas fa-book-open"></i></div>
-              <span>Full Notes &amp; Premium Study Guides</span>
-            </li>
-            <li>
-              <div class="feat-icon"><i class="fas fa-clipboard-list"></i></div>
-              <span>Mock &amp; Practice Test Series</span>
-            </li>
-            <li>
-              <div class="feat-icon"><i class="fas fa-lightbulb"></i></div>
-              <span>Most Important Questions &amp; Shortcuts</span>
-            </li>
-            <li>
-              <div class="feat-icon"><i class="fas fa-video"></i></div>
-              <span>Expert Video Lectures &amp; Live Sessions</span>
-            </li>
-            <li>
-              <div class="feat-icon"><i class="fas fa-headset"></i></div>
-              <span>1-on-1 Doubt Solving &amp; Mentorship</span>
-            </li>
-          </ul>
+        <!-- Trust badge -->
+        <div class="trust">
+          <i class="fas fa-circle-check chk"></i>
+          <span>Trusted by <strong>10,000+</strong> Students</span>
+        </div>
 
-          <!-- Reviews -->
-          <div class="reviews-section" aria-label="Student reviews">
-            <p class="reviews-header"><i class="fas fa-star" style="color:var(--gold);margin-right:4px;"></i>What Students Say</p>
+        <!-- Headline -->
+        <div>
+          <h2 class="hl">Crack Law Exams with <em>Confidence</em> &amp; Clarity</h2>
+          <p class="htag">#DilMeLaw ⚖️</p>
+        </div>
 
-            <div class="review-card">
-              <div class="review-top">
-                <div class="review-avatar" aria-hidden="true">P</div>
+        <!-- Features -->
+        <ul class="feats" aria-label="Platform features">
+          <li><div class="fi"><i class="fas fa-file-alt"></i></div>Previous Year Papers (PYQs)</li>
+          <li><div class="fi"><i class="fas fa-book-open"></i></div>Full Notes &amp; Premium Study Guides</li>
+          <li><div class="fi"><i class="fas fa-clipboard-list"></i></div>Mock &amp; Practice Test Series</li>
+          <li><div class="fi"><i class="fas fa-lightbulb"></i></div>Most Important Questions &amp; Shortcuts</li>
+          <li><div class="fi"><i class="fas fa-video"></i></div>Expert Video Lectures &amp; Live Sessions</li>
+          <li><div class="fi"><i class="fas fa-headset"></i></div>1-on-1 Doubt Solving &amp; Mentorship</li>
+        </ul>
+
+        <!-- Reviews -->
+        <div>
+          <p class="rev-lbl" style="margin-bottom:0.45rem;">
+            <i class="fas fa-star" style="color:#c8a027;margin-right:4px;"></i>What Students Say
+          </p>
+          <div class="revs">
+
+            <div class="rev">
+              <div class="rev-top">
+                <div class="rav" style="background:linear-gradient(135deg,#1a4fd6,#c8a027);">P</div>
                 <div>
                   <div style="display:flex;align-items:center;gap:4px;">
-                    <span class="review-name">Priya Sharma</span>
-                    <i class="fas fa-circle-check review-verified" title="Verified student"></i>
+                    <span class="rname">Priya Sharma</span>
+                    <i class="fas fa-circle-check rchk"></i>
                   </div>
-                  <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                  <div class="rstars">★★★★★</div>
                 </div>
-                <span class="review-exam">MHT CET 5yr</span>
+                <span class="rexam">MHT CET 5yr</span>
               </div>
-              <p class="review-text">"Got into my dream law college! The notes here are unmatched — concise, accurate and exactly what the exam tests. #DilMeLaw"</p>
+              <p class="rtxt">"Got into my dream law college! The notes here are unmatched — concise, accurate and exactly what the exam tests. #DilMeLaw"</p>
             </div>
 
-            <div class="review-card">
-              <div class="review-top">
-                <div class="review-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);" aria-hidden="true">R</div>
+            <div class="rev">
+              <div class="rev-top">
+                <div class="rav" style="background:linear-gradient(135deg,#6d28d9,#a78bfa);">R</div>
                 <div>
                   <div style="display:flex;align-items:center;gap:4px;">
-                    <span class="review-name">Rahul Patil</span>
-                    <i class="fas fa-circle-check review-verified" title="Verified student"></i>
+                    <span class="rname">Rahul Patil</span>
+                    <i class="fas fa-circle-check rchk"></i>
                   </div>
-                  <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                  <div class="rstars">★★★★★</div>
                 </div>
-                <span class="review-exam">CLAT</span>
+                <span class="rexam">CLAT</span>
               </div>
-              <p class="review-text">"The CLAT PYQ collection &amp; mock tests gave me the edge I needed. Scored AIR 142. Worth every bit of effort!"</p>
+              <p class="rtxt">"The CLAT PYQ collection &amp; mock tests gave me the edge I needed. Scored AIR 142. Worth every bit of effort!"</p>
             </div>
 
-            <div class="review-card">
-              <div class="review-top">
-                <div class="review-avatar" style="background:linear-gradient(135deg,#059669,#34d399);" aria-hidden="true">A</div>
+            <div class="rev">
+              <div class="rev-top">
+                <div class="rav" style="background:linear-gradient(135deg,#065f46,#34d399);">A</div>
                 <div>
                   <div style="display:flex;align-items:center;gap:4px;">
-                    <span class="review-name">Anjali Deshmukh</span>
-                    <i class="fas fa-circle-check review-verified" title="Verified student"></i>
+                    <span class="rname">Anjali Deshmukh</span>
+                    <i class="fas fa-circle-check rchk"></i>
                   </div>
-                  <div class="review-stars" aria-label="5 stars">★★★★★</div>
+                  <div class="rstars">★★★★★</div>
                 </div>
-                <span class="review-exam">MHT CET 3yr</span>
+                <span class="rexam">MHT CET 3yr</span>
               </div>
-              <p class="review-text">"Best platform for MHT CET Law 3 year! The shortcut tricks and important questions literally saved my preparation."</p>
+              <p class="rtxt">"Best platform for MHT CET Law 3 year! The shortcut tricks and important questions literally saved my preparation."</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Student count -->
+        <div class="scount">
+          <i class="fas fa-users" style="color:#c8a027;"></i>
+          <span><strong>10,000+</strong> students joined &amp; cracking law exams</span>
+        </div>
+
+      </aside>
+      <!-- ════ END LEFT ═════════════════════════ -->
+
+      <!-- ════ RIGHT PANEL ═════════════════════ -->
+      <section class="right">
+
+        <div>
+          <h1 class="ah-title">Welcome Back 👋</h1>
+          <p class="ah-sub">Sign in or create your free account to access all resources.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" role="tablist">
+          <button class="tab on" data-tab="pane-login"    role="tab" aria-selected="true">Sign In</button>
+          <button class="tab"    data-tab="pane-register" role="tab" aria-selected="false">Create Account</button>
+        </div>
+
+        <!-- ── LOGIN PANE ─────────────────────── -->
+        <div class="pane on" id="pane-login" role="tabpanel">
+          <div id="loginAlert" aria-live="polite"></div>
+
+          <div class="fg">
+            <label class="fl" for="loginEmail">Email Address</label>
+            <div class="iw">
+              <i class="fas fa-envelope ic"></i>
+              <input class="inp" type="email" id="loginEmail"
+                     placeholder="you@example.com" autocomplete="email" />
             </div>
           </div>
 
-          <!-- Student Count -->
-          <div class="students-count">
-            <i class="fas fa-users" style="color:var(--gold);"></i>
-            <span><strong>10,000+</strong> students joined &amp; cracking law exams</span>
-          </div>
-
-        </aside>
-
-        <!-- ════ RIGHT PANEL ════════════════════════════════ -->
-        <section class="panel-right" aria-label="Authentication form">
-
-          <div class="auth-header">
-            <h1 class="auth-title">Welcome Back 👋</h1>
-            <p class="auth-subtitle">Sign in to access your study materials &amp; resources</p>
-          </div>
-
-          <!-- Tabs -->
-          <div class="auth-tabs" role="tablist" aria-label="Authentication options">
-            <button class="tab-btn active" role="tab" aria-selected="true"
-                    aria-controls="login-pane" data-tab="login" id="tab-login">
-              Sign In
-            </button>
-            <button class="tab-btn" role="tab" aria-selected="false"
-                    aria-controls="register-pane" data-tab="register" id="tab-register">
-              Create Account
-            </button>
-          </div>
-
-          <!-- ── LOGIN PANE ─────────────────────────────── -->
-          <div class="tab-pane active" id="login-pane" role="tabpanel" aria-labelledby="tab-login">
-            <div id="loginAlert" aria-live="polite" aria-atomic="true"></div>
-
-            <div class="form-group">
-              <label class="form-label" for="loginEmail">Email Address</label>
-              <div class="input-wrap">
-                <i class="fas fa-envelope input-icon" aria-hidden="true"></i>
-                <input
-                  type="email"
-                  id="loginEmail"
-                  class="form-input"
-                  placeholder="you@example.com"
-                  autocomplete="email"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="loginPassword">Password</label>
-              <div class="input-wrap">
-                <i class="fas fa-lock input-icon" aria-hidden="true"></i>
-                <input
-                  type="password"
-                  id="loginPassword"
-                  class="form-input"
-                  placeholder="Enter your password"
-                  autocomplete="current-password"
-                  required
-                />
-                <button type="button" class="pw-toggle" data-target="loginPassword"
-                        aria-label="Toggle password visibility"
-                        style="position:absolute;right:0.9rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.85rem;">
-                  <i class="fas fa-eye" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-
-            <a href="#" id="forgotPasswordLink" class="forgot-link">Forgot Password?</a>
-
-            <button type="button" id="loginBtn" class="btn-submit">
-              <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
-              <span>Sign In</span>
-            </button>
-
-            <p class="terms-text">
-              By signing in you agree to our
-              <a href="https://mhtcetlaw.netlify.app" target="_blank">Terms of Service</a> &amp;
-              <a href="https://mhtcetlaw.netlify.app" target="_blank">Privacy Policy</a>.
-            </p>
-
-            <div class="divider"><span>Need help?</span></div>
-
-            <div class="help-row">
-              <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener noreferrer" class="help-link">
-                <i class="fab fa-telegram-plane" style="color:#229ED9;"></i> Telegram Support
-              </a>
-              <a href="https://youtube.com/@mhtcetlaw" target="_blank" rel="noopener noreferrer" class="help-link">
-                <i class="fab fa-youtube" style="color:#FF0000;"></i> YouTube
-              </a>
+          <div class="fg">
+            <label class="fl" for="loginPassword">Password</label>
+            <div class="iw">
+              <i class="fas fa-lock ic"></i>
+              <input class="inp" type="password" id="loginPassword"
+                     placeholder="Your password" autocomplete="current-password" />
+              <button class="eye" data-for="loginPassword" aria-label="Toggle password" type="button">
+                <i class="fas fa-eye"></i>
+              </button>
             </div>
           </div>
 
-          <!-- ── REGISTER PANE ───────────────────────────── -->
-          <div class="tab-pane" id="register-pane" role="tabpanel" aria-labelledby="tab-register">
-            <div id="registerAlert" aria-live="polite" aria-atomic="true"></div>
+          <a href="#" class="fgt" id="forgotLink">Forgot Password?</a>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="registerName">Full Name</label>
-                <div class="input-wrap">
-                  <i class="fas fa-user input-icon" aria-hidden="true"></i>
-                  <input
-                    type="text"
-                    id="registerName"
-                    class="form-input"
-                    placeholder="Your full name"
-                    autocomplete="name"
-                    required
-                  />
-                </div>
-              </div>
+          <button class="pbtn" id="loginBtn" type="button">
+            <i class="fas fa-sign-in-alt btn-ico"></i>
+            <span>Sign In</span>
+          </button>
 
-              <div class="form-group">
-                <label class="form-label" for="registerAge">Age</label>
-                <div class="input-wrap">
-                  <i class="fas fa-calendar input-icon" aria-hidden="true"></i>
-                  <input
-                    type="number"
-                    id="registerAge"
-                    class="form-input"
-                    placeholder="e.g. 18"
-                    min="15"
-                    max="35"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
+          <div class="div"><span>Need help?</span></div>
 
-            <div class="form-group">
-              <label class="form-label" for="registerExam">Exam Interested In</label>
-              <div class="input-wrap">
-                <i class="fas fa-graduation-cap input-icon" aria-hidden="true"></i>
-                <select id="registerExam" class="form-input form-select" required>
-                  <option value="" disabled selected>Select your target exam</option>
-                  <option value="MHT CET LAW 3 Year">MHT CET LAW — 3 Year LLB</option>
-                  <option value="MHT CET LAW 5 Year">MHT CET LAW — 5 Year BA LLB</option>
-                  <option value="CLAT">CLAT (Common Law Admission Test)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="registerEmail">Email Address</label>
-              <div class="input-wrap">
-                <i class="fas fa-envelope input-icon" aria-hidden="true"></i>
-                <input
-                  type="email"
-                  id="registerEmail"
-                  class="form-input"
-                  placeholder="you@example.com"
-                  autocomplete="email"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="registerPassword">Password</label>
-              <div class="input-wrap">
-                <i class="fas fa-lock input-icon" aria-hidden="true"></i>
-                <input
-                  type="password"
-                  id="registerPassword"
-                  class="form-input"
-                  placeholder="Min. 6 characters"
-                  autocomplete="new-password"
-                  required
-                />
-                <button type="button" class="pw-toggle" data-target="registerPassword"
-                        aria-label="Toggle password visibility"
-                        style="position:absolute;right:0.9rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:0.85rem;">
-                  <i class="fas fa-eye" aria-hidden="true"></i>
-                </button>
-              </div>
-              <p class="age-note">🔒 Your data is secure &amp; encrypted</p>
-            </div>
-
-            <button type="button" id="registerBtn" class="btn-submit">
-              <i class="fas fa-user-plus" aria-hidden="true"></i>
-              <span>Create Account</span>
-            </button>
-
-            <p class="terms-text" style="margin-top:0.8rem;">
-              By registering you agree to our
-              <a href="https://mhtcetlaw.netlify.app" target="_blank">Terms</a> &amp;
-              <a href="https://mhtcetlaw.netlify.app" target="_blank">Privacy Policy</a>.
-              Access is subject to admin approval.
-            </p>
+          <div class="help-row">
+            <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener" class="hlnk">
+              <i class="fab fa-telegram-plane" style="color:#229ED9;"></i>Telegram
+            </a>
+            <a href="https://youtube.com/@mhtcetlaw" target="_blank" rel="noopener" class="hlnk">
+              <i class="fab fa-youtube" style="color:#FF0000;"></i>YouTube
+            </a>
           </div>
 
-        </section>
-        <!-- ════ END RIGHT PANEL ════════════════════════════ -->
+          <p class="terms">
+            By signing in you agree to our
+            <a href="https://mhtcetlaw.netlify.app" target="_blank">Terms</a> &amp;
+            <a href="https://mhtcetlaw.netlify.app" target="_blank">Privacy Policy</a>.
+          </p>
+        </div>
 
-      </div>
-    </main>
+        <!-- ── REGISTER PANE ──────────────────── -->
+        <div class="pane" id="pane-register" role="tabpanel">
+          <div id="registerAlert" aria-live="polite"></div>
 
-    <!-- ── Footer ─────────────────────────────────────────── -->
-    <footer class="footer-strip" role="contentinfo">
-      <div>
-        &copy; 2025 <a href="https://mhtcetlaw.netlify.app">MHT CET Law Portal</a> — Developed by
-        <strong style="color:var(--gold-light);">Piyush Deshkar</strong>
-      </div>
-      <nav class="footer-contact" aria-label="Contact and social links">
-        <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-telegram-plane"></i> cetlaw_clat
-        </a>
-        <a href="https://youtube.com/@mhtcetlaw" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-youtube"></i> @mhtcetlaw
-        </a>
-        <a href="https://instagram.com/spotify.piux" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-instagram"></i> spotify.piux
-        </a>
-        <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener noreferrer"
-           style="color:var(--gold-light);font-weight:600;">
-          <i class="fas fa-headset"></i> Contact Us
-        </a>
-      </nav>
-    </footer>
+          <div class="frow">
+            <div class="fg">
+              <label class="fl" for="regName">Full Name</label>
+              <div class="iw">
+                <i class="fas fa-user ic"></i>
+                <input class="inp" type="text" id="regName"
+                       placeholder="Your full name" autocomplete="name" />
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl" for="regAge">Age</label>
+              <div class="iw">
+                <i class="fas fa-calendar ic"></i>
+                <input class="inp" type="number" id="regAge"
+                       placeholder="e.g. 18" min="14" max="40" />
+              </div>
+            </div>
+          </div>
 
-  </div><!-- end page-wrapper -->
+          <div class="fg">
+            <label class="fl" for="regExam">Target Exam</label>
+            <div class="iw">
+              <i class="fas fa-graduation-cap ic"></i>
+              <select class="sel" id="regExam">
+                <option value="" disabled selected>Select your exam</option>
+                <option value="MHT CET LAW 3 Year">MHT CET LAW — 3 Year LLB</option>
+                <option value="MHT CET LAW 5 Year">MHT CET LAW — 5 Year BA LLB</option>
+                <option value="CLAT">CLAT (Common Law Admission Test)</option>
+              </select>
+            </div>
+          </div>
 
-  <!-- Firebase Auth Script -->
-  <script type="module" src="script.js"></script>
+          <div class="fg">
+            <label class="fl" for="regPhone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <div class="iw">
+              <i class="fas fa-phone ic"></i>
+              <input class="inp" type="tel" id="regPhone"
+                     placeholder="+91 XXXXX XXXXX" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="fg">
+            <label class="fl" for="regEmail">Email Address</label>
+            <div class="iw">
+              <i class="fas fa-envelope ic"></i>
+              <input class="inp" type="email" id="regEmail"
+                     placeholder="you@example.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="fg">
+            <label class="fl" for="regPass">Password</label>
+            <div class="iw">
+              <i class="fas fa-lock ic"></i>
+              <input class="inp" type="password" id="regPass"
+                     placeholder="Min. 6 characters" autocomplete="new-password" />
+              <button class="eye" data-for="regPass" aria-label="Toggle password" type="button">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <p class="note">🔒 Your data is encrypted &amp; secure.</p>
+          </div>
+
+          <button class="pbtn" id="registerBtn" type="button">
+            <i class="fas fa-user-plus btn-ico"></i>
+            <span>Create Account</span>
+          </button>
+
+          <p class="terms" style="margin-top:0.75rem;">
+            By registering you agree to our
+            <a href="https://mhtcetlaw.netlify.app" target="_blank">Terms</a> &amp;
+            <a href="https://mhtcetlaw.netlify.app" target="_blank">Privacy Policy</a>.
+          </p>
+        </div>
+        <!-- ── END REGISTER ───────────────────── -->
+
+      </section>
+      <!-- ════ END RIGHT ════════════════════════ -->
+
+    </div><!-- .card -->
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer class="footer">
+    <div>
+      &copy; 2025 <a href="https://mhtcetlaw.netlify.app">MHT CET Law Portal</a>
+      — Developed by <strong style="color:#e8bc38;">Piyush Deshkar</strong>
+    </div>
+    <nav class="f-links">
+      <a href="https://t.me/cetlaw_clat"       target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i>cetlaw_clat</a>
+      <a href="https://youtube.com/@mhtcetlaw" target="_blank" rel="noopener"><i class="fab fa-youtube"></i>@mhtcetlaw</a>
+      <a href="https://instagram.com/spotify.piux" target="_blank" rel="noopener"><i class="fab fa-instagram"></i>spotify.piux</a>
+      <a href="https://t.me/cetlaw_clat"       target="_blank" rel="noopener" style="color:#e8bc38;font-weight:600;"><i class="fas fa-headset"></i>Contact Us</a>
+    </nav>
+  </footer>
+
+</div><!-- .page -->
+
+<!-- Your script (loads AFTER Firebase SDKs above) -->
+<script src="script.js"></script>
 
 </body>
 </html>

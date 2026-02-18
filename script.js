@@ -1,241 +1,203 @@
-// ============================================================
-// script.js — MHT CET Law Portal Auth Logic
-// Developed by Piyush Deshkar
-// ============================================================
+// =====================================================
+//  MHT CET Law Portal — script.js
+//  Developed by Piyush Deshkar
+//  Firebase Auth + Firestore — ALL users can register
+// =====================================================
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-  updateProfile,
-} from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { firebaseConfig, APP_CONFIG } from "./config.js";
+// ── Firebase Config ──────────────────────────────────
+const firebaseConfig = {
+  apiKey:            "AIzaSyD_4_adS0YQs8bGMbEvNSpLpW3BpCdvIAU",
+  authDomain:        "mark1-7ce7e.firebaseapp.com",
+  projectId:         "mark1-7ce7e",
+  storageBucket:     "mark1-7ce7e.appspot.com",
+  messagingSenderId: "147908886392",
+  appId:             "1:147908886392:web:7d209960ba65868172128d",
+  measurementId:     "G-6J34J730EW"
+};
 
-// ── Firebase Init ─────────────────────────────────────────────
-const app  = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// ── App constants ─────────────────────────────────────
+const REDIRECT_URL = "https://mhtcetlaw.netlify.app/dashboard";
 
-// ── Helpers ───────────────────────────────────────────────────
-function showAlert(containerId, message, type = "error") {
-  const el = document.getElementById(containerId);
+// ── Firebase SDK (CDN global) ─────────────────────────
+const app  = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db   = firebase.firestore();
+
+// ── Helpers ───────────────────────────────────────────
+function showAlert(id, msg, type = 'error') {
+  const el = document.getElementById(id);
   if (!el) return;
-  const iconMap = { success: "fa-check-circle", warning: "fa-clock", error: "fa-exclamation-circle" };
-  el.innerHTML = `
-    <div class="alert alert-${type}">
-      <i class="fas ${iconMap[type] || iconMap.error}"></i>
-      <span>${message}</span>
-    </div>`;
-  if (type !== "warning") {
-    setTimeout(() => { el.innerHTML = ""; }, 5000);
-  }
+  const cls = { error:'ae', success:'as', warning:'aw' }[type] || 'ae';
+  const ico = { error:'fa-exclamation-circle', success:'fa-check-circle', warning:'fa-clock' }[type];
+  el.innerHTML = `<div class="alert ${cls}"><i class="fas ${ico}"></i><span>${msg}</span></div>`;
+  if (type !== 'warning') setTimeout(() => { el.innerHTML = ''; }, 5500);
 }
 
-function setLoading(btnId, loading) {
-  const btn  = document.getElementById(btnId);
-  const span = btn?.querySelector("span");
-  const icon = btn?.querySelector("i");
+function setBtn(id, loading) {
+  const btn  = document.getElementById(id);
+  const span = btn && btn.querySelector('span');
+  const icon = btn && btn.querySelector('i.btn-ico');
   if (!btn) return;
+  btn.disabled = loading;
   if (loading) {
-    btn.disabled = true;
-    if (icon) icon.className = "fas fa-spinner fa-spin";
-    if (span) span.textContent = "Please wait…";
+    if (icon) icon.className = 'fas fa-spinner fa-spin btn-ico';
+    if (span) span.textContent = 'Please wait…';
   } else {
-    btn.disabled = false;
-    if (btnId === "loginBtn") {
-      if (icon) icon.className = "fas fa-sign-in-alt";
-      if (span) span.textContent = "Sign In";
-    } else if (btnId === "registerBtn") {
-      if (icon) icon.className = "fas fa-user-plus";
-      if (span) span.textContent = "Create Account";
-    }
+    const map = {
+      loginBtn:    ['fa-sign-in-alt',  'Sign In'],
+      registerBtn: ['fa-user-plus',    'Create Account']
+    };
+    const [ic, txt] = map[id] || ['fa-check','Done'];
+    if (icon) icon.className = `fas ${ic} btn-ico`;
+    if (span) span.textContent = txt;
   }
 }
 
-function getFirebaseError(code) {
-  const map = {
-    "auth/user-not-found":      "No account found with this email.",
-    "auth/wrong-password":      "Incorrect password. Please try again.",
-    "auth/invalid-email":       "Please enter a valid email address.",
-    "auth/email-already-in-use":"This email is already registered. Try logging in.",
-    "auth/weak-password":       "Password must be at least 6 characters.",
-    "auth/too-many-requests":   "Too many attempts. Please try again later.",
-    "auth/network-request-failed":"Network error. Check your connection.",
+function errMsg(code) {
+  const m = {
+    'auth/user-not-found':      'No account found. Please sign up first.',
+    'auth/wrong-password':      'Incorrect password. Try again.',
+    'auth/invalid-credential':  'Invalid email or password.',
+    'auth/invalid-email':       'Please enter a valid email address.',
+    'auth/email-already-in-use':'Email already registered. Please sign in.',
+    'auth/weak-password':       'Password too weak. Use at least 6 characters.',
+    'auth/too-many-requests':   'Too many attempts. Try again later.',
+    'auth/network-request-failed':'Network error. Check your connection.'
   };
-  return map[code] || "Something went wrong. Please try again.";
+  return m[code] || 'Something went wrong. Please try again.';
 }
 
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
 
-// ── Splash & Reveal ───────────────────────────────────────────
-// Removed — card animates via CSS directly, no JS needed
-
-// ── Tabs ──────────────────────────────────────────────────────
+// ── Tabs ──────────────────────────────────────────────
 function initTabs() {
-  const tabs  = document.querySelectorAll(".tab-btn");
-  const panes = document.querySelectorAll(".tab-pane");
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      panes.forEach(p => p.classList.remove("active"));
-      tab.classList.add("active");
-      const target = document.getElementById(tab.dataset.tab + "-pane");
-      if (target) target.classList.add("active");
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+      document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+      btn.classList.add('on');
+      const pane = document.getElementById(btn.dataset.tab);
+      if (pane) pane.classList.add('on');
+      document.getElementById('loginAlert').innerHTML   = '';
+      document.getElementById('registerAlert').innerHTML = '';
     });
   });
 }
 
-// ── Login ─────────────────────────────────────────────────────
+// ── Password toggle ───────────────────────────────────
+function initEyes() {
+  document.querySelectorAll('.eye').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const inp = document.getElementById(btn.dataset.for);
+      if (!inp) return;
+      const show = inp.type === 'password';
+      inp.type = show ? 'text' : 'password';
+      btn.querySelector('i').className = show ? 'fas fa-eye-slash' : 'fas fa-eye';
+    });
+  });
+}
+
+// ── LOGIN ─────────────────────────────────────────────
 async function handleLogin() {
-  const email    = document.getElementById("loginEmail")?.value.trim();
-  const password = document.getElementById("loginPassword")?.value;
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass  = document.getElementById('loginPassword').value;
 
-  if (!email || !validateEmail(email)) {
-    showAlert("loginAlert", "Please enter a valid email address.");
-    return;
-  }
-  if (!password) {
-    showAlert("loginAlert", "Please enter your password.");
-    return;
-  }
+  if (!email || !validEmail(email)) return showAlert('loginAlert', 'Enter a valid email address.');
+  if (!pass)                        return showAlert('loginAlert', 'Enter your password.');
 
-  setLoading("loginBtn", true);
-
-  // Approved emails bypass Firebase check
-  if (APP_CONFIG.approvedEmails.includes(email)) {
-    showAlert("loginAlert", "✅ Login successful! Redirecting to portal…", "success");
-    setTimeout(() => { window.location.href = APP_CONFIG.redirectAfterLogin; }, 1500);
-    return;
-  }
-
+  setBtn('loginBtn', true);
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-
-    if (APP_CONFIG.portalLocked) {
-      showAlert(
-        "loginAlert",
-        "⏳ Your account is pending admin approval. You'll be notified once access is granted.",
-        "warning"
-      );
-      await auth.signOut();
-    } else {
-      showAlert("loginAlert", "✅ Login successful! Redirecting…", "success");
-      setTimeout(() => { window.location.href = APP_CONFIG.redirectAfterLogin; }, 1500);
-    }
-  } catch (err) {
-    showAlert("loginAlert", getFirebaseError(err.code));
-  } finally {
-    setLoading("loginBtn", false);
-  }
-}
-
-// ── Register ──────────────────────────────────────────────────
-async function handleRegister() {
-  const name   = document.getElementById("registerName")?.value.trim();
-  const age    = document.getElementById("registerAge")?.value.trim();
-  const exam   = document.getElementById("registerExam")?.value;
-  const email  = document.getElementById("registerEmail")?.value.trim();
-  const pass   = document.getElementById("registerPassword")?.value;
-
-  if (!name) {
-    showAlert("registerAlert", "Please enter your full name.");
-    return;
-  }
-  if (!age || isNaN(age) || Number(age) < 15 || Number(age) > 35) {
-    showAlert("registerAlert", "Please enter a valid age (15–35).");
-    return;
-  }
-  if (!exam) {
-    showAlert("registerAlert", "Please select the exam you're preparing for.");
-    return;
-  }
-  if (!email || !validateEmail(email)) {
-    showAlert("registerAlert", "Please enter a valid email address.");
-    return;
-  }
-  if (!pass || pass.length < 6) {
-    showAlert("registerAlert", "Password must be at least 6 characters.");
-    return;
-  }
-
-  setLoading("registerBtn", true);
-
-  try {
-    const cred = await createUserWithEmailAndPassword(auth, email, pass);
-    await updateProfile(cred.user, { displayName: name });
-    await auth.signOut();
-
-    showAlert(
-      "registerAlert",
-      `🎉 Account created! Welcome ${name}. Your access is pending admin approval — we'll notify you soon!`,
-      "success"
+    const cred = await auth.signInWithEmailAndPassword(email, pass);
+    // Update last login in Firestore
+    await db.collection('users').doc(cred.user.uid).set(
+      { lastLogin: firebase.firestore.FieldValue.serverTimestamp() },
+      { merge: true }
     );
-
-    // Clear form
-    ["registerName","registerAge","registerEmail","registerPassword"].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.value = "";
-    });
-    document.getElementById("registerExam").value = "";
+    showAlert('loginAlert', '✅ Login successful! Redirecting…', 'success');
+    setTimeout(() => { window.location.href = REDIRECT_URL; }, 1500);
   } catch (err) {
-    showAlert("registerAlert", getFirebaseError(err.code));
-  } finally {
-    setLoading("registerBtn", false);
+    showAlert('loginAlert', errMsg(err.code));
+    setBtn('loginBtn', false);
   }
 }
 
-// ── Forgot Password ───────────────────────────────────────────
-async function handleForgotPassword() {
-  const email = document.getElementById("loginEmail")?.value.trim();
-  if (!email || !validateEmail(email)) {
-    showAlert("loginAlert", "Enter your email above first, then click Forgot Password.");
-    return;
-  }
+// ── REGISTER ──────────────────────────────────────────
+async function handleRegister() {
+  const name  = document.getElementById('regName').value.trim();
+  const age   = document.getElementById('regAge').value.trim();
+  const exam  = document.getElementById('regExam').value;
+  const phone = document.getElementById('regPhone').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass  = document.getElementById('regPass').value;
+
+  if (!name)              return showAlert('registerAlert', 'Enter your full name.');
+  if (!age || isNaN(age) || +age < 14 || +age > 40)
+                          return showAlert('registerAlert', 'Enter a valid age (14–40).');
+  if (!exam)              return showAlert('registerAlert', 'Select your target exam.');
+  if (!email || !validEmail(email))
+                          return showAlert('registerAlert', 'Enter a valid email address.');
+  if (!pass || pass.length < 6)
+                          return showAlert('registerAlert', 'Password must be at least 6 characters.');
+
+  setBtn('registerBtn', true);
   try {
-    await sendPasswordResetEmail(auth, email);
-    showAlert("loginAlert", "📧 Password reset link sent! Check your inbox.", "success");
+    const cred = await auth.createUserWithEmailAndPassword(email, pass);
+    await cred.user.updateProfile({ displayName: name });
+
+    // Save full profile to Firestore
+    await db.collection('users').doc(cred.user.uid).set({
+      uid:       cred.user.uid,
+      fullName:  name,
+      age:       +age,
+      exam:      exam,
+      phone:     phone || '',
+      email:     email,
+      role:      'student',
+      verified:  false,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      lastLogin: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    showAlert('registerAlert', `🎉 Welcome ${name}! Account created. Redirecting…`, 'success');
+    setTimeout(() => { window.location.href = REDIRECT_URL; }, 1800);
   } catch (err) {
-    showAlert("loginAlert", getFirebaseError(err.code));
+    showAlert('registerAlert', errMsg(err.code));
+    setBtn('registerBtn', false);
   }
 }
 
-// ── Password Toggle ───────────────────────────────────────────
-function initPasswordToggles() {
-  document.querySelectorAll(".pw-toggle").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const target = document.getElementById(btn.dataset.target);
-      if (!target) return;
-      const isPass = target.type === "password";
-      target.type  = isPass ? "text" : "password";
-      btn.querySelector("i").className = isPass ? "fas fa-eye-slash" : "fas fa-eye";
-    });
+// ── FORGOT PASSWORD ───────────────────────────────────
+async function handleForgot(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim();
+  if (!email || !validEmail(email))
+    return showAlert('loginAlert', 'Enter your email above first.');
+  try {
+    await auth.sendPasswordResetEmail(email);
+    showAlert('loginAlert', '📧 Reset link sent! Check your inbox.', 'success');
+  } catch (err) {
+    showAlert('loginAlert', errMsg(err.code));
+  }
+}
+
+// ── ENTER key support ─────────────────────────────────
+function initEnter() {
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const active = document.querySelector('.pane.on');
+    if (!active) return;
+    if (active.id === 'pane-login')    handleLogin();
+    if (active.id === 'pane-register') handleRegister();
   });
 }
 
-// ── Enter Key Support ─────────────────────────────────────────
-function initKeyboardSupport() {
-  document.getElementById("loginPassword")?.addEventListener("keydown", e => {
-    if (e.key === "Enter") handleLogin();
-  });
-  document.getElementById("registerPassword")?.addEventListener("keydown", e => {
-    if (e.key === "Enter") handleRegister();
-  });
-}
-
-// ── Boot ──────────────────────────────────────────────────────
-window.addEventListener("DOMContentLoaded", () => {
+// ── BOOT ─────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
   initTabs();
-  initPasswordToggles();
-  initKeyboardSupport();
+  initEyes();
+  initEnter();
 
-  document.getElementById("loginBtn")?.addEventListener("click", handleLogin);
-  document.getElementById("registerBtn")?.addEventListener("click", handleRegister);
-  document.getElementById("forgotPasswordLink")?.addEventListener("click", e => {
-    e.preventDefault();
-    handleForgotPassword();
-  });
+  document.getElementById('loginBtn').addEventListener('click', handleLogin);
+  document.getElementById('registerBtn').addEventListener('click', handleRegister);
+  document.getElementById('forgotLink').addEventListener('click', handleForgot);
 });

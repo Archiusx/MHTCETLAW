@@ -175,11 +175,12 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-card), var(--shadow-glow);
   border: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(30px) scale(0.97);
-  transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), transform 0.9s cubic-bezier(0.4,0,0.2,1);
+  animation: cardReveal 0.65s cubic-bezier(0.22,1,0.36,1) both;
 }
-.auth-card.show { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(22px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
 
 /* ── Left Panel ────────────────────────────────────────────── */
 .panel-left {

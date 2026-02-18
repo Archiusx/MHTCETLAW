@@ -70,16 +70,6 @@ function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// ── Splash & Reveal ───────────────────────────────────────────
-function initSplash() {
-  setTimeout(() => {
-    const splash = document.getElementById("splashScreen");
-    const card   = document.getElementById("authCard");
-    if (splash) splash.classList.add("hidden");
-    if (card)   card.classList.add("show");
-  }, 1800);
-}
-
 // ── Tabs ──────────────────────────────────────────────────────
 function initTabs() {
   const tabs  = document.querySelectorAll(".tab-btn");

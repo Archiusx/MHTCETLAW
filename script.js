@@ -70,6 +70,9 @@ function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+// ── Splash & Reveal ───────────────────────────────────────────
+// Removed — card animates via CSS directly, no JS needed
+
 // ── Tabs ──────────────────────────────────────────────────────
 function initTabs() {
   const tabs  = document.querySelectorAll(".tab-btn");
@@ -225,7 +228,6 @@ function initKeyboardSupport() {
 
 // ── Boot ──────────────────────────────────────────────────────
 window.addEventListener("DOMContentLoaded", () => {
-  initSplash();
   initTabs();
   initPasswordToggles();
   initKeyboardSupport();

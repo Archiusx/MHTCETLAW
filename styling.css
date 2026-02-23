@@ -407,6 +407,146 @@ body.ready { visibility:visible; }
 .alert-info    { background:#eff6ff; color:#1e40af; border:1px solid #bfdbfe; }
 .alert-warning { background:#fffbeb; color:#92400e; border:1px solid #fde68a; }
 
+/* ─────────────────────────────────────
+   STUDENT REVIEWS SECTION
+───────────────────────────────────── */
+
+.review-section {
+  padding: 4rem 0;
+  background: var(--background);
+  border-top: 1px solid var(--border);
+}
+
+.review-section .section-title {
+  text-align: center;
+}
+
+.review-section .section-description {
+  text-align: center;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}
+
+/* Grid Layout */
+.review-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Card */
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 14px);
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+/* Top Section */
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Avatar */
+.review-avatar {
+  width: 48px;
+  height: 48px;
+  background: rgba(37, 99, 235, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.review-avatar svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+/* Name */
+.review-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* College Meta */
+.review-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Stars */
+.review-stars {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  margin: 0.6rem 0 0.8rem;
+  color: #f59e0b;
+}
+
+/* Review Text */
+.review-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Subtle Quote Accent */
+.review-card::before {
+  content: "“";
+  font-size: 3rem;
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  opacity: 0.04;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────── */
+
+@media (max-width: 992px) {
+  .review-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .review-section {
+    padding: 3rem 0;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    padding: 1.25rem;
+  }
+}
+
 /* ── WHAT WE OFFER ────────────────────── */
 .offer-section {
   background:var(--surface);

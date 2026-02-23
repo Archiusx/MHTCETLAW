@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legal Aptitude &amp; Reasoning — Module 1 | MHT CET LAW Portal</title>
+  <meta name="description" content="Master Legal Aptitude & Legal Reasoning for MHT CET LAW 2026-27. Constitution, Contracts, Torts, IPC, Legal Maxims, Flashcards & Quiz."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styling.css"/>
+  <link rel="stylesheet" href="legal-aptitude.css"/>
+</head>
+<body class="ready">
+
+<!-- ── HEADER ─────────────────────────────── -->
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo-section">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </a>
+        <div class="brand-text">
+          <h1>MHT CET LAW Portal</h1>
+          <p>Module 1 — Legal Aptitude &amp; Reasoning</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <nav class="la-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;opacity:.4"><polyline points="9 18 15 12 9 6"/></svg>
+          <a href="modules.html">Modules</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;opacity:.4"><polyline points="9 18 15 12 9 6"/></svg>
+          <span>Legal Aptitude</span>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── NAV ────────────────────────────────── -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-container">
+      <a href="index.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="modules.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Study Modules
+      </a>
+      <a href="#constitution" class="nav-link active" data-section="constitution">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Constitution
+      </a>
+      <a href="#contracts" class="nav-link" data-section="contracts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+        Contracts
+      </a>
+      <a href="#torts" class="nav-link" data-section="torts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Torts
+      </a>
+      <a href="#criminal" class="nav-link" data-section="criminal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Criminal Law
+      </a>
+      <a href="#maxims" class="nav-link" data-section="maxims">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Maxims
+      </a>
+      <a href="#flashcards" class="nav-link" data-section="flashcards">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Flashcards
+      </a>
+      <a href="#quiz" class="nav-link" data-section="quiz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Quiz
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── MODULE HERO ─────────────────────────── -->
+<section class="la-hero">
+  <div class="container">
+    <div class="la-hero-inner">
+      <div class="la-hero-left">
+        <div class="la-module-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Module 01 · Free Access
+        </div>
+        <h2>Legal Aptitude &amp;<br/>Legal Reasoning</h2>
+        <p>Master Constitutional Law, Contracts, Torts, IPC &amp; Legal Maxims. The highest-weightage subject in MHT CET LAW 2026-27.</p>
+        <div class="la-hero-tags">
+          <span>32 Questions</span>
+          <span>12 Topics</span>
+          <span>~40 min</span>
+          <span>5-Yr &amp; 3-Yr</span>
+        </div>
+      </div>
+      <div class="la-hero-right">
+        <div class="la-progress-card">
+          <div class="la-progress-card-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--primary)"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Your Progress
+          </div>
+          <div class="la-stat-row">
+            <div class="la-stat">
+              <span class="la-stat-val" id="completion-percent">0%</span>
+              <span class="la-stat-lbl">Completed</span>
+            </div>
+            <div class="la-stat">
+              <span class="la-stat-val" id="cards-viewed">0/12</span>
+              <span class="la-stat-lbl">Cards Reviewed</span>
+            </div>
+            <div class="la-stat">
+              <span class="la-stat-val" id="quiz-score-display">–/15</span>
+              <span class="la-stat-lbl">Quiz Score</span>
+            </div>
+          </div>
+          <div class="la-progress-bar-wrap">
+            <div class="la-progress-bar" id="main-progress" style="width:0%"></div>
+          </div>
+          <p class="la-progress-hint">Review flashcards to track progress</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TAB NAV ─────────────────────────────── -->
+<div class="la-tabs-wrap">
+  <div class="container">
+    <div class="la-tabs" role="tablist">
+      <button class="la-tab active" data-tab="constitution" role="tab" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Constitution
+      </button>
+      <button class="la-tab" data-tab="contracts" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+        Contracts
+      </button>
+      <button class="la-tab" data-tab="torts" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Torts
+      </button>
+      <button class="la-tab" data-tab="criminal" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Criminal Law
+      </button>
+      <button class="la-tab" data-tab="maxims" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Legal Maxims
+      </button>
+      <button class="la-tab" data-tab="flashcards" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Flashcards
+      </button>
+      <button class="la-tab" data-tab="quiz" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Practice Quiz
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ───────────────────────── -->
+<main class="la-main">
+  <div class="container">
+
+    <!-- ── CONSTITUTION TAB ─────────────── -->
+    <div id="tab-constitution" class="la-panel active" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#eff6ff;color:#2563eb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <h3>Indian Constitution — Basics</h3>
+        </div>
+        <p>The Constitution of India is the supreme law of the land. It lays down the framework defining fundamental political principles, establishes the structure, powers, and duties of government institutions, and guarantees certain rights to citizens.</p>
+
+        <h4>Key Constitutional Features</h4>
+        <ul class="la-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Lengthiest Written Constitution:</strong> Originally 395 articles in 22 parts and 8 schedules; now 470+ articles in 25 parts and 12 schedules.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Parliamentary System:</strong> Ceremonial President; real executive power with PM and Cabinet of Ministers.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Federal with Unitary Bias:</strong> Division of powers Centre vs. States; Centre dominates during emergencies.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Fundamental Rights:</strong> Six rights guaranteed to all citizens under Part III (Articles 12–35).</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Directive Principles (Part IV):</strong> Guidelines for the State to establish social and economic democracy.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Independent Judiciary:</strong> Supreme Court as guardian with power of judicial review.</span></li>
+        </ul>
+
+        <div class="la-law-box">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Fundamental Rights — Part III
+          </div>
+          <ul class="la-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#2563eb;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Right to Equality (Articles 14–18)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#2563eb;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Right to Freedom (Articles 19–22)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#2563eb;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Right Against Exploitation (Articles 23–24)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#2563eb;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Right to Freedom of Religion (Articles 25–28)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#2563eb;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Cultural &amp; Educational Rights (Articles 29–30)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#2563eb;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Right to Constitutional Remedies (Article 32)</span></li>
+          </ul>
+        </div>
+
+        <h4>Important Constitutional Articles</h4>
+        <div class="la-info-grid">
+          <div class="la-info-item"><span class="la-art-badge">Art. 14</span><span>Equality before law — no person shall be denied equal protection</span></div>
+          <div class="la-info-item"><span class="la-art-badge">Art. 19</span><span>Six freedoms — speech, assembly, movement, profession, etc.</span></div>
+          <div class="la-info-item"><span class="la-art-badge">Art. 21</span><span>Right to Life &amp; Personal Liberty — no deprivation except by procedure established by law</span></div>
+          <div class="la-info-item"><span class="la-art-badge">Art. 32</span><span>Right to Constitutional Remedies — Dr. Ambedkar called it the "Heart &amp; Soul" of Constitution</span></div>
+          <div class="la-info-item"><span class="la-art-badge">Art. 226</span><span>Power of High Courts to issue writs — Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto</span></div>
+          <div class="la-info-item"><span class="la-art-badge">Art. 368</span><span>Power of Parliament to amend the Constitution</span></div>
+        </div>
+
+        <div class="la-case-box fade-in">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Landmark Case: Kesavananda Bharati v. State of Kerala (1973)
+          </div>
+          <p><strong>Issue:</strong> Can Parliament amend any part of the Constitution including Fundamental Rights?</p>
+          <p><strong>Held:</strong> Parliament can amend any part of the Constitution but <em>cannot alter its Basic Structure</em>. This established the <strong>Basic Structure Doctrine</strong>.</p>
+          <p><strong>Basic Structure includes:</strong> Supremacy of Constitution · Rule of Law · Independence of Judiciary · Federalism · Secularism · Separation of Powers · Free &amp; Fair Elections</p>
+        </div>
+
+        <div class="la-case-box fade-in">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Landmark Case: Maneka Gandhi v. Union of India (1978)
+          </div>
+          <p><strong>Issue:</strong> Can passport be impounded without giving any reason?</p>
+          <p><strong>Held:</strong> Article 21 must be read together with Articles 14 and 19. "Procedure established by law" must be fair, just, and reasonable — not arbitrary.</p>
+          <p><strong>Impact:</strong> Expanded scope of Article 21 to include the right to live with dignity, right to travel abroad, right to education, etc.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTRACTS TAB ─────────────────── -->
+    <div id="tab-contracts" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#f0fdf4;color:#16a34a">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <h3>Law of Contracts</h3>
+        </div>
+        <p>The <strong>Indian Contract Act, 1872</strong> governs contracts in India. A contract is an agreement enforceable by law. Section 2(h) defines it as: <em>"An agreement enforceable by law is a contract."</em></p>
+
+        <h4>Essential Elements of a Valid Contract</h4>
+        <ul class="la-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Offer &amp; Acceptance:</strong> Lawful offer by one party, lawful acceptance by another.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Intention to Create Legal Relations:</strong> Parties must intend to create legal obligation.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Lawful Consideration:</strong> Something of value from each party. Need not be adequate, must be lawful.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Capacity of Parties:</strong> Must be major (18+), of sound mind, not disqualified by law.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Free Consent:</strong> No coercion, undue influence, fraud, misrepresentation, or mistake.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Lawful Object:</strong> Object must not be forbidden by law, immoral, or against public policy.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#16a34a;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Certainty &amp; Possibility of Performance:</strong> Terms must be certain and capable of being performed.</span></li>
+        </ul>
+
+        <div class="la-law-box">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            Types of Contracts
+          </div>
+          <div class="la-info-grid">
+            <div class="la-info-item"><span class="la-art-badge" style="background:#f0fdf4;color:#16a34a;border-color:#bbf7d0">Valid</span><span>All elements present — fully enforceable</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">Void</span><span>Not enforceable — e.g., agreement with minor, agreement in restraint of trade</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fffbeb;color:#d97706;border-color:#fde68a">Voidable</span><span>Valid until avoided — e.g., contract by coercion or fraud (aggrieved party can rescind)</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#faf5ff;color:#7c3aed;border-color:#e9d5ff">Illegal</span><span>Forbidden by law — void + collateral transactions also affected</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#f1f5f9;color:#64748b;border-color:#e2e8f0">Unenforceable</span><span>Cannot be enforced due to technical defect (e.g., inadequate stamp)</span></div>
+          </div>
+        </div>
+
+        <div class="la-case-box fade-in">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Important Principle: Caveat Emptor ("Let the Buyer Beware")
+          </div>
+          <p>The buyer must examine goods before purchase. The seller is <em>not bound</em> to disclose defects unless there is fraud or misrepresentation involved.</p>
+          <p><strong>Exceptions:</strong> Seller conceals defect · Sale by description · Sale by sample · Skill and judgment of buyer relied on seller</p>
+        </div>
+
+        <div class="la-case-box fade-in">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Landmark Case: Mohori Bibee v. Dharmodas Ghose (1903)
+          </div>
+          <p><strong>Facts:</strong> A minor mortgaged his property to raise a loan.</p>
+          <p><strong>Held (Privy Council):</strong> A contract with a minor is absolutely void ab initio — not merely voidable. The minor cannot be held liable.</p>
+          <p><strong>Key Rule:</strong> A minor cannot enter into a contract. Any agreement with a minor is void from the beginning.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TORTS TAB ─────────────────────── -->
+    <div id="tab-torts" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fff7ed;color:#ea580c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Law of Torts</h3>
+        </div>
+        <p>A <strong>tort</strong> is a civil wrong (not arising from contract or crime) that causes harm or loss to another person, for which the law provides a remedy — typically <em>damages</em>.</p>
+
+        <h4>Essential Elements of Tort</h4>
+        <ul class="la-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Wrongful Act or Omission</strong> by the defendant</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Legal Damage</strong> to the plaintiff (actual harm or violation of legal right)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Legal Remedy</strong> available (usually damages)</span></li>
+        </ul>
+
+        <div class="la-law-box" style="border-left-color:#ea580c">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><circle cx="12" cy="12" r="10"/></svg>
+            Major Types of Torts
+          </div>
+          <div class="la-info-grid">
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Negligence</span><span>Breach of duty of care resulting in damage — most common tort</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Defamation</span><span>Publication of false statement injuring reputation. Libel (written) vs Slander (spoken)</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Nuisance</span><span>Unlawful interference with person's use or enjoyment of land (Public &amp; Private)</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Trespass</span><span>Direct interference with person, property, or land without permission</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Strict Liability</span><span>Liability without fault — Rylands v. Fletcher rule</span></div>
+          </div>
+        </div>
+
+        <h4>Important Defences in Torts</h4>
+        <ul class="la-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Volenti non fit injuria:</strong> Plaintiff voluntarily accepted the risk</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Inevitable Accident:</strong> Could not be prevented by ordinary skill and care</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Act of God (Vis Major):</strong> Natural events beyond human control</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Private Defence:</strong> Reasonable force to protect person or property</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Contributory Negligence:</strong> Plaintiff also negligent — reduces damages</span></li>
+        </ul>
+
+        <div class="la-case-box fade-in">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Landmark Case: Donoghue v. Stevenson [1932] (Neighbour Principle)
+          </div>
+          <p><strong>Facts:</strong> A woman found a decomposed snail in her ginger beer bottle and fell ill.</p>
+          <p><strong>Principle:</strong> <em>"You must take reasonable care to avoid acts or omissions which you can reasonably foresee would be likely to injure your neighbour."</em></p>
+          <p><strong>Impact:</strong> Established the modern law of negligence. Lord Atkin's "Neighbour Principle" is still cited today.</p>
+        </div>
+
+        <div class="la-case-box fade-in">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Landmark Case: Rylands v. Fletcher (1868) — Strict Liability
+          </div>
+          <p><strong>Rule:</strong> A person who brings on their land, for their own purpose, something likely to do mischief if it escapes, must keep it at their peril. If they fail, they are prima facie answerable for all the damage.</p>
+          <p><strong>Exceptions:</strong> Act of God · Act of stranger · Plaintiff's own default · Statutory authority · Common benefit of plaintiff and defendant</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CRIMINAL LAW TAB ───────────────── -->
+    <div id="tab-criminal" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fef2f2;color:#dc2626">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Indian Penal Code (IPC) 1860</h3>
+        </div>
+        <p>The IPC is the official criminal code of India covering all substantive aspects of criminal law. A crime has two essential elements: <strong>Actus Reus</strong> (guilty act) and <strong>Mens Rea</strong> (guilty mind).</p>
+
+        <div class="la-alert-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span><strong>Note:</strong> IPC 1860 has been replaced by the <strong>Bharatiya Nyaya Sanhita (BNS) 2023</strong>, effective July 1, 2024. MHT CET LAW 2026-27 may test both old IPC sections and new BNS provisions. Know both.</span>
+        </div>
+
+        <h4>Important IPC Sections (High Frequency in Exam)</h4>
+        <div class="la-info-grid">
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 299</span><span>Culpable Homicide — causing death with intention/knowledge</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 300</span><span>Murder — culpable homicide with specific intention to cause death</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 302</span><span>Punishment for murder — death or imprisonment for life + fine</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 304</span><span>Culpable homicide not amounting to murder</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 375</span><span>Rape — definition and essential ingredients</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 378</span><span>Theft — dishonest taking of movable property without consent</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 390</span><span>Robbery — theft + voluntarily causing hurt or wrongful restraint</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 420</span><span>Cheating — dishonestly inducing delivery of property; up to 7 yrs</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 499</span><span>Defamation — imputation to harm reputation</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fef2f2;color:#dc2626;border-color:#fecaca">S. 503</span><span>Criminal Intimidation — threatening injury to person, reputation, property</span></div>
+        </div>
+
+        <div class="la-law-box" style="border-left-color:#dc2626">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            General Exceptions (Chapter IV — Sections 76–106)
+          </div>
+          <ul class="la-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>S.76:</strong> Act done by person bound by law (e.g., soldier following orders)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>S.79:</strong> Act done by a person justified or believing himself justified by law</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>S.80:</strong> Accident in doing a lawful act without criminal intention</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>S.84:</strong> Act of insane person — person of unsound mind</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>S.96–106:</strong> Right of private defence of body and property</span></li>
+          </ul>
+        </div>
+
+        <div class="la-case-box fade-in">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Murder vs. Culpable Homicide — The Key Difference
+          </div>
+          <p><strong>Culpable Homicide (S.299):</strong> Causing death with (a) intention of causing death, or (b) intention of causing bodily injury likely to cause death, or (c) knowledge that the act is likely to cause death.</p>
+          <p><strong>Murder (S.300):</strong> Culpable homicide is murder if done with intention to cause death, or to cause injury sufficient in the ordinary course of nature to cause death, or with knowledge that act is imminently dangerous.</p>
+          <p><strong>Rule:</strong> All murders are culpable homicide, but not all culpable homicides are murder. Murder has aggravated mental element.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MAXIMS TAB ─────────────────────── -->
+    <div id="tab-maxims" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#faf5ff;color:#7c3aed">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Important Legal Maxims</h3>
+        </div>
+        <p>Legal maxims are Latin phrases expressing established principles of law. They frequently appear in MHT CET LAW reasoning questions. Know the meaning <em>and application</em> of each.</p>
+
+        <div class="la-maxims-grid">
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Actus non facit reum nisi mens sit rea</div><div class="la-maxim-meaning">An act does not make one guilty unless the mind is guilty — basis of criminal law</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Audi alteram partem</div><div class="la-maxim-meaning">Hear the other side — fundamental principle of natural justice (no decision without hearing)</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Caveat emptor</div><div class="la-maxim-meaning">Let the buyer beware — buyer must examine goods before purchase</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">De minimis non curat lex</div><div class="la-maxim-meaning">The law does not concern itself with trifles — minor wrongs go unnoticed by law</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Dura lex sed lex</div><div class="la-maxim-meaning">The law is hard, but it is the law — even harsh law must be followed</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Fiat justitia ruat caelum</div><div class="la-maxim-meaning">Let justice be done though the heavens fall — justice must prevail regardless of consequences</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Ignorantia juris non excusat</div><div class="la-maxim-meaning">Ignorance of law is no excuse — everyone is presumed to know the law</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Nemo judex in causa sua</div><div class="la-maxim-meaning">No one should be a judge in his own case — rule against bias (natural justice)</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Res ipsa loquitur</div><div class="la-maxim-meaning">The thing speaks for itself — negligence inferred from the accident itself</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Salus populi est suprema lex</div><div class="la-maxim-meaning">The welfare of the people is the supreme law — public interest takes precedence</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Ubi jus ibi remedium</div><div class="la-maxim-meaning">Where there is a right, there is a remedy — every legal right has a corresponding remedy</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Volenti non fit injuria</div><div class="la-maxim-meaning">To one who is willing, no harm is done — consent to risk = no tort liability</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Ex turpi causa non oritur actio</div><div class="la-maxim-meaning">From an immoral cause, no action arises — courts won't assist plaintiff in an illegal act</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">In pari delicto potior est conditio defendentis</div><div class="la-maxim-meaning">In equal fault, the position of the defendant is better — plaintiff with equal guilt cannot recover</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Nemo dat quod non habet</div><div class="la-maxim-meaning">No one can give what they do not have — you cannot transfer better title than you own</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Damnum sine injuria</div><div class="la-maxim-meaning">Damage without legal injury — actual loss without violation of legal right = no tort claim</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Injuria sine damno</div><div class="la-maxim-meaning">Legal injury without actual damage — violation of right itself is actionable (e.g., trespass)</div></div>
+          <div class="la-maxim-card fade-in"><div class="la-maxim-latin">Qui facit per alium facit per se</div><div class="la-maxim-meaning">He who acts through another acts himself — basis of vicarious/employer liability</div></div>
+        </div>
+
+        <div class="la-case-box fade-in" style="margin-top:1.5rem">
+          <div class="la-case-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3"/></svg>
+            Exam Tip
+          </div>
+          <p>Maxims often appear in legal reasoning questions where a scenario is given and you must identify which maxim applies. Focus on <strong>Audi alteram partem, Nemo judex in causa sua, Res ipsa loquitur, Volenti non fit injuria, Injuria sine damno</strong> and <strong>Damnum sine injuria</strong> — these appear most frequently.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FLASHCARDS TAB ─────────────────── -->
+    <div id="tab-flashcards" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#eff6ff;color:#2563eb">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Interactive Flashcards</h3>
+        </div>
+        <p>Click / tap on any card to flip and reveal the answer. All <span id="total-cards-count">12</span> cards reviewed = 100% progress.</p>
+      </div>
+
+      <div class="la-flashcard-grid" id="flashcard-grid">
+
+        <div class="la-fc fade-in" data-index="0">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is Article 21 of the Constitution?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a">Article 21 guarantees the <strong>Right to Life &amp; Personal Liberty</strong>. No person shall be deprived of life or liberty except according to procedure established by law. Expanded to include right to dignity, education, health, travel abroad, etc.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="1">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">Define "Consideration" in Contract Law</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a">Consideration is something of value given by each party in exchange for a promise or performance. It need not be adequate but must be lawful. Can be past, present (executed), or future (executory).</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="2">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is the Neighbour Principle?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a">From Donoghue v. Stevenson (1932) — you must take reasonable care to avoid acts or omissions which you can reasonably foresee would injure your neighbour. Established modern law of negligence.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="3">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What does "Audi Alteram Partem" mean?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a"><strong>"Hear the other side"</strong> — fundamental principle of natural justice. Both parties must be heard before a decision is made. Violation makes the decision void.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="4">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">Murder vs. Culpable Homicide — Key Difference?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a">Murder (S.300) requires specific intention to cause death with certainty. Culpable Homicide (S.299) involves causing death with knowledge it <em>may</em> cause death but without the aggravated intent that makes it murder. All murders are culpable homicide; not vice versa.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="5">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is the Basic Structure Doctrine?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a">Established in <strong>Kesavananda Bharati v. State of Kerala (1973)</strong>. Parliament can amend the Constitution but cannot destroy its basic structure — includes Rule of Law, Judicial Independence, Free Elections, Separation of Powers, Federalism.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="6">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is "Res Ipsa Loquitur"?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a"><strong>"The thing speaks for itself"</strong> — in negligence cases, the accident itself is evidence of negligence. Burden shifts to defendant. Example: surgical instruments left inside patient after operation.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="7">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is the difference between Tort, Crime and Contract Breach?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a"><strong>Tort:</strong> Civil wrong, remedy is damages. <strong>Crime:</strong> Public wrong, remedy is punishment by State. <strong>Breach of Contract:</strong> Private wrong arising from agreement, remedy is damages or specific performance.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="8">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What are the Six Fundamental Rights?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a">1. Right to Equality (Art. 14–18) · 2. Right to Freedom (Art. 19–22) · 3. Right Against Exploitation (Art. 23–24) · 4. Right to Freedom of Religion (Art. 25–28) · 5. Cultural &amp; Educational Rights (Art. 29–30) · 6. Right to Constitutional Remedies (Art. 32)</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="9">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is "Volenti Non Fit Injuria"?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a"><strong>"To one who is willing, no harm is done"</strong> — defence in tort. If the plaintiff voluntarily accepted the risk of harm (e.g., participating in dangerous sport), the defendant is not liable. Consent must be free and informed.</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="10">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is Section 420 IPC?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a">Section 420 — <strong>Cheating and dishonestly inducing delivery of property</strong>. Punishment: up to 7 years imprisonment + fine. (BNS equivalent: Section 318)</div></div>
+          </div>
+        </div>
+
+        <div class="la-fc fade-in" data-index="11">
+          <div class="la-fc-inner">
+            <div class="la-fc-front"><div class="la-fc-q">What is "Injuria Sine Damno" vs "Damnum Sine Injuria"?</div><div class="la-fc-hint">Tap to reveal</div></div>
+            <div class="la-fc-back"><div class="la-fc-a"><strong>Injuria sine damno:</strong> Legal injury without actual damage — actionable (e.g., trespass even if no damage). <strong>Damnum sine injuria:</strong> Actual damage without legal injury — NOT actionable (e.g., fair competition causing economic loss).</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── QUIZ TAB ───────────────────────── -->
+    <div id="tab-quiz" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#f0fdf4;color:#16a34a">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3>Practice Quiz — 15 Questions</h3>
+        </div>
+        <p>Select an option for each question then click <strong>Submit Quiz</strong> at the bottom. Your score will be shown and correct answers revealed.</p>
+      </div>
+
+      <div class="la-quiz-wrap" id="quiz-form">
+
+        <!-- Q1 -->
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q1</div>
+          <p class="la-q-text">Which article of the Constitution guarantees Right to Constitutional Remedies?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Article 14</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Article 21</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Article 32</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Article 19</button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q2</div>
+          <p class="la-q-text">The Indian Contract Act was enacted in which year?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> 1860</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> 1872</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> 1882</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> 1950</button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q3</div>
+          <p class="la-q-text">"Audi Alteram Partem" means:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Hear the other side</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Let the buyer beware</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Ignorance of law is no excuse</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> The thing speaks for itself</button>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q4</div>
+          <p class="la-q-text">Section 420 IPC deals with:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Murder</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Defamation</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Cheating</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Theft</button>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="la-quiz-q fade-in" data-correct="3">
+          <div class="la-qnum">Q5</div>
+          <p class="la-q-text">The Basic Structure Doctrine was established in:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Maneka Gandhi case</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Minerva Mills case</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Golaknath case</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Kesavananda Bharati case</button>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q6</div>
+          <p class="la-q-text">Which of the following is a defence in tort law?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Res Ipsa Loquitur</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Volenti Non Fit Injuria</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Audi Alteram Partem</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Ignorantia Juris</button>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q7</div>
+          <p class="la-q-text">Donoghue v. Stevenson case established:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> The Neighbour Principle in negligence</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Strict liability rule</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Basic structure doctrine</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Caveat Emptor principle</button>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q8</div>
+          <p class="la-q-text">A contract with a minor is:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Valid</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Voidable at the option of minor</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Void ab initio</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Illegal</button>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q9</div>
+          <p class="la-q-text">"Nemo judex in causa sua" means:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Hear the other side</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> No one should be judge in his own case</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> The thing speaks for itself</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Ignorance of law is no excuse</button>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q10</div>
+          <p class="la-q-text">Rylands v. Fletcher established the principle of:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Strict Liability</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Negligence</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Defamation</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Nuisance</button>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="la-quiz-q fade-in" data-correct="3">
+          <div class="la-qnum">Q11</div>
+          <p class="la-q-text">Article 14 of the Constitution deals with:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Right to Life</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Freedom of Speech</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Right against Exploitation</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Equality before Law</button>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q12</div>
+          <p class="la-q-text">Section 299 IPC defines:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Murder</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Culpable Homicide</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Theft</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Robbery</button>
+          </div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q13</div>
+          <p class="la-q-text">Which fundamental right is called the "Heart and Soul" of the Constitution by Dr. Ambedkar?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Right to Equality</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Right to Life</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Right to Constitutional Remedies</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Right to Freedom</button>
+          </div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q14</div>
+          <p class="la-q-text">"Damnum sine injuria" means:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Damage without legal injury — not actionable</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Legal injury without damage — actionable</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> The thing speaks for itself</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Ignorance of law is no excuse</button>
+          </div>
+        </div>
+
+        <!-- Q15 -->
+        <div class="la-quiz-q fade-in" data-correct="3">
+          <div class="la-qnum">Q15</div>
+          <p class="la-q-text">Which of the following is NOT an essential element of a valid contract?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Free Consent</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Lawful Consideration</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Capacity of Parties</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Adequate Consideration</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-controls">
+          <button class="btn btn-primary" id="submitQuizBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M9 11l3 3L22 4"/></svg>
+            Submit Quiz
+          </button>
+          <button class="btn btn-ghost" id="resetQuizBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-1"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <div class="la-quiz-result" id="quizResult">
+          <div class="la-result-icon" id="resultIcon">🎉</div>
+          <div class="la-result-score" id="finalScore">0 / 15</div>
+          <p class="la-result-msg" id="resultMsg">Great job!</p>
+          <button class="btn btn-outline" id="retryBtn" style="margin-top:1rem">Try Again</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>MHT CET LAW Portal</h3>
+        <p>Maharashtra's most comprehensive prep hub for MHT CET LAW 3-Year &amp; 5-Year entrance exams.</p>
+        <div class="footer-social">
+          <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Module Topics</h3>
+        <a href="#" onclick="switchTab('constitution');return false">Indian Constitution</a>
+        <a href="#" onclick="switchTab('contracts');return false">Law of Contracts</a>
+        <a href="#" onclick="switchTab('torts');return false">Law of Torts</a>
+        <a href="#" onclick="switchTab('criminal');return false">Criminal Law (IPC)</a>
+        <a href="#" onclick="switchTab('maxims');return false">Legal Maxims</a>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <a href="modules.html">All Modules</a>
+        <a href="index.html#pyq">Previous Year Papers</a>
+        <a href="index.html#mock">Mock Tests</a>
+        <a href="index.html#notes">Study Notes</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener">Telegram: @ragexking</a>
+        <a href="mailto:mhtcetlawprepare@gmail.com">mhtcetlawprepare@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025–26 MHT CET LAW Portal. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="legal-aptitude.js"></script>
+</body>
+</html>

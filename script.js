@@ -1,203 +1,142 @@
-// =====================================================
-//  MHT CET Law Portal — script.js
-//  Developed by Piyush Deshkar
-//  Firebase Auth + Firestore — ALL users can register
-// =====================================================
+// MHT CET LAW Portal - cetlaw.js
 
-// ── Firebase Config ──────────────────────────────────
-const firebaseConfig = {
-  apiKey:            "AIzaSyD_4_adS0YQs8bGMbEvNSpLpW3BpCdvIAU",
-  authDomain:        "mark1-7ce7e.firebaseapp.com",
-  projectId:         "mark1-7ce7e",
-  storageBucket:     "mark1-7ce7e.appspot.com",
-  messagingSenderId: "147908886392",
-  appId:             "1:147908886392:web:7d209960ba65868172128d",
-  measurementId:     "G-6J34J730EW"
-};
+document.addEventListener('DOMContentLoaded', () => {
 
-// ── App constants ─────────────────────────────────────
-const REDIRECT_URL = "https://mhtcetlaw.netlify.app/dashboard";
+  // ─── Smooth scrolling ───────────────────────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 130;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
 
-// ── Firebase SDK (CDN global) ─────────────────────────
-const app  = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db   = firebase.firestore();
+  // ─── Active nav link on scroll ──────────────────────────────────────────────
+  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  const sections = [];
+  navLinks.forEach(l => {
+    const id = l.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ el, l });
+  });
 
-// ── Helpers ───────────────────────────────────────────
-function showAlert(id, msg, type = 'error') {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const cls = { error:'ae', success:'as', warning:'aw' }[type] || 'ae';
-  const ico = { error:'fa-exclamation-circle', success:'fa-check-circle', warning:'fa-clock' }[type];
-  el.innerHTML = `<div class="alert ${cls}"><i class="fas ${ico}"></i><span>${msg}</span></div>`;
-  if (type !== 'warning') setTimeout(() => { el.innerHTML = ''; }, 5500);
-}
-
-function setBtn(id, loading) {
-  const btn  = document.getElementById(id);
-  const span = btn && btn.querySelector('span');
-  const icon = btn && btn.querySelector('i.btn-ico');
-  if (!btn) return;
-  btn.disabled = loading;
-  if (loading) {
-    if (icon) icon.className = 'fas fa-spinner fa-spin btn-ico';
-    if (span) span.textContent = 'Please wait…';
-  } else {
-    const map = {
-      loginBtn:    ['fa-sign-in-alt',  'Sign In'],
-      registerBtn: ['fa-user-plus',    'Create Account']
-    };
-    const [ic, txt] = map[id] || ['fa-check','Done'];
-    if (icon) icon.className = `fas ${ic} btn-ico`;
-    if (span) span.textContent = txt;
-  }
-}
-
-function errMsg(code) {
-  const m = {
-    'auth/user-not-found':      'No account found. Please sign up first.',
-    'auth/wrong-password':      'Incorrect password. Try again.',
-    'auth/invalid-credential':  'Invalid email or password.',
-    'auth/invalid-email':       'Please enter a valid email address.',
-    'auth/email-already-in-use':'Email already registered. Please sign in.',
-    'auth/weak-password':       'Password too weak. Use at least 6 characters.',
-    'auth/too-many-requests':   'Too many attempts. Try again later.',
-    'auth/network-request-failed':'Network error. Check your connection.'
+  const setActive = () => {
+    let current = null;
+    sections.forEach(({ el }) => {
+      if (window.scrollY >= el.offsetTop - 160) current = el.id;
+    });
+    navLinks.forEach(l => l.classList.remove('active'));
+    if (current) {
+      const link = document.querySelector(`.nav-link[href="#${current}"]`);
+      if (link) link.classList.add('active');
+    }
   };
-  return m[code] || 'Something went wrong. Please try again.';
-}
 
-function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
 
-// ── Tabs ──────────────────────────────────────────────
-function initTabs() {
-  document.querySelectorAll('.tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-      document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
-      btn.classList.add('on');
-      const pane = document.getElementById(btn.dataset.tab);
-      if (pane) pane.classList.add('on');
-      document.getElementById('loginAlert').innerHTML   = '';
-      document.getElementById('registerAlert').innerHTML = '';
-    });
+  // ─── Lock Modal ─────────────────────────────────────────────────────────────
+  const backdrop = document.getElementById('lockModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+
+  function openLockModal(title = 'Premium Content') {
+    if (!backdrop) return;
+    modalTitle.textContent = title;
+    modalDesc.textContent = `"${title}" is part of the premium course. Message @ragexking on Telegram to unlock full access.`;
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLockModal() {
+    if (!backdrop) return;
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  window.openLockModal = openLockModal;
+
+  // Close on backdrop click
+  backdrop && backdrop.addEventListener('click', e => {
+    if (e.target === backdrop) closeLockModal();
   });
-}
 
-// ── Password toggle ───────────────────────────────────
-function initEyes() {
-  document.querySelectorAll('.eye').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const inp = document.getElementById(btn.dataset.for);
-      if (!inp) return;
-      const show = inp.type === 'password';
-      inp.type = show ? 'text' : 'password';
-      btn.querySelector('i').className = show ? 'fas fa-eye-slash' : 'fas fa-eye';
-    });
-  });
-}
+  // Close button
+  document.getElementById('modalCloseBtn') && document.getElementById('modalCloseBtn').addEventListener('click', closeLockModal);
+  document.getElementById('modalCancelBtn') && document.getElementById('modalCancelBtn').addEventListener('click', closeLockModal);
 
-// ── LOGIN ─────────────────────────────────────────────
-async function handleLogin() {
-  const email = document.getElementById('loginEmail').value.trim();
-  const pass  = document.getElementById('loginPassword').value;
-
-  if (!email || !validEmail(email)) return showAlert('loginAlert', 'Enter a valid email address.');
-  if (!pass)                        return showAlert('loginAlert', 'Enter your password.');
-
-  setBtn('loginBtn', true);
-  try {
-    const cred = await auth.signInWithEmailAndPassword(email, pass);
-    // Update last login in Firestore
-    await db.collection('users').doc(cred.user.uid).set(
-      { lastLogin: firebase.firestore.FieldValue.serverTimestamp() },
-      { merge: true }
-    );
-    showAlert('loginAlert', '✅ Login successful! Redirecting…', 'success');
-    setTimeout(() => { window.location.href = REDIRECT_URL; }, 1500);
-  } catch (err) {
-    showAlert('loginAlert', errMsg(err.code));
-    setBtn('loginBtn', false);
-  }
-}
-
-// ── REGISTER ──────────────────────────────────────────
-async function handleRegister() {
-  const name  = document.getElementById('regName').value.trim();
-  const age   = document.getElementById('regAge').value.trim();
-  const exam  = document.getElementById('regExam').value;
-  const phone = document.getElementById('regPhone').value.trim();
-  const email = document.getElementById('regEmail').value.trim();
-  const pass  = document.getElementById('regPass').value;
-
-  if (!name)              return showAlert('registerAlert', 'Enter your full name.');
-  if (!age || isNaN(age) || +age < 14 || +age > 40)
-                          return showAlert('registerAlert', 'Enter a valid age (14–40).');
-  if (!exam)              return showAlert('registerAlert', 'Select your target exam.');
-  if (!email || !validEmail(email))
-                          return showAlert('registerAlert', 'Enter a valid email address.');
-  if (!pass || pass.length < 6)
-                          return showAlert('registerAlert', 'Password must be at least 6 characters.');
-
-  setBtn('registerBtn', true);
-  try {
-    const cred = await auth.createUserWithEmailAndPassword(email, pass);
-    await cred.user.updateProfile({ displayName: name });
-
-    // Save full profile to Firestore
-    await db.collection('users').doc(cred.user.uid).set({
-      uid:       cred.user.uid,
-      fullName:  name,
-      age:       +age,
-      exam:      exam,
-      phone:     phone || '',
-      email:     email,
-      role:      'student',
-      verified:  false,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      lastLogin: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    showAlert('registerAlert', `🎉 Welcome ${name}! Account created. Redirecting…`, 'success');
-    setTimeout(() => { window.location.href = REDIRECT_URL; }, 1800);
-  } catch (err) {
-    showAlert('registerAlert', errMsg(err.code));
-    setBtn('registerBtn', false);
-  }
-}
-
-// ── FORGOT PASSWORD ───────────────────────────────────
-async function handleForgot(e) {
-  e.preventDefault();
-  const email = document.getElementById('loginEmail').value.trim();
-  if (!email || !validEmail(email))
-    return showAlert('loginAlert', 'Enter your email above first.');
-  try {
-    await auth.sendPasswordResetEmail(email);
-    showAlert('loginAlert', '📧 Reset link sent! Check your inbox.', 'success');
-  } catch (err) {
-    showAlert('loginAlert', errMsg(err.code));
-  }
-}
-
-// ── ENTER key support ─────────────────────────────────
-function initEnter() {
+  // Escape key
   document.addEventListener('keydown', e => {
-    if (e.key !== 'Enter') return;
-    const active = document.querySelector('.pane.on');
-    if (!active) return;
-    if (active.id === 'pane-login')    handleLogin();
-    if (active.id === 'pane-register') handleRegister();
+    if (e.key === 'Escape') closeLockModal();
   });
-}
 
-// ── BOOT ─────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', () => {
-  initTabs();
-  initEyes();
-  initEnter();
+  // ─── Lock buttons trigger modal ─────────────────────────────────────────────
+  document.querySelectorAll('[data-locked]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const name = btn.dataset.locked || 'Premium Content';
+      openLockModal(name);
+    });
+  });
 
-  document.getElementById('loginBtn').addEventListener('click', handleLogin);
-  document.getElementById('registerBtn').addEventListener('click', handleRegister);
-  document.getElementById('forgotLink').addEventListener('click', handleForgot);
+  // ─── Animate counters ───────────────────────────────────────────────────────
+  const counters = document.querySelectorAll('.count-up');
+  const observed = new Set();
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || observed.has(entry.target)) return;
+      observed.add(entry.target);
+      const el = entry.target;
+      const end = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      const duration = 1400;
+      const start = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const val = end % 1 !== 0 ? (end * eased).toFixed(1) : Math.round(end * eased);
+        el.textContent = prefix + val + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(c => io.observe(c));
+
+  // ─── Fade-in on scroll ──────────────────────────────────────────────────────
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const fadeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeEls.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.5s ${i * 0.05}s ease, transform 0.5s ${i * 0.05}s ease`;
+    fadeObs.observe(el);
+  });
+
+  // ─── Nav loading state for external links ───────────────────────────────────
+  document.querySelectorAll('a.btn:not([data-locked]):not([href^="#"])').forEach(btn => {
+    const href = btn.getAttribute('href');
+    if (!href || href === '#' || href === '') return;
+    btn.addEventListener('click', function () {
+      this.style.opacity = '0.7';
+      setTimeout(() => { this.style.opacity = '1'; }, 1500);
+    });
+  });
+
 });

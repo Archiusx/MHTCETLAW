@@ -63,6 +63,47 @@ body.ready { visibility:visible; }
 ::-webkit-scrollbar-track { background:var(--surface); }
 ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:3px; }
 
+/* ── GLOBAL LAYOUT FIX (Overflow + Scrollbar Issue) ── */
+
+/* Prevent horizontal scroll */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Make sure nothing exceeds viewport */
+body {
+  width: 100%;
+}
+
+/* Fix flex overflow issues */
+.header-content,
+.hero-ctas,
+.header-actions,
+.nav-container {
+  min-width: 0;
+}
+
+/* Prevent buttons from breaking layout */
+.btn {
+  max-width: 100%;
+}
+
+/* Prevent grid overflow */
+.card-grid,
+.offer-grid,
+.review-grid,
+.stats {
+  width: 100%;
+}
+
+/* Ensure container never causes overflow */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* ── SPLASH SCREEN ────────────────────── */
 #splash {
   position:fixed; inset:0; z-index:9999;

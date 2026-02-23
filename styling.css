@@ -54,10 +54,15 @@ body {
   background:var(--background);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  /* Hide body until splash finishes */
+  /* Hide body until splash finishes — fallback makes it visible after 3s if JS fails */
   visibility:hidden;
+  animation: body-fallback-show 0s 3s forwards;
 }
-body.ready { visibility:visible; }
+@keyframes body-fallback-show { to { visibility: visible; } }
+body.ready {
+  visibility:visible;
+  animation: none;
+}
 
 ::-webkit-scrollbar { width:5px; }
 ::-webkit-scrollbar-track { background:var(--surface); }
@@ -209,6 +214,50 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* ── DARK MODE TOGGLE BUTTON ──────────── */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.theme-toggle:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+/* In dark mode, show sun icon colour */
+html[data-theme="dark"] .theme-toggle {
+  background: var(--surface);
+  color: #fbbf24;
+  border-color: var(--border);
+}
+html[data-theme="dark"] .theme-toggle:hover {
+  background: #fbbf24;
+  color: #0f172a;
+  border-color: #fbbf24;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
 }
 /* ── NAV ──────────────────────────────── */
 .nav {

@@ -817,28 +817,202 @@ html[data-theme="dark"] .theme-toggle:hover {
 }
 .fade-in.visible { opacity:1; transform:translateY(0); }
 
-/* ── RESPONSIVE ───────────────────────── */
-@media(max-width:1024px){
-  .footer-content { grid-template-columns:1fr 1fr; gap:2rem; }
+/* ══════════════════════════════════════════
+   RESPONSIVE — All Devices
+   iOS / Android / Tablet / Laptop / Desktop
+   ══════════════════════════════════════════ */
+
+/* ── BASE: ensure touch targets & safe areas ── */
+* { -webkit-tap-highlight-color: transparent; }
+
+html {
+  /* Prevent font size inflation on iOS */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
-@media(max-width:768px){
-  .hero { padding:3.5rem 0; }
-  .hero h2 { font-size:2rem; }
-  .hero-stats { flex-direction:column; gap:0; }
-  .hero-stat { border-right:none; border-bottom:1px solid rgba(255,255,255,.15); }
-  .hero-stat:last-child { border-bottom:none; }
-  .header-content { flex-direction:row; }
-  .footer-content { grid-template-columns:1fr; gap:1.5rem; }
-  .footer-bottom { flex-direction:column; text-align:center; }
+
+/* Safe area padding for iPhone notch / Dynamic Island */
+.header {
+  padding-left:  env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
-@media(max-width:480px){
-  .container { padding:0 1rem; }
-  .hero { padding:3rem 0; }
-  .hero-ctas { flex-direction:column; }
-  .hero-ctas .btn { width:100%; }
-  .card-grid { grid-template-columns:1fr; }
-  .offer-grid { grid-template-columns:1fr; }
-  .stats { grid-template-columns:repeat(2,1fr); }
-  .header-actions .btn-ghost { display:none; }
-  .nav-link { padding:.875rem 1rem; }
+.footer {
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+}
+
+/* ── LARGE DESKTOP ≥ 1280px ─────────────── */
+@media (min-width: 1280px) {
+  .container { max-width: 1200px; padding: 0 2rem; }
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats     { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ── LAPTOP / SMALL DESKTOP 1025–1279px ──── */
+@media (max-width: 1279px) and (min-width: 1025px) {
+  .container { max-width: 960px; padding: 0 1.5rem; }
+  .footer-content { grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+}
+
+/* ── TABLET LANDSCAPE + LAPTOP ≤ 1024px ──── */
+@media (max-width: 1024px) {
+  .container { padding: 0 1.5rem; }
+  .footer-content { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .card-grid  { grid-template-columns: repeat(2, 1fr); }
+  .offer-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats      { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── TABLET PORTRAIT 768–1024px (iPad etc.) ─ */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .hero { padding: 4rem 0; }
+  .hero h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+  .hero p  { font-size: 1rem; }
+
+  .brand-text h1 { font-size: 1.1rem; }
+  .brand-text p  { font-size: .7rem; }
+
+  /* Keep header buttons visible but compact */
+  .header-actions { gap: 8px; }
+  .btn-sm { padding: .4rem .9rem; font-size: .78rem; }
+
+  .section-title { font-size: 1.35rem; }
+
+  .review-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── MOBILE LANDSCAPE + SMALL TABLET ≤ 767px ─ */
+@media (max-width: 767px) {
+  .container { padding: 0 1rem; }
+
+  /* Header: shrink brand text, tighten spacing */
+  .header-content { padding: .75rem 0; }
+  .logo { width: 38px; height: 38px; border-radius: 8px; }
+  .logo svg { width: 19px; height: 19px; }
+  .brand-text h1 { font-size: 1rem; }
+  .brand-text p  { display: none; } /* hide subtitle to save space */
+  .header-actions { gap: 7px; }
+
+  /* Hide "Join Channel" text label, keep icon */
+  .header-actions .btn-ghost span { display: none; }
+
+  /* Nav */
+  .nav { top: 61px; }
+  .nav-link { padding: .75rem .875rem; font-size: .775rem; }
+
+  /* Hero */
+  .hero { padding: 3rem 0 2.5rem; }
+  .hero h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  .hero p  { font-size: .9375rem; margin-bottom: 1.75rem; }
+  .hero-ctas { gap: .625rem; }
+  .hero-stats { flex-direction: column; }
+  .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); padding: .75rem 1.5rem; }
+  .hero-stat:last-child { border-bottom: none; }
+  .hero-stat-num { font-size: 1.25rem; }
+
+  /* Sections */
+  .main { padding: 2rem 0; }
+  .section { margin-bottom: 2rem; }
+  .section-title { font-size: 1.25rem; }
+
+  /* Grids → 1 column */
+  .card-grid  { grid-template-columns: 1fr; gap: 1rem; }
+  .offer-grid { grid-template-columns: 1fr; gap: .875rem; }
+  .stats      { grid-template-columns: repeat(2, 1fr); gap: .875rem; }
+  .review-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+
+  /* Footer */
+  .footer-content { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-bottom  { flex-direction: column; text-align: center; gap: .5rem; }
+
+  /* Modal: full-width on small screens */
+  .modal { padding: 1.5rem; border-radius: var(--radius-lg); }
+}
+
+/* ── MOBILE PORTRAIT ≤ 480px (iPhone SE → 14) ─ */
+@media (max-width: 480px) {
+  .container { padding: 0 .875rem; }
+
+  /* Header: very compact */
+  .header-content { padding: .625rem 0; }
+  .logo-section { gap: .625rem; }
+  .logo { width: 36px; height: 36px; }
+  .brand-text h1 { font-size: .9375rem; }
+  .header-actions { gap: 6px; }
+
+  /* Hide "Join Channel" button entirely on tiny screens */
+  .header-actions .btn-ghost { display: none; }
+
+  /* Buy button smaller */
+  .header-actions .btn-primary { padding: .45rem .875rem; font-size: .775rem; }
+
+  /* Theme toggle smaller */
+  .theme-toggle { width: 34px; height: 34px; }
+  .theme-toggle svg { width: 16px; height: 16px; }
+
+  /* Nav */
+  .nav { top: 57px; }
+  .nav-link { padding: .7rem .75rem; font-size: .75rem; gap: .3rem; }
+
+  /* Hero */
+  .hero { padding: 2.5rem 0 2rem; }
+  .hero h2 { font-size: clamp(1.35rem, 7vw, 1.75rem); letter-spacing: -.02em; }
+  .hero p  { font-size: .875rem; margin-bottom: 1.5rem; padding: 0 .5rem; }
+  .hero-ctas { flex-direction: column; gap: .625rem; }
+  .hero-ctas .btn { width: 100%; justify-content: center; padding: .75rem 1rem; font-size: .875rem; }
+  .hero-stat-num { font-size: 1.15rem; }
+  .hero-stat-lbl { font-size: .65rem; }
+
+  /* Cards */
+  .card-header { padding: 1.125rem 1.25rem; }
+  .card-body   { padding: 1rem 1.25rem; }
+  .card-title  { font-size: .9375rem; }
+
+  /* Stats */
+  .stats { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+  .stat-number { font-size: 1.625rem; }
+  .stat-card   { padding: 1.125rem; }
+
+  /* Notice board */
+  .notice-item { padding: .75rem; }
+  .notice-text { font-size: .8rem; }
+
+  /* Buttons */
+  .btn-full { padding: .75rem 1rem; font-size: .875rem; }
+
+  /* Footer */
+  .footer { padding: 2rem 0 0; }
+  .footer-bottom p { font-size: .725rem; }
+
+  /* Modal */
+  .modal { padding: 1.25rem; }
+  .modal h3 { font-size: 1.1rem; }
+}
+
+/* ── VERY SMALL ≤ 360px (older Android) ─── */
+@media (max-width: 360px) {
+  .container { padding: 0 .75rem; }
+  .brand-text h1 { font-size: .875rem; }
+  .hero h2 { font-size: 1.25rem; }
+  .nav-link { padding: .65rem .625rem; font-size: .7rem; }
+  .stats { grid-template-columns: 1fr 1fr; gap: .625rem; }
+  .stat-number { font-size: 1.375rem; }
+}
+
+/* ── TALL PHONES: safe bottom spacing ───── */
+@media (max-width: 480px) {
+  .footer {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* ── TOUCH DEVICES: bigger tap targets ──── */
+@media (hover: none) and (pointer: coarse) {
+  .btn     { min-height: 44px; }
+  .nav-link { min-height: 44px; }
+  .theme-toggle { min-height: 44px; min-width: 44px; }
+  .social-btn { width: 40px; height: 40px; }
+  .notice-item { padding: 1rem; }
+  .card:hover { transform: none; box-shadow: var(--shadow); } /* disable hover lift on touch */
+  .offer-card:hover { transform: none; }
+  .stat-card:hover  { transform: none; }
 }

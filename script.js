@@ -1,142 +1,145 @@
-// MHT CET LAW Portal - cetlaw.js
+/* =============================================
+   MHT CET LAW PORTAL — script.js
+   ============================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
+  'use strict';
 
-  // ─── Smooth scrolling ───────────────────────────────────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = 130;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
+  /* ── SPLASH SCREEN ─────────────────────── */
+  const splash = document.getElementById('splash');
+
+  function hideSplash() {
+    splash.classList.add('hide');
+    document.body.classList.add('ready');
+    // Remove from DOM after transition
+    splash.addEventListener('transitionend', () => splash.remove(), { once: true });
+  }
+
+  // Wait for fonts + DOM, minimum 900ms so bar fills
+  const minWait = new Promise(r => setTimeout(r, 900));
+  const docReady = new Promise(r => {
+    if (document.readyState === 'complete') r();
+    else window.addEventListener('load', r, { once: true });
   });
 
-  // ─── Active nav link on scroll ──────────────────────────────────────────────
-  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-  const sections = [];
-  navLinks.forEach(l => {
-    const id = l.getAttribute('href').slice(1);
-    const el = document.getElementById(id);
-    if (el) sections.push({ el, l });
+  Promise.all([minWait, docReady]).then(hideSplash);
+
+  /* ── SMOOTH SCROLL ─────────────────────── */
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const id = link.getAttribute('href');
+    if (id === '#') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const offset = 130; // header + nav height
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
   });
 
-  const setActive = () => {
+  /* ── ACTIVE NAV LINK ───────────────────── */
+  const navLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"]'));
+  const anchors  = navLinks.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+  function setActive() {
+    const scrollY = window.scrollY + 140;
     let current = null;
-    sections.forEach(({ el }) => {
-      if (window.scrollY >= el.offsetTop - 160) current = el.id;
+    anchors.forEach(el => { if (el.offsetTop <= scrollY) current = el.id; });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
     });
-    navLinks.forEach(l => l.classList.remove('active'));
-    if (current) {
-      const link = document.querySelector(`.nav-link[href="#${current}"]`);
-      if (link) link.classList.add('active');
-    }
-  };
+  }
 
   window.addEventListener('scroll', setActive, { passive: true });
-  setActive();
+  window.addEventListener('load', setActive);
 
-  // ─── Lock Modal ─────────────────────────────────────────────────────────────
-  const backdrop = document.getElementById('lockModal');
+  /* ── LOCK MODAL ────────────────────────── */
+  const modalBg    = document.getElementById('lockModal');
   const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDesc');
+  const modalDesc  = document.getElementById('modalDesc');
 
-  function openLockModal(title = 'Premium Content') {
-    if (!backdrop) return;
-    modalTitle.textContent = title;
-    modalDesc.textContent = `"${title}" is part of the premium course. Message @ragexking on Telegram to unlock full access.`;
-    backdrop.classList.add('open');
+  function openModal(name) {
+    if (!modalBg) return;
+    modalTitle.textContent = name || 'Premium Content';
+    modalDesc.textContent  = `"${name}" is part of the premium course. Message @ragexking on Telegram to unlock access.`;
+    modalBg.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeLockModal() {
-    if (!backdrop) return;
-    backdrop.classList.remove('open');
+  function closeModal() {
+    if (!modalBg) return;
+    modalBg.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  window.openLockModal = openLockModal;
+  window.openLockModal = openModal;
 
-  // Close on backdrop click
-  backdrop && backdrop.addEventListener('click', e => {
-    if (e.target === backdrop) closeLockModal();
+  // Trigger via data-locked attribute
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('[data-locked]');
+    if (!btn) return;
+    e.preventDefault();
+    openModal(btn.dataset.locked);
   });
 
-  // Close button
-  document.getElementById('modalCloseBtn') && document.getElementById('modalCloseBtn').addEventListener('click', closeLockModal);
-  document.getElementById('modalCancelBtn') && document.getElementById('modalCancelBtn').addEventListener('click', closeLockModal);
+  // Close modal
+  document.getElementById('modalClose')?.addEventListener('click', closeModal);
+  document.getElementById('modalCancel')?.addEventListener('click', closeModal);
+  modalBg?.addEventListener('click', e => { if (e.target === modalBg) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  // Escape key
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLockModal();
-  });
+  /* ── FADE-IN ON SCROLL ─────────────────── */
+  const faders = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (!entry.isIntersecting) return;
+        // Stagger delay within same viewport batch
+        entry.target.style.transitionDelay = `${(i % 6) * 55}ms`;
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+    faders.forEach(el => io.observe(el));
+  } else {
+    faders.forEach(el => el.classList.add('visible'));
+  }
 
-  // ─── Lock buttons trigger modal ─────────────────────────────────────────────
-  document.querySelectorAll('[data-locked]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      const name = btn.dataset.locked || 'Premium Content';
-      openLockModal(name);
-    });
-  });
-
-  // ─── Animate counters ───────────────────────────────────────────────────────
+  /* ── COUNTER ANIMATION ─────────────────── */
   const counters = document.querySelectorAll('.count-up');
-  const observed = new Set();
+  if (counters.length && 'IntersectionObserver' in window) {
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el     = entry.target;
+        const end    = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const dur    = 1200;
+        const start  = performance.now();
 
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting || observed.has(entry.target)) return;
-      observed.add(entry.target);
-      const el = entry.target;
-      const end = parseFloat(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      const prefix = el.dataset.prefix || '';
-      const duration = 1400;
-      const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / dur, 1);
+          const v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          el.textContent = v + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterIO.observe(c));
+  }
 
-      const step = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const val = end % 1 !== 0 ? (end * eased).toFixed(1) : Math.round(end * eased);
-        el.textContent = prefix + val + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(c => io.observe(c));
-
-  // ─── Fade-in on scroll ──────────────────────────────────────────────────────
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const fadeObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  fadeEls.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = `opacity 0.5s ${i * 0.05}s ease, transform 0.5s ${i * 0.05}s ease`;
-    fadeObs.observe(el);
-  });
-
-  // ─── Nav loading state for external links ───────────────────────────────────
-  document.querySelectorAll('a.btn:not([data-locked]):not([href^="#"])').forEach(btn => {
+  /* ── BUTTON LOADING STATE ──────────────── */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('a.btn');
+    if (!btn) return;
     const href = btn.getAttribute('href');
-    if (!href || href === '#' || href === '') return;
-    btn.addEventListener('click', function () {
-      this.style.opacity = '0.7';
-      setTimeout(() => { this.style.opacity = '1'; }, 1500);
-    });
+    if (!href || href.startsWith('#') || href === '') return;
+    if (btn.dataset.locked !== undefined) return;
+    btn.classList.add('loading');
+    setTimeout(() => btn.classList.remove('loading'), 3000);
   });
 
-});
+})();

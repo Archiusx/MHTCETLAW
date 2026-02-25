@@ -650,41 +650,58 @@
 
   // Load all users (admin only)
   async function loadUsers() {
-    const q = query(collection(db, 'users'), orderBy('createdAt','desc'));
-    const snap = await getDocs(q);
     const tbody = document.getElementById('usersTableBody');
-    tbody.innerHTML = '';
-    snap.forEach(d => {
+    tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;text-align:center;color:var(--text3)">Loading...</td></tr>';
+    try {
+      // No orderBy — avoids index requirement, sort in JS
+      const snap = await getDocs(collection(db, 'users'));
+      tbody.innerHTML = '';
+      // Sort by createdAt descending in JS
+      const docs = [];
+      snap.forEach(d => docs.push({id: d.id, ...d.data()}));
+      docs.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+      if (docs.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;text-align:center;color:var(--text3)">No users found</td></tr>';
+        return;
+      }
+      docs.forEach(u => {
       const u = d.data();
-      const tr = document.createElement('tr');
-      tr.style.borderBottom = '1px solid var(--border)';
-      tr.innerHTML = `
-        <td style="padding:10px">${u.displayName || '—'}</td>
-        <td style="padding:10px;color:var(--text2)">${u.email}</td>
-        <td style="padding:10px">
-          <select onchange="updatePlan('${d.id}',this.value)" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 8px;border-radius:6px;font-size:.78rem">
-            <option value="free" ${u.plan==='free'?'selected':''}>Free</option>
-            <option value="premium" ${u.plan==='premium'?'selected':''}>Premium</option>
-          </select>
-        </td>
-        <td style="padding:10px">
-          <span style="padding:3px 8px;border-radius:10px;font-size:.72rem;${u.isApproved?'background:rgba(34,197,94,.1);color:#86efac':'background:rgba(245,158,11,.1);color:#fcd34d'}">${u.isApproved?'Approved':'Pending'}</span>
-        </td>
-        <td style="padding:10px">
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            ${!u.isApproved ? `<button onclick="approveUser('${d.id}')" class="btn-sm btn-primary" style="font-size:.72rem;padding:4px 10px">Approve</button>` : ''}
-            <button onclick="openMsgModal('${u.email}','${u.displayName||'User'}')" class="btn-sm btn-ghost" style="font-size:.72rem;padding:4px 10px;display:flex;align-items:center;gap:4px">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Message
-            </button>
-            <button onclick="revokeUser('${d.id}')" class="btn-sm btn-danger" style="font-size:.72rem;padding:4px 10px">Revoke</button>
-          </div>
-        </td>
-      `;
-      tbody.appendChild(tr);
-    });
-    if (snap.empty) {
-      tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;text-align:center;color:var(--text3)">No users found</td></tr>';
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid var(--border)';
+        tr.innerHTML = `
+          <td style="padding:10px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:28px;height:28px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0">${(u.displayName||u.email||'?').charAt(0).toUpperCase()}</div>
+              ${u.displayName || '—'}
+            </div>
+          </td>
+          <td style="padding:10px;color:var(--text2);font-size:.82rem">${u.email}</td>
+          <td style="padding:10px">
+            <select onchange="updatePlan('${u.id}',this.value)" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 8px;border-radius:6px;font-size:.78rem">
+              <option value="free" ${u.plan==='free'||!u.plan?'selected':''}>Free</option>
+              <option value="premium" ${u.plan==='premium'?'selected':''}>Premium</option>
+              <option value="admin" ${u.plan==='admin'?'selected':''}>Admin</option>
+            </select>
+          </td>
+          <td style="padding:10px">
+            <span style="padding:3px 8px;border-radius:10px;font-size:.72rem;${u.isApproved?'background:rgba(34,197,94,.1);color:#86efac':'background:rgba(245,158,11,.1);color:#fcd34d'}">${u.isApproved?'✓ Approved':'⏳ Pending'}</span>
+          </td>
+          <td style="padding:10px">
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              ${!u.isApproved && !u.isAdmin ? `<button onclick="approveUser('${u.id}')" class="btn-sm btn-primary" style="font-size:.72rem;padding:4px 10px">Approve</button>` : ''}
+              <button onclick="openMsgModal('${u.email}','${(u.displayName||'User').replace(/'/g,"")}')" class="btn-sm btn-ghost" style="font-size:.72rem;padding:4px 10px;display:flex;align-items:center;gap:4px">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Msg
+              </button>
+              ${!u.isAdmin ? `<button onclick="revokeUser('${u.id}')" class="btn-sm btn-danger" style="font-size:.72rem;padding:4px 10px">Revoke</button>` : ''}
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    } catch(e) {
+      tbody.innerHTML = `<tr><td colspan="5" style="padding:20px;text-align:center;color:#fca5a5">Error loading users: ${e.message}</td></tr>`;
+      console.error('loadUsers error:', e);
     }
   }
 

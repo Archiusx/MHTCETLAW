@@ -187,6 +187,11 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Study Modules
     </div>
+    <div class="nav-item" id="notifNavItem" onclick="showPanel('notif')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      Notifications
+      <span id="notifBadge" style="display:none;background:#ef4444;color:#fff;border-radius:10px;font-size:.65rem;padding:1px 6px;margin-left:auto"></span>
+    </div>
 
     <div id="adminNavSection" style="display:none">
       <div class="nav-section-title" style="margin-top:12px">Admin</div>
@@ -382,6 +387,15 @@
       </div>
     </div>
 
+    <!-- NOTIFICATIONS (student receives admin messages) -->
+    <div id="notifPanel" class="panel">
+      <div class="page-title">Notifications</div>
+      <div class="page-sub">Messages from admin and important updates</div>
+      <div id="notifContainer">
+        <div class="card" style="text-align:center;color:var(--text3)">Loading...</div>
+      </div>
+    </div>
+
     <!-- ADMIN: USERS -->
     <div id="adminPanel" class="panel">
       <div class="page-title">User Management</div>
@@ -444,7 +458,7 @@
     onAuthStateChanged, signOut
   } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
   import {
-    doc, getDoc, setDoc, collection, getDocs, updateDoc, query, orderBy, serverTimestamp
+    doc, getDoc, setDoc, collection, getDocs, updateDoc, addDoc, query, orderBy, serverTimestamp
   } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
   let currentUser = null;
@@ -457,6 +471,27 @@
       return;
     }
     currentUser = user;
+    // Ensure user profile exists in Firestore (important for admin first login)
+    const isAdminUser = ADMIN_EMAILS.includes(user.email);
+    const ref = doc(db, 'users', user.uid);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) {
+      await setDoc(ref, {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName || '',
+        photoURL: user.photoURL || '',
+        phone: '',
+        college: '',
+        plan: isAdminUser ? 'admin' : 'free',
+        isApproved: isAdminUser,
+        isAdmin: isAdminUser,
+        createdAt: serverTimestamp(),
+        lastLogin: serverTimestamp()
+      });
+    } else {
+      await setDoc(ref, { lastLogin: serverTimestamp() }, { merge: true });
+    }
     await loadUserProfile(user);
   });
 
@@ -546,7 +581,72 @@
       loadUsers();
       loadMessages();
     }
+
+    // Load notifications for all users
+    loadNotifications(user.uid);
   }
+
+  // Load notifications (admin messages to this user)
+  async function loadNotifications(uid) {
+    try {
+      const userEmail = currentUser.email;
+      const q = query(
+        collection(db, 'adminMessages'),
+        orderBy('createdAt','desc')
+      );
+      const snap = await getDocs(q);
+      const container = document.getElementById('notifContainer');
+      container.innerHTML = '';
+      let unread = 0;
+      let count = 0;
+      snap.forEach(d => {
+        const m = d.data();
+        // Show only messages addressed to this user
+        if (m.to !== userEmail) return;
+        count++;
+        if (!m.read) unread++;
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.marginBottom = '12px';
+        card.style.borderLeft = m.read ? '3px solid #334155' : '3px solid #6366f1';
+        card.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:32px;height:32px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">A</div>
+              <div>
+                <div style="font-weight:600;font-size:.875rem">${m.fromName || 'Admin'}</div>
+                <div style="font-size:.72rem;color:#64748b">${m.createdAt?.toDate?.()?.toLocaleString('en-IN') || ''}</div>
+              </div>
+            </div>
+            ${!m.read ? '<span style="background:#6366f1;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px">New</span>' : ''}
+          </div>
+          <p style="color:#cbd5e1;font-size:.875rem;line-height:1.6;padding:10px;background:#0f172a;border-radius:8px">${m.message}</p>
+          ${!m.read ? `<button onclick="markNotifRead('${d.id}',this)" class="btn-sm btn-ghost" style="margin-top:10px;font-size:.75rem">Mark as Read</button>` : ''}
+        `;
+        container.appendChild(card);
+      });
+      if (count === 0) {
+        container.innerHTML = '<div class="card" style="text-align:center;color:var(--text3);padding:32px">No notifications yet</div>';
+      }
+      if (unread > 0) {
+        const badge = document.getElementById('notifBadge');
+        if (badge) { badge.textContent = unread; badge.style.display = 'inline-flex'; }
+      }
+    } catch(e) {
+      console.log('Notif load error:', e);
+    }
+  }
+
+  window.markNotifRead = async function(id, btn) {
+    await updateDoc(doc(db, 'adminMessages', id), { read: true });
+    btn.remove();
+    const badge = document.getElementById('notifBadge');
+    if (badge) {
+      const cur = parseInt(badge.textContent) - 1;
+      if (cur <= 0) badge.style.display = 'none';
+      else badge.textContent = cur;
+    }
+  };
 
   // Load all users (admin only)
   async function loadUsers() {
@@ -570,9 +670,15 @@
         <td style="padding:10px">
           <span style="padding:3px 8px;border-radius:10px;font-size:.72rem;${u.isApproved?'background:rgba(34,197,94,.1);color:#86efac':'background:rgba(245,158,11,.1);color:#fcd34d'}">${u.isApproved?'Approved':'Pending'}</span>
         </td>
-        <td style="padding:10px;display:flex;gap:6px">
-          ${!u.isApproved ? `<button onclick="approveUser('${d.id}')" class="btn-sm btn-primary" style="font-size:.72rem;padding:4px 10px">Approve</button>` : ''}
-          <button onclick="revokeUser('${d.id}')" class="btn-sm btn-danger" style="font-size:.72rem;padding:4px 10px">Revoke</button>
+        <td style="padding:10px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            ${!u.isApproved ? `<button onclick="approveUser('${d.id}')" class="btn-sm btn-primary" style="font-size:.72rem;padding:4px 10px">Approve</button>` : ''}
+            <button onclick="openMsgModal('${u.email}','${u.displayName||'User'}')" class="btn-sm btn-ghost" style="font-size:.72rem;padding:4px 10px;display:flex;align-items:center;gap:4px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Message
+            </button>
+            <button onclick="revokeUser('${d.id}')" class="btn-sm btn-danger" style="font-size:.72rem;padding:4px 10px">Revoke</button>
+          </div>
         </td>
       `;
       tbody.appendChild(tr);
@@ -695,6 +801,69 @@
     setTimeout(() => t.classList.remove('show'), 2500);
   }
   window.showToast = showToast;
+
+  // Open message modal
+  window.openMsgModal = function(email, name) {
+    document.getElementById('msgModalName').textContent = name;
+    document.getElementById('msgModalEmail').textContent = email;
+    document.getElementById('msgModalTo').value = email;
+    document.getElementById('msgModalText').value = '';
+    document.getElementById('msgModalAlert').style.display = 'none';
+    document.getElementById('msgModal').style.display = 'flex';
+  };
+
+  window.closeMsgModal = function() {
+    document.getElementById('msgModal').style.display = 'none';
+  };
+
+  window.sendAdminMsg = async function() {
+    const to = document.getElementById('msgModalTo').value;
+    const text = document.getElementById('msgModalText').value.trim();
+    const btn = document.getElementById('msgModalSendBtn');
+    const alertEl = document.getElementById('msgModalAlert');
+    if (!text) { alertEl.style.cssText='display:block;color:#fca5a5;font-size:.8rem;margin-top:8px'; alertEl.textContent='Please write a message.'; return; }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      await addDoc(collection(db, 'adminMessages'), {
+        to,
+        from: currentUser.email,
+        fromName: currentUser.displayName || 'Admin',
+        message: text,
+        read: false,
+        createdAt: serverTimestamp()
+      });
+      alertEl.style.cssText='display:block;color:#86efac;font-size:.8rem;margin-top:8px';
+      alertEl.textContent = '✓ Message saved! User will see it in their dashboard.';
+      document.getElementById('msgModalText').value = '';
+      setTimeout(closeMsgModal, 2000);
+    } catch(e) {
+      alertEl.style.cssText='display:block;color:#fca5a5;font-size:.8rem;margin-top:8px';
+      alertEl.textContent = 'Error: ' + e.message;
+    }
+    btn.disabled = false; btn.textContent = 'Send Message';
+  };
 </script>
+
+<!-- SEND MESSAGE MODAL -->
+<div id="msgModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center;padding:16px">
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:14px;padding:28px;width:100%;max-width:460px;position:relative">
+    <button onclick="closeMsgModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.2rem">✕</button>
+    <div style="margin-bottom:20px">
+      <div style="font-size:1rem;font-weight:700;margin-bottom:4px">Send Message to User</div>
+      <div style="font-size:.85rem;color:#94a3b8">To: <strong id="msgModalName"></strong> &nbsp;·&nbsp; <span id="msgModalEmail" style="color:#6366f1"></span></div>
+    </div>
+    <input type="hidden" id="msgModalTo"/>
+    <div style="margin-bottom:16px">
+      <label style="display:block;font-size:.75rem;font-weight:600;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Your Message</label>
+      <textarea id="msgModalText" rows="4" placeholder="Type your message to this student — e.g. 'Your premium access has been activated!' or 'Your payment is pending.'" style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none;resize:vertical"></textarea>
+    </div>
+    <div id="msgModalAlert" style="display:none"></div>
+    <div style="display:flex;gap:10px;margin-top:4px">
+      <button id="msgModalSendBtn" onclick="sendAdminMsg()" style="flex:1;padding:11px;background:#6366f1;border:none;border-radius:9px;color:#fff;font-family:inherit;font-size:.875rem;font-weight:600;cursor:pointer">Send Message</button>
+      <button onclick="closeMsgModal()" style="padding:11px 20px;background:transparent;border:1px solid #334155;border-radius:9px;color:#94a3b8;font-family:inherit;font-size:.875rem;cursor:pointer">Cancel</button>
+    </div>
+    <p style="font-size:.72rem;color:#475569;margin-top:12px;text-align:center">Message will appear in student's dashboard under "Notifications"</p>
+  </div>
+</div>
 </body>
 </html>

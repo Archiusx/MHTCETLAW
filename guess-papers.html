@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Guess Papers 2026 — MHT CET LAW Portal</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styling.css"/>
+  <style>
+    #premiumGate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f172a 0%,#1a1040 50%,#0f172a 100%);display:flex;align-items:center;justify-content:center;padding:20px}
+    .gate-wrap{max-width:440px;width:100%;text-align:center}
+    .gate-card{background:#1e293b;border:1px solid #334155;border-radius:20px;padding:36px 32px;box-shadow:0 30px 60px rgba(0,0,0,.5);animation:gateIn .4s ease}
+    @keyframes gateIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    .gate-logo{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22d3ee);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
+    .gate-title{font-size:1.4rem;font-weight:800;color:#f1f5f9;margin-bottom:8px}
+    .gate-sub{color:#94a3b8;font-size:.875rem;line-height:1.7;margin-bottom:20px}
+    .gate-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:10px;font-weight:700;font-size:.875rem;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all .2s;margin-bottom:8px}
+    .g-primary{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff}
+    .g-primary:hover{transform:translateY(-2px)}
+    .g-ghost{background:transparent;color:#94a3b8;border:1px solid #334155}
+    .g-ghost:hover{background:#1e293b;color:#f1f5f9}
+    .gate-spinner{width:32px;height:32px;border:3px solid rgba(99,102,241,.2);border-top-color:#6366f1;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    #pageContent{visibility:hidden}
+    .page-hero{background:linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);color:#fff;padding:2.5rem 0;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:.3rem .875rem;font-size:.725rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.875rem}
+    .hero-h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:.625rem}
+    .hero-p{opacity:.88;line-height:1.7;max-width:520px;font-size:.95rem}
+    .tg-btn{display:inline-flex;align-items:center;gap:.625rem;padding:.875rem 1.75rem;background:#6366f1;color:#fff;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;margin-top:1rem;transition:all .2s}
+    .tg-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(99,102,241,.3)}
+  </style>
+</head>
+<body>
+
+<div id="premiumGate">
+  <div class="gate-wrap">
+    <div id="gateLoading"><div class="gate-spinner"></div><p style="color:#64748b;font-size:.875rem;font-family:'Inter',sans-serif">Verifying access...</p></div>
+    <div id="gateNotLoggedIn" style="display:none"><div class="gate-card">
+      <div class="gate-logo">🎯</div>
+      <h2 class="gate-title">Premium Access Required</h2>
+      <p class="gate-sub">Guess Papers 2026 is exclusively for premium members. Sign in first to continue.</p>
+      <a href="auth.html" class="gate-btn g-primary">Sign In to Access</a>
+      <a href="index.html" class="gate-btn g-ghost">← Back to Home</a>
+    </div></div>
+    <div id="gateNotPremium" style="display:none"><div class="gate-card">
+      <div class="gate-logo">⭐</div>
+      <h2 class="gate-title">Upgrade to Premium</h2>
+      <p class="gate-sub">You're logged in as <span id="gateEmail" style="color:#6366f1;font-weight:600"></span> but need a premium plan to access Guess Papers 2026. DM @ragexking on Telegram to upgrade.</p>
+      <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="gate-btn g-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        DM @ragexking on Telegram
+      </a>
+      <a href="index.html" class="gate-btn g-ghost">← Back to Home</a>
+    </div></div>
+  </div>
+</div>
+
+<div id="pageContent">
+  <header style="background:var(--background);border-bottom:1px solid var(--border);padding:.875rem 0;position:sticky;top:0;z-index:100">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
+      <a href="index.html" style="display:flex;align-items:center;gap:.625rem;text-decoration:none;color:var(--text-primary)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;color:var(--primary)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-weight:700;font-size:.9rem">MHT CET LAW Portal</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <span id="userNameTag" style="font-size:.8rem;color:var(--text-muted)"></span>
+        <a href="dashboard.html" style="font-size:.8rem;color:var(--primary);text-decoration:none;font-weight:600">Dashboard</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="hero-badge">🎯 Premium Content</div>
+      <h2 class="hero-h2">Guess Papers 2026</h2>
+      <p class="hero-p">Expert-curated guess papers for MHT CET LAW 2026 based on deep trend analysis of 5 years of PYQs. These are your highest-probability questions for this year.</p>
+    </div>
+  </div>
+
+  <main style="padding:2rem 0 4rem">
+    <div class="container">
+      <div style="background:linear-gradient(135deg,rgba(220,38,38,.15),rgba(99,102,241,.1));border:2px solid rgba(220,38,38,.3);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:2rem">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem">
+          <span style="font-size:1.75rem">🔥</span>
+          <div>
+            <div style="font-weight:800;color:var(--text-primary);font-size:1rem">2026 Prediction Accuracy: 78%+</div>
+            <div style="font-size:.8rem;color:var(--text-secondary)">Based on 5-year PYQ trend analysis by our expert team</div>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.65">These guess papers are crafted by analyzing which topics appeared most frequently across 2020–2024 and which topics have NOT appeared yet (making them high-probability for 2026).</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:2rem">
+        <div style="background:var(--background);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow)">
+          <div style="background:linear-gradient(135deg,#dc2626,#b91c1c);padding:1.5rem;color:#fff">
+            <div style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8;margin-bottom:.5rem">Guess Paper — 5-Year LLB</div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.25rem">Full Paper — Set A</h3>
+            <p style="font-size:.8rem;opacity:.8">Expert-predicted questions for 2026</p>
+          </div>
+          <div style="padding:1.25rem 1.5rem">
+            <p style="font-size:.8rem;color:var(--text-secondary);line-height:1.55;margin-bottom:1rem">120 questions covering all sections with predicted high-probability topics for 2026 exam.</p>
+            <a href="https://t.me/ragexking" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem;background:#dc2626;color:#fff;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:.85rem">Get on Telegram</a>
+          </div>
+        </div>
+        <div style="background:var(--background);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow)">
+          <div style="background:linear-gradient(135deg,#7c3aed,#6d28d9);padding:1.5rem;color:#fff">
+            <div style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8;margin-bottom:.5rem">Guess Paper — 5-Year LLB</div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.25rem">Full Paper — Set B</h3>
+            <p style="font-size:.8rem;opacity:.8">Alternate question set — equal difficulty</p>
+          </div>
+          <div style="padding:1.25rem 1.5rem">
+            <p style="font-size:.8rem;color:var(--text-secondary);line-height:1.55;margin-bottom:1rem">Second set of predicted 2026 questions with focus on topics not tested in recent years.</p>
+            <a href="https://t.me/ragexking" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem;background:#7c3aed;color:#fff;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:.85rem">Get on Telegram</a>
+          </div>
+        </div>
+        <div style="background:var(--background);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow)">
+          <div style="background:linear-gradient(135deg,#0891b2,#0e7490);padding:1.5rem;color:#fff">
+            <div style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8;margin-bottom:.5rem">Guess Paper — 3-Year LLB</div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.25rem">3-Year LLB — Set A</h3>
+            <p style="font-size:.8rem;opacity:.8">100 questions for 3-Year program</p>
+          </div>
+          <div style="padding:1.25rem 1.5rem">
+            <p style="font-size:.8rem;color:var(--text-secondary);line-height:1.55;margin-bottom:1rem">Tailored guess paper for 3-Year LLB covering Legal Aptitude, Reasoning, English, and GK only.</p>
+            <a href="https://t.me/ragexking" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem;background:#0891b2;color:#fff;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:.85rem">Get on Telegram</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;padding:1rem">
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="tg-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Get All Guess Papers on Telegram
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer style="background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 0;text-align:center">
+    <div class="container">
+      <p style="color:var(--text-muted);font-size:.8rem">© 2026 MHT CET LAW Portal. All rights reserved. | <a href="index.html" style="color:var(--primary)">Back to Home</a></p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme','dark'); } catch(e) {}
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    const html = document.documentElement;
+    html.getAttribute('data-theme') === 'dark' ? html.removeAttribute('data-theme') : html.setAttribute('data-theme','dark');
+    try { localStorage.setItem('theme', html.getAttribute('data-theme') || 'light'); } catch(e) {}
+  });
+</script>
+<script type="module">
+  import { auth, db, ADMIN_EMAILS } from './firebase-config.js';
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) { document.getElementById('gateLoading').style.display='none'; document.getElementById('gateNotLoggedIn').style.display='block'; return; }
+    const isAdmin = ADMIN_EMAILS.includes(user.email);
+    if (isAdmin) { grantAccess(user); return; }
+    try {
+      const cached = sessionStorage.getItem('mhtcet_plan_' + user.uid);
+      if (cached === 'premium' || cached === 'admin') { grantAccess(user); return; }
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      const plan = snap.exists() ? (snap.data().plan || 'free') : 'free';
+      sessionStorage.setItem('mhtcet_plan_' + user.uid, plan);
+      if (plan === 'premium' || plan === 'admin') { grantAccess(user); } else { showNotPremium(user); }
+    } catch(e) { showNotPremium(user); }
+  });
+
+  function grantAccess(user) {
+    const gate = document.getElementById('premiumGate');
+    const content = document.getElementById('pageContent');
+    gate.style.opacity='0'; gate.style.transition='opacity .3s';
+    setTimeout(() => { gate.style.display='none'; }, 300);
+    content.style.visibility='visible'; content.style.opacity='0'; content.style.transition='opacity .4s';
+    requestAnimationFrame(() => { content.style.opacity='1'; });
+    if (user) document.getElementById('userNameTag').textContent = user.displayName || user.email.split('@')[0];
+  }
+  function showNotPremium(user) {
+    document.getElementById('gateLoading').style.display='none';
+    document.getElementById('gateNotPremium').style.display='block';
+    document.getElementById('gateEmail').textContent = user.email;
+  }
+</script>
+</body>
+</html>

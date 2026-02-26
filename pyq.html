@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Previous Year Papers — MHT CET LAW Portal</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styling.css"/>
+  <style>
+    #premiumGate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f172a 0%,#1a1040 50%,#0f172a 100%);display:flex;align-items:center;justify-content:center;padding:20px}
+    .gate-wrap{max-width:440px;width:100%;text-align:center}
+    .gate-card-inner{background:#1e293b;border:1px solid #334155;border-radius:20px;padding:36px 32px;box-shadow:0 30px 60px rgba(0,0,0,.5);animation:gateIn .4s ease}
+    @keyframes gateIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    .gate-logo{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22d3ee);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:28px;box-shadow:0 0 40px rgba(99,102,241,.4)}
+    .gate-title{font-size:1.5rem;font-weight:800;color:#f1f5f9;margin-bottom:8px}
+    .gate-sub{color:#94a3b8;font-size:.9rem;line-height:1.7;margin-bottom:24px}
+    .gate-email{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:8px 14px;color:#6366f1;font-size:.82rem;margin-bottom:20px;display:inline-block}
+    .gate-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all .2s;margin-bottom:10px}
+    .gate-btn-primary{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;box-shadow:0 8px 24px rgba(99,102,241,.3)}
+    .gate-btn-primary:hover{transform:translateY(-2px)}
+    .gate-btn-ghost{background:transparent;color:#94a3b8;border:1px solid #334155}
+    .gate-btn-ghost:hover{background:#1e293b;color:#f1f5f9}
+    .gate-spinner{width:36px;height:36px;border:3px solid rgba(99,102,241,.2);border-top-color:#6366f1;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* PAGE CONTENT */
+    #pageContent{visibility:hidden}
+    .page-hero{background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 50%,#2563eb 100%);color:#fff;padding:2.5rem 0;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:.3rem .875rem;font-size:.725rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1rem}
+    .hero-h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:.75rem}
+    .hero-p{opacity:.88;line-height:1.7;max-width:520px;font-size:.95rem}
+
+    /* TABS */
+    .ptabs-wrap{background:var(--background);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+    .ptabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+    .ptabs::-webkit-scrollbar{display:none}
+    .ptab-btn{display:flex;align-items:center;gap:.4rem;padding:.875rem 1.25rem;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text-secondary);font-family:inherit;font-size:.85rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s}
+    .ptab-btn:hover{color:var(--primary)}
+    .ptab-btn.active{color:var(--primary);border-bottom-color:var(--primary);font-weight:700}
+
+    /* PAPER GRID */
+    .paper-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;padding:2rem 0}
+    .paper-card{background:var(--background);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s}
+    .paper-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+    .paper-card-head{padding:1.25rem 1.5rem;color:#fff}
+    .paper-card-head h3{font-size:1rem;font-weight:700;margin-bottom:.25rem}
+    .paper-card-head p{font-size:.78rem;opacity:.8}
+    .paper-card-body{padding:1.25rem 1.5rem}
+    .paper-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+    .paper-tag{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:.2rem .65rem;font-size:.72rem;font-weight:600;color:var(--text-secondary)}
+    .btn-download{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.7rem;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s}
+    .btn-download:hover{background:var(--primary-dark)}
+    .btn-download-outline{background:transparent;color:var(--primary);border:1.5px solid var(--primary)}
+    .btn-download-outline:hover{background:var(--primary);color:#fff}
+
+    .panel-content{display:none}
+    .panel-content.active{display:block}
+    .coming-soon{text-align:center;padding:3rem 1rem;color:var(--text-muted)}
+    .coming-soon-icon{font-size:3rem;margin-bottom:1rem}
+    .coming-soon h3{font-size:1.25rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem}
+    .coming-soon p{font-size:.9rem;line-height:1.6}
+    .tg-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;padding:.75rem 1.5rem;background:#6366f1;color:#fff;border-radius:10px;font-weight:700;font-size:.875rem;text-decoration:none}
+  </style>
+</head>
+<body>
+
+<!-- PREMIUM GATE -->
+<div id="premiumGate">
+  <div class="gate-wrap">
+    <div id="gateLoading"><div class="gate-spinner"></div><p style="color:#64748b;font-size:.875rem;font-family:'Inter',sans-serif">Checking access...</p></div>
+    <div id="gateNotLoggedIn" style="display:none">
+      <div class="gate-card-inner">
+        <div class="gate-logo">📄</div>
+        <h2 class="gate-title">Premium Access Required</h2>
+        <p class="gate-sub">Previous Year Papers are exclusively for premium members. Sign in first, then upgrade your plan.</p>
+        <a href="auth.html" class="gate-btn gate-btn-primary">Sign In to Continue</a>
+        <a href="index.html" class="gate-btn gate-btn-ghost">← Back to Home</a>
+      </div>
+    </div>
+    <div id="gateNotPremium" style="display:none">
+      <div class="gate-card-inner">
+        <div class="gate-logo">⭐</div>
+        <h2 class="gate-title">Upgrade to Premium</h2>
+        <p class="gate-sub">You're logged in as <span id="gateEmail" style="color:#6366f1;font-weight:600"></span> but don't have a premium plan. DM us on Telegram to unlock all PYQ papers.</p>
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="gate-btn gate-btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          DM @ragexking on Telegram
+        </a>
+        <a href="index.html" class="gate-btn gate-btn-ghost">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div id="pageContent">
+
+  <!-- HEADER (minimal) -->
+  <header style="background:var(--background);border-bottom:1px solid var(--border);padding:.875rem 0;position:sticky;top:0;z-index:100">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
+      <a href="index.html" style="display:flex;align-items:center;gap:.625rem;text-decoration:none;color:var(--text-primary)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;color:var(--primary)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-weight:700;font-size:.9rem">MHT CET LAW Portal</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <span id="userNameTag" style="font-size:.8rem;color:var(--text-muted)"></span>
+        <a href="dashboard.html" style="font-size:.8rem;color:var(--primary);text-decoration:none;font-weight:600">Dashboard</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 1021 12.79z" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="hero-badge">📄 Premium Content</div>
+      <h2 class="hero-h2">Previous Year Question Papers</h2>
+      <p class="hero-p">Complete collection of MHT CET LAW papers from 2020–2024 for both 3-Year & 5-Year LLB programs with detailed answer keys and topic analysis.</p>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="ptabs-wrap">
+    <div class="container">
+      <div class="ptabs">
+        <button class="ptab-btn active" data-tab="5yr">5-Year LLB</button>
+        <button class="ptab-btn" data-tab="3yr">3-Year LLB</button>
+        <button class="ptab-btn" data-tab="solutions">Solutions & Analysis</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <main style="padding-bottom:3rem">
+    <div class="container">
+
+      <!-- 5-Year Panel -->
+      <div class="panel-content active" id="tab-5yr">
+        <div class="paper-grid">
+          <!-- 2024 -->
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#6366f1,#4f46e5)">
+              <h3>MHT CET LAW 2024</h3>
+              <p>5-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">120 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">5-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Full question paper with complete answer key. Includes Legal Aptitude (32Q), Reasoning (32Q), English (32Q), GK (16Q), Maths (8Q).</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <!-- 2023 -->
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#0891b2,#0e7490)">
+              <h3>MHT CET LAW 2023</h3>
+              <p>5-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">120 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">5-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Full question paper with complete answer key. Most repeated topics highlighted from this year's paper.</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <!-- 2022 -->
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#059669,#047857)">
+              <h3>MHT CET LAW 2022</h3>
+              <p>5-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">120 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">5-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Full question paper with complete answer key. Detailed solution PDF included for all sections.</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <!-- 2021 -->
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#d97706,#b45309)">
+              <h3>MHT CET LAW 2021</h3>
+              <p>5-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">120 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">5-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Full question paper with complete answer key. Topic-wise difficulty analysis included.</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <!-- 2020 -->
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#dc2626,#b91c1c)">
+              <h3>MHT CET LAW 2020</h3>
+              <p>5-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">120 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">5-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Full question paper with complete answer key. Foundation paper — many concepts repeated in recent years.</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <!-- All Years Bundle -->
+          <div class="paper-card" style="border:2px solid var(--primary)">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)">
+              <h3>🎯 All Years Bundle</h3>
+              <p>2020–2024 Complete Set</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">5 Papers</span>
+                <span class="paper-tag">600 Questions</span>
+                <span class="paper-tag">+ Solutions</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">All 5 years in one bundle with complete solutions, topic-wise analysis, and most-repeated questions highlighted.</p>
+              <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Get Full Bundle on Telegram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-Year Panel -->
+      <div class="panel-content" id="tab-3yr">
+        <div class="paper-grid">
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#6366f1,#4f46e5)">
+              <h3>MHT CET LAW 2024</h3>
+              <p>3-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">100 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">3-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Full paper with answer key. Legal Aptitude (32Q), Reasoning (32Q), English (24Q), GK (12Q).</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#0891b2,#0e7490)">
+              <h3>MHT CET LAW 2023</h3>
+              <p>3-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">100 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">3-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Complete paper with solutions and topic-wise difficulty ratings.</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <div class="paper-card">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#059669,#047857)">
+              <h3>MHT CET LAW 2022</h3>
+              <p>3-Year LLB Entrance Exam</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">100 Questions</span>
+                <span class="paper-tag">120 Minutes</span>
+                <span class="paper-tag">3-Year LLB</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Full paper with complete answer key and explanation PDF.</p>
+              <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener" class="btn-download">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Paper
+              </a>
+            </div>
+          </div>
+          <div class="paper-card" style="border:2px solid var(--primary)">
+            <div class="paper-card-head" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)">
+              <h3>🎯 All Years Bundle</h3>
+              <p>3-Year LLB — 2020–2024</p>
+            </div>
+            <div class="paper-card-body">
+              <div class="paper-tags">
+                <span class="paper-tag">5 Papers</span>
+                <span class="paper-tag">+ Solutions</span>
+                <span class="paper-tag">Analysis</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55">Complete 3-Year bundle with all solutions and trend analysis via Telegram.</p>
+              <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="btn-download">Get Bundle on Telegram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solutions Panel -->
+      <div class="panel-content" id="tab-solutions">
+        <div style="padding:2rem 0">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;margin-bottom:1.5rem">
+            <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary)">📊 5-Year Topic-Wise Repeat Analysis</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">
+              <div style="background:var(--surface-2);border-radius:var(--radius);padding:1rem;border-left:4px solid #6366f1">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem">Legal Aptitude</div>
+                <div style="font-size:.8rem;color:var(--text-secondary)">32 questions — highest weightage. Indian Constitution & Torts most repeated.</div>
+              </div>
+              <div style="background:var(--surface-2);border-radius:var(--radius);padding:1rem;border-left:4px solid #0891b2">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem">Logical Reasoning</div>
+                <div style="font-size:.8rem;color:var(--text-secondary)">32 questions — Series, Analogies & Blood Relations most repeated.</div>
+              </div>
+              <div style="background:var(--surface-2);border-radius:var(--radius);padding:1rem;border-left:4px solid #059669">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem">English Language</div>
+                <div style="font-size:.8rem;color:var(--text-secondary)">24–32 questions — Comprehension & Grammar most tested.</div>
+              </div>
+              <div style="background:var(--surface-2);border-radius:var(--radius);padding:1rem;border-left:4px solid #d97706">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem">GK & Current Affairs</div>
+                <div style="font-size:.8rem;color:var(--text-secondary)">12–16 questions — National events & Indian History most tested.</div>
+              </div>
+              <div style="background:var(--surface-2);border-radius:var(--radius);padding:1rem;border-left:4px solid #7c3aed">
+                <div style="font-weight:700;color:var(--text-primary);margin-bottom:.25rem">Mathematics (5-yr only)</div>
+                <div style="font-size:.8rem;color:var(--text-secondary)">8 questions — Percentage, Profit/Loss & Time-Speed most repeated.</div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;padding:1.5rem">
+            <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1rem">Get complete topic-wise analysis with question-level solutions via Telegram</p>
+            <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="tg-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Get Full Solutions on Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer style="background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 0;text-align:center">
+    <div class="container">
+      <p style="color:var(--text-muted);font-size:.8rem">© 2026 MHT CET LAW Portal. All rights reserved. | <a href="index.html" style="color:var(--primary)">Back to Home</a></p>
+    </div>
+  </footer>
+
+</div><!-- /pageContent -->
+
+<script>
+  try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme','dark'); } catch(e) {}
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    const html = document.documentElement;
+    html.getAttribute('data-theme') === 'dark' ? html.removeAttribute('data-theme') : html.setAttribute('data-theme','dark');
+    try { localStorage.setItem('theme', html.getAttribute('data-theme') || 'light'); } catch(e) {}
+  });
+  // Tabs
+  document.querySelectorAll('.ptab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.ptab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel-content').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const panel = document.getElementById('tab-' + btn.dataset.tab);
+      if (panel) panel.classList.add('active');
+    });
+  });
+</script>
+<script type="module">
+  import { auth, db, ADMIN_EMAILS } from './firebase-config.js';
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const gate = document.getElementById('premiumGate');
+  const content = document.getElementById('pageContent');
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      document.getElementById('gateLoading').style.display = 'none';
+      document.getElementById('gateNotLoggedIn').style.display = 'block';
+      return;
+    }
+    const isAdmin = ADMIN_EMAILS.includes(user.email);
+    if (isAdmin) { grantAccess(user); return; }
+    try {
+      const cached = sessionStorage.getItem('mhtcet_plan_' + user.uid);
+      if (cached === 'premium' || cached === 'admin') { grantAccess(user); return; }
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      const plan = snap.exists() ? (snap.data().plan || 'free') : 'free';
+      sessionStorage.setItem('mhtcet_plan_' + user.uid, plan);
+      if (plan === 'premium' || plan === 'admin') { grantAccess(user); } else { showNotPremium(user); }
+    } catch(e) { showNotPremium(user); }
+  });
+
+  function grantAccess(user) {
+    gate.style.opacity = '0'; gate.style.transition = 'opacity .3s';
+    setTimeout(() => { gate.style.display = 'none'; }, 300);
+    content.style.visibility = 'visible'; content.style.opacity = '0'; content.style.transition = 'opacity .4s';
+    requestAnimationFrame(() => { content.style.opacity = '1'; });
+    if (user) document.getElementById('userNameTag').textContent = user.displayName || user.email.split('@')[0];
+  }
+  function showNotPremium(user) {
+    document.getElementById('gateLoading').style.display = 'none';
+    document.getElementById('gateNotPremium').style.display = 'block';
+    document.getElementById('gateEmail').textContent = user.email;
+  }
+</script>
+</body>
+</html>

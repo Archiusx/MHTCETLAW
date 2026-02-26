@@ -28,19 +28,12 @@ onAuthStateChanged(auth, async (user) => {
   const isAdmin = ADMIN_EMAILS.includes(user.email);
   if (isAdmin) { grantAccess(user); return; }
 
-  // Try sessionStorage cache for speed
-  const cached = sessionStorage.getItem('mhtcet_plan_' + user.uid);
-  if (cached === 'premium' || cached === 'admin') {
-    grantAccess(user);
-    return;
-  }
-
+  // ALWAYS fetch fresh from Firestore — never trust sessionStorage
+  // Admin may have just upgraded this user, stale cache would break access
   try {
     const snap = await getDoc(doc(db, 'users', user.uid));
     const data = snap.exists() ? snap.data() : {};
     const plan = data.plan || 'free';
-    // Cache for this session
-    sessionStorage.setItem('mhtcet_plan_' + user.uid, plan);
 
     if (plan === 'premium' || plan === 'admin') {
       grantAccess(user);
@@ -48,7 +41,7 @@ onAuthStateChanged(auth, async (user) => {
       showGate('notPremium', user);
     }
   } catch(e) {
-    // Firestore error — deny access
+    // Firestore error — deny access, show gate
     showGate('notPremium', user);
   }
 });

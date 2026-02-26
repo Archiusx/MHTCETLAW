@@ -1004,67 +1004,115 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 <script type="module">
-  import { auth, db } from './firebase-config.js';
+  import { auth, db, ADMIN_EMAILS } from './firebase-config.js';
   import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import { doc, getDoc, collection, addDoc, serverTimestamp, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
   let _currentUser = null;
   let _userPlan = null;
+  let _planReady = false;
 
   onAuthStateChanged(auth, async (user) => {
     _currentUser = user;
     if (user) {
+      // Update header UI immediately
       document.getElementById('authHeaderArea').style.display = 'none';
       document.getElementById('userHeaderArea').style.display = 'flex';
       const initial = (user.displayName || user.email || '?').charAt(0).toUpperCase();
       document.getElementById('headerAvatarInitial').textContent = initial;
+      // Remove any existing avatar images first to prevent duplicates
+      const existingImgs = document.getElementById('headerAvatar').querySelectorAll('img');
+      existingImgs.forEach(img => img.remove());
       if (user.photoURL) {
         const img = document.createElement('img');
         img.src = user.photoURL;
-        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover';
+        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%';
         document.getElementById('headerAvatar').appendChild(img);
       }
-      // Pre-fetch plan
+
+      // Admin gets instant access — no Firestore needed
+      if (ADMIN_EMAILS.includes(user.email)) {
+        _userPlan = 'admin';
+        _planReady = true;
+        return;
+      }
+
+      // Always fetch fresh from Firestore — NEVER trust sessionStorage for plan
+      // (admin may have just upgraded this user)
       try {
-        const cached = sessionStorage.getItem('mhtcet_plan_' + user.uid);
-        if (cached) { _userPlan = cached; return; }
         const snap = await getDoc(doc(db, 'users', user.uid));
-        _userPlan = snap.exists() ? (snap.data().plan || 'free') : 'free';
-        sessionStorage.setItem('mhtcet_plan_' + user.uid, _userPlan);
-      } catch(e) { _userPlan = 'free'; }
+        if (snap.exists()) {
+          const data = snap.data();
+          _userPlan = data.plan || 'free';
+        } else {
+          // New user — create their profile
+          await setDoc(doc(db, 'users', user.uid), {
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName || '',
+            photoURL: user.photoURL || '',
+            phone: '', college: '',
+            plan: 'free',
+            isApproved: false,
+            isAdmin: false,
+            createdAt: serverTimestamp(),
+            lastLogin: serverTimestamp()
+          });
+          _userPlan = 'free';
+        }
+      } catch(e) {
+        console.warn('Plan fetch error:', e);
+        _userPlan = 'free';
+      }
+      _planReady = true;
     } else {
       _userPlan = null;
+      _planReady = true;
+      document.getElementById('authHeaderArea').style.display = 'flex';
+      document.getElementById('userHeaderArea').style.display = 'none';
     }
   });
 
-  // Import Firestore getDoc/doc for plan check
-  const { doc, getDoc } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+  window.handlePremiumAccess = async function(page, name) {
+    // If plan not loaded yet, wait for it
+    if (!_planReady) {
+      await new Promise(resolve => {
+        const check = setInterval(() => {
+          if (_planReady) { clearInterval(check); resolve(); }
+        }, 100);
+        setTimeout(() => { clearInterval(check); resolve(); }, 5000);
+      });
+    }
 
-  window.handlePremiumAccess = function(page, name) {
-    const ADMIN_EMAILS_LOCAL = ["co.2024.prdeshkar@bitwardha.ac.in","class11art@gmail.com"];
     if (!_currentUser) {
-      // Not logged in — show lock modal with Telegram CTA
-      const modalBg = document.getElementById('lockModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalDesc = document.getElementById('modalDesc');
-      if (modalTitle) modalTitle.textContent = name || 'Premium Content';
-      if (modalDesc) modalDesc.textContent = '"' + (name||'This content') + '" is exclusively for premium members. DM @ragexking on Telegram to unlock access.';
-      if (modalBg) { modalBg.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      showModal(name,
+        '🔐 Sign in required',
+        '"' + (name||'This content') + '" is for premium members only. Please sign in, then DM <strong>@ragexking</strong> on Telegram to get premium access.',
+        true
+      );
       return;
     }
-    const isAdmin = ADMIN_EMAILS_LOCAL.includes(_currentUser.email);
-    const isPremium = isAdmin || _userPlan === 'premium' || _userPlan === 'admin';
+
+    const isPremium = ADMIN_EMAILS.includes(_currentUser.email) || _userPlan === 'premium' || _userPlan === 'admin';
     if (isPremium) {
       window.location.href = page;
     } else {
-      // Logged in but free user — show Telegram gate
-      const modalBg = document.getElementById('lockModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalDesc = document.getElementById('modalDesc');
-      if (modalTitle) modalTitle.textContent = '⭐ Upgrade to Premium';
-      if (modalDesc) modalDesc.textContent = 'You are logged in but don't have a premium plan. DM @ragexking on Telegram to upgrade and unlock "' + (name||'this content') + '".';
-      if (modalBg) { modalBg.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      showModal(name,
+        '⭐ Premium Access Required',
+        'You are logged in as <strong>' + _currentUser.email + '</strong> but don\'t have a premium plan yet.<br><br>DM <strong>@ragexking</strong> on Telegram to unlock "' + (name||'this content') + '".',
+        false
+      );
     }
   };
+
+  function showModal(name, title, desc, showLogin) {
+    const modalBg = document.getElementById('lockModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalDesc) modalDesc.innerHTML = desc;
+    if (modalBg) { modalBg.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  }
   window.sendContactMessage = async function() {
     const name = document.getElementById('contactName').value.trim();
     const email = document.getElementById('contactEmail').value.trim();

@@ -943,25 +943,35 @@
   };
 
   window.approveUser = async function(uid) {
-    await updateDoc(doc(db, 'users', uid), { isApproved: true });
-    showToast('User approved!'); loadUsers();
+    try {
+      await updateDoc(doc(db, 'users', uid), { isApproved: true });
+      showToast('✅ Approved! User now has premium access.'); loadUsers();
+    } catch(e) { showToast('Error: ' + e.message); }
   };
   window.revokeUser = async function(uid) {
-    if (!confirm('Revoke this user\'s approved status?')) return;
-    await updateDoc(doc(db, 'users', uid), { isApproved: false });
-    showToast('Access revoked.'); loadUsers();
+    if (!confirm('Revoke access and set to Free plan?')) return;
+    try {
+      await updateDoc(doc(db, 'users', uid), { isApproved: false, plan: 'free' });
+      showToast('Access revoked — user set to Free.'); loadUsers();
+    } catch(e) { showToast('Error: ' + e.message); }
   };
   window.updatePlan = async function(uid, plan) {
-    await updateDoc(doc(db, 'users', uid), {
-      plan,
-      isApproved: plan === 'premium' || plan === 'admin' ? true : undefined
-    });
-    // Clear that user's session cache (can't do from here, but update fires)
-    showToast(plan === 'premium' ? '💎 Premium activated!' : 'Plan updated!');
-    loadUsers();
+    try {
+      // CRITICAL FIX: isApproved must NEVER be undefined — Firestore ignores undefined
+      const updateData = { plan };
+      if (plan === 'premium' || plan === 'admin') {
+        updateData.isApproved = true;
+      } else {
+        updateData.isApproved = false;
+      }
+      await updateDoc(doc(db, 'users', uid), updateData);
+      if (plan === 'premium') showToast('💎 Premium activated! User now has full access.');
+      else if (plan === 'admin') showToast('⭐ Admin access granted!');
+      else showToast('🔓 Plan set to Free — access revoked.');
+      loadUsers();
+    } catch(e) { showToast('Error updating plan: ' + e.message); }
   };
-
-  // ── LOAD CONTACT MESSAGES (admin) ──────────────────────
+    // ── LOAD CONTACT MESSAGES (admin) ──────────────────────
   async function loadContactMessages() {
     const container = document.getElementById('messagesContainer');
     try {

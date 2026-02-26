@@ -38,7 +38,7 @@
     /* LAYOUT */
     .layout{display:flex;min-height:calc(100vh - 60px)}
     .sidebar{width:220px;flex-shrink:0;border-right:1px solid var(--border);padding:20px 0;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto}
-    .content{flex:1;padding:28px 32px;max-width:900px}
+    .content{flex:1;padding:28px 32px;max-width:960px}
     @media(max-width:700px){.sidebar{display:none}.content{padding:20px 16px}}
 
     .nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:.875rem;color:var(--text2);cursor:pointer;transition:all .2s;border-left:3px solid transparent}
@@ -61,7 +61,7 @@
 
     /* PROFILE HEADER */
     .profile-header{display:flex;align-items:center;gap:20px;margin-bottom:24px}
-    .profile-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;position:relative;overflow:hidden;flex-shrink:0}
+    .profile-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:700;position:relative;overflow:hidden;flex-shrink:0;box-shadow:0 0 0 4px rgba(99,102,241,.15)}
     .profile-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .profile-info h2{font-size:1.2rem;font-weight:700}
     .profile-info p{color:var(--text2);font-size:.875rem;margin-top:4px}
@@ -70,10 +70,23 @@
     .badge-approved{background:rgba(34,197,94,.1);color:#86efac;border:1px solid rgba(34,197,94,.3)}
     .badge-pending{background:rgba(245,158,11,.1);color:#fcd34d;border:1px solid rgba(245,158,11,.3)}
     .badge-free{background:rgba(100,116,139,.1);color:var(--text2);border:1px solid var(--border)}
+    .badge-premium{background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(34,211,238,.15));color:#a5b4fc;border:1px solid rgba(99,102,241,.4);font-weight:700}
+
+    /* PREMIUM PLAN CARD */
+    .premium-plan-hero{background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(34,211,238,.1));border:1px solid rgba(99,102,241,.4);border-radius:var(--radius);padding:28px;margin-bottom:20px;position:relative;overflow:hidden}
+    .premium-plan-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.15),transparent 70%);pointer-events:none}
+    .premium-crown{font-size:2.5rem;margin-bottom:12px;display:block}
+    .premium-plan-name{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#a5b4fc,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+    .premium-plan-desc{color:var(--text2);font-size:.875rem;margin-bottom:20px}
+    .premium-features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:20px}
+    .pf-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--text2)}
+    .pf-item svg{width:14px;height:14px;color:var(--success);flex-shrink:0}
+    .pf-item.premium{color:var(--text)}
 
     /* GRID */
-    .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:20px}
-    .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+    .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color .2s}
+    .stat-box:hover{border-color:var(--primary)}
     .stat-box-num{font-size:1.4rem;font-weight:800;color:var(--primary)}
     .stat-box-lbl{font-size:.75rem;color:var(--text2);margin-top:4px}
 
@@ -86,8 +99,7 @@
     .input-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--text3)}
     input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea{
       width:100%;padding:10px 12px 10px 34px;background:var(--surface2);border:1px solid var(--border);
-      border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;
-      transition:border-color .2s
+      border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;transition:border-color .2s
     }
     input:focus,select:focus,textarea:focus{border-color:var(--primary)}
     select{appearance:none}
@@ -95,20 +107,6 @@
     .save-btn{padding:10px 24px;background:var(--primary);border:none;border-radius:9px;color:#fff;font-family:inherit;font-size:.875rem;font-weight:600;cursor:pointer;transition:all .2s}
     .save-btn:hover{background:var(--primary-h)}
     .save-btn:disabled{opacity:.6;cursor:not-allowed}
-
-    /* PLAN CARD */
-    .plan-card{background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(34,211,238,.08));border:1px solid rgba(99,102,241,.3);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden}
-    .plan-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,102,241,.05),transparent);pointer-events:none}
-    .plan-name{font-size:1.5rem;font-weight:800;color:var(--text);margin-bottom:4px}
-    .plan-desc{color:var(--text2);font-size:.875rem;margin-bottom:16px}
-    .plan-features{list-style:none;margin-bottom:20px}
-    .plan-features li{display:flex;align-items:center;gap:8px;color:var(--text2);font-size:.875rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)}
-    .plan-features li svg{width:14px;height:14px;color:var(--success);flex-shrink:0}
-    .plan-features li.locked{color:var(--text3)}
-    .plan-features li.locked svg{color:var(--text3)}
-    .plan-expiry{font-size:.8rem;color:var(--text3);margin-top:12px}
-    .upgrade-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);border:none;border-radius:9px;color:#fff;font-family:inherit;font-size:.875rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s}
-    .upgrade-btn:hover{background:var(--primary-h);transform:translateY(-1px)}
 
     /* ALERT */
     .alert{padding:10px 14px;border-radius:9px;font-size:.85rem;margin-bottom:16px;display:none}
@@ -142,6 +140,33 @@
     /* Toast */
     #toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);padding:10px 20px;border-radius:25px;font-size:.85rem;opacity:0;transition:opacity .3s;pointer-events:none;z-index:200;white-space:nowrap}
     #toast.show{opacity:1}
+
+    /* ADMIN FILTERS */
+    .filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+    .filter-btn{padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);font-family:inherit;transition:all .2s}
+    .filter-btn.active,.filter-btn:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+    .admin-search{padding:8px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.82rem;outline:none;flex:1;min-width:180px;transition:border-color .2s}
+    .admin-search:focus{border-color:var(--primary)}
+    .premium-row{background:rgba(99,102,241,.05)!important}
+
+    /* STUDENT MSG BOX IN DASHBOARD */
+    .student-msg-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px}
+    .smb-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .smb-inbox{max-height:280px;overflow-y:auto;padding:16px;border-bottom:1px solid var(--border)}
+    .smb-compose{padding:16px}
+    .smb-msg{padding:12px 14px;background:var(--surface2);border-radius:10px;margin-bottom:10px;border-left:3px solid var(--primary)}
+    .smb-msg-meta{font-size:.7rem;color:var(--primary);font-weight:700;margin-bottom:5px;display:flex;justify-content:space-between}
+    .smb-msg-text{font-size:.85rem;color:var(--text2);line-height:1.5}
+    .smb-textarea{width:100%;padding:12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;resize:vertical;min-height:90px;transition:border-color .2s}
+    .smb-textarea:focus{border-color:var(--primary)}
+    .smb-send-row{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:12px}
+    .smb-hint{font-size:.75rem;color:var(--text3)}
+
+    /* Plan display in admin table */
+    .plan-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:700}
+    .plan-pill-premium{background:rgba(99,102,241,.15);color:#a5b4fc;border:1px solid rgba(99,102,241,.3)}
+    .plan-pill-free{background:rgba(100,116,139,.1);color:var(--text2);border:1px solid var(--border)}
+    .plan-pill-admin{background:rgba(245,158,11,.1);color:#fcd34d;border:1px solid rgba(245,158,11,.3)}
   </style>
 </head>
 <body>
@@ -177,6 +202,11 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       My Plan
     </div>
+    <div class="nav-item" onclick="showPanel('messages', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Messages
+      <span id="msgNavBadge" style="display:none;background:#ef4444;color:#fff;border-radius:10px;font-size:.65rem;padding:1px 6px;margin-left:auto"></span>
+    </div>
 
     <div class="nav-section-title" style="margin-top:12px">Resources</div>
     <div class="nav-item" onclick="window.location.href='index.html#pyq'">
@@ -203,10 +233,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         Manage Users
       </div>
-      <div class="nav-item" onclick="showPanel('messages', this)">
+      <div class="nav-item" onclick="showPanel('adminmsgs', this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Messages
-        <span id="msgBadge" style="display:none;background:var(--error);color:#fff;border-radius:10px;font-size:.65rem;padding:1px 6px;margin-left:auto"></span>
+        Contact Messages
+        <span id="adminMsgBadge" style="display:none;background:var(--error);color:#fff;border-radius:10px;font-size:.65rem;padding:1px 6px;margin-left:auto"></span>
       </div>
     </div>
   </aside>
@@ -244,6 +274,10 @@
           <div class="stat-box-num" id="statJoined">—</div>
           <div class="stat-box-lbl">Member Since</div>
         </div>
+        <div class="stat-box" id="statMsgsBox" style="display:none">
+          <div class="stat-box-num" id="statMsgs" style="color:var(--success)">0</div>
+          <div class="stat-box-lbl">Admin Messages</div>
+        </div>
       </div>
 
       <div class="card" id="pendingCard" style="display:none">
@@ -251,20 +285,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           <div>
             <div style="font-weight:600;color:#fcd34d;margin-bottom:4px">Account Pending Approval</div>
-            <div style="font-size:.875rem;color:var(--text2)">Your account is under review. Once approved by admin, you'll gain access to premium content. Contact us on Telegram <a href="https://t.me/ragexking" target="_blank" style="color:var(--primary)">@ragexking</a> to speed up the process.</div>
+            <div style="font-size:.875rem;color:var(--text2)">Your account is under review. Once approved, you'll gain premium access. Contact <a href="https://t.me/ragexking" target="_blank" style="color:var(--primary)">@ragexking</a> on Telegram.</div>
           </div>
         </div>
       </div>
 
-      <!-- FREE TEST BANNER -->
+      <!-- Free Test Banner -->
       <div id="freeTestBanner" style="background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(59,130,246,.1));border:1px solid rgba(245,158,11,.3);border-radius:var(--radius);padding:20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
         <div>
           <div style="font-weight:700;font-size:1rem;margin-bottom:4px">🎁 Free Bonus Mock Test</div>
           <div style="font-size:.85rem;color:var(--text2)">40 marks · 45 minutes · Legal Aptitude, Reasoning, English & GK</div>
         </div>
-        <div id="freeTestBannerBtn">
-          <!-- filled by JS below -->
-        </div>
+        <div id="freeTestBannerBtn"></div>
       </div>
 
       <div class="card">
@@ -277,10 +309,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
             Study Modules
           </a>
-          <a href="https://t.me/cetlaw_clat" target="_blank" class="btn-sm btn-ghost" style="display:inline-flex;align-items:center;gap:6px">Join Telegram Channel</a>
-          <button class="btn-sm btn-primary" onclick="showPanel('plan', this)\" style="display:inline-flex;align-items:center;gap:6px">
-            ⭐ Upgrade Plan
-          </button>
+          <a href="https://t.me/cetlaw_clat" target="_blank" class="btn-sm btn-ghost">Join Telegram Channel</a>
+          <button class="btn-sm btn-primary" onclick="showPanel('plan', this)" style="display:inline-flex;align-items:center;gap:6px">⭐ My Plan</button>
         </div>
       </div>
     </div>
@@ -288,9 +318,9 @@
     <!-- PROFILE -->
     <div id="profilePanel" class="panel">
       <div class="page-title">My Profile</div>
-      <div class="page-sub">Update your personal information and social accounts</div>
+      <div class="page-sub">Update your personal information</div>
 
-      <div id="profileAlert" class="alert alert-success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg><span id="profileAlertMsg">Saved successfully!</span></div>
+      <div id="profileAlert" class="alert alert-success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg><span id="profileAlertMsg">Saved!</span></div>
 
       <div class="card">
         <div class="card-title">
@@ -298,80 +328,57 @@
           Basic Information
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Full Name</label>
-            <div class="input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <input type="text" id="profileName" placeholder="Your full name"/>
-            </div>
+          <div class="form-group"><label>Full Name</label>
+            <div class="input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="profileName" placeholder="Your full name"/></div>
           </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <div class="input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <input type="email" id="profileEmail" placeholder="email@example.com" disabled style="opacity:.6;cursor:not-allowed"/>
-            </div>
+          <div class="form-group"><label>Email Address</label>
+            <div class="input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" id="profileEmail" disabled style="opacity:.6;cursor:not-allowed"/></div>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Phone Number</label>
-            <div class="input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.48a16 16 0 0 0 6.29 6.29l1.86-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <input type="tel" id="profilePhone" placeholder="+91 98765 43210"/>
-            </div>
+          <div class="form-group"><label>Phone Number</label>
+            <div class="input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.48a16 16 0 0 0 6.29 6.29l1.86-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <input type="tel" id="profilePhone" placeholder="+91 98765 43210"/></div>
           </div>
-          <div class="form-group">
-            <label>College / University</label>
-            <div class="input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <input type="text" id="profileCollege" placeholder="e.g. Govt. Law College, Mumbai"/>
-            </div>
+          <div class="form-group"><label>College / University</label>
+            <div class="input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <input type="text" id="profileCollege" placeholder="e.g. Govt. Law College, Mumbai"/></div>
           </div>
         </div>
-        <div class="form-group">
-          <label>Target Exam</label>
-          <div class="input-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="form-group"><label>Target Exam</label>
+          <div class="input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <select id="profileExam">
               <option value="">Select exam</option>
               <option value="MHT CET LAW 3 Year">MHT CET LAW 3 Year</option>
               <option value="MHT CET LAW 5 Year">MHT CET LAW 5 Year</option>
               <option value="Both">Both (3 Year + 5 Year)</option>
               <option value="CLAT">CLAT</option>
-            </select>
-          </div>
+            </select></div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2z"/><path d="M11 7v6M14 7v6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2z"/></svg>
           Social Accounts
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Telegram Username</label>
-            <div class="input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              <input type="text" id="profileTelegram" placeholder="@yourusername"/>
-            </div>
+          <div class="form-group"><label>Telegram Username</label>
+            <div class="input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <input type="text" id="profileTelegram" placeholder="@yourusername"/></div>
           </div>
-          <div class="form-group">
-            <label>Instagram Handle</label>
-            <div class="input-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg>
-              <input type="text" id="profileInstagram" placeholder="@instagramhandle"/>
-            </div>
+          <div class="form-group"><label>Instagram Handle</label>
+            <div class="input-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg>
+              <input type="text" id="profileInstagram" placeholder="@instagramhandle"/></div>
           </div>
         </div>
       </div>
-
       <button class="save-btn" id="saveProfileBtn" onclick="saveProfile()">Save Changes</button>
-
       <div class="danger-zone">
         <h3>⚠ Danger Zone</h3>
-        <p>Signing out will end your current session. You can sign back in anytime.</p>
+        <p>Signing out will end your current session.</p>
         <button class="btn-sm btn-danger" onclick="handleLogout()">Sign Out of Account</button>
       </div>
     </div>
@@ -379,30 +386,38 @@
     <!-- MY PLAN -->
     <div id="planPanel" class="panel">
       <div class="page-title">My Plan</div>
-      <div class="page-sub">View your current subscription and access details</div>
-
-      <div class="plan-card" id="planCard">
-        <div class="plan-name" id="planName">Free Plan</div>
-        <div class="plan-desc" id="planDesc">Basic access to public study materials</div>
-        <ul class="plan-features" id="planFeatures">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Study Modules (Public)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Announcements & Updates</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Recommended Books List</li>
-          <li class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Previous Year Papers (Premium)</li>
-          <li class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Practice Tests (Premium)</li>
-          <li class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Video Lectures (Premium)</li>
-          <li class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Guess Papers (Premium)</li>
-          <li class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Weekly Test Series (Premium)</li>
-        </ul>
-        <a href="https://t.me/ragexking" target="_blank" class="upgrade-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          Upgrade via Telegram — @ragexking
-        </a>
-        <div class="plan-expiry" id="planExpiry"></div>
+      <div class="page-sub">Your current subscription and access details</div>
+      <div id="planCardWrap">
+        <!-- Filled by JS -->
       </div>
     </div>
 
-    <!-- NOTIFICATIONS (student receives admin messages) -->
+    <!-- MESSAGES (student ↔ admin) -->
+    <div id="messagesPanel" class="panel">
+      <div class="page-title">Messages</div>
+      <div class="page-sub">Messages from admin and your sent queries</div>
+      <div class="student-msg-box">
+        <div class="smb-header">
+          <div>
+            <div style="font-weight:600;font-size:.95rem">📬 Inbox from Admin</div>
+            <div style="font-size:.75rem;color:var(--text3);margin-top:2px">Messages sent to you by admin</div>
+          </div>
+        </div>
+        <div class="smb-inbox" id="dashMsgInbox">
+          <div style="text-align:center;color:var(--text3);padding:20px;font-size:.85rem">Loading messages...</div>
+        </div>
+        <div class="smb-compose">
+          <div style="font-weight:600;font-size:.875rem;margin-bottom:10px;color:var(--text)">✉️ Send a message to Admin</div>
+          <textarea class="smb-textarea" id="dashMsgText" placeholder="Ask a question, report an issue, or send feedback to admin..."></textarea>
+          <div class="smb-send-row">
+            <span class="smb-hint" id="dashMsgStatus"></span>
+            <button class="btn-sm btn-primary" id="dashSendMsgBtn" onclick="sendDashMessage()">Send Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTIFICATIONS -->
     <div id="notifPanel" class="panel">
       <div class="page-title">Notifications</div>
       <div class="page-sub">Messages from admin and important updates</div>
@@ -414,31 +429,49 @@
     <!-- ADMIN: USERS -->
     <div id="adminPanel" class="panel">
       <div class="page-title">User Management</div>
-      <div class="page-sub">Approve accounts and manage premium access</div>
+      <div class="page-sub">Manage accounts, plans, and premium access</div>
+
+      <!-- Stats row -->
+      <div class="stats-grid" id="adminStats" style="margin-bottom:20px">
+        <div class="stat-box"><div class="stat-box-num" id="adminStatTotal">—</div><div class="stat-box-lbl">Total Users</div></div>
+        <div class="stat-box"><div class="stat-box-num" id="adminStatPremium" style="color:#a5b4fc">—</div><div class="stat-box-lbl">Premium Members</div></div>
+        <div class="stat-box"><div class="stat-box-num" id="adminStatPending" style="color:#fcd34d">—</div><div class="stat-box-lbl">Pending Approval</div></div>
+        <div class="stat-box"><div class="stat-box-num" id="adminStatFree">—</div><div class="stat-box-lbl">Free Users</div></div>
+      </div>
+
       <div class="card">
+        <div class="filter-bar">
+          <input class="admin-search" id="userSearch" placeholder="🔍 Search name or email..." oninput="filterUsers()"/>
+          <button class="filter-btn active" id="filter-all" onclick="setFilter('all')">All</button>
+          <button class="filter-btn" id="filter-premium" onclick="setFilter('premium')">⭐ Premium</button>
+          <button class="filter-btn" id="filter-free" onclick="setFilter('free')">Free</button>
+          <button class="filter-btn" id="filter-pending" onclick="setFilter('pending')">⏳ Pending</button>
+          <button class="btn-sm btn-ghost" onclick="loadUsers()" style="white-space:nowrap;display:flex;align-items:center;gap:5px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-9.18"/></svg> Refresh</button>
+        </div>
         <div style="overflow-x:auto">
           <table style="width:100%;border-collapse:collapse;font-size:.85rem" id="usersTable">
             <thead>
               <tr style="border-bottom:1px solid var(--border);color:var(--text2)">
-                <th style="padding:10px;text-align:left">Name</th>
+                <th style="padding:10px;text-align:left">User</th>
                 <th style="padding:10px;text-align:left">Email</th>
                 <th style="padding:10px;text-align:left">Plan</th>
                 <th style="padding:10px;text-align:left">Status</th>
+                <th style="padding:10px;text-align:left">Joined</th>
                 <th style="padding:10px;text-align:left">Actions</th>
               </tr>
             </thead>
             <tbody id="usersTableBody">
-              <tr><td colspan="5" style="padding:20px;text-align:center;color:var(--text3)">Loading users...</td></tr>
+              <tr><td colspan="6" style="padding:20px;text-align:center;color:var(--text3)">Loading users...</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- ADMIN: MESSAGES -->
-    <div id="messagesPanel" class="panel">
+    <!-- ADMIN: CONTACT MESSAGES -->
+    <div id="adminmsgsPanel" class="panel">
       <div class="page-title">Contact Messages</div>
-      <div class="page-sub">Messages sent via the contact form on the homepage</div>
+      <div class="page-sub">Messages sent via contact form and student message boxes</div>
       <div id="messagesContainer">
         <div class="card" style="text-align:center;color:var(--text3)">Loading messages...</div>
       </div>
@@ -461,93 +494,108 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
     Plan
   </div>
-  <div class="mobile-nav-item" onclick="window.location.href='index.html'">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-    Home
+  <div class="mobile-nav-item" onclick="showPanel('messages', this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    Messages
   </div>
 </nav>
 
+<!-- SEND MESSAGE MODAL (admin → student) -->
+<div id="msgModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center;padding:16px">
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:14px;padding:28px;width:100%;max-width:460px;position:relative">
+    <button onclick="closeMsgModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.2rem">✕</button>
+    <div style="margin-bottom:20px">
+      <div style="font-size:1rem;font-weight:700;margin-bottom:4px">Send Message to Student</div>
+      <div style="font-size:.85rem;color:#94a3b8">To: <strong id="msgModalName"></strong> &nbsp;·&nbsp; <span id="msgModalEmail" style="color:#6366f1"></span></div>
+    </div>
+    <input type="hidden" id="msgModalTo"/>
+    <div style="margin-bottom:16px">
+      <label style="display:block;font-size:.75rem;font-weight:600;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Message</label>
+      <textarea id="msgModalText" rows="4" placeholder="e.g. 'Your premium access has been activated!' or 'Your payment is pending.'" style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none;resize:vertical"></textarea>
+    </div>
+    <div id="msgModalAlert" style="display:none"></div>
+    <div style="display:flex;gap:10px;margin-top:4px">
+      <button id="msgModalSendBtn" onclick="sendAdminMsg()" style="flex:1;padding:11px;background:#6366f1;border:none;border-radius:9px;color:#fff;font-family:inherit;font-size:.875rem;font-weight:600;cursor:pointer">Send Message</button>
+      <button onclick="closeMsgModal()" style="padding:11px 20px;background:transparent;border:1px solid #334155;border-radius:9px;color:#94a3b8;font-family:inherit;font-size:.875rem;cursor:pointer">Cancel</button>
+    </div>
+    <p style="font-size:.72rem;color:#475569;margin-top:12px;text-align:center">Message appears in student's dashboard under Messages &amp; Notifications</p>
+  </div>
+</div>
+
 <script type="module">
   import { auth, db, ADMIN_EMAILS } from './firebase-config.js';
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
   import {
-    onAuthStateChanged, signOut
-  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  import {
-    doc, getDoc, setDoc, collection, getDocs, updateDoc, addDoc, query, orderBy, serverTimestamp
+    doc, getDoc, setDoc, collection, getDocs, updateDoc, addDoc,
+    query, orderBy, where, limit, serverTimestamp
   } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
   let currentUser = null;
   let userProfile = null;
+  let allUsers = [];
+  let activeFilter = 'all';
 
-  // Auth guard
+  // ── FAST AUTH: render immediately from auth object, fetch Firestore in parallel ──
   onAuthStateChanged(auth, async (user) => {
-    if (!user) {
-      window.location.href = 'auth.html';
-      return;
-    }
+    if (!user) { window.location.href = 'auth.html'; return; }
     currentUser = user;
-    // Save/update user profile in Firestore
     const isAdminUser = ADMIN_EMAILS.includes(user.email);
+
+    // 1. Render UI immediately from Auth data (no Firestore wait)
+    renderBasicProfile(user, isAdminUser);
+
+    // 2. Firestore ops in parallel — don't block UI
+    const ref = doc(db, 'users', user.uid);
     try {
-      const ref = doc(db, 'users', user.uid);
-      const snap = await getDoc(ref);
+      const [snap] = await Promise.all([
+        getDoc(ref),
+        // Update lastLogin quietly without blocking
+        setDoc(ref, { lastLogin: serverTimestamp() }, { merge: true }).catch(() => {})
+      ]);
+
       if (!snap.exists()) {
+        // New user — create profile
         await setDoc(ref, {
-          uid: user.uid,
-          email: user.email,
+          uid: user.uid, email: user.email,
           displayName: user.displayName || '',
           photoURL: user.photoURL || '',
-          phone: '',
-          college: '',
+          phone: '', college: '',
           plan: isAdminUser ? 'admin' : 'free',
-          isApproved: isAdminUser,
-          isAdmin: isAdminUser,
-          createdAt: serverTimestamp(),
-          lastLogin: serverTimestamp()
+          isApproved: isAdminUser, isAdmin: isAdminUser,
+          createdAt: serverTimestamp(), lastLogin: serverTimestamp()
         });
+        userProfile = { plan: isAdminUser ? 'admin' : 'free', isApproved: isAdminUser, isAdmin: isAdminUser };
       } else {
-        await setDoc(ref, { lastLogin: serverTimestamp() }, { merge: true });
+        userProfile = snap.data();
       }
-    } catch(e) {
-      console.warn('Profile save error (non-fatal):', e.message);
-    }
-    await loadUserProfile(user);
-  });
 
-  async function loadUserProfile(user) {
-    try {
-      const ref = doc(db, 'users', user.uid);
-      const snap = await getDoc(ref);
-      userProfile = snap.exists() ? snap.data() : {};
+      // Cache plan for modules page
+      const plan = userProfile.plan || 'free';
+      try { sessionStorage.setItem('mhtcet_plan_' + user.uid, plan); } catch(e) {}
+
+      // Update UI with full profile
+      renderFullProfile(user, userProfile);
+
     } catch(e) {
-      console.warn('Firestore read error:', e.message);
+      console.warn('Firestore error (non-fatal):', e.message);
       userProfile = {};
     }
-    // Always render — use Firebase Auth data as fallback
-    renderProfile(user, userProfile);
-  }
+  });
 
-  function renderProfile(user, profile) {
-    // Always use Firebase Auth as primary source — never gets stuck
-    const name = user.displayName || profile.displayName || user.email.split('@')[0] || 'Student';
-    const email = user.email;
+  // FAST render — uses only Firebase Auth data
+  function renderBasicProfile(user, isAdmin) {
+    const name = user.displayName || user.email.split('@')[0] || 'Student';
     const initial = name.charAt(0).toUpperCase();
-    const isAdmin = ADMIN_EMAILS.includes(email) || profile.isAdmin;
-    const isApproved = profile.isApproved || isAdmin;
-    const plan = isAdmin ? 'Admin' : (profile.plan || 'free');
 
-    // Top bar avatar
     document.getElementById('topAvatarInitial').textContent = initial;
     if (user.photoURL) {
       const img = document.createElement('img');
       img.src = user.photoURL;
       document.getElementById('topAvatar').appendChild(img);
     }
-
-    // Overview
     document.getElementById('overviewTitle').textContent = `Welcome back, ${name.split(' ')[0]}! 👋`;
     document.getElementById('overviewName').textContent = name;
-    document.getElementById('overviewEmail').textContent = email;
+    document.getElementById('overviewEmail').textContent = user.email;
     document.getElementById('overviewInitial').textContent = initial;
     if (user.photoURL) {
       const img = document.createElement('img');
@@ -555,27 +603,42 @@
       document.getElementById('overviewAvatar').appendChild(img);
     }
 
+    if (isAdmin) {
+      document.getElementById('overviewPlanBadge').className = 'badge badge-admin';
+      document.getElementById('overviewPlanBadge').textContent = '⭐ Admin';
+      document.getElementById('adminNavSection').style.display = 'block';
+    }
+  }
+
+  // FULL render — with Firestore data
+  function renderFullProfile(user, profile) {
+    const name = user.displayName || profile.displayName || user.email.split('@')[0] || 'Student';
+    const email = user.email;
+    const isAdmin = ADMIN_EMAILS.includes(email) || profile.isAdmin;
+    const isApproved = profile.isApproved || isAdmin;
+    const plan = isAdmin ? 'admin' : (profile.plan || 'free');
+
     // Plan badge
     const planBadge = document.getElementById('overviewPlanBadge');
     if (isAdmin) {
       planBadge.className = 'badge badge-admin';
       planBadge.textContent = '⭐ Admin';
     } else if (plan === 'premium') {
-      planBadge.className = 'badge badge-approved';
-      planBadge.textContent = '✓ Premium';
+      planBadge.className = 'badge badge-premium';
+      planBadge.innerHTML = '💎 Premium Member';
     } else {
       planBadge.className = 'badge badge-free';
       planBadge.textContent = 'Free Plan';
     }
 
-    // Status badge
+    // Status
     if (!isApproved && !isAdmin) {
       document.getElementById('overviewStatusBadge').style.display = 'inline-flex';
       document.getElementById('pendingCard').style.display = 'block';
     }
 
     // Stats
-    document.getElementById('statPlan').textContent = isAdmin ? 'Admin' : (plan.charAt(0).toUpperCase() + plan.slice(1));
+    document.getElementById('statPlan').textContent = isAdmin ? 'Admin' : (plan === 'premium' ? '💎 Premium' : 'Free');
     document.getElementById('statAccess').textContent = (isApproved || isAdmin) ? 'Full' : 'Limited';
     if (profile.createdAt?.toDate) {
       document.getElementById('statJoined').textContent = profile.createdAt.toDate().toLocaleDateString('en-IN',{month:'short',year:'numeric'});
@@ -591,47 +654,162 @@
     document.getElementById('profileInstagram').value = profile.socialInstagram || '';
 
     // Plan panel
-    if (isAdmin) {
-      document.getElementById('planName').textContent = 'Admin Access';
-      document.getElementById('planDesc').textContent = 'Full administrative access to all content and features';
-      document.getElementById('planFeatures').innerHTML = `
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> All premium content unlocked</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> User management dashboard</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> View all contact messages</li>
-      `;
-    }
+    renderPlanCard(plan, isAdmin, isApproved, profile);
 
-    // Admin section
+    // Admin
     if (isAdmin) {
       document.getElementById('adminNavSection').style.display = 'block';
       loadUsers();
-      loadMessages();
+      loadContactMessages();
     }
 
-    // Free test banner
+    // Load messages
+    loadUserMessages(user.uid, email);
+    loadNotifications(email);
     updateFreeTestBanner(profile);
-
-    // Load notifications for all users
-    loadNotifications(user.uid);
   }
 
-  // Load notifications (admin messages to this user)
-  async function loadNotifications(uid) {
+  function renderPlanCard(plan, isAdmin, isApproved, profile) {
+    const wrap = document.getElementById('planCardWrap');
+    if (isAdmin) {
+      wrap.innerHTML = `
+        <div class="premium-plan-hero">
+          <span class="premium-crown">🛡️</span>
+          <div class="premium-plan-name">Admin Access</div>
+          <div class="premium-plan-desc">Full administrative access to all content and features</div>
+          <div class="premium-features-grid">
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>All premium content</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>User management</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Contact messages</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Send messages to students</div>
+          </div>
+        </div>`;
+    } else if (plan === 'premium') {
+      wrap.innerHTML = `
+        <div class="premium-plan-hero">
+          <span class="premium-crown">💎</span>
+          <div class="premium-plan-name">Premium Plan</div>
+          <div class="premium-plan-desc">Full access to all study modules, PYQs, practice tests and more</div>
+          <div class="premium-features-grid">
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>All 9 Study Modules</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Slides Presentations</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Previous Year Papers</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Practice Quizzes</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Mock Test Series</div>
+            <div class="pf-item premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Expert Notes &amp; PDFs</div>
+          </div>
+          <a href="modules.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#6366f1;border-radius:9px;color:#fff;font-weight:700;font-size:.875rem;text-decoration:none;transition:all .2s">
+            📚 Go to Study Modules →
+          </a>
+        </div>`;
+    } else {
+      wrap.innerHTML = `
+        <div class="card">
+          <div style="font-size:1.2rem;font-weight:800;margin-bottom:4px">Free Plan</div>
+          <div style="color:var(--text2);font-size:.875rem;margin-bottom:16px">Basic access — upgrade to unlock everything</div>
+          <ul style="list-style:none;margin-bottom:20px">
+            <li style="display:flex;align-items:center;gap:8px;color:var(--text2);font-size:.875rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--success)"><polyline points="20 6 9 17 4 12"/></svg>Study Modules (Preview)</li>
+            <li style="display:flex;align-items:center;gap:8px;color:var(--text3);font-size:.875rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--text3)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Full Module Access (Premium)</li>
+            <li style="display:flex;align-items:center;gap:8px;color:var(--text3);font-size:.875rem;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--text3)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Previous Year Papers (Premium)</li>
+            <li style="display:flex;align-items:center;gap:8px;color:var(--text3);font-size:.875rem;padding:6px 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--text3)"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Slide Presentations (Premium)</li>
+          </ul>
+          <a href="https://t.me/ragexking" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#6366f1;border-radius:9px;color:#fff;font-weight:700;font-size:.875rem;text-decoration:none">
+            ⭐ Upgrade to Premium — @ragexking
+          </a>
+        </div>`;
+    }
+  }
+
+  // ── MESSAGES: student ↔ admin ─────────────────────────
+  async function loadUserMessages(uid, email) {
+    const inbox = document.getElementById('dashMsgInbox');
+    inbox.innerHTML = '<div style="text-align:center;color:var(--text3);padding:20px;font-size:.85rem">Loading...</div>';
     try {
-      const userEmail = currentUser.email;
-      const q = query(
-        collection(db, 'adminMessages'),
-        orderBy('createdAt','desc')
-      );
+      const q = query(collection(db, 'adminMessages'), orderBy('createdAt','desc'));
+      const snap = await getDocs(q);
+      inbox.innerHTML = '';
+      let count = 0, unread = 0;
+      snap.forEach(d => {
+        const m = d.data();
+        if (m.to !== email) return;
+        count++;
+        if (!m.read) unread++;
+        const el = document.createElement('div');
+        el.className = 'smb-msg';
+        el.style.borderLeftColor = m.read ? '#334155' : '#6366f1';
+        el.innerHTML = `
+          <div class="smb-msg-meta">
+            <span>From Admin${m.fromName ? ' — ' + m.fromName : ''}</span>
+            <span>${m.createdAt?.toDate?.()?.toLocaleDateString('en-IN') || ''}</span>
+          </div>
+          <div class="smb-msg-text">${m.message}</div>
+          ${!m.read ? `<button onclick="markMsgRead('${d.id}',this)" style="margin-top:8px;padding:4px 12px;background:transparent;border:1px solid #334155;border-radius:6px;color:#64748b;font-size:.72rem;cursor:pointer;font-family:inherit">Mark as read</button>` : ''}
+        `;
+        inbox.appendChild(el);
+      });
+      if (count === 0) inbox.innerHTML = '<div style="text-align:center;color:var(--text3);padding:20px;font-size:.85rem">No messages from admin yet</div>';
+
+      if (unread > 0) {
+        const badge = document.getElementById('msgNavBadge');
+        if (badge) { badge.textContent = unread; badge.style.display = 'inline-flex'; }
+        const statBox = document.getElementById('statMsgsBox');
+        const statNum = document.getElementById('statMsgs');
+        if (statBox) statBox.style.display = 'block';
+        if (statNum) statNum.textContent = unread;
+      }
+    } catch(e) {
+      inbox.innerHTML = '<div style="color:#fca5a5;font-size:.85rem;padding:16px">Could not load messages</div>';
+    }
+  }
+
+  window.markMsgRead = async function(id, btn) {
+    await updateDoc(doc(db, 'adminMessages', id), { read: true });
+    btn.remove();
+    const badge = document.getElementById('msgNavBadge');
+    if (badge) {
+      const cur = parseInt(badge.textContent) - 1;
+      badge.textContent = cur <= 0 ? '' : cur;
+      if (cur <= 0) badge.style.display = 'none';
+    }
+  };
+
+  window.sendDashMessage = async function() {
+    if (!currentUser) return;
+    const textarea = document.getElementById('dashMsgText');
+    const status = document.getElementById('dashMsgStatus');
+    const btn = document.getElementById('dashSendMsgBtn');
+    const text = textarea?.value?.trim();
+    if (!text) { if(status){status.textContent='Please write something first';status.style.color='#fca5a5'} return; }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      await addDoc(collection(db, 'messages'), {
+        name: currentUser.displayName || currentUser.email.split('@')[0],
+        email: currentUser.email,
+        message: text,
+        source: 'dashboard-msgbox',
+        read: false,
+        createdAt: serverTimestamp()
+      });
+      textarea.value = '';
+      if (status) { status.textContent = '✓ Sent! Admin will reply via dashboard notifications.'; status.style.color = '#86efac'; }
+      setTimeout(() => { if (status) status.textContent = ''; }, 5000);
+    } catch(e) {
+      if (status) { status.textContent = 'Error. Please try again.'; status.style.color = '#fca5a5'; }
+    }
+    btn.disabled = false; btn.textContent = 'Send Message';
+  };
+
+  // ── NOTIFICATIONS ─────────────────────────────────────
+  async function loadNotifications(email) {
+    try {
+      const q = query(collection(db, 'adminMessages'), orderBy('createdAt','desc'));
       const snap = await getDocs(q);
       const container = document.getElementById('notifContainer');
       container.innerHTML = '';
-      let unread = 0;
-      let count = 0;
+      let unread = 0, count = 0;
       snap.forEach(d => {
         const m = d.data();
-        // Show only messages addressed to this user
-        if (m.to !== userEmail) return;
+        if (m.to !== email) return;
         count++;
         if (!m.read) unread++;
         const card = document.createElement('div');
@@ -642,28 +820,21 @@
           <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
             <div style="display:flex;align-items:center;gap:8px">
               <div style="width:32px;height:32px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0">A</div>
-              <div>
-                <div style="font-weight:600;font-size:.875rem">${m.fromName || 'Admin'}</div>
-                <div style="font-size:.72rem;color:#64748b">${m.createdAt?.toDate?.()?.toLocaleString('en-IN') || ''}</div>
-              </div>
+              <div><div style="font-weight:600;font-size:.875rem">${m.fromName || 'Admin'}</div>
+              <div style="font-size:.72rem;color:#64748b">${m.createdAt?.toDate?.()?.toLocaleString('en-IN') || ''}</div></div>
             </div>
             ${!m.read ? '<span style="background:#6366f1;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px">New</span>' : ''}
           </div>
           <p style="color:#cbd5e1;font-size:.875rem;line-height:1.6;padding:10px;background:#0f172a;border-radius:8px">${m.message}</p>
-          ${!m.read ? `<button onclick="markNotifRead('${d.id}',this)" class="btn-sm btn-ghost" style="margin-top:10px;font-size:.75rem">Mark as Read</button>` : ''}
-        `;
+          ${!m.read ? `<button onclick="markNotifRead('${d.id}',this)" class="btn-sm btn-ghost" style="margin-top:10px;font-size:.75rem">Mark as Read</button>` : ''}`;
         container.appendChild(card);
       });
-      if (count === 0) {
-        container.innerHTML = '<div class="card" style="text-align:center;color:var(--text3);padding:32px">No notifications yet</div>';
-      }
+      if (count === 0) container.innerHTML = '<div class="card" style="text-align:center;color:var(--text3);padding:32px">No notifications yet</div>';
       if (unread > 0) {
         const badge = document.getElementById('notifBadge');
         if (badge) { badge.textContent = unread; badge.style.display = 'inline-flex'; }
       }
-    } catch(e) {
-      console.log('Notif load error:', e);
-    }
+    } catch(e) { console.log('Notif error:', e); }
   }
 
   window.markNotifRead = async function(id, btn) {
@@ -677,124 +848,169 @@
     }
   };
 
-  // Load all users (admin only)
+  // ── LOAD USERS (admin) ────────────────────────────────
   async function loadUsers() {
     const tbody = document.getElementById('usersTableBody');
-    tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;text-align:center;color:var(--text3)">Loading...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6" style="padding:20px;text-align:center;color:var(--text3)"><span class="spinner"></span> Loading...</td></tr>';
     try {
-      // No orderBy — avoids index requirement, sort in JS
       const snap = await getDocs(collection(db, 'users'));
-      tbody.innerHTML = '';
-      // Sort by createdAt descending in JS
-      const docs = [];
-      snap.forEach(d => docs.push({id: d.id, ...d.data()}));
-      docs.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
-      if (docs.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;text-align:center;color:var(--text3)">No users found</td></tr>';
-        return;
-      }
-      docs.forEach(u => {
-        const tr = document.createElement('tr');
-        tr.style.borderBottom = '1px solid var(--border)';
-        tr.innerHTML = `
-          <td style="padding:10px">
-            <div style="display:flex;align-items:center;gap:8px">
-              <div style="width:28px;height:28px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0">${(u.displayName||u.email||'?').charAt(0).toUpperCase()}</div>
-              ${u.displayName || '—'}
-            </div>
-          </td>
-          <td style="padding:10px;color:var(--text2);font-size:.82rem">${u.email}</td>
-          <td style="padding:10px">
-            <select onchange="updatePlan('${u.id}',this.value)" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 8px;border-radius:6px;font-size:.78rem">
-              <option value="free" ${u.plan==='free'||!u.plan?'selected':''}>Free</option>
-              <option value="premium" ${u.plan==='premium'?'selected':''}>Premium</option>
-              <option value="admin" ${u.plan==='admin'?'selected':''}>Admin</option>
-            </select>
-          </td>
-          <td style="padding:10px">
-            <span style="padding:3px 8px;border-radius:10px;font-size:.72rem;${u.isApproved?'background:rgba(34,197,94,.1);color:#86efac':'background:rgba(245,158,11,.1);color:#fcd34d'}">${u.isApproved?'✓ Approved':'⏳ Pending'}</span>
-          </td>
-          <td style="padding:10px">
-            <div style="display:flex;gap:6px;flex-wrap:wrap">
-              ${!u.isApproved && !u.isAdmin ? `<button onclick="approveUser('${u.id}')" class="btn-sm btn-primary" style="font-size:.72rem;padding:4px 10px">Approve</button>` : ''}
-              <button onclick="openMsgModal('${u.email}','${(u.displayName||'User').replace(/'/g,"")}')" class="btn-sm btn-ghost" style="font-size:.72rem;padding:4px 10px;display:flex;align-items:center;gap:4px">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                Msg
-              </button>
-              ${!u.isAdmin ? `<button onclick="revokeUser('${u.id}')" class="btn-sm btn-danger" style="font-size:.72rem;padding:4px 10px">Revoke</button>` : ''}
-            </div>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
+      allUsers = [];
+      snap.forEach(d => allUsers.push({id: d.id, ...d.data()}));
+      allUsers.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+      // Update stats
+      const premiumCount = allUsers.filter(u => u.plan === 'premium').length;
+      const pendingCount = allUsers.filter(u => !u.isApproved && !u.isAdmin).length;
+      const freeCount = allUsers.filter(u => u.plan === 'free' || !u.plan).length;
+      document.getElementById('adminStatTotal').textContent = allUsers.length;
+      document.getElementById('adminStatPremium').textContent = premiumCount;
+      document.getElementById('adminStatPending').textContent = pendingCount;
+      document.getElementById('adminStatFree').textContent = freeCount;
+      renderUsersTable(allUsers);
     } catch(e) {
-      tbody.innerHTML = `<tr><td colspan="5" style="padding:20px;text-align:center;color:#fca5a5">Error loading users: ${e.message}</td></tr>`;
-      console.error('loadUsers error:', e);
+      tbody.innerHTML = `<tr><td colspan="6" style="padding:20px;text-align:center;color:#fca5a5">Error: ${e.message}</td></tr>`;
     }
   }
 
+  function renderUsersTable(users) {
+    const tbody = document.getElementById('usersTableBody');
+    tbody.innerHTML = '';
+    if (users.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" style="padding:20px;text-align:center;color:var(--text3)">No users found</td></tr>';
+      return;
+    }
+    users.forEach(u => {
+      const tr = document.createElement('tr');
+      tr.style.borderBottom = '1px solid var(--border)';
+      if (u.plan === 'premium') tr.className = 'premium-row';
+      const joinDate = u.createdAt?.toDate?.()?.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}) || '—';
+      const planHtml = u.plan === 'premium'
+        ? `<span class="plan-pill plan-pill-premium">💎 Premium</span>`
+        : u.plan === 'admin'
+        ? `<span class="plan-pill plan-pill-admin">⭐ Admin</span>`
+        : `<span class="plan-pill plan-pill-free">Free</span>`;
+      tr.innerHTML = `
+        <td style="padding:10px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:30px;height:30px;border-radius:50%;background:${u.plan==='premium'?'linear-gradient(135deg,#6366f1,#22d3ee)':'#334155'};display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0">${(u.displayName||u.email||'?').charAt(0).toUpperCase()}</div>
+            <div>
+              <div style="font-weight:600;font-size:.85rem">${u.displayName || '—'}</div>
+              ${u.plan === 'premium' ? '<div style="font-size:.65rem;color:#a5b4fc">💎 Premium Member</div>' : ''}
+            </div>
+          </div>
+        </td>
+        <td style="padding:10px;color:var(--text2);font-size:.82rem">${u.email}</td>
+        <td style="padding:10px">
+          ${planHtml}
+          <select onchange="updatePlan('${u.id}',this.value)" style="margin-top:6px;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:3px 6px;border-radius:6px;font-size:.72rem;display:block;width:100%">
+            <option value="free" ${u.plan==='free'||!u.plan?'selected':''}>→ Free</option>
+            <option value="premium" ${u.plan==='premium'?'selected':''}>→ Premium</option>
+            <option value="admin" ${u.plan==='admin'?'selected':''}>→ Admin</option>
+          </select>
+        </td>
+        <td style="padding:10px">
+          <span style="padding:3px 8px;border-radius:10px;font-size:.72rem;${u.isApproved?'background:rgba(34,197,94,.1);color:#86efac':'background:rgba(245,158,11,.1);color:#fcd34d'}">${u.isApproved?'✓ Approved':'⏳ Pending'}</span>
+        </td>
+        <td style="padding:10px;color:var(--text3);font-size:.75rem">${joinDate}</td>
+        <td style="padding:10px">
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            ${!u.isApproved && !u.isAdmin ? `<button onclick="approveUser('${u.id}')" class="btn-sm btn-primary" style="font-size:.7rem;padding:4px 10px">Approve</button>` : ''}
+            <button onclick="openMsgModal('${u.email}','${(u.displayName||'User').replace(/'/g,'')}')" class="btn-sm btn-ghost" style="font-size:.7rem;padding:4px 8px;display:flex;align-items:center;gap:3px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Msg
+            </button>
+            ${!u.isAdmin ? `<button onclick="revokeUser('${u.id}')" class="btn-sm btn-danger" style="font-size:.7rem;padding:4px 8px">Revoke</button>` : ''}
+          </div>
+        </td>`;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // Filter & search
+  window.setFilter = function(filter) {
+    activeFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('filter-' + filter)?.classList.add('active');
+    filterUsers();
+  };
+
+  window.filterUsers = function() {
+    const search = document.getElementById('userSearch')?.value?.toLowerCase() || '';
+    let filtered = allUsers;
+    if (activeFilter === 'premium') filtered = filtered.filter(u => u.plan === 'premium');
+    else if (activeFilter === 'free') filtered = filtered.filter(u => u.plan === 'free' || !u.plan);
+    else if (activeFilter === 'pending') filtered = filtered.filter(u => !u.isApproved && !u.isAdmin);
+    if (search) filtered = filtered.filter(u => (u.displayName||'').toLowerCase().includes(search) || (u.email||'').toLowerCase().includes(search));
+    renderUsersTable(filtered);
+  };
+
   window.approveUser = async function(uid) {
     await updateDoc(doc(db, 'users', uid), { isApproved: true });
-    showToast('User approved!');
-    loadUsers();
+    showToast('User approved!'); loadUsers();
   };
   window.revokeUser = async function(uid) {
     if (!confirm('Revoke this user\'s approved status?')) return;
     await updateDoc(doc(db, 'users', uid), { isApproved: false });
-    showToast('Access revoked.');
-    loadUsers();
+    showToast('Access revoked.'); loadUsers();
   };
   window.updatePlan = async function(uid, plan) {
-    await updateDoc(doc(db, 'users', uid), { plan });
-    showToast('Plan updated!');
+    await updateDoc(doc(db, 'users', uid), {
+      plan,
+      isApproved: plan === 'premium' || plan === 'admin' ? true : undefined
+    });
+    // Clear that user's session cache (can't do from here, but update fires)
+    showToast(plan === 'premium' ? '💎 Premium activated!' : 'Plan updated!');
+    loadUsers();
   };
 
-  // Load messages (admin only)
-  async function loadMessages() {
-    const q = query(collection(db, 'messages'), orderBy('createdAt','desc'));
-    const snap = await getDocs(q);
+  // ── LOAD CONTACT MESSAGES (admin) ──────────────────────
+  async function loadContactMessages() {
     const container = document.getElementById('messagesContainer');
-    container.innerHTML = '';
-    let unread = 0;
-    snap.forEach(d => {
-      const m = d.data();
-      if (!m.read) unread++;
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.style.marginBottom = '12px';
-      card.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-          <div>
-            <span style="font-weight:600">${m.name}</span>
-            <span style="color:var(--text2);font-size:.8rem;margin-left:8px">${m.email}</span>
-            ${m.phone ? `<span style="color:var(--text3);font-size:.78rem;margin-left:8px">${m.phone}</span>` : ''}
+    try {
+      const q = query(collection(db, 'messages'), orderBy('createdAt','desc'));
+      const snap = await getDocs(q);
+      container.innerHTML = '';
+      let unread = 0;
+      snap.forEach(d => {
+        const m = d.data();
+        if (!m.read) unread++;
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.marginBottom = '12px';
+        card.style.borderLeft = m.read ? '3px solid #334155' : '3px solid #6366f1';
+        card.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+            <div>
+              <span style="font-weight:600">${m.name}</span>
+              <span style="color:var(--text2);font-size:.8rem;margin-left:8px">${m.email}</span>
+              ${m.source ? `<span style="color:var(--text3);font-size:.72rem;margin-left:8px;background:var(--surface2);padding:1px 6px;border-radius:4px">${m.source}</span>` : ''}
+            </div>
+            <span style="font-size:.72rem;color:var(--text3)">${m.createdAt?.toDate?.()?.toLocaleString('en-IN') || ''}</span>
           </div>
-          <span style="font-size:.72rem;color:var(--text3)">${m.createdAt?.toDate?.()?.toLocaleString('en-IN') || ''}</span>
-        </div>
-        <p style="color:var(--text2);font-size:.875rem;line-height:1.6">${m.message}</p>
-        <div style="margin-top:10px;display:flex;gap:8px">
-          <a href="mailto:${m.email}" class="btn-sm btn-ghost" style="font-size:.78rem">Reply via Email</a>
-          <button onclick="markRead('${d.id}',this)" class="btn-sm ${m.read?'btn-ghost':'btn-primary'}" style="font-size:.78rem">${m.read?'✓ Read':'Mark Read'}</button>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-    if (snap.empty) container.innerHTML = '<div class="card" style="text-align:center;color:var(--text3)">No messages yet</div>';
-    if (unread > 0) {
-      const badge = document.getElementById('msgBadge');
-      badge.textContent = unread;
-      badge.style.display = 'inline-flex';
+          <p style="color:var(--text2);font-size:.875rem;line-height:1.6">${m.message}</p>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button onclick="openMsgModal('${m.email}','${(m.name||'User').replace(/'/g,'')}')" class="btn-sm btn-primary" style="font-size:.78rem;display:flex;align-items:center;gap:5px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Reply
+            </button>
+            <a href="mailto:${m.email}" class="btn-sm btn-ghost" style="font-size:.78rem">Email</a>
+            <button onclick="markRead('${d.id}',this)" class="btn-sm ${m.read?'btn-ghost':'btn-ghost'}" style="font-size:.78rem">${m.read?'✓ Read':'Mark Read'}</button>
+          </div>`;
+        container.appendChild(card);
+      });
+      if (snap.empty) container.innerHTML = '<div class="card" style="text-align:center;color:var(--text3)">No messages yet</div>';
+      if (unread > 0) {
+        const badge = document.getElementById('adminMsgBadge');
+        if (badge) { badge.textContent = unread; badge.style.display = 'inline-flex'; }
+      }
+    } catch(e) {
+      container.innerHTML = `<div class="card" style="color:#fca5a5">Error: ${e.message}</div>`;
     }
   }
 
   window.markRead = async function(id, btn) {
     await updateDoc(doc(db, 'messages', id), { read: true });
-    btn.className = 'btn-sm btn-ghost';
     btn.textContent = '✓ Read';
-    btn.style.fontSize = '.78rem';
   };
 
-  // Save profile
+  // ── PROFILE SAVE ──────────────────────────────────────
   window.saveProfile = async function() {
     if (!currentUser) return;
     const btn = document.getElementById('saveProfileBtn');
@@ -810,9 +1026,7 @@
         updatedAt: serverTimestamp()
       }, { merge: true });
       showProfileAlert('Profile saved successfully!', 'success');
-    } catch(e) {
-      showProfileAlert('Error saving profile: ' + e.message, 'error');
-    }
+    } catch(e) { showProfileAlert('Error: ' + e.message, 'error'); }
     btn.disabled = false; btn.textContent = 'Save Changes';
   };
 
@@ -823,13 +1037,14 @@
     setTimeout(() => a.classList.remove('show'), 3000);
   }
 
-  // Logout
+  // ── LOGOUT ─────────────────────────────────────────────
   window.handleLogout = async function() {
+    try { sessionStorage.clear(); } catch(e) {}
     await signOut(auth);
     window.location.href = 'index.html';
   };
 
-  // Panel switching — on window so HTML onclick can reach it
+  // ── PANEL SWITCHING ────────────────────────────────────
   window.showPanel = function(name, el) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     const panel = document.getElementById(name + 'Panel');
@@ -839,7 +1054,7 @@
     if (el) el.classList.add('active');
   };
 
-  // Toast
+  // ── TOAST ──────────────────────────────────────────────
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
@@ -848,7 +1063,7 @@
   }
   window.showToast = showToast;
 
-  // Open message modal
+  // ── MSG MODAL (admin → student) ────────────────────────
   window.openMsgModal = function(email, name) {
     document.getElementById('msgModalName').textContent = name;
     document.getElementById('msgModalEmail').textContent = email;
@@ -857,11 +1072,9 @@
     document.getElementById('msgModalAlert').style.display = 'none';
     document.getElementById('msgModal').style.display = 'flex';
   };
-
   window.closeMsgModal = function() {
     document.getElementById('msgModal').style.display = 'none';
   };
-
   window.sendAdminMsg = async function() {
     const to = document.getElementById('msgModalTo').value;
     const text = document.getElementById('msgModalText').value.trim();
@@ -871,15 +1084,12 @@
     btn.disabled = true; btn.textContent = 'Sending...';
     try {
       await addDoc(collection(db, 'adminMessages'), {
-        to,
-        from: currentUser.email,
+        to, from: currentUser.email,
         fromName: currentUser.displayName || 'Admin',
-        message: text,
-        read: false,
-        createdAt: serverTimestamp()
+        message: text, read: false, createdAt: serverTimestamp()
       });
       alertEl.style.cssText='display:block;color:#86efac;font-size:.8rem;margin-top:8px';
-      alertEl.textContent = '✓ Message saved! User will see it in their dashboard.';
+      alertEl.textContent = '✓ Sent! Student will see it in their dashboard.';
       document.getElementById('msgModalText').value = '';
       setTimeout(closeMsgModal, 2000);
     } catch(e) {
@@ -889,7 +1099,7 @@
     btn.disabled = false; btn.textContent = 'Send Message';
   };
 
-  // Free test banner
+  // ── FREE TEST BANNER ────────────────────────────────────
   function updateFreeTestBanner(profile) {
     const isAdminUser = currentUser && ADMIN_EMAILS.includes(currentUser.email);
     const approved = profile?.isApproved || isAdminUser;
@@ -898,31 +1108,10 @@
     if (approved) {
       btn.innerHTML = '<a href="free-test.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#f59e0b;border-radius:9px;color:#000;font-weight:700;font-size:.875rem;text-decoration:none;white-space:nowrap">Start Free Test →</a>';
     } else {
-      btn.innerHTML = '<a href="https://t.me/ragexking" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#1e293b;border-radius:9px;color:#94a3b8;font-weight:600;font-size:.82rem;text-decoration:none;white-space:nowrap;border:1px solid #334155">Send <strong style=color:#f59e0b>#iwanttest</strong>&nbsp;on Telegram to Unlock</a>';
+      btn.innerHTML = '<a href="https://t.me/ragexking" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:#1e293b;border-radius:9px;color:#94a3b8;font-weight:600;font-size:.82rem;text-decoration:none;white-space:nowrap;border:1px solid #334155">Send <strong style="color:#f59e0b">#iwanttest</strong>&nbsp;on Telegram</a>';
     }
   }
 </script>
 
-<!-- SEND MESSAGE MODAL -->
-<div id="msgModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center;padding:16px">
-  <div style="background:#1e293b;border:1px solid #334155;border-radius:14px;padding:28px;width:100%;max-width:460px;position:relative">
-    <button onclick="closeMsgModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.2rem">✕</button>
-    <div style="margin-bottom:20px">
-      <div style="font-size:1rem;font-weight:700;margin-bottom:4px">Send Message to User</div>
-      <div style="font-size:.85rem;color:#94a3b8">To: <strong id="msgModalName"></strong> &nbsp;·&nbsp; <span id="msgModalEmail" style="color:#6366f1"></span></div>
-    </div>
-    <input type="hidden" id="msgModalTo"/>
-    <div style="margin-bottom:16px">
-      <label style="display:block;font-size:.75rem;font-weight:600;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Your Message</label>
-      <textarea id="msgModalText" rows="4" placeholder="Type your message to this student — e.g. 'Your premium access has been activated!' or 'Your payment is pending.'" style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none;resize:vertical"></textarea>
-    </div>
-    <div id="msgModalAlert" style="display:none"></div>
-    <div style="display:flex;gap:10px;margin-top:4px">
-      <button id="msgModalSendBtn" onclick="sendAdminMsg()" style="flex:1;padding:11px;background:#6366f1;border:none;border-radius:9px;color:#fff;font-family:inherit;font-size:.875rem;font-weight:600;cursor:pointer">Send Message</button>
-      <button onclick="closeMsgModal()" style="padding:11px 20px;background:transparent;border:1px solid #334155;border-radius:9px;color:#94a3b8;font-family:inherit;font-size:.875rem;cursor:pointer">Cancel</button>
-    </div>
-    <p style="font-size:.72rem;color:#475569;margin-top:12px;text-align:center">Message will appear in student's dashboard under "Notifications"</p>
-  </div>
-</div>
 </body>
 </html>

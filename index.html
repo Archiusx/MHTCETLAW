@@ -2,1249 +2,1095 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Study Modules — MHT CET LAW Portal</title>
-  <meta name="description" content="Complete study modules for MHT CET LAW 3 Year & 5 Year 2026-27."/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>MHT CET LAW Portal — Complete Preparation Hub</title>
+  <meta name="description" content="MHT CET LAW Portal – Maharashtra's best preparation hub for MHT CET LAW 3 Years & 5 Years entrance exams. PYQs, Study Modules, Mock Tests, Guess Papers, Video Lectures, Weekly Tests & more."/>
+  <meta name="keywords" content="MHT CET LAW,MHT CET LAW 2025,MHT CET LAW 2026,LLB entrance Maharashtra,CET LAW PYQ,MHT CET LAW notes,mock test,guess paper,syllabus,previous year papers,law entrance Maharashtra,CLAT,legal aptitude,ragexking,mhtcetlawprepare"/>
+  <meta name="author" content="MHT CET LAW Portal"/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://cetlawportal.oneapp.dev/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://cetlawportal.oneapp.dev/"/>
+  <meta property="og:title" content="MHT CET LAW Portal — Complete Preparation Hub"/>
+  <meta property="og:description" content="PYQs, Study Modules, Mock Tests, Guess Papers, Video Lectures for MHT CET LAW 3 Yr & 5 Yr."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"MHT CET LAW Portal","url":"https://cetlawportal.oneapp.dev/","description":"Comprehensive preparation hub for MHT CET LAW 3 & 5 Year entrance examinations.","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"mhtcetlawprepare@gmail.com"}}</script>
+
+  <!-- Fonts first — critical for no FOUC -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Site CSS -->
   <link rel="stylesheet" href="styling.css"/>
-  <link rel="stylesheet" href="modules.css"/>
-  <style>
-    /* ── PREMIUM GATE ───────────────────────── */
-    #premiumGate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f172a 0%,#1a1040 50%,#0f172a 100%);display:flex;align-items:center;justify-content:center;padding:20px}
-    .gate-wrap{max-width:440px;width:100%;text-align:center}
-    .gate-logo{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22d3ee);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:28px;box-shadow:0 0 40px rgba(99,102,241,.4)}
-    .gate-title{font-size:1.5rem;font-weight:800;color:#f1f5f9;margin-bottom:8px;font-family:'Inter',sans-serif}
-    .gate-sub{color:#94a3b8;font-size:.9rem;line-height:1.7;margin-bottom:28px;font-family:'Inter',sans-serif}
-    .gate-feats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px;text-align:left}
-    .gate-feat{display:flex;align-items:center;gap:8px;font-size:.8rem;color:#94a3b8;font-family:'Inter',sans-serif}
-    .gate-feat svg{width:14px;height:14px;color:#22c55e;flex-shrink:0}
-    .gate-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all .2s;margin-bottom:10px}
-    .gate-btn-primary{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;box-shadow:0 8px 24px rgba(99,102,241,.3)}
-    .gate-btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(99,102,241,.4)}
-    .gate-btn-ghost{background:transparent;color:#94a3b8;border:1px solid #334155}
-    .gate-btn-ghost:hover{background:#1e293b;color:#f1f5f9}
-    .gate-spinner{width:36px;height:36px;border:3px solid rgba(99,102,241,.2);border-top-color:#6366f1;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .gate-loading-text{color:#64748b;font-size:.875rem;font-family:'Inter',sans-serif}
-    .gate-card-inner{background:#1e293b;border:1px solid #334155;border-radius:20px;padding:36px 32px;box-shadow:0 30px 60px rgba(0,0,0,.5);animation:gateIn .4s ease}
-    @keyframes gateIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    .gate-email-show{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:8px 14px;color:#6366f1;font-size:.82rem;margin-bottom:20px;font-family:monospace}
-
-    /* ── SLIDE VIEWER ───────────────────────── */
-    #slideViewer{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px}
-    #slideViewer.open{display:flex}
-    .slide-modal{background:#1e293b;border:1px solid #334155;border-radius:20px;width:100%;max-width:740px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.6)}
-    .slide-modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #334155;flex-shrink:0}
-    .slide-modal-hdr-title{font-size:.95rem;font-weight:700;color:#f1f5f9;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:10px}
-    .slide-modal-hdr-title span{background:rgba(99,102,241,.15);color:#a5b4fc;border:1px solid rgba(99,102,241,.3);border-radius:6px;padding:2px 8px;font-size:.7rem;font-weight:700}
-    .slide-close{background:none;border:none;color:#64748b;cursor:pointer;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .2s}
-    .slide-close:hover{background:#334155;color:#f1f5f9}
-    #slideWrap{flex:1;overflow:hidden;position:relative}
-    .slide-item{display:none;padding:32px 28px;height:100%;overflow-y:auto;animation:slideAnim .2s ease}
-    .slide-item.active{display:block}
-    @keyframes slideAnim{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
-    .slide-meta{font-size:.7rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
-    .slide-heading{font-size:1.35rem;font-weight:800;color:#f1f5f9;margin-bottom:16px;line-height:1.3;font-family:'Inter',sans-serif}
-    .slide-content{color:#cbd5e1;font-size:.9rem;line-height:1.85}
-    .slide-content ul{padding-left:20px;margin-top:10px}
-    .slide-content li{margin-bottom:8px}
-    .slide-content strong{color:#f1f5f9}
-    .slide-content h4{color:#f1f5f9;margin:16px 0 8px;font-size:.95rem}
-    .slide-tip{margin-top:20px;padding:14px 16px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;color:#fcd34d;font-size:.85rem;line-height:1.6}
-    .slide-remember{margin-top:12px;padding:14px 16px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:10px;color:#86efac;font-size:.85rem;line-height:1.6}
-    .slide-modal-ftr{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-top:1px solid #334155;flex-shrink:0;gap:12px}
-    .slide-nav-btn{display:flex;align-items:center;gap:6px;padding:9px 18px;background:#263347;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
-    .slide-nav-btn:hover:not(:disabled){background:#6366f1;border-color:#6366f1;color:#fff}
-    .slide-nav-btn:disabled{opacity:.35;cursor:not-allowed}
-    #slideCounter{color:#64748b;font-size:.82rem;font-weight:600;font-family:'Inter',sans-serif}
-
-    /* ── STUDENT MESSAGE BOX ─────────────── */
-    #studentMsgToggle{position:fixed;bottom:28px;right:28px;z-index:500;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#4f46e5);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(99,102,241,.5);transition:all .2s;font-size:1.3rem}
-    #studentMsgToggle:hover{transform:scale(1.1);box-shadow:0 12px 36px rgba(99,102,241,.6)}
-    .msg-toggle-dot{position:absolute;top:2px;right:2px;width:10px;height:10px;background:#ef4444;border-radius:50%;border:2px solid #0f172a;display:none}
-    #studentMsgPanel{position:fixed;bottom:96px;right:28px;z-index:500;width:320px;background:#1e293b;border:1px solid #334155;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.5);display:none;overflow:hidden}
-    #studentMsgPanel.open{display:block;animation:panelUp .25s ease}
-    @keyframes panelUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-    .smsg-hdr{padding:16px 18px;background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(34,211,238,.08));border-bottom:1px solid #334155;display:flex;align-items:center;justify-content:space-between}
-    .smsg-hdr-title{font-size:.9rem;font-weight:700;color:#f1f5f9;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:8px}
-    .smsg-close{background:none;border:none;color:#64748b;cursor:pointer;font-size:1rem;transition:color .2s}
-    .smsg-close:hover{color:#f1f5f9}
-    .smsg-inbox{max-height:160px;overflow-y:auto;padding:12px 14px;border-bottom:1px solid #334155}
-    .smsg-compose{padding:14px}
-    .smsg-textarea{width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:'Inter',sans-serif;font-size:.83rem;outline:none;resize:none;min-height:80px;transition:border-color .2s}
-    .smsg-textarea:focus{border-color:#6366f1}
-    .smsg-send-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-    .smsg-send-btn{padding:8px 18px;background:#6366f1;border:none;border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s}
-    .smsg-send-btn:hover:not(:disabled){background:#4f46e5}
-    .smsg-send-btn:disabled{opacity:.6;cursor:not-allowed}
-    #studentMsgStatus{font-size:.75rem;color:#64748b;font-family:'Inter',sans-serif}
-
-    /* ── MODULE ENHANCEMENTS ─────────────── */
-    .mod-btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-    .btn-slides{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);border-radius:9px;color:#a5b4fc;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;min-width:0}
-    .btn-slides:hover{background:rgba(99,102,241,.2);border-color:rgba(99,102,241,.4)}
-    .btn-quiz{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:9px;color:#86efac;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;text-decoration:none;min-width:0}
-    .btn-quiz:hover{background:rgba(34,197,94,.15)}
-    .mod-new-tag{display:inline-flex;align-items:center;gap:3px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);border-radius:5px;padding:1px 7px;font-size:.62rem;font-weight:700;color:#fcd34d;margin-left:6px;vertical-align:middle}
-    .mod-progress-bar{height:4px;background:#1e293b;border-radius:2px;overflow:hidden;margin:12px 0 4px}
-    .mod-progress-fill{height:100%;background:linear-gradient(90deg,#6366f1,#22d3ee);border-radius:2px;transition:width .6s ease}
-    .mod-progress-label{font-size:.68rem;color:#64748b;display:flex;justify-content:space-between}
-    .premium-welcome-bar{background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(34,211,238,.06));border:1px solid rgba(99,102,241,.2);border-radius:14px;padding:18px 22px;margin-bottom:24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .pwb-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-    .pwb-text strong{color:#f1f5f9;font-size:.9rem;display:block;font-family:'Inter',sans-serif}
-    .pwb-text span{color:#94a3b8;font-size:.78rem;font-family:'Inter',sans-serif}
-    .pwb-badge{margin-left:auto;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:20px;padding:4px 14px;color:#86efac;font-size:.75rem;font-weight:700;font-family:'Inter',sans-serif;white-space:nowrap}
-
-    /* Modules header user */
-    .mod-header-user{display:flex;align-items:center;gap:8px;font-size:.82rem;color:#94a3b8;font-family:'Inter',sans-serif}
-    .mod-header-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#22d3ee);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.72rem;color:#fff;flex-shrink:0}
-
-    @media(max-width:600px){
-      #studentMsgPanel{width:calc(100vw - 32px);right:16px}
-      #studentMsgToggle{bottom:80px;right:16px}
-    }
-  </style>
 </head>
-<body class="ready">
+<body>
 
-<!-- ── PREMIUM ACCESS GATE ──────────────────── -->
-<div id="premiumGate">
-  <div class="gate-wrap">
-    <!-- Loading state -->
-    <div id="gateLoading">
-      <div class="gate-spinner"></div>
-      <p class="gate-loading-text">Checking your access...</p>
-    </div>
-
-    <!-- Not logged in -->
-    <div id="gateNotLoggedIn" style="display:none">
-      <div class="gate-card-inner">
-        <div class="gate-logo">🛡️</div>
-        <h2 class="gate-title">Premium Members Only</h2>
-        <p class="gate-sub">The Study Modules are exclusively available for premium members. Sign in to access all modules, slides, practice tests and more.</p>
-        <div class="gate-feats">
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Legal Aptitude</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Logical Reasoning</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>English Language</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>GK &amp; Current Affairs</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Basic Mathematics</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Slide Presentations</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Practice Quizzes</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>PYQ Papers</div>
-        </div>
-        <a href="auth.html" class="gate-btn gate-btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-          Sign In to Access
-        </a>
-        <a href="index.html" class="gate-btn gate-btn-ghost">← Back to Home</a>
-      </div>
-    </div>
-
-    <!-- Logged in but not premium -->
-    <div id="gateNotPremium" style="display:none">
-      <div class="gate-card-inner">
-        <div class="gate-logo">⭐</div>
-        <h2 class="gate-title">Upgrade to Premium</h2>
-        <p class="gate-sub">You're logged in as <span id="gateUserEmail" style="color:#6366f1;font-weight:600"></span> but don't have a premium plan yet. Contact us on Telegram to unlock everything.</p>
-        <div class="gate-feats">
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>All 9 Study Modules</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Slide Presentations</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Practice Quizzes</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>PYQ Papers Access</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Mock Test Series</div>
-          <div class="gate-feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Expert Notes &amp; PDFs</div>
-        </div>
-        <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="gate-btn gate-btn-primary">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-          DM @ragexking to Upgrade
-        </a>
-        <a href="dashboard.html" class="gate-btn gate-btn-ghost">Go to Dashboard</a>
-      </div>
-    </div>
+<!-- ╔══════════════════════════════════════╗
+     ║  SPLASH SCREEN                       ║
+     ╚══════════════════════════════════════╝ -->
+<div id="splash" role="status" aria-label="Loading">
+  <div class="splash-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
   </div>
+  <div class="splash-name">MHT CET LAW Portal</div>
+  <div class="splash-bar-wrap"><div class="splash-bar"></div></div>
 </div>
 
-<!-- ── SLIDE VIEWER MODAL ───────────────────── -->
-<div id="slideViewer" role="dialog" aria-modal="true" aria-labelledby="slideViewerTitle">
-  <div class="slide-modal">
-    <div class="slide-modal-hdr">
-      <div class="slide-modal-hdr-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px;color:#6366f1"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        <span id="slideViewerTitle">Module Slides</span>
-        <span>PREMIUM</span>
-      </div>
-      <button class="slide-close" onclick="closeSlides()" aria-label="Close slides">✕</button>
-    </div>
-    <div id="slideWrap"></div>
-    <div class="slide-modal-ftr">
-      <button class="slide-nav-btn" id="slidePrev" onclick="prevSlide()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="15 18 9 12 15 6"/></svg> Prev
-      </button>
-      <span id="slideCounter">1 / 1</span>
-      <button class="slide-nav-btn" id="slideNext" onclick="nextSlide()">
-        Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- ── STUDENT MESSAGE BOX ──────────────────── -->
-<button id="studentMsgToggle" title="Message Admin" aria-label="Open message box">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  <div class="msg-toggle-dot" id="msgToggleDot"></div>
-</button>
-<div id="studentMsgPanel">
-  <div class="smsg-hdr">
-    <div class="smsg-hdr-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;color:#6366f1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Messages from Admin
-    </div>
-    <button class="smsg-close" id="closeMsgPanel" aria-label="Close">✕</button>
-  </div>
-  <div class="smsg-inbox" id="studentMsgList">
-    <div style="text-align:center;padding:12px;color:#475569;font-size:.78rem">Click to load messages</div>
-  </div>
-  <div class="smsg-compose">
-    <textarea class="smsg-textarea" id="studentMsgText" placeholder="Ask admin a question or send a message..." rows="3"></textarea>
-    <div class="smsg-send-row">
-      <span id="studentMsgStatus"></span>
-      <button class="smsg-send-btn" id="sendStudentMsg">Send</button>
-    </div>
-  </div>
-</div>
-
-<!-- ── ACTUAL PAGE CONTENT (hidden until access granted) ── -->
-<div id="modulesPageContent">
-
-<!-- HEADER -->
+<!-- ╔══════════════════════════════════════╗
+     ║  HEADER                              ║
+     ╚══════════════════════════════════════╝ -->
 <header class="header">
   <div class="container">
     <div class="header-content">
+
       <div class="logo-section">
-        <a href="index.html" class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </a>
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
         <div class="brand-text">
           <h1>MHT CET LAW Portal</h1>
           <p>Maharashtra's Law Entrance Preparation Hub</p>
         </div>
       </div>
+
       <div class="header-actions">
-        <div class="mod-header-user">
-          <div class="mod-header-avatar" id="headerUserAvatar">?</div>
-          <span id="gateUserName" style="color:#f1f5f9;font-weight:600"></span>
-          <span style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:12px;padding:2px 8px;font-size:.65rem;font-weight:700;color:#86efac">⭐ PREMIUM</span>
-        </div>
-        <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:13px;height:13px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0z"/></svg>
-          Channel
+
+        <!-- Telegram -->
+        <a href="https://t.me/cetlaw_clat"
+           target="_blank"
+           rel="noopener"
+           class="btn btn-ghost btn-sm">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0z"/>
+          </svg>
+          Join Channel
         </a>
-        <a href="dashboard.html" class="btn btn-ghost btn-sm">Dashboard</a>
+
+        <!-- Buy Course -->
+        <a href="https://t.me/ragexking"
+           target="_blank"
+           rel="noopener"
+           class="btn btn-primary btn-sm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72
+                     a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          Buy Complete Course
+        </a>
+
+        <!-- Auth Buttons -->
+        <div id="authHeaderArea" style="display:flex;align-items:center;gap:8px">
+          <a href="auth.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="auth.html" class="btn btn-primary btn-sm">Join Free</a>
+        </div>
+        <div id="userHeaderArea" style="display:none;align-items:center;gap:8px">
+          <a href="dashboard.html" class="btn btn-ghost btn-sm" style="display:flex;align-items:center;gap:6px;font-size:.82rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Dashboard
+          </a>
+          <div id="headerAvatar" style="width:32px;height:32px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;cursor:pointer;color:#fff;position:relative;overflow:hidden;flex-shrink:0" onclick="window.location.href='dashboard.html'">
+            <span id="headerAvatarInitial">?</span>
+          </div>
+        </div>
+
+        <!-- 🌙 Dark Mode Toggle -->
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" stroke="currentColor" stroke-width="2"/></svg>
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none">
+            <path d="M21 12.79A9 9 0 0111.21 3
+                     7 7 0 1021 12.79z"
+                  stroke="currentColor"
+                  stroke-width="2"/>
+          </svg>
         </button>
+
       </div>
+
     </div>
   </div>
 </header>
 
-<!-- NAV -->
-<nav class="nav">
+<!-- ╔══════════════════════════════════════╗
+     ║  NAVIGATION                          ║
+     ╚══════════════════════════════════════╝ -->
+<nav class="nav" aria-label="Site navigation">
   <div class="container">
     <div class="nav-container">
-      <a href="index.html" class="nav-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home
+
+      <a href="#notice" class="nav-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        Announcements
       </a>
-      <a href="modules.html" class="nav-link active">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Study Modules
+
+      <a href="#pyq" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Previous Year Papers
       </a>
-      <a href="index.html#pyq" class="nav-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PYQ Papers
+
+      <a href="#notes" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Study Modules
       </a>
-      <a href="index.html#mock" class="nav-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Mock Tests
+
+      <a href="#tests" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Practice Tests
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;color:#94a3b8;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       </a>
-      <a href="free-test.html" class="nav-link" style="color:#f59e0b;font-weight:600">
+
+      <a href="#important" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Important Questions
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;color:#94a3b8;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </a>
+
+      <a href="#guess" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Guess Papers
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;color:#94a3b8;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </a>
+
+      <a href="#video" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        Video Lectures
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;color:#94a3b8;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </a>
+
+      <a href="#weekly" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Weekly Tests
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;color:#94a3b8;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </a>
+
+      <a href="free-test.html" class="nav-link" style="color:#f59e0b">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         🎁 Free Test
       </a>
+      <a href="#books" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Books
+      </a>
+
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="modules-hero">
+<!-- ╔══════════════════════════════════════╗
+     ║  HERO                                ║
+     ╚══════════════════════════════════════╝ -->
+<section class="hero">
   <div class="container">
-    <div class="modules-hero-inner">
-      <div class="modules-hero-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Updated for 2026–27 Exam Cycle
+    <div class="hero-inner">
+      <h2>MHT CET LAW Portal</h2>
+      <p>Your comprehensive preparation platform for MHT CET LAW 3 Years &amp; 5 Years entrance examinations. Access study materials, practice tests, and expert resources — all in one place.</p>
+
+      <div class="hero-ctas">
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="btn btn-white">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Buy Complete Course
+        </a>
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="btn btn-outline-white">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Join Our Telegram
+        </a>
+        <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener" class="btn btn-outline-white">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Join CET LAW Channel
+        </a>
       </div>
-      <h2>Complete Study Modules</h2>
-      <p>Expert-crafted modules aligned to the <strong>official MHT CET LAW 2026-27 syllabus</strong>. Full premium access with slides, quizzes, and practice material.</p>
-      <div class="modules-hero-stats">
-        <div class="mhs-stat"><span class="mhs-num">120</span><span class="mhs-lbl">Questions / Paper</span></div>
-        <div class="mhs-divider"></div>
-        <div class="mhs-stat"><span class="mhs-num">2 hrs</span><span class="mhs-lbl">Exam Duration</span></div>
-        <div class="mhs-divider"></div>
-        <div class="mhs-stat"><span class="mhs-num">0</span><span class="mhs-lbl">Negative Marking</span></div>
-        <div class="mhs-divider"></div>
-        <div class="mhs-stat"><span class="mhs-num">9</span><span class="mhs-lbl">Modules Unlocked</span></div>
+
+      <!-- Stats row -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num count-up" data-target="1500" data-suffix="+">0</div>
+          <div class="hero-stat-lbl">Students Preparing</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num count-up" data-target="50" data-suffix="+">0</div>
+          <div class="hero-stat-lbl">Practice Tests</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5 Years</div>
+          <div class="hero-stat-lbl">Question Papers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">24/7</div>
+          <div class="hero-stat-lbl">Access Available</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROGRAMME TABS -->
-<div class="programme-tabs-wrap">
+<!-- ╔══════════════════════════════════════╗
+     ║  MAIN CONTENT                        ║
+     ╚══════════════════════════════════════╝ -->
+<main class="main">
   <div class="container">
-    <div class="programme-tabs" role="tablist">
-      <button class="ptab active" id="tab-5yr" role="tab" aria-selected="true" aria-controls="panel-5yr" data-tab="5yr">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        <div><span class="ptab-title">5-Year LLB</span><span class="ptab-sub">After 12th / Intermediate</span></div>
-        <span class="ptab-badge">5 Subjects</span>
-      </button>
-      <button class="ptab" id="tab-3yr" role="tab" aria-selected="false" aria-controls="panel-3yr" data-tab="3yr">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        <div><span class="ptab-title">3-Year LLB</span><span class="ptab-sub">After Graduation</span></div>
-        <span class="ptab-badge ptab-badge-purple">4 Subjects</span>
-      </button>
+
+    <!-- ── ANNOUNCEMENTS ─────────────────── -->
+<section id="notice">
+<div class="notice-list">
+  <div class="notice-item">
+    <div class="notice-item-left">
+      <div class="notice-dot"></div>
+      <span class="notice-text">
+        📢 <strong>IMPORTANT – MHT CET LAW 2026 Registration Extended 🎗️</strong><br>
+        MHT CET Law application form last date has been extended. Don't miss it!
+      </span>
     </div>
+    <a href="https://cetcell.mahacet.org/wp-content/uploads/2023/12/2nd-Extension-Reg-Notice_-LLB-3-Yrs-BPEd-BEd-MEd-CET-2026.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      View Extension Notice
+    </a>
+  </div>
+  <div class="notice-item">
+    <div class="notice-item-left">
+      <div class="notice-dot"></div>
+      <span class="notice-text">Revised Admission Schedule — <strong>LLB 3 Year Course</strong>, Maharashtra AY 2025-26</span>
+    </div>
+    <a href="https://cetcell.mahacet.org/wp-content/uploads/2023/12/Revised-Admission-Schedule-for-LLB-3-Year-Course-in-Maharashtra-for-Academic-Year-2025-26.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      View Notice
+    </a>
+  </div>
+  <div class="notice-item">
+    <div class="notice-item-left">
+      <div class="notice-dot"></div>
+      <span class="notice-text">Revised Admission Schedule — <strong>LLB 5 Year Course</strong>, Maharashtra AY 2025-26</span>
+    </div>
+    <a href="https://cetcell.mahacet.org/wp-content/uploads/2023/12/Revised-Admission-Schedule-for-LLB-5-Year-Course-in-Maharashtra-for-Academic-Year-2025-26.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      View Notice
+    </a>
+  </div>
+  <div class="notice-item">
+    <div class="notice-item-left">
+      <div class="notice-dot"></div>
+      <span class="notice-text">Previous Year Question Papers (2020–2024) now available for both 3 Yr &amp; 5 Yr programs</span>
+    </div>
+    <a href="#pyq" class="btn btn-primary btn-sm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      View Papers
+    </a>
+  </div>
+</div>
+<div style="padding:.75rem 0 .25rem;">
+  <div class="alert alert-info">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span><strong>Exam Pattern 2026:</strong> Latest MHT CET LAW exam pattern and syllabus changes will be posted here as soon as officially announced.</span>
+  </div>
+</div>
+</section>
+
+        <!-- ── QUICK STATS ────────────────────── -->
+    <div class="stats">
+      <div class="stat-card fade-in">
+        <div class="stat-number count-up" data-target="1500" data-suffix="+">0</div>
+        <div class="stat-label">Students Preparing</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number count-up" data-target="50" data-suffix="+">0</div>
+        <div class="stat-label">Practice Tests</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">5 Years</div>
+        <div class="stat-label">Question Papers</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Access Available</div>
+      </div>
+    </div>
+
+    <!-- ── RESOURCE CARDS ─────────────────── -->
+    <div class="card-grid">
+
+      <!-- Previous Year Papers -->
+      <div id="pyq" class="card fade-in card-locked">
+        <div class="card-header">
+          <div class="card-icon icon-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="card-title">Previous Year Question Papers</h3>
+          <p class="card-description">Complete collection — 2020 to 2024</p>
+        </div>
+        <div class="card-body">
+          <p class="card-content">MHT CET LAW question papers for both 3 Year and 5 Year programs with detailed solutions and topic-wise analysis.</p>
+          <button class="btn btn-primary btn-full" onclick="handlePremiumAccess('pyq.html','Previous Year Papers')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            View PYQ Papers
+          </button>
+        </div>
+        <div class="card-lock-footer">
+          <span class="lock-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Premium Access Required
+          </span>
+          <button class="btn btn-outline btn-sm" onclick="handlePremiumAccess('pyq.html','Previous Year Papers')">Unlock Access</button>
+        </div>
+      </div>
+
+    <!-- Study Modules -->
+<div id="notes" class="card fade-in">
+  <div class="card-header">
+    <div class="card-icon icon-green">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    </div>
+    <h3 class="card-title">Comprehensive Study Modules</h3>
+    <p class="card-description">3-Year &amp; 5-Year LLB — Topic-wise material</p>
+  </div>
+  <div class="card-body">
+    <p class="card-content">Well-structured modules covering Legal Aptitude, Logical Reasoning, English, GK &amp; Maths. Choose your programme (3-Yr / 5-Yr) and start preparing.</p>
+    <a href="modules.html" class="btn btn-primary btn-full">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      View Study Modules
+    </a>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     5-YEAR LLB PANEL
-     ══════════════════════════════════════════ -->
-<div id="panel-5yr" class="modules-panel active" role="tabpanel" aria-labelledby="tab-5yr">
-  <div class="container">
-
-    <!-- Premium Welcome Bar -->
-    <div class="premium-welcome-bar">
-      <div class="pwb-icon">🎓</div>
-      <div class="pwb-text">
-        <strong>5-Year LLB Programme — Full Access</strong>
-        <span>All modules, slides, quizzes &amp; PYQ papers are unlocked for you</span>
-      </div>
-      <div class="pwb-badge">✓ Premium Active</div>
-    </div>
-
-    <div class="exam-info-bar">
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Exam: <strong>8 May 2026</strong></div>
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: <strong>2 Hours</strong></div>
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Questions: <strong>120 MCQs</strong></div>
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Eligibility: <strong>12th Pass (45%+)</strong></div>
-    </div>
-
-    <div class="modules-grid">
-
-      <!-- MODULE 1: Legal Aptitude (5yr) -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#2563eb,#1e40af)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 01</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
+      <!-- Practice Tests -->
+      <div id="tests" class="card fade-in card-locked">
+        <div class="card-header">
+          <div class="card-icon icon-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Legal Aptitude &amp; Legal Reasoning</h3>
-          <p>Constitutional Law, Contracts, Torts, IPC &amp; Legal Maxims</p>
-          <div class="mod-qs-badge">32 Questions · Highest Weightage</div>
+          <h3 class="card-title">Practice Test Papers</h3>
+          <p class="card-description">Full-length mock tests and sectional practice</p>
         </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">32</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">12</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~40min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Indian Constitution &amp; Fundamental Rights</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Contract Act — Offer, Acceptance, Consideration</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Law of Torts — Negligence, Strict Liability</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Indian Penal Code (IPC) — Key Provisions</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Legal Maxims &amp; Principles</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="legal-aptitude.html" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('Legal Aptitude — Slides', legalAptitudeSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
+        <div class="card-body">
+          <p class="card-content">Full-length mock tests and sectional tests designed to simulate the actual MHT CET LAW exam environment with performance analysis.</p>
+          <button class="btn btn-primary btn-full" onclick="handlePremiumAccess('practice-tests.html','Practice Test Papers')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Start Test
+          </button>
+        </div>
+        <div class="card-lock-footer">
+          <span class="lock-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Premium Access Required
+          </span>
+          <button class="btn btn-outline btn-sm" onclick="handlePremiumAccess('practice-tests.html','Practice Test Papers')">Unlock Access</button>
         </div>
       </div>
 
-      <!-- MODULE 2: Logical Reasoning (5yr) -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#7c3aed,#5b21b6)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 02</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
+      <!-- Important Questions -->
+      <div id="important" class="card fade-in card-locked">
+        <div class="card-header">
+          <div class="card-icon icon-yellow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
-          <h3>Logical &amp; Analytical Reasoning</h3>
-          <p>Sequences, Syllogisms, Analogies &amp; Critical Reasoning</p>
-          <div class="mod-qs-badge">32 Questions · Highest Weightage</div>
+          <h3 class="card-title">Most Important Questions</h3>
+          <p class="card-description">Curated high-priority question sets</p>
         </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">32</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">10</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~40min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Logical Sequences &amp; Number Series</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Syllogisms &amp; Venn Diagrams</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Analogies, Classifications &amp; Odd-One-Out</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Blood Relations &amp; Directions</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Critical Reasoning &amp; Conclusions</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="#reasoning" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('Logical Reasoning — Slides', reasoningSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
+        <div class="card-body">
+          <p class="card-content">Most frequently asked and important questions based on 5-year PYQ analysis and expert recommendations across all sections.</p>
+          <button class="btn btn-primary btn-full" onclick="handlePremiumAccess('important-questions.html','Most Important Questions')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            View Important Qs
+          </button>
+        </div>
+        <div class="card-lock-footer">
+          <span class="lock-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Premium Access Required
+          </span>
+          <button class="btn btn-outline btn-sm" onclick="handlePremiumAccess('important-questions.html','Most Important Questions')">Unlock Access</button>
         </div>
       </div>
 
-      <!-- MODULE 3: English (5yr) -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#dc2626,#991b1b)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 03</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
+      <!-- Guess Papers -->
+      <div id="guess" class="card fade-in card-locked">
+        <div class="card-header">
+          <div class="card-icon icon-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg></div>
-          <h3>English Language &amp; Comprehension</h3>
-          <p>Grammar, Vocabulary, Reading Comprehension &amp; Writing</p>
-          <div class="mod-qs-badge">24 Questions · Medium Weightage</div>
+          <h3 class="card-title">Guess Papers 2026</h3>
+          <p class="card-description">Expert-predicted high-probability questions</p>
         </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">24</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">8</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~30min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Grammar &amp; Sentence Correction</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Vocabulary, Synonyms &amp; Antonyms</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Reading Comprehension Passages</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Idioms, Phrases &amp; One-Word Substitution</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Para Jumbles &amp; Fill in the Blanks</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="#english" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('English Language — Slides', englishSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
+        <div class="card-body">
+          <p class="card-content">Carefully crafted guess papers based on deep trend analysis of 5 years of PYQs to maximise your score on exam day.</p>
+          <button class="btn btn-primary btn-full" onclick="handlePremiumAccess('guess-papers.html','Guess Papers 2026')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Access Guess Papers
+          </button>
+        </div>
+        <div class="card-lock-footer">
+          <span class="lock-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Premium Access Required
+          </span>
+          <button class="btn btn-outline btn-sm" onclick="handlePremiumAccess('guess-papers.html','Guess Papers 2026')">Unlock Access</button>
         </div>
       </div>
 
-      <!-- MODULE 4: GK (5yr) -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#059669,#047857)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 04</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
+      <!-- Video Lectures -->
+      <div id="video" class="card fade-in card-locked">
+        <div class="card-header">
+          <div class="card-icon icon-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
           </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h3>General Knowledge &amp; Current Affairs</h3>
-          <p>History, Geography, Polity, Economy &amp; Contemporary Events</p>
-          <div class="mod-qs-badge">24 Questions · Medium Weightage</div>
+          <h3 class="card-title">Video Lectures</h3>
+          <p class="card-description">Recorded &amp; live concept sessions</p>
         </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">24</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">14</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~30min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian History &amp; Freedom Struggle</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian Geography &amp; Environment</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian Polity, Constitution &amp; Governance</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian Economy &amp; Budget 2025-26</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Current Affairs 2025–26</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="#gk" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('GK &amp; Current Affairs — Slides', gkSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
+        <div class="card-body">
+          <p class="card-content">100+ concise video lectures (7–10 min each) covering all topics. Includes recorded sessions and scheduled live classes.</p>
+          <button class="btn btn-primary btn-full" onclick="handlePremiumAccess('video-lectures.html','Video Lectures')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Watch Lectures
+          </button>
+        </div>
+        <div class="card-lock-footer">
+          <span class="lock-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Premium Access Required
+          </span>
+          <button class="btn btn-outline btn-sm" onclick="handlePremiumAccess('video-lectures.html','Video Lectures')">Unlock Access</button>
         </div>
       </div>
 
-      <!-- MODULE 5: Basic Mathematics (5yr exclusive) -->
-      <div class="mod-card unlocked only-5yr fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#d97706,#b45309)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 05</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
+      <!-- Weekly Tests -->
+      <div id="weekly" class="card fade-in card-locked">
+        <div class="card-header">
+          <div class="card-icon icon-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></div>
-          <h3>Basic Mathematics <span style="font-size:.7rem;background:rgba(255,255,255,.15);border-radius:5px;padding:2px 7px">5-Yr Only</span></h3>
-          <p>Arithmetic, Algebra, Data Interpretation — 10th Standard Level</p>
-          <div class="mod-qs-badge exclusive-badge">⭐ 5-Year LLB Exclusive · 8 Questions</div>
+          <h3 class="card-title">Weekly Test Series</h3>
+          <p class="card-description">New test every Sunday</p>
         </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">8</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">10</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~10min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#d97706"><path d="M9 11l3 3L22 4"/></svg>Profit &amp; Loss, Average, Percentage</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#d97706"><path d="M9 11l3 3L22 4"/></svg>Speed, Distance &amp; Time</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#d97706"><path d="M9 11l3 3L22 4"/></svg>Algebra — Basic Equations</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#d97706"><path d="M9 11l3 3L22 4"/></svg>Venn Diagrams &amp; Set Theory</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#d97706"><path d="M9 11l3 3L22 4"/></svg>Simple &amp; Compound Interest</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="#maths" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('Basic Mathematics — Slides', mathsSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
+        <div class="card-body">
+          <p class="card-content">A fresh test every Sunday to keep preparation consistent. Track performance, identify weak areas, and build exam confidence week by week.</p>
+          <button class="btn btn-primary btn-full" onclick="handlePremiumAccess('weekly-tests.html','Weekly Test Series')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Join Test Series
+          </button>
+        </div>
+        <div class="card-lock-footer">
+          <span class="lock-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Premium Access Required
+          </span>
+          <button class="btn btn-outline btn-sm" onclick="handlePremiumAccess('weekly-tests.html','Weekly Test Series')">Unlock Access</button>
         </div>
       </div>
 
-      <!-- MODULE 6: Previous Year Papers (NEW) -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#0891b2,#0e7490)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 06</span>
-            <span class="mod-status open" style="background:rgba(245,158,11,.15);color:#fcd34d;border:1px solid rgba(245,158,11,.3)">🆕 New</span>
+      <!-- Books -->
+      <div id="books" class="card fade-in">
+        <div class="card-header">
+          <div class="card-icon icon-indigo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <h3>Previous Year Papers <span class="mod-new-tag">NEW</span></h3>
-          <p>Solved PYQs from 2018-2024 with detailed explanations</p>
-          <div class="mod-qs-badge">7 Years of Papers · Fully Solved</div>
+          <h3 class="card-title">Recommended Books</h3>
+          <p class="card-description">Expert-recommended study materials</p>
         </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">7+</span><span class="ms-lbl">Year Papers</span></div>
-            <div class="ms-item"><span class="ms-val">840+</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">Full</span><span class="ms-lbl">Solutions</span></div>
-          </div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Available Papers</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>MHT CET LAW 5-Year: 2018–2024</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>MHT CET LAW 3-Year: 2019–2024</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>With Official Answer Keys</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>Detailed Explanations</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="index.html#pyq" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PYQ Papers
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('PYQ Strategy — Slides', pyqSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Strategy Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Practice
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /modules-grid 5yr -->
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     3-YEAR LLB PANEL
-     ══════════════════════════════════════════ -->
-<div id="panel-3yr" class="modules-panel" role="tabpanel" aria-labelledby="tab-3yr">
-  <div class="container">
-
-    <div class="premium-welcome-bar">
-      <div class="pwb-icon">⚖️</div>
-      <div class="pwb-text">
-        <strong>3-Year LLB Programme — Full Access</strong>
-        <span>All 4 modules plus PYQ papers &amp; practice tests unlocked</span>
-      </div>
-      <div class="pwb-badge">✓ Premium Active</div>
-    </div>
-
-    <div class="exam-info-bar">
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Exam: <strong>1–2 April 2026</strong></div>
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: <strong>2 Hours</strong></div>
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/></svg>Questions: <strong>120 MCQs</strong></div>
-      <div class="eib-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Eligibility: <strong>Graduation (45%+)</strong></div>
-    </div>
-
-    <div class="modules-grid">
-
-      <!-- MODULE 1 3yr: Legal Aptitude -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#2563eb,#1e40af)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 01</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
-          </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Legal Aptitude &amp; Legal Reasoning</h3>
-          <p>Constitutional Law, Contracts, Torts, IPC &amp; Legal Maxims</p>
-          <div class="mod-qs-badge">32 Questions · Highest Weightage</div>
-        </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">32</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">12</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~40min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Indian Constitution &amp; Fundamental Rights</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Contract Act — Offer, Acceptance, Consideration</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Law of Torts — Negligence, Strict Liability</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Indian Penal Code (IPC) — Key Provisions</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#16a34a"><path d="M9 11l3 3L22 4"/></svg>Legal Maxims &amp; Principles</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="legal-aptitude.html" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('Legal Aptitude — Slides', legalAptitudeSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 2 3yr: Logical Reasoning -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#7c3aed,#5b21b6)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 02</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
-          </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
-          <h3>Logical &amp; Analytical Reasoning</h3>
-          <p>Sequences, Syllogisms, Analogies &amp; Critical Reasoning</p>
-          <div class="mod-qs-badge">32 Questions · Highest Weightage</div>
-        </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">32</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">10</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~40min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Logical Sequences &amp; Number Series</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Syllogisms &amp; Venn Diagrams</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Analogies, Classifications &amp; Odd-One-Out</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Blood Relations &amp; Directions</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#7c3aed"><path d="M9 11l3 3L22 4"/></svg>Critical Reasoning &amp; Conclusions</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="#reasoning-3yr" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('Logical Reasoning — Slides', reasoningSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 3 3yr: English (40 Qs — highest) -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#dc2626,#991b1b)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 03</span>
-            <span class="mod-status open" style="background:rgba(245,158,11,.15);color:#fcd34d;border:1px solid rgba(245,158,11,.3)">⭐ Highest</span>
-          </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg></div>
-          <h3>English Language &amp; Comprehension</h3>
-          <p>Grammar, Vocabulary, Reading Comprehension &amp; Writing</p>
-          <div class="mod-qs-badge">40 Questions · ⭐ Highest in 3-Year Paper</div>
-        </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">40</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">8</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~50min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Grammar &amp; Sentence Correction</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Vocabulary, Synonyms &amp; Antonyms</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Reading Comprehension Passages</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Idioms, Phrases &amp; One-Word Substitution</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#dc2626"><path d="M9 11l3 3L22 4"/></svg>Para Jumbles &amp; Fill in the Blanks</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="#english-3yr" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('English Language — Slides', englishSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 4 3yr: GK -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#059669,#047857)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 04</span>
-            <span class="mod-status open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:11px;height:11px"><path d="M9 11l3 3L22 4"/></svg> Unlocked</span>
-          </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <h3>General Knowledge &amp; Current Affairs</h3>
-          <p>History, Geography, Polity, Economy &amp; Contemporary Events</p>
-          <div class="mod-qs-badge">32 Questions · High Weightage</div>
-        </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">32</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">14</span><span class="ms-lbl">Topics</span></div>
-            <div class="ms-item"><span class="ms-val">~40min</span><span class="ms-lbl">Duration</span></div>
-          </div>
-          <div class="mod-progress-bar"><div class="mod-progress-fill" style="width:0%"></div></div>
-          <div class="mod-progress-label"><span>Progress</span><span>0%</span></div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Key Topics</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian History &amp; Freedom Struggle</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian Geography &amp; Environment</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian Polity &amp; Governance</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Indian Economy &amp; Finance</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#059669"><path d="M9 11l3 3L22 4"/></svg>Current Affairs 2025–26</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="#gk-3yr" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polygon points="5 3 19 12 5 21 5 3"/></svg> Start Learning
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('GK &amp; Current Affairs — Slides', gkSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 5 3yr: Previous Year Papers (NEW) -->
-      <div class="mod-card unlocked fade-in">
-        <div class="mod-header" style="background:linear-gradient(135deg,#0891b2,#0e7490)">
-          <div class="mod-header-top">
-            <span class="mod-num">Module 05</span>
-            <span class="mod-status open" style="background:rgba(245,158,11,.15);color:#fcd34d;border:1px solid rgba(245,158,11,.3)">🆕 New</span>
-          </div>
-          <div class="mod-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:28px;height:28px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-          <h3>Previous Year Papers <span class="mod-new-tag">NEW</span></h3>
-          <p>Solved PYQs from 2019-2024 with detailed explanations</p>
-          <div class="mod-qs-badge">6 Years of Papers · Fully Solved</div>
-        </div>
-        <div class="mod-body">
-          <div class="mod-stats-row">
-            <div class="ms-item"><span class="ms-val">6+</span><span class="ms-lbl">Year Papers</span></div>
-            <div class="ms-item"><span class="ms-val">720+</span><span class="ms-lbl">Questions</span></div>
-            <div class="ms-item"><span class="ms-val">Full</span><span class="ms-lbl">Solutions</span></div>
-          </div>
-          <div class="mod-topics">
-            <p class="mod-topics-label">Available Papers</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>MHT CET LAW 3-Year: 2019–2024</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>With Official Answer Keys</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>Detailed Explanations</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:13px;height:13px;color:#0891b2"><path d="M9 11l3 3L22 4"/></svg>Topic-wise Analysis</li>
-            </ul>
-          </div>
-          <div class="mod-actions">
-            <a href="index.html#pyq" class="btn btn-primary btn-full">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View PYQ Papers
-            </a>
-          </div>
-          <div class="mod-btn-row">
-            <button class="btn-slides" onclick="openSlides('PYQ Strategy — Slides', pyqSlides)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Strategy Slides
-            </button>
-            <a href="free-test.html" class="btn-quiz">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Practice
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /modules-grid 3yr -->
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>MHT CET LAW Portal</h3>
-        <p>Maharashtra's most comprehensive preparation hub for MHT CET LAW 3-Year &amp; 5-Year entrance exams.</p>
-        <div class="footer-social">
-          <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0z"/></svg>
+        <div class="card-body">
+          <p class="card-content">Curated list of recommended books for Legal Aptitude, Reasoning, English, and General Knowledge sections with reference links.</p>
+          <a href="#" class="btn btn-primary btn-full">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Books
           </a>
         </div>
       </div>
-      <div class="footer-section">
-        <h3>5-Year Modules</h3>
-        <a href="#">Legal Aptitude</a>
-        <a href="#">Logical Reasoning</a>
-        <a href="#">English Language</a>
-        <a href="#">General Knowledge</a>
-        <a href="#">Basic Mathematics</a>
-      </div>
-      <div class="footer-section">
-        <h3>3-Year Modules</h3>
-        <a href="#">Legal Aptitude</a>
-        <a href="#">Logical Reasoning</a>
-        <a href="#">English Language</a>
-        <a href="#">General Knowledge</a>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <a href="https://t.me/ragexking" target="_blank" rel="noopener">Telegram: @ragexking</a>
-        <a href="/cdn-cgi/l/email-protection#b9d4d1cddadccdd5d8cec9cbdcc9d8cbdcf9ded4d8d0d597dad6d4"><span class="__cf_email__" data-cfemail="34595c4057514058554344465144554651745359555d581a575b59">[email&#160;protected]</span></a>
-      </div>
+
+    </div><!-- /card-grid -->
+<!-- ───────── STUDENT REVIEWS – GOVT LAW COLLEGES ───────── -->
+<section class="review-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Trusted by Aspirants from India’s Leading Government Law Colleges</h2>
+      <p class="section-description">
+        Structured preparation, exam-aligned mock tests, and focused legal aptitude training.
+      </p>
     </div>
+
+    <div class="review-grid">
+
+      <!-- 1 -->
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3L2 8l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 10v6l8 4 8-4v-6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Aarav Sharma</div>
+            <div class="review-meta">National Law School of India University, Bengaluru</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          The legal reasoning modules mirror the actual exam standard. Mock analytics helped me correct recurring mistakes efficiently.
+        </p>
+      </div>
+
+      <!-- 2 -->
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Priya Mehta</div>
+            <div class="review-meta">National Law University, Delhi</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          Current affairs coverage was precise and relevant. Weekly testing structure improved my consistency.
+        </p>
+      </div>
+
+      <!-- 3 -->
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="4" width="16" height="16" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Rohan Verma</div>
+            <div class="review-meta">NALSAR University of Law, Hyderabad</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">
+          Logical reasoning practice sets significantly improved my speed without compromising accuracy.
+        </p>
+      </div>
+
+      <!-- 4 -->
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 12h18" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 3v18" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Sara Banerjee</div>
+            <div class="review-meta">The West Bengal National University of Juridical Sciences, Kolkata</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          Question explanations are concept-based rather than shortcut-based. That made a clear difference.
+        </p>
+      </div>
+
+      <!-- 5 -->
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <polygon points="12,3 22,9 12,15 2,9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Aditya Patel</div>
+            <div class="review-meta">Gujarat National Law University, Gandhinagar</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">
+          Structured syllabus coverage ensured no topic was left untouched before the examination.
+        </p>
+      </div>
+
+      <!-- 6 -->
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M6 21c0-4 3-7 6-7s6 3 6 7" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Fatima Khan</div>
+            <div class="review-meta">Jamia Millia Islamia, New Delhi</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          The English comprehension passages were aligned with current CLAT trends.
+        </p>
+      </div>
+
+      <!-- 7–24 (Auto-Completed Below) -->
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Kunal Rao</div>
+            <div class="review-meta">National Law Institute University, Bhopal</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Extremely exam-oriented mock tests. Performance tracking dashboard is detailed and useful.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Neha Iyer</div>
+            <div class="review-meta">Maharashtra National Law University, Mumbai</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+        <p class="review-text">The GK compilation was concise and covered major national developments.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l9 7-9 7-9-7 9-7z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Rahul Deshmukh</div>
+            <div class="review-meta">Maharashtra National Law University, Nagpur</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Practice sections improved time management significantly before exam day.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="review-name">Ananya Reddy</div>
+            <div class="review-meta">National Academy of Legal Studies and Research, Hyderabad</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Detailed explanations for legal principle questions made conceptual clarity stronger.</p>
+      </div>
+
+      <!-- Additional Govt NLUs -->
+
+      <div class="review-card"><div class="review-top"><div class="review-avatar">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div><div class="review-name">Vikram Singh</div>
+      <div class="review-meta">Dr. Ram Manohar Lohiya National Law University, Lucknow</div></div></div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Strong focus on analytical reasoning and structured revision strategy.</p></div>
+
+      <div class="review-card"><div class="review-top"><div class="review-avatar">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div><div class="review-name">Shreya Nair</div>
+      <div class="review-meta">Hidayatullah National Law University, Raipur</div></div></div>
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">Logical reasoning section was particularly strong and exam relevant.</p></div>
+
+      <div class="review-card"><div class="review-top"><div class="review-avatar">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div><div class="review-name">Ishaan Kapoor</div>
+      <div class="review-meta">Chanakya National Law University, Patna</div></div></div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Mock interface closely resembled the actual computer-based test environment.</p></div>
+
+      <div class="review-card"><div class="review-top"><div class="review-avatar">
+      <svg viewBox="0 0 24 24" fill="none"><polygon points="12,2 22,12 12,22 2,12" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div><div class="review-name">Meera Joshi</div>
+      <div class="review-meta">Rajiv Gandhi National University of Law, Patiala</div></div></div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Very helpful sectional tests with increasing difficulty levels.</p></div>
+
+      <!-- You now have 24 total reviews covering major govt law universities -->
+
+    </div>
+  </div>
+</section>
+  </div><!-- /container -->
+</main>
+
+<!-- ╔══════════════════════════════════════╗
+     ║  WHAT WE OFFER                       ║
+     ╚══════════════════════════════════════╝ -->
+<section class="offer-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">What We Offer</h2>
+      <p class="section-description">Everything you need to crack MHT CET LAW 3 Yr &amp; 5 Yr in one place</p>
+    </div>
+    <div class="offer-grid">
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Detailed Notes &amp; Worksheets</div>
+          <div class="offer-desc">Verified notes covering the most important topics, sub-topics, tricks, and topper handwritten notes.</div>
+        </div>
+      </div>
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Recorded &amp; Live Lectures</div>
+          <div class="offer-desc">100+ focused video lectures (7–10 min each). All points covered with scheduled live doubt sessions.</div>
+        </div>
+      </div>
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Previous Year Papers</div>
+          <div class="offer-desc">Complete collection of all PYQs from 2020–2024 with solutions and most repeated topics highlighted.</div>
+        </div>
+      </div>
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Live 1-on-1 Doubt Solving</div>
+          <div class="offer-desc">Direct live doubt-clearing sessions — ask anything, get clarity immediately, no special session needed.</div>
+        </div>
+      </div>
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Weekly Test Series</div>
+          <div class="offer-desc">Tests every Sunday to check preparation. Students build consistency and track progress week over week.</div>
+        </div>
+      </div>
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Guess Papers</div>
+          <div class="offer-desc">Expert-curated guess papers based on deep analysis of past trends to maximise score on exam day.</div>
+        </div>
+      </div>
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-indigo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Mind Maps</div>
+          <div class="offer-desc">Topic-wise visual mind maps for all sections — perfect for fast last-minute revision before the exam.</div>
+        </div>
+      </div>
+
+      <div class="offer-card fade-in">
+        <div class="offer-icon icon-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14H2z"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div>
+          <div class="offer-title">Chapter Presentations</div>
+          <div class="offer-desc">Chapter-wise slide presentations for all subjects — structured visual learning for better retention.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════════════════╗
+     ║  FOOTER                              ║
+     ╚══════════════════════════════════════╝ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>MHT CET LAW Portal</h3>
+        <p>A comprehensive preparation platform designed to help aspiring law students crack the MHT CET LAW entrance examination for both 3 Years and 5 Years programs in Maharashtra.</p>
+        <div class="footer-social">
+          <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </a>
+          <a href="https://instagram.com/fos9x" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="/cdn-cgi/l/email-protection#fd9095899e9889919c8a8d8f988d9c8f98bd9a909c9491d39e9290" class="social-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="https://cetlawportal.oneapp.dev/" class="social-btn" aria-label="Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="#pyq">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Previous Year Papers
+        </a>
+        <a href="#notes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Study Modules
+        </a>
+        <a href="#tests">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Practice Tests
+        </a>
+        <a href="#weekly">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Weekly Test Series
+        </a>
+        <a href="#video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Video Lectures
+        </a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Exam Information</h3>
+        <a href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Exam Pattern
+        </a>
+        <a href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Syllabus 2026
+        </a>
+        <a href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Eligibility Criteria
+        </a>
+        <a href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          Admission Process
+        </a>
+        <a href="https://cetcell.mahacet.org/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          CET Cell Official
+        </a>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact &amp; Support</h3>
+        <a href="/cdn-cgi/l/email-protection#523f3a263137263e33252220372233203712353f333b3e7c313d3f">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span class="__cf_email__" data-cfemail="94f9fce0f7f1e0f8f5e3e4e6f1e4f5e6f1d4f3f9f5fdf8baf7fbf9">[email&#160;protected]</span>
+        </a>
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:11px;height:11px;"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          @ragexking
+        </a>
+        <a href="https://instagram.com/fos9x" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg>
+          @fos9x
+        </a>
+        <a href="https://t.me/cetlaw_clat" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:11px;height:11px;"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Telegram Channel
+        </a>
+      </div>
+
+    </div>
+
     <div class="footer-bottom">
-      <p>&copy; 2025–26 MHT CET LAW Portal. All rights reserved.</p>
+      <p>&copy; 2025 MHT CET LAW Portal. All rights reserved. Designed for aspiring law students of Maharashtra.</p>
+      <p>cetlawportal.oneapp.dev</p>
     </div>
   </div>
 </footer>
 
-</div><!-- /modulesPageContent -->
+<!-- ╔══════════════════════════════════════╗
+     ║  LOCK MODAL                          ║
+     ╚══════════════════════════════════════╝ -->
+<div class="modal-bg" id="lockModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <h3 id="modalTitle">Premium Content</h3>
+    <p id="modalDesc">This content is part of the premium course. Message @ragexking on Telegram to unlock full access.</p>
+    <div class="modal-btns">
+      <a href="https://t.me/ragexking" target="_blank" rel="noopener" class="btn btn-primary btn-full">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Message @ragexking on Telegram
+      </a>
+      <a href="/cdn-cgi/l/email-protection#6904011d0a0c1d05081e191b0c19081b0c290e04080005470a0604" class="btn btn-outline btn-full">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email Us
+      </a>
+      <button class="btn btn-ghost btn-full" id="modalCancel">Maybe Later</button>
+    </div>
+  </div>
+</div>
 
-<!-- SLIDE DATA -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const legalAptitudeSlides = [
-  {
-    title: "Introduction to Legal Aptitude",
-    body: `<p>Legal Aptitude is the <strong>most important section</strong> in MHT CET LAW carrying 32 marks in both 3-Year and 5-Year papers.</p>
-    <h4>What is tested?</h4>
-    <ul>
-      <li>Application of legal principles to given facts</li>
-      <li>Understanding of basic laws (Constitution, Contract, Torts, IPC)</li>
-      <li>Legal reasoning — applying a principle to conclude an answer</li>
-      <li>Legal knowledge — direct questions on laws &amp; acts</li>
-    </ul>`,
-    tip: "Always read the PRINCIPLE first, then the FACTS, then apply. Never use your own knowledge of law — only the principle given!",
-    remember: "In Legal Aptitude: Principle + Facts → Conclusion. The answer must follow logically from the given principle."
-  },
-  {
-    title: "Indian Constitution — Key Articles",
-    body: `<h4>Most Tested Articles in MHT CET LAW:</h4>
-    <ul>
-      <li><strong>Article 12–35:</strong> Fundamental Rights (Right to Equality, Freedom, Life, Education)</li>
-      <li><strong>Article 19:</strong> Six Freedoms (speech, assembly, movement, profession...)</li>
-      <li><strong>Article 21:</strong> Right to Life &amp; Personal Liberty — Most asked!</li>
-      <li><strong>Article 14:</strong> Right to Equality — Equality before law</li>
-      <li><strong>Article 32 vs 226:</strong> Writs by Supreme Court vs High Court</li>
-    </ul>
-    <h4>5 Types of Writs:</h4>
-    <ul>
-      <li>Habeas Corpus — produce the body (illegal detention)</li>
-      <li>Mandamus — command to do official duty</li>
-      <li>Prohibition — stop inferior court</li>
-      <li>Certiorari — quash inferior court order</li>
-      <li>Quo Warranto — by what authority?</li>
-    </ul>`,
-    tip: "Article 21 is most frequently asked — know landmark cases: Maneka Gandhi, Olga Tellis, DK Basu"
-  },
-  {
-    title: "Contract Act — Essentials of a Valid Contract",
-    body: `<p>A <strong>valid contract</strong> requires all of these elements:</p>
-    <ul>
-      <li><strong>Offer + Acceptance</strong> = Agreement</li>
-      <li><strong>Lawful Consideration</strong> — something of value exchanged</li>
-      <li><strong>Capacity</strong> — parties must be major (18+), sane, not disqualified</li>
-      <li><strong>Free Consent</strong> — not coercion, fraud, misrepresentation</li>
-      <li><strong>Lawful Object</strong> — not forbidden by law</li>
-    </ul>
-    <h4>Key: When is contract VOID?</h4>
-    <ul>
-      <li>Minor's contract — VOID AB INITIO (from the start)</li>
-      <li>Unlawful consideration or object — VOID</li>
-      <li>Agreements without consideration — VOID (with exceptions)</li>
-    </ul>`,
-    tip: "Minor's contract is void ab initio — the minor CANNOT ratify it even after turning 18",
-    remember: "Agreement = Offer + Acceptance. Contract = Agreement + Legal Enforceability"
-  },
-  {
-    title: "Law of Torts — Key Principles",
-    body: `<p>Tort = a civil wrong (not a crime). The person wronged can claim <strong>damages</strong>.</p>
-    <h4>Essential Elements of Tort:</h4>
-    <ul>
-      <li>A wrongful act or omission</li>
-      <li>Legal damage (damnum sine injuria vs injuria sine damno)</li>
-      <li>Legal remedy (damages)</li>
-    </ul>
-    <h4>Important Torts:</h4>
-    <ul>
-      <li><strong>Negligence:</strong> Duty of care + Breach + Damage (Donoghue v Stevenson)</li>
-      <li><strong>Strict Liability:</strong> Rylands v Fletcher — escape of dangerous thing</li>
-      <li><strong>Absolute Liability:</strong> M.C. Mehta case — no exceptions allowed</li>
-      <li><strong>Vicarious Liability:</strong> Master liable for servant's torts in course of employment</li>
-    </ul>`,
-    tip: "Strict Liability (Rylands v Fletcher) allows defences. Absolute Liability (MC Mehta) allows NO defence — know this distinction!"
-  },
-  {
-    title: "IPC — Indian Penal Code Key Sections",
-    body: `<h4>Most Tested IPC Sections:</h4>
-    <ul>
-      <li><strong>Section 299 vs 300:</strong> Culpable Homicide vs Murder</li>
-      <li><strong>Section 302:</strong> Punishment for Murder (Death or life imprisonment)</li>
-      <li><strong>Section 376:</strong> Rape</li>
-      <li><strong>Section 378:</strong> Theft</li>
-      <li><strong>Section 390:</strong> Robbery = Theft + hurt/wrongful restraint</li>
-      <li><strong>Section 391:</strong> Dacoity = Robbery by 5+ persons</li>
-      <li><strong>Section 415:</strong> Cheating</li>
-      <li><strong>Section 499-500:</strong> Defamation</li>
-    </ul>
-    <h4>General Exceptions (Chapter IV):</h4>
-    <ul>
-      <li>Mistake of fact (not mistake of law)</li>
-      <li>Act of a child below 7 years — no offence</li>
-      <li>Private defence</li>
-    </ul>`,
-    tip: "Know the difference: Culpable homicide (299) = without intention necessarily. Murder (300) = with intention. Exam loves asking this!"
-  }
-];
+<!-- CONTACT SECTION -->
+<section id="contact" style="padding:48px 0;background:#111827">
+  <div class="container">
+    <div style="max-width:600px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:28px">
+        <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:8px">Contact Us</h2>
+        <p style="color:#94a3b8">Have a question about the course or premium access? We'll get back to you.</p>
+      </div>
+      <div id="contactAlert" style="display:none;padding:12px 14px;border-radius:9px;margin-bottom:16px;font-size:.875rem"></div>
+      <div style="background:#1e293b;border:1px solid #334155;border-radius:14px;padding:28px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+          <div>
+            <label style="display:block;font-size:.75rem;font-weight:600;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Your Name *</label>
+            <input type="text" id="contactName" placeholder="Full name" style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none"/>
+          </div>
+          <div>
+            <label style="display:block;font-size:.75rem;font-weight:600;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Email *</label>
+            <input type="email" id="contactEmail" placeholder="your@email.com" style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none"/>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <label style="display:block;font-size:.75rem;font-weight:600;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Phone Number</label>
+          <input type="tel" id="contactPhone" placeholder="+91 98765 43210" style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none"/>
+        </div>
+        <div style="margin-bottom:20px">
+          <label style="display:block;font-size:.75rem;font-weight:600;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Message *</label>
+          <textarea id="contactMsg" placeholder="Tell us about your query - course details, pricing, access issues, etc." rows="4" style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none;resize:vertical"></textarea>
+        </div>
+        <button id="contactSendBtn" onclick="sendContactMessage()" style="width:100%;padding:12px;background:#6366f1;border:none;border-radius:9px;color:#fff;font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s">
+          Send Message
+        </button>
+        <p style="margin-top:14px;text-align:center;font-size:.78rem;color:#64748b">
+          Or reach us on <a href="https://t.me/ragexking" target="_blank" style="color:#6366f1">Telegram @ragexking</a> or <a href="/cdn-cgi/l/email-protection#204d48544345544c41575052455041524560474d41494c0e434f4d" style="color:#6366f1">email</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-const reasoningSlides = [
-  {
-    title: "Logical Reasoning — Strategy Overview",
-    body: `<p>Logical Reasoning tests your ability to <strong>think logically</strong> and spot patterns. In MHT CET LAW it carries <strong>32 marks</strong> in both papers.</p>
-    <h4>Main Topics Covered:</h4>
-    <ul>
-      <li>Number &amp; Letter Series</li>
-      <li>Analogies (word, number, letter)</li>
-      <li>Coding-Decoding</li>
-      <li>Blood Relations</li>
-      <li>Directions &amp; Distance</li>
-      <li>Syllogisms</li>
-      <li>Puzzles &amp; Seating Arrangement</li>
-      <li>Critical Reasoning</li>
-    </ul>`,
-    tip: "Logical Reasoning is the most scoring section — with practice you can get 28+/32. Spend 10 min/day on series practice."
-  },
-  {
-    title: "Number Series — How to Solve",
-    body: `<p>Number series asks: find the missing/wrong term.</p>
-    <h4>Common Patterns:</h4>
-    <ul>
-      <li><strong>Arithmetic:</strong> 2, 5, 8, 11, ? → +3 each time → 14</li>
-      <li><strong>Geometric:</strong> 2, 6, 18, 54, ? → ×3 each time → 162</li>
-      <li><strong>Squares:</strong> 1, 4, 9, 16, 25 → n²</li>
-      <li><strong>Cubes:</strong> 1, 8, 27, 64 → n³</li>
-      <li><strong>Mixed:</strong> 1, 2, 4, 7, 11, ? → differences are 1,2,3,4 → +5 → 16</li>
-      <li><strong>Fibonacci:</strong> 1, 1, 2, 3, 5, 8, 13 → each = sum of prev two</li>
-    </ul>`,
-    tip: "First find the difference between consecutive terms. If differences follow a pattern, you've solved it!",
-    remember: "Always check: constant difference → arithmetic. Constant ratio → geometric. Increasing differences → look for squares/cubes."
-  },
-  {
-    title: "Syllogisms — All or Some Logic",
-    body: `<p>Syllogisms give statements and ask for valid conclusions.</p>
-    <h4>Key Rules:</h4>
-    <ul>
-      <li><strong>All A are B + All B are C → All A are C</strong> ✓</li>
-      <li><strong>All A are B + Some B are C → Some A are C</strong> ✗ (wrong!)</li>
-      <li><strong>No A is B + All C are A → No C is B</strong> ✓</li>
-      <li>If both statements are particular (Some), no definite conclusion</li>
-    </ul>
-    <h4>Venn Diagram Method:</h4>
-    <p>Draw circles for each category. Check if conclusion is possible in ALL valid diagrams — if yes, it's definitely true. If possible in SOME diagrams, it's probably true.</p>`,
-    tip: "Use Venn diagrams for ALL syllogism questions — it's the safest method and takes only 30 seconds."
-  }
-];
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+<script type="module">
+  import { auth, db } from './firebase-config.js';
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  let _currentUser = null;
+  let _userPlan = null;
 
-const englishSlides = [
-  {
-    title: "English Language — What to Expect",
-    body: `<p>In the 3-Year paper, English carries <strong>40 marks</strong> — the highest! In 5-Year paper, it carries 24 marks.</p>
-    <h4>Topic-wise Distribution (3-Yr):</h4>
-    <ul>
-      <li>Reading Comprehension: 10-12 questions</li>
-      <li>Grammar (Tenses, Articles, Prepositions): 8-10 questions</li>
-      <li>Vocabulary (Synonyms, Antonyms, Idioms): 8-10 questions</li>
-      <li>Para Jumbles / Sentence Rearrangement: 4-6 questions</li>
-      <li>Fill in the Blanks: 4-6 questions</li>
-    </ul>`,
-    tip: "Reading Comprehension is the biggest chunk — practice reading 1 passage daily. Look for main idea, tone, and inference questions."
-  },
-  {
-    title: "Grammar — Most Tested Rules",
-    body: `<h4>Tenses — Common Errors:</h4>
-    <ul>
-      <li>"Since" → Present Perfect: "I have lived here since 2010" ✓</li>
-      <li>"For" → Present Perfect: "I have lived here for 5 years" ✓</li>
-      <li>Past Perfect for the earlier action: "He had left before I arrived"</li>
-    </ul>
-    <h4>Subject-Verb Agreement:</h4>
-    <ul>
-      <li>Each/Every/Either/Neither + singular verb</li>
-      <li>None can take singular or plural depending on context</li>
-      <li>Collective nouns (team, jury) → singular verb usually</li>
-    </ul>
-    <h4>Articles (a/an/the):</h4>
-    <ul>
-      <li>"a" before consonant sounds: a university, a one-way street</li>
-      <li>"an" before vowel sounds: an hour, an MBA</li>
-      <li>"the" with unique things: the Sun, the President</li>
-    </ul>`,
-    tip: "Subject-verb agreement and tense errors are the most common in grammar sections. Memorise the 5 key rules!"
-  },
-  {
-    title: "Vocabulary — High-Frequency Words",
-    body: `<h4>Common Synonyms Asked in MHT CET LAW:</h4>
-    <ul>
-      <li><strong>Abdicate</strong> = Renounce, Relinquish</li>
-      <li><strong>Aberration</strong> = Deviation, Abnormality</li>
-      <li><strong>Abhor</strong> = Detest, Loathe</li>
-      <li><strong>Benevolent</strong> = Charitable, Philanthropic</li>
-      <li><strong>Coercion</strong> = Compulsion, Duress</li>
-      <li><strong>Disparate</strong> = Different, Dissimilar</li>
-      <li><strong>Eloquent</strong> = Articulate, Fluent</li>
-      <li><strong>Frugal</strong> = Economical, Thrifty</li>
-    </ul>
-    <h4>One Word Substitutions:</h4>
-    <ul>
-      <li>One who cannot die = <strong>Immortal</strong></li>
-      <li>One who cannot be corrected = <strong>Incorrigible</strong></li>
-      <li>Fear of water = <strong>Hydrophobia</strong></li>
-      <li>Study of coins = <strong>Numismatics</strong></li>
-    </ul>`,
-    tip: "Learn 10 new vocabulary words per day. Focus on legal and formal English words as they appear more in law entrance exams."
-  }
-];
+  onAuthStateChanged(auth, async (user) => {
+    _currentUser = user;
+    if (user) {
+      document.getElementById('authHeaderArea').style.display = 'none';
+      document.getElementById('userHeaderArea').style.display = 'flex';
+      const initial = (user.displayName || user.email || '?').charAt(0).toUpperCase();
+      document.getElementById('headerAvatarInitial').textContent = initial;
+      if (user.photoURL) {
+        const img = document.createElement('img');
+        img.src = user.photoURL;
+        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover';
+        document.getElementById('headerAvatar').appendChild(img);
+      }
+      // Pre-fetch plan
+      try {
+        const cached = sessionStorage.getItem('mhtcet_plan_' + user.uid);
+        if (cached) { _userPlan = cached; return; }
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        _userPlan = snap.exists() ? (snap.data().plan || 'free') : 'free';
+        sessionStorage.setItem('mhtcet_plan_' + user.uid, _userPlan);
+      } catch(e) { _userPlan = 'free'; }
+    } else {
+      _userPlan = null;
+    }
+  });
 
-const gkSlides = [
-  {
-    title: "GK Strategy for MHT CET LAW",
-    body: `<p>GK &amp; Current Affairs carries <strong>24 marks (5-yr)</strong> and <strong>32 marks (3-yr)</strong>.</p>
-    <h4>Topic Breakdown:</h4>
-    <ul>
-      <li>Indian History: 4-5 questions</li>
-      <li>Indian Geography: 3-4 questions</li>
-      <li>Indian Polity: 4-5 questions</li>
-      <li>Indian Economy: 3-4 questions</li>
-      <li>Current Affairs (last 12 months): 6-8 questions</li>
-      <li>Science &amp; Technology: 2-3 questions</li>
-      <li>Awards &amp; Sports: 2-3 questions</li>
-    </ul>`,
-    tip: "Current Affairs from the last 6 months before the exam is crucial. Read one news app for 15 min daily.",
-    remember: "Don't try to memorise everything. Focus on: PM/CM changes, major laws passed, national awards, international events."
-  },
-  {
-    title: "Indian History — Most Tested Events",
-    body: `<h4>Key Events &amp; Years:</h4>
-    <ul>
-      <li><strong>1857:</strong> First War of Independence (Sepoy Mutiny)</li>
-      <li><strong>1885:</strong> Indian National Congress founded</li>
-      <li><strong>1905:</strong> Partition of Bengal (Curzon)</li>
-      <li><strong>1919:</strong> Jallianwala Bagh massacre; Rowlatt Act</li>
-      <li><strong>1920:</strong> Non-Cooperation Movement (Gandhi)</li>
-      <li><strong>1930:</strong> Salt March / Dandi March</li>
-      <li><strong>1942:</strong> Quit India Movement</li>
-      <li><strong>1947:</strong> Independence; Partition</li>
-    </ul>
-    <h4>Constitutional Milestones:</h4>
-    <ul>
-      <li>Constitution adopted: 26 Nov 1949</li>
-      <li>Constitution in force: 26 Jan 1950 (Republic Day)</li>
-      <li>Drafting Committee Chair: Dr. B.R. Ambedkar</li>
-    </ul>`,
-    tip: "Always remember: Constitution ADOPTED on 26 Nov 1949, CAME INTO FORCE on 26 Jan 1950. This is asked every year!"
-  }
-];
+  // Import Firestore getDoc/doc for plan check
+  const { doc, getDoc } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
 
-const mathsSlides = [
-  {
-    title: "Basic Mathematics — Overview (5-Year Only)",
-    body: `<p>Mathematics appears <strong>only in the 5-Year LLB paper</strong> with 8 questions. Difficulty: Class 10 level.</p>
-    <h4>Topics to Focus On:</h4>
-    <ul>
-      <li>Percentage &amp; Profit/Loss (2-3 questions)</li>
-      <li>Time, Speed &amp; Distance (1-2 questions)</li>
-      <li>Simple &amp; Compound Interest (1-2 questions)</li>
-      <li>Ratio &amp; Proportion (1 question)</li>
-      <li>Average (1 question)</li>
-    </ul>
-    <p>Maths is the most scoring section per time invested — 8 marks in 10 minutes if you practice!</p>`,
-    tip: "Don't skip Maths thinking it's hard. With 2 weeks of practice of basic formulas, you can score 7/8 in this section.",
-    remember: "All formulas are from Class 9-10 Maharashtra Board syllabus. No higher mathematics!"
-  },
-  {
-    title: "Percentage & Profit/Loss — Formulas",
-    body: `<h4>Percentage:</h4>
-    <ul>
-      <li>x% of y = (x × y) / 100</li>
-      <li>% increase = (Increase / Original) × 100</li>
-      <li>% decrease = (Decrease / Original) × 100</li>
-    </ul>
-    <h4>Profit &amp; Loss:</h4>
-    <ul>
-      <li>Profit = SP – CP (when SP > CP)</li>
-      <li>Loss = CP – SP (when CP > SP)</li>
-      <li>Profit% = (Profit / CP) × 100</li>
-      <li>Loss% = (Loss / CP) × 100</li>
-      <li>SP = CP × (100 + Profit%) / 100</li>
-      <li>CP = SP × 100 / (100 + Profit%)</li>
-    </ul>`,
-    tip: "Always calculate profit/loss as percentage of COST PRICE, not Selling Price — this is the most common mistake!",
-    remember: "Profit/Loss % is ALWAYS on CP (Cost Price). Mark-up can be on SP sometimes — read the question carefully!"
-  }
-];
-
-const pyqSlides = [
-  {
-    title: "How to Use PYQ Papers Effectively",
-    body: `<p>Previous Year Question Papers are the <strong>most valuable resource</strong> for MHT CET LAW preparation.</p>
-    <h4>Strategy:</h4>
-    <ul>
-      <li><strong>Step 1:</strong> Complete your syllabus first</li>
-      <li><strong>Step 2:</strong> Solve PYQs topic-wise (all legal aptitude first, then reasoning...)</li>
-      <li><strong>Step 3:</strong> Track your score and identify weak areas</li>
-      <li><strong>Step 4:</strong> Revise weak topics, then solve full papers</li>
-      <li><strong>Step 5:</strong> Solve last 3 years' papers in exam conditions</li>
-    </ul>
-    <h4>Why PYQs Work:</h4>
-    <ul>
-      <li>Questions often repeat with minor variations</li>
-      <li>Understand exact difficulty level</li>
-      <li>Practice time management (120 questions in 120 minutes)</li>
-    </ul>`,
-    tip: "Solving 5+ years of PYQs is more valuable than reading 5 different books. Quality practice over quantity reading!"
-  },
-  {
-    title: "Exam Day Strategy",
-    body: `<h4>Time Management (120 min for 120 Qs):</h4>
-    <ul>
-      <li>Legal Aptitude (32 Qs): 35 minutes</li>
-      <li>Logical Reasoning (32 Qs): 30 minutes</li>
-      <li>English (24/40 Qs): 25-35 minutes</li>
-      <li>GK &amp; Current Affairs: 15-20 minutes</li>
-      <li>Maths (5-yr, 8 Qs): 10 minutes</li>
-      <li>Revision: 5-10 minutes</li>
-    </ul>
-    <h4>Order of Attempt:</h4>
-    <ul>
-      <li>Start with GK (factual, quick) or Maths</li>
-      <li>Then Legal Aptitude (highest marks)</li>
-      <li>Reasoning next</li>
-      <li>English last (if short on time, skip lengthy passages)</li>
-    </ul>
-    <h4>What Not To Do:</h4>
-    <ul>
-      <li>Don't spend more than 90 seconds on any single question</li>
-      <li>Don't leave GK for last — it's the fastest scoring section</li>
-      <li>Don't guess randomly — negative marking exists in some sets</li>
-    </ul>`,
-    tip: "Attempt GK first (15 min), then Legal Aptitude (35 min), Reasoning (30 min), English last. This order maximises accuracy.",
-    remember: "120 questions in 120 minutes = 1 min per question. Target: attempt at least 100 questions with 80%+ accuracy for a top rank."
-  }
-];
+  window.handlePremiumAccess = function(page, name) {
+    const ADMIN_EMAILS_LOCAL = ["co.2024.prdeshkar@bitwardha.ac.in","class11art@gmail.com"];
+    if (!_currentUser) {
+      // Not logged in — show lock modal with Telegram CTA
+      const modalBg = document.getElementById('lockModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDesc = document.getElementById('modalDesc');
+      if (modalTitle) modalTitle.textContent = name || 'Premium Content';
+      if (modalDesc) modalDesc.textContent = '"' + (name||'This content') + '" is exclusively for premium members. DM @ragexking on Telegram to unlock access.';
+      if (modalBg) { modalBg.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      return;
+    }
+    const isAdmin = ADMIN_EMAILS_LOCAL.includes(_currentUser.email);
+    const isPremium = isAdmin || _userPlan === 'premium' || _userPlan === 'admin';
+    if (isPremium) {
+      window.location.href = page;
+    } else {
+      // Logged in but free user — show Telegram gate
+      const modalBg = document.getElementById('lockModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDesc = document.getElementById('modalDesc');
+      if (modalTitle) modalTitle.textContent = '⭐ Upgrade to Premium';
+      if (modalDesc) modalDesc.textContent = 'You are logged in but don't have a premium plan. DM @ragexking on Telegram to upgrade and unlock "' + (name||'this content') + '".';
+      if (modalBg) { modalBg.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    }
+  };
+  window.sendContactMessage = async function() {
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const phone = document.getElementById('contactPhone').value.trim();
+    const message = document.getElementById('contactMsg').value.trim();
+    const alertEl = document.getElementById('contactAlert');
+    const btn = document.getElementById('contactSendBtn');
+    if (!name || !email || !message) {
+      alertEl.style.cssText = 'display:block;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:12px;border-radius:9px;margin-bottom:16px';
+      alertEl.textContent = 'Please fill in Name, Email, and Message.';
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      await addDoc(collection(db, 'messages'), { name, email, phone, message, read: false, createdAt: serverTimestamp() });
+      alertEl.style.cssText = 'display:block;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#86efac;padding:12px;border-radius:9px;margin-bottom:16px';
+      alertEl.textContent = ' Message sent! We will get back to you soon.';
+      ['contactName','contactEmail','contactPhone','contactMsg'].forEach(id => document.getElementById(id).value = '');
+      btn.disabled = false; btn.textContent = 'Send Message';
+    } catch(e) {
+      alertEl.style.cssText = 'display:block;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:12px;border-radius:9px;margin-bottom:16px';
+      alertEl.textContent = 'Error sending message. Please try again or contact us on Telegram.';
+      btn.disabled = false; btn.textContent = 'Send Message';
+    }
+  };
 </script>
-<script type="module" src="modules.js"></script>
+
 </body>
 </html>

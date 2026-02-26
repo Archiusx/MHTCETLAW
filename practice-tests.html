@@ -198,12 +198,10 @@
     if (!user) { document.getElementById('gateLoading').style.display='none'; document.getElementById('gateNotLoggedIn').style.display='block'; return; }
     const isAdmin = ADMIN_EMAILS.includes(user.email);
     if (isAdmin) { grantAccess(user); return; }
+    // Always fetch fresh from Firestore — admin may have just updated this user's plan
     try {
-      const cached = sessionStorage.getItem('mhtcet_plan_' + user.uid);
-      if (cached === 'premium' || cached === 'admin') { grantAccess(user); return; }
       const snap = await getDoc(doc(db, 'users', user.uid));
       const plan = snap.exists() ? (snap.data().plan || 'free') : 'free';
-      sessionStorage.setItem('mhtcet_plan_' + user.uid, plan);
       if (plan === 'premium' || plan === 'admin') { grantAccess(user); } else { showNotPremium(user); }
     } catch(e) { showNotPremium(user); }
   });

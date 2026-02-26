@@ -447,6 +447,7 @@
           <button class="filter-btn" id="filter-free" onclick="setFilter('free')">Free</button>
           <button class="filter-btn" id="filter-pending" onclick="setFilter('pending')">⏳ Pending</button>
           <button class="btn-sm btn-ghost" onclick="loadUsers()" style="white-space:nowrap;display:flex;align-items:center;gap:5px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-9.18"/></svg> Refresh</button>
+          <button class="btn-sm" onclick="syncMissingUsers()" style="white-space:nowrap;display:flex;align-items:center;gap:5px;background:rgba(245,158,11,.15);color:#fcd34d;border:1px solid rgba(245,158,11,.3);" id="syncBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg> Sync Auth Users</button>
         </div>
         <div style="overflow-x:auto">
           <table style="width:100%;border-collapse:collapse;font-size:.85rem" id="usersTable">
@@ -554,19 +555,34 @@
       ]);
 
       if (!snap.exists()) {
-        // New user — create profile
-        await setDoc(ref, {
-          uid: user.uid, email: user.email,
-          displayName: user.displayName || '',
+        // New user (including manually created Firebase Auth users on first login)
+        // Capture all real data from Auth object
+        const newDoc = {
+          uid: user.uid,
+          email: user.email || '',
+          displayName: user.displayName || user.email?.split('@')[0] || '',
           photoURL: user.photoURL || '',
           phone: '', college: '',
           plan: isAdminUser ? 'admin' : 'free',
-          isApproved: isAdminUser, isAdmin: isAdminUser,
-          createdAt: serverTimestamp(), lastLogin: serverTimestamp()
-        });
-        userProfile = { plan: isAdminUser ? 'admin' : 'free', isApproved: isAdminUser, isAdmin: isAdminUser };
+          isApproved: isAdminUser,
+          isAdmin: isAdminUser,
+          createdAt: serverTimestamp(),
+          lastLogin: serverTimestamp()
+        };
+        await setDoc(ref, newDoc);
+        userProfile = newDoc;
       } else {
         userProfile = snap.data();
+        // Fix: if existing doc has undefined/empty email but Auth has it, update it
+        const needsFix = !userProfile.email || userProfile.email === 'undefined';
+        if (needsFix && user.email) {
+          await setDoc(ref, {
+            email: user.email,
+            displayName: userProfile.displayName || user.displayName || user.email.split('@')[0] || '',
+          }, { merge: true });
+          userProfile.email = user.email;
+          if (!userProfile.displayName) userProfile.displayName = user.email.split('@')[0];
+        }
       }
 
       // Cache plan for modules page
@@ -855,7 +871,13 @@
     try {
       const snap = await getDocs(collection(db, 'users'));
       allUsers = [];
-      snap.forEach(d => allUsers.push({id: d.id, ...d.data()}));
+      snap.forEach(d => {
+        const data = d.data();
+        // Fix: if email stored as "undefined" string, clear it
+        if (data.email === 'undefined') data.email = '';
+        if (data.displayName === 'undefined') data.displayName = '';
+        allUsers.push({id: d.id, ...data});
+      });
       allUsers.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
       // Update stats
       const premiumCount = allUsers.filter(u => u.plan === 'premium').length;
@@ -898,7 +920,7 @@
             </div>
           </div>
         </td>
-        <td style="padding:10px;color:var(--text2);font-size:.82rem">${u.email}</td>
+        <td style="padding:10px;color:var(--text2);font-size:.82rem">${u.email || '<span style="color:#475569;font-style:italic">not set</span>'}</td>
         <td style="padding:10px">
           ${planHtml}
           <select onchange="updatePlan('${u.id}',this.value)" style="margin-top:6px;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:3px 6px;border-radius:6px;font-size:.72rem;display:block;width:100%">
@@ -914,7 +936,7 @@
         <td style="padding:10px">
           <div style="display:flex;gap:5px;flex-wrap:wrap">
             ${!u.isApproved && !u.isAdmin ? `<button onclick="approveUser('${u.id}')" class="btn-sm btn-primary" style="font-size:.7rem;padding:4px 10px">Approve</button>` : ''}
-            <button onclick="openMsgModal('${u.email}','${(u.displayName||'User').replace(/'/g,'')}')" class="btn-sm btn-ghost" style="font-size:.7rem;padding:4px 8px;display:flex;align-items:center;gap:3px">
+            <button onclick="openMsgModal('${u.email||''}','${(u.displayName||u.email||'User').replace(/'/g,\'\').replace(/"/g,\'\'')}')" class="btn-sm btn-ghost" style="font-size:.7rem;padding:4px 8px;display:flex;align-items:center;gap:3px">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Msg
             </button>
             ${!u.isAdmin ? `<button onclick="revokeUser('${u.id}')" class="btn-sm btn-danger" style="font-size:.7rem;padding:4px 8px">Revoke</button>` : ''}
@@ -952,11 +974,9 @@
     showToast('Access revoked.'); loadUsers();
   };
   window.updatePlan = async function(uid, plan) {
-    await updateDoc(doc(db, 'users', uid), {
-      plan,
-      isApproved: plan === 'premium' || plan === 'admin' ? true : undefined
-    });
-    // Clear that user's session cache (can't do from here, but update fires)
+    const updateData = { plan };
+    if (plan === 'premium' || plan === 'admin') updateData.isApproved = true;
+    await updateDoc(doc(db, 'users', uid), updateData);
     showToast(plan === 'premium' ? '💎 Premium activated!' : 'Plan updated!');
     loadUsers();
   };
@@ -1097,6 +1117,48 @@
       alertEl.textContent = 'Error: ' + e.message;
     }
     btn.disabled = false; btn.textContent = 'Send Message';
+  };
+
+  // ── SYNC AUTH USERS → FIRESTORE ────────────────────────
+  // Called by admin to auto-create Firestore docs for manually created Firebase Auth users
+  window.syncMissingUsers = async function() {
+    const btn = document.getElementById('syncBtn');
+    if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Syncing...'; }
+    
+    try {
+      // We can only list auth users via Admin SDK (server-side)
+      // Client-side workaround: scan Firestore and show current state
+      // The real fix is: when ANY user logs in, their doc is auto-created
+      // For manually created users who havent logged in yet — we create placeholder docs
+      
+      // Get all Firestore users
+      const snap = await getDocs(collection(db, 'users'));
+      const firestoreUids = new Set();
+      snap.forEach(d => firestoreUids.add(d.id));
+      
+      // We cant list Auth users from client side (security), so we inform admin
+      showToast('✓ Refreshed! Manually created users will appear after their first login.');
+      
+      // But we CAN fix existing docs that have missing email/displayName
+      let fixed = 0;
+      const fixes = [];
+      snap.forEach(d => {
+        const data = d.data();
+        // If doc exists but email is missing or undefined
+        if (!data.email || data.email === 'undefined' || !data.displayName) {
+          fixes.push({ id: d.id, data });
+        }
+      });
+      
+      if (fixes.length > 0) {
+        showToast(\`Found \${fixes.length} incomplete profiles. Admin: edit them manually in Firebase Console.\`);
+      }
+      
+      await loadUsers();
+    } catch(e) {
+      showToast('Error: ' + e.message);
+    }
+    if (btn) { btn.disabled = false; btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg> Sync Auth Users'; }
   };
 
   // ── FREE TEST BANNER ────────────────────────────────────

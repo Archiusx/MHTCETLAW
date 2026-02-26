@@ -759,7 +759,7 @@
             <span>${m.createdAt?.toDate?.()?.toLocaleDateString('en-IN') || ''}</span>
           </div>
           <div class="smb-msg-text">${m.message}</div>
-          ${!m.read ? `<button onclick="markMsgRead('${d.id}',this)" style="margin-top:8px;padding:4px 12px;background:transparent;border:1px solid #334155;border-radius:6px;color:#64748b;font-size:.72rem;cursor:pointer;font-family:inherit">Mark as read</button>` : ''}
+          ${!m.read ? '<button onclick="markMsgRead(\'' + d.id + '\',this)" style="margin-top:8px;padding:4px 12px;background:transparent;border:1px solid #334155;border-radius:6px;color:#64748b;font-size:.72rem;cursor:pointer;font-family:inherit">Mark as read</button>' : ''}
         `;
         inbox.appendChild(el);
       });
@@ -842,7 +842,7 @@
             ${!m.read ? '<span style="background:#6366f1;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px">New</span>' : ''}
           </div>
           <p style="color:#cbd5e1;font-size:.875rem;line-height:1.6;padding:10px;background:#0f172a;border-radius:8px">${m.message}</p>
-          ${!m.read ? `<button onclick="markNotifRead('${d.id}',this)" class="btn-sm btn-ghost" style="margin-top:10px;font-size:.75rem">Mark as Read</button>` : ''}`;
+          ${!m.read ? '<button onclick="markNotifRead(\'' + d.id + '\',this)" class="btn-sm btn-ghost" style="margin-top:10px;font-size:.75rem">Mark as Read</button>' : ''}`;
         container.appendChild(card);
       });
       if (count === 0) container.innerHTML = '<div class="card" style="text-align:center;color:var(--text3);padding:32px">No notifications yet</div>';
@@ -935,11 +935,11 @@
         <td style="padding:10px;color:var(--text3);font-size:.75rem">${joinDate}</td>
         <td style="padding:10px">
           <div style="display:flex;gap:5px;flex-wrap:wrap">
-            ${!u.isApproved && !u.isAdmin ? `<button onclick="approveUser('${u.id}')" class="btn-sm btn-primary" style="font-size:.7rem;padding:4px 10px">Approve</button>` : ''}
-            <button onclick="openMsgModal('${u.email||''}','${(u.displayName||u.email||'User').replace(/'/g,\'\').replace(/"/g,\'\'')}')" class="btn-sm btn-ghost" style="font-size:.7rem;padding:4px 8px;display:flex;align-items:center;gap:3px">
+            ${!u.isApproved && !u.isAdmin ? '<button onclick="approveUser(\'' + u.id + '\')" class="btn-sm btn-primary" style="font-size:.7rem;padding:4px 10px">Approve</button>' : ''}
+            <button onclick="openMsgModal('${u.email||''}','${(u.displayName||u.email||'User').replace(/['"]/g,'')}')" class="btn-sm btn-ghost" style="font-size:.7rem;padding:4px 8px;display:flex;align-items:center;gap:3px">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Msg
             </button>
-            ${!u.isAdmin ? `<button onclick="revokeUser('${u.id}')" class="btn-sm btn-danger" style="font-size:.7rem;padding:4px 8px">Revoke</button>` : ''}
+            ${!u.isAdmin ? '<button onclick="revokeUser(\'' + u.id + '\')" class="btn-sm btn-danger" style="font-size:.7rem;padding:4px 8px">Revoke</button>' : ''}
           </div>
         </td>`;
       tbody.appendChild(tr);
@@ -1001,7 +1001,7 @@
             <div>
               <span style="font-weight:600">${m.name}</span>
               <span style="color:var(--text2);font-size:.8rem;margin-left:8px">${m.email}</span>
-              ${m.source ? `<span style="color:var(--text3);font-size:.72rem;margin-left:8px;background:var(--surface2);padding:1px 6px;border-radius:4px">${m.source}</span>` : ''}
+              ${m.source ? '<span style="color:var(--text3);font-size:.72rem;margin-left:8px;background:var(--surface2);padding:1px 6px;border-radius:4px">' + m.source + '</span>' : ''}
             </div>
             <span style="font-size:.72rem;color:var(--text3)">${m.createdAt?.toDate?.()?.toLocaleString('en-IN') || ''}</span>
           </div>

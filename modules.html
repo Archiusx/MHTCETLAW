@@ -425,9 +425,9 @@
             <button class="btn-slides" onclick="openSlides('Logical Reasoning — Slides', reasoningSlides)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
             </button>
-            <a href="free-test.html" class="btn-quiz">
+            <button class="btn-quiz" onclick="openQuiz()">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -726,9 +726,9 @@
             <button class="btn-slides" onclick="openSlides('Logical Reasoning — Slides', reasoningSlides)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Slides
             </button>
-            <a href="free-test.html" class="btn-quiz">
+            <button class="btn-quiz" onclick="openQuiz()">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M9 11l3 3L22 4"/></svg> Quiz
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -1012,49 +1012,184 @@ const legalAptitudeSlides = [
 
 const reasoningSlides = [
   {
-    title: "Logical Reasoning — Strategy Overview",
-    body: `<p>Logical Reasoning tests your ability to <strong>think logically</strong> and spot patterns. In MHT CET LAW it carries <strong>32 marks</strong> in both papers.</p>
-    <h4>Main Topics Covered:</h4>
+    title: "Module 02 — Logical Reasoning Strategy",
+    body: `<p>Logical &amp; Analytical Reasoning carries <strong>32 marks</strong> in MHT CET LAW — equal to Legal Aptitude. With consistent practice, this section can become your <strong>highest-scoring section</strong>.</p>
+    <h4>10 Topic Breakdown:</h4>
     <ul>
-      <li>Number &amp; Letter Series</li>
-      <li>Analogies (word, number, letter)</li>
-      <li>Coding-Decoding</li>
-      <li>Blood Relations</li>
-      <li>Directions &amp; Distance</li>
-      <li>Syllogisms</li>
-      <li>Puzzles &amp; Seating Arrangement</li>
-      <li>Critical Reasoning</li>
+      <li><strong>1.</strong> Number &amp; Letter Series — 4–5 Qs</li>
+      <li><strong>2.</strong> Analogies &amp; Classifications — 3–4 Qs</li>
+      <li><strong>3.</strong> Coding-Decoding — 3–4 Qs</li>
+      <li><strong>4.</strong> Blood Relations — 2–3 Qs</li>
+      <li><strong>5.</strong> Directions &amp; Distance — 2–3 Qs</li>
+      <li><strong>6.</strong> Syllogisms &amp; Venn Diagrams — 4–5 Qs</li>
+      <li><strong>7.</strong> Odd-One-Out — 2–3 Qs</li>
+      <li><strong>8.</strong> Seating Arrangement — 2–3 Qs</li>
+      <li><strong>9.</strong> Critical Reasoning — 3–4 Qs</li>
+      <li><strong>10.</strong> Statement &amp; Conclusions — 3–4 Qs</li>
     </ul>`,
-    tip: "Logical Reasoning is the most scoring section — with practice you can get 28+/32. Spend 10 min/day on series practice."
+    tip: "Logical Reasoning is the most improvable section. 20 min of daily practice = 28+/32 in 4 weeks. Start with Series and Analogies first.",
+    remember: "No shortcut — practice 10 questions daily. Speed improves naturally with repetition."
   },
   {
-    title: "Number Series — How to Solve",
-    body: `<p>Number series asks: find the missing/wrong term.</p>
-    <h4>Common Patterns:</h4>
+    title: "Number Series — Patterns & Tricks",
+    body: `<p>Find the missing/wrong term by identifying the pattern between numbers.</p>
+    <h4>6 Core Patterns:</h4>
     <ul>
-      <li><strong>Arithmetic:</strong> 2, 5, 8, 11, ? → +3 each time → 14</li>
-      <li><strong>Geometric:</strong> 2, 6, 18, 54, ? → ×3 each time → 162</li>
-      <li><strong>Squares:</strong> 1, 4, 9, 16, 25 → n²</li>
-      <li><strong>Cubes:</strong> 1, 8, 27, 64 → n³</li>
-      <li><strong>Mixed:</strong> 1, 2, 4, 7, 11, ? → differences are 1,2,3,4 → +5 → 16</li>
-      <li><strong>Fibonacci:</strong> 1, 1, 2, 3, 5, 8, 13 → each = sum of prev two</li>
-    </ul>`,
-    tip: "First find the difference between consecutive terms. If differences follow a pattern, you've solved it!",
-    remember: "Always check: constant difference → arithmetic. Constant ratio → geometric. Increasing differences → look for squares/cubes."
+      <li><strong>Arithmetic (+/−):</strong> 3, 7, 11, 15, ? → +4 each → <strong>19</strong></li>
+      <li><strong>Geometric (×/÷):</strong> 2, 6, 18, 54, ? → ×3 each → <strong>162</strong></li>
+      <li><strong>Squares:</strong> 1, 4, 9, 16, 25 → 1², 2², 3²... → next: <strong>36</strong></li>
+      <li><strong>Cubes:</strong> 1, 8, 27, 64, ? → 1³, 2³, 3³... → <strong>125</strong></li>
+      <li><strong>Increasing Differences:</strong> 1, 2, 4, 7, 11, ? → diff: 1,2,3,4 → +5 → <strong>16</strong></li>
+      <li><strong>Fibonacci:</strong> 1, 1, 2, 3, 5, 8, 13 → each = sum of previous two</li>
+    </ul>
+    <h4>Solving Strategy:</h4>
+    <p>Step 1: Find difference between consecutive terms. Step 2: If differences are constant → arithmetic. Step 3: If differences are increasing → find pattern of differences.</p>`,
+    tip: "Always find the DIFFERENCE between consecutive terms first — this single step solves 80% of series questions!",
+    remember: "Constant difference = arithmetic. Constant ratio = geometric. Increasing difference = look for squares, cubes, or Fibonacci."
   },
   {
-    title: "Syllogisms — All or Some Logic",
-    body: `<p>Syllogisms give statements and ask for valid conclusions.</p>
+    title: "Letter Series & Alphabetical Reasoning",
+    body: `<p>Letters follow the same rules as numbers. Key: know the position of each letter (A=1, B=2... Z=26).</p>
+    <h4>Important Tricks:</h4>
+    <ul>
+      <li><strong>EJOTY rule:</strong> E=5, J=10, O=15, T=20, Y=25 (every 5th letter)</li>
+      <li><strong>Opposite letters:</strong> A↔Z, B↔Y, C↔X, D↔W (sum = 27)</li>
+      <li>ACE, BDF, CEG → each letter moves +2</li>
+      <li>AZ, BY, CX → first goes forward, second goes backward</li>
+    </ul>
+    <h4>Example:</h4>
+    <p>B, D, G, K, ? → differences: +2, +3, +4 → next +5 → <strong>P</strong> (K is 11th, +5 = 16th = P)</p>`,
+    tip: "Memorise positions of A=1, E=5, J=10, O=15, T=20, Y=25. These 5 anchor points help you find any letter position in seconds!",
+    remember: "Opposite letter pairs sum to 27: A(1)+Z(26)=27, B(2)+Y(25)=27, and so on."
+  },
+  {
+    title: "Analogies — Word, Number & Letter",
+    body: `<p>Analogies test the relationship between two pairs. Find what connects A:B, then apply the same to C:?</p>
+    <h4>Types of Word Analogies:</h4>
+    <ul>
+      <li><strong>Tool → User:</strong> Scalpel : Doctor :: Stethoscope : ?</li>
+      <li><strong>Part → Whole:</strong> Page : Book :: Brick : Wall</li>
+      <li><strong>Animal → Sound:</strong> Dog : Bark :: Cow : Moo</li>
+      <li><strong>Worker → Product:</strong> Carpenter : Furniture :: Potter : Pottery</li>
+      <li><strong>Cause → Effect:</strong> Fire : Ashes :: Flood : Erosion</li>
+      <li><strong>Synonym/Antonym pairs</strong></li>
+    </ul>
+    <h4>Number Analogies:</h4>
+    <p>36 : 6 :: 49 : ? → 36 = 6², 49 = 7² → answer is <strong>7</strong></p>`,
+    tip: "First identify the TYPE of relationship (part-whole, tool-user, cause-effect, etc.) then apply the same logic to find the answer.",
+    remember: "In analogies: always define the exact relationship. 'Doctor uses Stethoscope' is different from 'Stethoscope is for Doctor'."
+  },
+  {
+    title: "Coding-Decoding — Rules & Shortcuts",
+    body: `<p>In Coding-Decoding, a word is coded using a rule — find the rule, then decode/encode another word.</p>
+    <h4>Common Coding Types:</h4>
+    <ul>
+      <li><strong>Letter shift:</strong> CAT = DBU (each letter +1)</li>
+      <li><strong>Reverse alphabet:</strong> A→Z, B→Y, CAT = ZZG</li>
+      <li><strong>Number substitution:</strong> A=1, B=2... CAT = 3,1,20</li>
+      <li><strong>Reverse word:</strong> FLOW = WOLF</li>
+      <li><strong>Odd/Even position swap:</strong> MANGO → AMNGO</li>
+    </ul>
+    <h4>Solving Approach:</h4>
+    <ol>
+      <li>Find the coded version of a known word</li>
+      <li>Compare letter by letter — spot the rule</li>
+      <li>Apply the same rule to the new word</li>
+    </ol>`,
+    tip: "Write the original word above and coded word below, then check each position. The rule is usually consistent across all letters.",
+    remember: "Most coding uses +1/−1/+2 shift, position reversal, or opposite letter substitution — try all three when stuck."
+  },
+  {
+    title: "Blood Relations — Solving Family Trees",
+    body: `<p>Blood relation questions describe family connections and ask you to identify the relationship between two members.</p>
+    <h4>Key Relations to Know:</h4>
+    <ul>
+      <li>Paternal = Father's side | Maternal = Mother's side</li>
+      <li>Sibling of father = Uncle (M) / Aunt (F)</li>
+      <li>Children of Uncle/Aunt = Cousin</li>
+      <li>Father's/Mother's father = Grandfather</li>
+      <li>Spouse of sibling = Sister-in-law / Brother-in-law</li>
+    </ul>
+    <h4>Method:</h4>
+    <p>Draw a family tree diagram. Use: ▲ for male, ○ for female, = for married, | for parent-child, — for siblings.</p>
+    <h4>Example:</h4>
+    <p>"A is the mother of B. C is the brother of A. B is the daughter of D." → D is A's husband/wife → C is B's Uncle.</p>`,
+    tip: "ALWAYS draw the family tree — don't try to solve in your head. 30 seconds of drawing saves 2 minutes of confusion.",
+    remember: "Gender clue words: Son/Brother/Father/Uncle/Husband = Male. Daughter/Sister/Mother/Aunt/Wife = Female."
+  },
+  {
+    title: "Directions & Distance",
+    body: `<p>These questions involve movement in N/S/E/W directions and ask for final position or total distance.</p>
     <h4>Key Rules:</h4>
     <ul>
-      <li><strong>All A are B + All B are C → All A are C</strong> ✓</li>
-      <li><strong>All A are B + Some B are C → Some A are C</strong> ✗ (wrong!)</li>
-      <li><strong>No A is B + All C are A → No C is B</strong> ✓</li>
-      <li>If both statements are particular (Some), no definite conclusion</li>
+      <li>Facing North → turn Right → now facing East</li>
+      <li>Facing North → turn Left → now facing West</li>
+      <li>After U-turn → you face opposite direction</li>
+      <li>Sun rises in East, sets in West</li>
+      <li>Shadow at morning = West side. Shadow at evening = East side</li>
     </ul>
+    <h4>Distance Formula:</h4>
+    <p>Use Pythagoras for straight-line distance: if 3km East + 4km North → distance from start = √(3² + 4²) = <strong>5 km</strong></p>
+    <h4>Tip:</h4>
+    <p>Always draw the path on paper. Mark start point as "O". Plot each movement step by step.</p>`,
+    tip: "Right turn = clockwise 90°. Left turn = anti-clockwise 90°. Draw every movement — don't visualise mentally.",
+    remember: "3-4-5 right triangle: if movements are 3 and 4 at right angles, straight-line distance = 5. Very common in exams!"
+  },
+  {
+    title: "Syllogisms — Complete Rules",
+    body: `<p>Syllogisms give 2 statements and ask which conclusions are definitely true.</p>
+    <h4>The 4 Rules (Must Memorise):</h4>
+    <ul>
+      <li><strong>All A are B + All B are C → All A are C ✓</strong></li>
+      <li><strong>All A are B + Some B are C → Some A are C ✗</strong> (NOT valid)</li>
+      <li><strong>No A is B + All C are A → No C is B ✓</strong></li>
+      <li><strong>Some A are B + Some B are C → No conclusion ✗</strong></li>
+    </ul>
+    <h4>Complementary Pairs (Either-Or):</h4>
+    <p>If neither conclusion I nor II follows individually, but together they form "All A are B" + "Some A are not B" → mark "Either I or II follows"</p>
     <h4>Venn Diagram Method:</h4>
-    <p>Draw circles for each category. Check if conclusion is possible in ALL valid diagrams — if yes, it's definitely true. If possible in SOME diagrams, it's probably true.</p>`,
-    tip: "Use Venn diagrams for ALL syllogism questions — it's the safest method and takes only 30 seconds."
+    <p>Draw ALL possible Venn diagrams. A conclusion is TRUE only if it holds in EVERY possible diagram.</p>`,
+    tip: "Use Venn diagrams for every syllogism. Draw all possible arrangements — if the conclusion holds in ALL of them, it's definitely true.",
+    remember: "Two 'Some' statements never give a definite conclusion. Two 'No' statements never give a definite conclusion."
+  },
+  {
+    title: "Critical Reasoning — Assumptions & Conclusions",
+    body: `<p>Critical Reasoning questions give a statement/argument and ask about assumptions, conclusions, inferences, or logical gaps.</p>
+    <h4>Types:</h4>
+    <ul>
+      <li><strong>Assumption:</strong> What unstated belief must be true for the statement to make sense?</li>
+      <li><strong>Conclusion:</strong> What logically follows from the given information?</li>
+      <li><strong>Inference:</strong> What can be understood from the passage?</li>
+      <li><strong>Strengthens/Weakens:</strong> Which option supports or attacks the argument?</li>
+    </ul>
+    <h4>Rules for Assumptions:</h4>
+    <ul>
+      <li>Assumption must be necessary — not just possible</li>
+      <li>Don't add extra information not in the passage</li>
+      <li>Assumption is always unstated but required</li>
+    </ul>`,
+    tip: "For Assumption questions: negate the option. If the argument falls apart after negation, that IS the assumption!",
+    remember: "Conclusion must follow ONLY from given information. Inference is slightly broader. Assumption is unstated but required."
+  },
+  {
+    title: "Statement & Conclusion — Odd-One-Out",
+    body: `<p><strong>Statement-Conclusion:</strong> Only mark "Conclusion follows" if it is directly and completely supported by the given statement — no assumptions.</p>
+    <h4>Rules:</h4>
+    <ul>
+      <li>Conclusion must be narrower than or equal to the statement</li>
+      <li>Never go beyond what is stated</li>
+      <li>"Some" conclusions are safer than "All" conclusions</li>
+    </ul>
+    <hr style="border-color:#334155;margin:12px 0"/>
+    <p><strong>Odd-One-Out:</strong> Find which does NOT belong to the group.</p>
+    <h4>Common Grouping Types:</h4>
+    <ul>
+      <li>Category: Rose, Lotus, Mango, Jasmine → Mango is not a flower</li>
+      <li>Number pattern: 4, 9, 16, 25, 35 → 35 is not a perfect square</li>
+      <li>Letter pattern: AZ, BY, CX, EW → EW breaks the sequence (should be DW)</li>
+    </ul>`,
+    tip: "For Odd-One-Out: identify what all others share (category, pattern, rule) — the one that doesn't fit is the answer.",
+    remember: "For Statement-Conclusion: if in doubt, mark 'Does Not Follow'. A safe conclusion must be 100% proven by the statement."
   }
 ];
 
@@ -1240,5 +1375,244 @@ const pyqSlides = [
 </script>
 
 <script type="module" src="modules.js"></script>
+
+<!-- ── MODULE 2 QUIZ MODAL ──────────────────── -->
+<div id="quizModal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:20px;width:100%;max-width:580px;max-height:90vh;overflow-y:auto;box-shadow:0 30px 60px rgba(0,0,0,.6)">
+    <!-- Header -->
+    <div style="padding:20px 24px 16px;border-bottom:1px solid #334155;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#1e293b;z-index:1">
+      <div>
+        <div style="font-size:.72rem;font-weight:700;color:#7c3aed;letter-spacing:.06em;margin-bottom:2px">MODULE 02 · LOGICAL REASONING</div>
+        <div style="font-size:1rem;font-weight:700;color:#f1f5f9" id="quizTitle">Practice Quiz</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font-size:.78rem;color:#94a3b8" id="quizProgress">Q 1 / 10</div>
+        <button onclick="closeQuiz()" style="background:transparent;border:1px solid #334155;border-radius:8px;color:#94a3b8;padding:6px 10px;cursor:pointer;font-family:inherit;font-size:.8rem;transition:all .2s" onmouseover="this.style.background='#334155'" onmouseout="this.style.background='transparent'">✕ Close</button>
+      </div>
+    </div>
+    <!-- Progress bar -->
+    <div style="height:3px;background:#1e3a5f">
+      <div id="quizProgressBar" style="height:3px;background:linear-gradient(90deg,#7c3aed,#a855f7);width:10%;transition:width .3s"></div>
+    </div>
+    <!-- Question -->
+    <div style="padding:24px">
+      <div id="quizQuestionWrap">
+        <div id="quizQNum" style="font-size:.72rem;font-weight:700;color:#7c3aed;margin-bottom:8px"></div>
+        <div id="quizQuestion" style="font-size:1rem;font-weight:600;color:#f1f5f9;line-height:1.6;margin-bottom:20px"></div>
+        <div id="quizOptions" style="display:flex;flex-direction:column;gap:10px"></div>
+      </div>
+      <!-- Result panel (hidden initially) -->
+      <div id="quizResult" style="display:none;margin-top:16px;padding:16px;border-radius:12px">
+        <div id="quizResultText" style="font-weight:700;font-size:.95rem;margin-bottom:6px"></div>
+        <div id="quizExplanation" style="font-size:.85rem;color:#cbd5e1;line-height:1.6"></div>
+      </div>
+      <!-- Bottom actions -->
+      <div style="margin-top:20px;display:flex;gap:10px;justify-content:space-between;align-items:center">
+        <div id="quizScoreDisplay" style="font-size:.82rem;color:#64748b"></div>
+        <button id="quizNextBtn" onclick="quizNext()" style="display:none;background:#7c3aed;color:#fff;border:none;border-radius:10px;padding:10px 24px;font-family:inherit;font-size:.875rem;font-weight:700;cursor:pointer;transition:all .2s">Next Question →</button>
+      </div>
+    </div>
+    <!-- Final Score Screen -->
+    <div id="quizFinalScreen" style="display:none;padding:32px;text-align:center">
+      <div style="font-size:3rem;margin-bottom:12px">🎯</div>
+      <div style="font-size:1.5rem;font-weight:800;color:#f1f5f9;margin-bottom:6px">Quiz Complete!</div>
+      <div id="quizFinalScore" style="font-size:1rem;color:#94a3b8;margin-bottom:20px"></div>
+      <div id="quizFinalMsg" style="font-size:.875rem;color:#cbd5e1;background:#0f172a;border-radius:10px;padding:14px;margin-bottom:20px;line-height:1.6"></div>
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button onclick="restartQuiz()" style="background:#7c3aed;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-family:inherit;font-size:.875rem;font-weight:700;cursor:pointer">🔁 Try Again</button>
+        <button onclick="closeQuiz()" style="background:transparent;color:#94a3b8;border:1px solid #334155;border-radius:10px;padding:10px 20px;font-family:inherit;font-size:.875rem;cursor:pointer">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── MODULE 2 QUIZ DATA ──
+const reasoningQuiz = [
+  {
+    q: "What comes next in the series? 2, 5, 10, 17, 26, ?",
+    opts: ["35", "36", "37", "38"],
+    ans: 2,
+    exp: "Differences: +3, +5, +7, +9, +11 → 26 + 11 = 37. The differences increase by 2 each time."
+  },
+  {
+    q: "Statements: All cats are dogs. All dogs are animals.\nConclusion I: All cats are animals.\nConclusion II: Some animals are cats.",
+    opts: ["Only I follows", "Only II follows", "Both I and II follow", "Neither follows"],
+    ans: 2,
+    exp: "All cats are dogs + All dogs are animals → All cats are animals (I ✓). Since all cats are animals, some animals are cats (II ✓). Both follow."
+  },
+  {
+    q: "If MANGO is coded as OCPIQ, what is the code for APPLE?",
+    opts: ["CRRNG", "CRRNG", "CQQNG", "CRQNG"],
+    ans: 0,
+    exp: "Each letter is shifted by +2: M→O, A→C, N→P, G→I, O→Q. So APPLE: A→C, P→R, P→R, L→N, E→G = CRRNG"
+  },
+  {
+    q: "A is the father of B. C is the sister of B. D is the husband of C. What is A to D?",
+    opts: ["Uncle", "Father-in-law", "Brother-in-law", "Grandfather"],
+    ans: 1,
+    exp: "A is father of B. C is sister of B, so A is also father of C. D is husband of C. Therefore A is father-in-law to D."
+  },
+  {
+    q: "Ravi walks 5 km North, then 3 km East, then 5 km South. How far is he from the starting point?",
+    opts: ["3 km", "5 km", "8 km", "13 km"],
+    ans: 0,
+    exp: "5 km North and 5 km South cancel out. He is only 3 km East of start. Distance = 3 km."
+  },
+  {
+    q: "Which is the Odd-One-Out?\nRose, Lotus, Jasmine, Mango, Sunflower",
+    opts: ["Rose", "Lotus", "Mango", "Sunflower"],
+    ans: 2,
+    exp: "Rose, Lotus, Jasmine, and Sunflower are all flowers. Mango is a fruit/tree — it does not belong to the flower group."
+  },
+  {
+    q: "Book : Author :: Sculpture : ?",
+    opts: ["Museum", "Sculptor", "Marble", "Exhibition"],
+    ans: 1,
+    exp: "A Book is created by an Author. A Sculpture is created by a Sculptor. The relationship is 'product created by the creator'."
+  },
+  {
+    q: "Statement: All schools in the city are closed due to heavy rain.\nConclusion: It is raining heavily in the city.",
+    opts: ["Conclusion follows", "Conclusion does not follow", "Conclusion is an assumption", "Data is insufficient"],
+    ans: 0,
+    exp: "The statement says schools are closed DUE TO heavy rain. This directly states the cause — heavy rain. So the conclusion 'it is raining heavily' logically follows."
+  },
+  {
+    q: "In a certain code, 15 means 'get out' and 24 means 'out run'. What is the code for 'get'?",
+    opts: ["1", "2", "5", "4"],
+    ans: 0,
+    exp: "'get out' = 15, 'out run' = 24. 'out' appears in both, so 'out' could be 1 or 2 (depending on assignment). 'get' = 1 (from 15, since 'out'=5 appears in 24, 'out'=4 → get=1). Answer: 1"
+  },
+  {
+    q: "Which letter is 5th to the right of the 10th letter from the left in the alphabet?",
+    opts: ["O", "P", "Q", "N"],
+    ans: 1,
+    exp: "10th letter from left = J. 5th to the right of J = J(10) + 5 = 15th letter = O. Wait — 10th is J, +5 = 15th = O. Actually: J=10, K=11, L=12, M=13, N=14, O=15 → answer is O. But counting again: 5th to RIGHT of 10th = 10+5 = 15th = O."
+  }
+];
+
+let quizCurrent = 0;
+let quizScore = 0;
+let quizAnswered = false;
+
+window.openQuiz = function() {
+  quizCurrent = 0;
+  quizScore = 0;
+  quizAnswered = false;
+  const modal = document.getElementById('quizModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  document.getElementById('quizFinalScreen').style.display = 'none';
+  document.getElementById('quizQuestionWrap').style.display = 'block';
+  renderQuizQuestion();
+};
+
+window.closeQuiz = function() {
+  document.getElementById('quizModal').style.display = 'none';
+  document.body.style.overflow = '';
+};
+
+window.restartQuiz = function() {
+  quizCurrent = 0;
+  quizScore = 0;
+  quizAnswered = false;
+  document.getElementById('quizFinalScreen').style.display = 'none';
+  document.getElementById('quizQuestionWrap').style.display = 'block';
+  renderQuizQuestion();
+};
+
+function renderQuizQuestion() {
+  const q = reasoningQuiz[quizCurrent];
+  quizAnswered = false;
+
+  document.getElementById('quizTitle').textContent = 'Logical Reasoning Quiz';
+  document.getElementById('quizProgress').textContent = `Q ${quizCurrent + 1} / ${reasoningQuiz.length}`;
+  document.getElementById('quizProgressBar').style.width = ((quizCurrent / reasoningQuiz.length) * 100) + '%';
+  document.getElementById('quizQNum').textContent = `Question ${quizCurrent + 1}`;
+  document.getElementById('quizQuestion').innerHTML = q.q.replace(/\n/g, '<br>');
+  document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('quizNextBtn').style.display = 'none';
+  document.getElementById('quizScoreDisplay').textContent = `Score: ${quizScore} / ${quizCurrent}`;
+
+  const optsWrap = document.getElementById('quizOptions');
+  optsWrap.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.style.cssText = 'width:100%;text-align:left;padding:12px 16px;background:#0f172a;border:1.5px solid #334155;border-radius:10px;color:#e2e8f0;font-family:inherit;font-size:.875rem;cursor:pointer;transition:all .2s;line-height:1.5';
+    btn.innerHTML = `<span style="font-weight:700;color:#7c3aed;margin-right:8px">${String.fromCharCode(65+i)}.</span>${opt}`;
+    btn.onmouseover = () => { if (!quizAnswered) btn.style.borderColor = '#7c3aed'; };
+    btn.onmouseout = () => { if (!quizAnswered) btn.style.borderColor = '#334155'; };
+    btn.onclick = () => answerQuiz(i, btn);
+    optsWrap.appendChild(btn);
+  });
+}
+
+function answerQuiz(chosen, btn) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const q = reasoningQuiz[quizCurrent];
+  const correct = q.ans;
+  const allBtns = document.getElementById('quizOptions').querySelectorAll('button');
+
+  // Style all options
+  allBtns.forEach((b, i) => {
+    b.style.cursor = 'default';
+    if (i === correct) {
+      b.style.background = 'rgba(34,197,94,.12)';
+      b.style.borderColor = '#22c55e';
+      b.style.color = '#86efac';
+    } else if (i === chosen && i !== correct) {
+      b.style.background = 'rgba(239,68,68,.1)';
+      b.style.borderColor = '#ef4444';
+      b.style.color = '#fca5a5';
+    }
+  });
+
+  const isCorrect = chosen === correct;
+  if (isCorrect) quizScore++;
+
+  // Show result
+  const resultEl = document.getElementById('quizResult');
+  resultEl.style.display = 'block';
+  resultEl.style.background = isCorrect ? 'rgba(34,197,94,.08)' : 'rgba(239,68,68,.08)';
+  resultEl.style.border = '1px solid ' + (isCorrect ? 'rgba(34,197,94,.25)' : 'rgba(239,68,68,.25)');
+  document.getElementById('quizResultText').style.color = isCorrect ? '#86efac' : '#fca5a5';
+  document.getElementById('quizResultText').textContent = isCorrect ? '✅ Correct!' : '❌ Incorrect';
+  document.getElementById('quizExplanation').innerHTML = '<strong>Explanation:</strong> ' + q.exp;
+  document.getElementById('quizScoreDisplay').textContent = `Score: ${quizScore} / ${quizCurrent + 1}`;
+
+  // Show next button
+  const nextBtn = document.getElementById('quizNextBtn');
+  nextBtn.style.display = 'block';
+  nextBtn.textContent = quizCurrent + 1 < reasoningQuiz.length ? 'Next Question →' : 'See Results 🎯';
+}
+
+window.quizNext = function() {
+  quizCurrent++;
+  if (quizCurrent >= reasoningQuiz.length) {
+    showQuizFinal();
+  } else {
+    renderQuizQuestion();
+  }
+};
+
+function showQuizFinal() {
+  document.getElementById('quizQuestionWrap').style.display = 'none';
+  document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('quizNextBtn').style.display = 'none';
+  document.getElementById('quizFinalScreen').style.display = 'block';
+  document.getElementById('quizProgressBar').style.width = '100%';
+
+  const pct = Math.round((quizScore / reasoningQuiz.length) * 100);
+  document.getElementById('quizFinalScore').textContent = `You scored ${quizScore} out of ${reasoningQuiz.length} (${pct}%)`;
+
+  let msg = '';
+  if (pct >= 90) msg = '🌟 Outstanding! You have mastered Logical Reasoning. You are exam-ready!';
+  else if (pct >= 70) msg = '💪 Great job! A bit more practice on weak topics and you will ace this section.';
+  else if (pct >= 50) msg = '📖 Good attempt! Review the explanations and re-read the slides for topics you missed.';
+  else msg = '🔁 Keep going! Re-read the Module 2 slides, then attempt the quiz again. Consistency is key!';
+  document.getElementById('quizFinalMsg').textContent = msg;
+}
+</script>
 </body>
 </html>

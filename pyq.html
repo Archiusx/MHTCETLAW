@@ -418,12 +418,23 @@
     }
     const isAdmin = ADMIN_EMAILS.includes(user.email);
     if (isAdmin) { grantAccess(user); return; }
+
     // Always fetch fresh from Firestore — admin may have just updated this user's plan
     try {
       const snap = await getDoc(doc(db, 'users', user.uid));
-      const plan = snap.exists() ? (snap.data().plan || 'free') : 'free';
-      if (plan === 'premium' || plan === 'admin') { grantAccess(user); } else { showNotPremium(user); }
-    } catch(e) { showNotPremium(user); }
+      const data = snap.exists() ? snap.data() : {};
+      const plan = data.plan || 'free';
+      const isApproved = data.isApproved || false;
+      // ✅ FIX: Grant access if premium/admin plan OR if isApproved
+      // (handles case where admin clicked Approve without changing plan dropdown)
+      if (plan === 'premium' || plan === 'admin' || isApproved) {
+        grantAccess(user);
+      } else {
+        showNotPremium(user);
+      }
+    } catch(e) {
+      showNotPremium(user);
+    }
   });
 
   function grantAccess(user) {

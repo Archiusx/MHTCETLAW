@@ -3,7 +3,7 @@
    PREMIUM ACCESS GATE + Full UI
    ============================================= */
 
-import { auth, db, ADMIN_EMAILS } from './firebase-config.js';
+import { auth, db, ADMIN_EMAILS, PREMIUM_EMAILS } from './firebase-config.js';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, getDoc, addDoc, collection, query, orderBy, getDocs, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -28,14 +28,21 @@ onAuthStateChanged(auth, async (user) => {
   const isAdmin = ADMIN_EMAILS.includes(user.email);
   if (isAdmin) { grantAccess(user); return; }
 
+  // Hardcoded premium exception — bypass Firestore check
+  const isPremiumException = PREMIUM_EMAILS.includes(user.email);
+  if (isPremiumException) { grantAccess(user); return; }
+
   // ALWAYS fetch fresh from Firestore — never trust sessionStorage
   // Admin may have just upgraded this user, stale cache would break access
   try {
     const snap = await getDoc(doc(db, 'users', user.uid));
     const data = snap.exists() ? snap.data() : {};
     const plan = data.plan || 'free';
+    const isApproved = data.isApproved || false;
 
-    if (plan === 'premium' || plan === 'admin') {
+    // ✅ FIX: Grant access if plan is premium/admin OR if user is approved
+    // (some users get approved via Approve button which may not update plan field)
+    if (plan === 'premium' || plan === 'admin' || isApproved) {
       grantAccess(user);
     } else {
       showGate('notPremium', user);

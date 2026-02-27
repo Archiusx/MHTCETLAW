@@ -18,10 +18,16 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 
-// Admin emails — full dashboard access
+// Admin emails — full dashboard + admin panel access
 export const ADMIN_EMAILS = [
   "co.2024.prdeshkar@bitwardha.ac.in",
   "class11art@gmail.com"
+];
+
+// Premium exception emails — hardcoded premium access (no Firestore check needed)
+// Add any student email here to give them permanent premium access
+export const PREMIUM_EMAILS = [
+  "udayaglave@gmail.com"
 ];
 
 export default app;

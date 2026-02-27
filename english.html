@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Language &amp; Comprehension — Module 3 | MHT CET LAW Portal</title>
+  <meta name="description" content="Master English Language & Comprehension for MHT CET LAW 2026-27. Grammar, Vocabulary, Reading Comprehension, Flashcards & Quiz."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styling.css"/>
+  <link rel="stylesheet" href="legal-aptitude.css"/>
+</head>
+<body class="ready">
+
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo-section">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </a>
+        <div class="brand-text">
+          <h1>MHT CET LAW Portal</h1>
+          <p>Module 3 — English Language &amp; Comprehension</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <nav class="la-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;opacity:.4"><polyline points="9 18 15 12 9 6"/></svg>
+          <a href="modules.html">Modules</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;opacity:.4"><polyline points="9 18 15 12 9 6"/></svg>
+          <span>English Language</span>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-container">
+      <a href="index.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home
+      </a>
+      <a href="modules.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Study Modules
+      </a>
+      <a href="#grammar" class="nav-link active" data-section="grammar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg> Grammar
+      </a>
+      <a href="#vocabulary" class="nav-link" data-section="vocabulary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Vocabulary
+      </a>
+      <a href="#comprehension" class="nav-link" data-section="comprehension">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Comprehension
+      </a>
+      <a href="#writing" class="nav-link" data-section="writing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Writing Skills
+      </a>
+      <a href="#flashcards" class="nav-link" data-section="flashcards">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Flashcards
+      </a>
+      <a href="#quiz" class="nav-link" data-section="quiz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Quiz
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="la-hero" style="background:linear-gradient(135deg,#7c2d12 0%,#c2410c 50%,#ea580c 100%)">
+  <div class="container">
+    <div class="la-hero-inner">
+      <div class="la-hero-left">
+        <div class="la-module-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+          Module 03 · Premium
+        </div>
+        <h2>English Language &amp;<br/>Comprehension</h2>
+        <p>Master Grammar, Vocabulary, Reading Comprehension &amp; Writing Skills. Highest weightage subject in the 3-Year LLB paper (40 marks).</p>
+        <div class="la-hero-tags">
+          <span>40 Questions (3-Yr)</span>
+          <span>8 Topics</span>
+          <span>~50 min</span>
+          <span>3-Yr &amp; 5-Yr</span>
+        </div>
+      </div>
+      <div class="la-hero-right">
+        <div class="la-progress-card">
+          <div class="la-progress-card-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--primary)"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Your Progress
+          </div>
+          <div class="la-stat-row">
+            <div class="la-stat">
+              <span class="la-stat-val" id="completion-percent">0%</span>
+              <span class="la-stat-lbl">Completed</span>
+            </div>
+            <div class="la-stat">
+              <span class="la-stat-val" id="cards-viewed">0/<span id="total-cards-count">12</span></span>
+              <span class="la-stat-lbl">Cards Reviewed</span>
+            </div>
+            <div class="la-stat">
+              <span class="la-stat-val" id="quiz-score-display">–/15</span>
+              <span class="la-stat-lbl">Quiz Score</span>
+            </div>
+          </div>
+          <div class="la-progress-bar-wrap">
+            <div class="la-progress-bar" id="main-progress" style="width:0%"></div>
+          </div>
+          <p class="la-progress-hint">Review flashcards to track progress</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="la-tabs-wrap">
+  <div class="container">
+    <div class="la-tabs" role="tablist">
+      <button class="la-tab active" data-tab="grammar" role="tab" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg> Grammar
+      </button>
+      <button class="la-tab" data-tab="vocabulary" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Vocabulary
+      </button>
+      <button class="la-tab" data-tab="comprehension" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Comprehension
+      </button>
+      <button class="la-tab" data-tab="writing" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Writing Skills
+      </button>
+      <button class="la-tab" data-tab="flashcards" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Flashcards
+      </button>
+      <button class="la-tab" data-tab="quiz" role="tab" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Practice Quiz
+      </button>
+    </div>
+  </div>
+</div>
+
+<main class="la-main">
+  <div class="container">
+
+    <!-- GRAMMAR TAB -->
+    <div id="tab-grammar" class="la-panel active" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fff7ed;color:#ea580c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+          </div>
+          <h3>Grammar — Most Tested Rules</h3>
+        </div>
+        <p>Grammar accounts for <strong>8–12 questions</strong> in the English section. Focus on Tenses, Articles, Prepositions, Subject-Verb Agreement, and Error Spotting.</p>
+
+        <h4>Tenses — Common Exam Rules</h4>
+        <div class="la-info-grid">
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Since / For</span><span>"Since" = specific point in time. "For" = duration. Both use Present Perfect: "I have lived here since 2018 / for 5 years"</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Past Perfect</span><span>Use for earlier of two past actions: "He had left before she arrived." — "had left" happened first.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Would / Should</span><span>"Would" = past habit or conditional. "Should" = advice/obligation. Never mix with "if + simple past"</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">When / While</span><span>"When" + simple past. "While" + past continuous: "While I was reading, the phone rang."</span></div>
+        </div>
+
+        <div class="la-law-box" style="border-left-color:#ea580c">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Subject-Verb Agreement — 6 Key Rules
+          </div>
+          <ul class="la-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Each / Every / Either / Neither</strong> → always singular verb: "Each of the students <em>is</em> present."</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Collective nouns</strong> (team, jury, committee) → singular verb usually: "The jury <em>has</em> given its verdict."</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Either...or / Neither...nor</strong> → verb agrees with the nearer subject: "Neither the boys nor the girl <em>is</em> ready."</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Intervening phrases</strong> don't change the verb: "The quality of mangoes <em>is</em> good." (not 'are')</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Uncountable nouns</strong> → always singular: "The news <em>is</em> good." "Mathematics <em>is</em> difficult."</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>A number of</strong> → plural verb. <strong>The number of</strong> → singular verb.</span></li>
+          </ul>
+        </div>
+
+        <h4>Articles — A / An / The</h4>
+        <ul class="la-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>"A"</strong> before consonant sounds: a university, a one-way street, a European (sound matters, not spelling)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>"An"</strong> before vowel sounds: an hour, an honest man, an MBA, an MLA</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>"The"</strong> with unique things: the Sun, the Moon, the President of India, the Constitution</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>No article</strong> with proper nouns, languages, games: "She plays cricket." "He speaks Hindi."</span></li>
+        </ul>
+
+        <h4>Common Preposition Rules</h4>
+        <div class="la-info-grid">
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">At / In / On</span><span>At = specific place/time. In = enclosed/month/year. On = surface/day/date: "on Monday", "in July", "at 5pm"</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">By / With</span><span>By = agent/means of transport. With = instrument: "killed by the thief" but "killed with a knife"</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Between / Among</span><span>Between = two people/things. Among = three or more: "divide between two", "distribute among all"</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Beside / Besides</span><span>Beside = next to (place). Besides = in addition to: "She sat beside him." "Besides maths, she likes science."</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOCABULARY TAB -->
+    <div id="tab-vocabulary" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fff7ed;color:#ea580c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Vocabulary — Synonyms, Antonyms &amp; One-Word</h3>
+        </div>
+        <p>Vocabulary questions (8–12 per paper) test Synonyms, Antonyms, Idioms &amp; Phrases, and One-Word Substitution. Legal and formal English words appear most often.</p>
+
+        <h4>High-Frequency Synonyms (MHT CET LAW)</h4>
+        <div class="la-info-grid">
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Abdicate</span><span>Renounce, Relinquish, Give up (voluntarily giving up power or responsibility)</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Benevolent</span><span>Charitable, Philanthropic, Generous (well-meaning and kindly)</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Coerce</span><span>Compel, Force, Intimidate (persuade by force or threats)</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Eloquent</span><span>Articulate, Fluent, Persuasive (fluent or persuasive in speaking)</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Frugal</span><span>Economical, Thrifty, Sparing (simple and economical)</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Mendacious</span><span>Dishonest, Untruthful, Deceitful (not telling truth)</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Obdurate</span><span>Stubborn, Obstinate, Inflexible (stubbornly refusing to change)</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Verbose</span><span>Wordy, Long-winded, Garrulous (using more words than needed)</span></div>
+        </div>
+
+        <div class="la-law-box" style="border-left-color:#ea580c">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            One-Word Substitution — Most Asked
+          </div>
+          <div class="la-info-grid">
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Ambivert</span><span>One who is both introvert and extrovert</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Altruist</span><span>One who lives for the welfare of others</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Bibliophile</span><span>One who loves books</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Incorrigible</span><span>One who cannot be corrected or reformed</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Insolvent</span><span>One who cannot pay his debts</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Contemporaries</span><span>People living at the same time</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Numismatics</span><span>Study/collection of coins and currency</span></div>
+            <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Posthumous</span><span>Published/occurring after the author's death</span></div>
+          </div>
+        </div>
+
+        <h4>Idioms &amp; Phrases — High Frequency</h4>
+        <ul class="la-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>At the drop of a hat</strong> — immediately, without hesitation</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Beat around the bush</strong> — avoid the main topic</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Burn the midnight oil</strong> — work/study late at night</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Hit the nail on the head</strong> — say something exactly right</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Turn a blind eye</strong> — deliberately ignore a problem</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Under the weather</strong> — feeling unwell</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- COMPREHENSION TAB -->
+    <div id="tab-comprehension" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fff7ed;color:#ea580c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Reading Comprehension — Strategy</h3>
+        </div>
+        <p>Reading Comprehension carries <strong>10–14 questions</strong> in the English section — the largest chunk. Mastering RC strategy can save 15+ marks.</p>
+
+        <div class="la-alert-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span><strong>Strategy:</strong> Read questions FIRST (30 sec), then read the passage. This helps you know what to look for and saves 2–3 minutes per passage.</span>
+        </div>
+
+        <h4>Types of RC Questions</h4>
+        <div class="la-info-grid">
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Main Idea</span><span>What is the central theme/purpose of the passage? Look for the most general statement.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Direct Fact</span><span>Answer is directly stated in passage. Just find the relevant sentence — no inference needed.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Inference</span><span>Not directly stated — you must conclude from the passage. Stay within what passage implies.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Tone/Attitude</span><span>Is the author critical, appreciative, neutral, sarcastic? Look for adjectives and evaluative language.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Word Meaning</span><span>Meaning of a word in context — the passage will hint at meaning. Use elimination method.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Title</span><span>Best title captures the MAIN idea. Not too broad, not too narrow. Must reflect the whole passage.</span></div>
+        </div>
+
+        <div class="la-law-box" style="border-left-color:#ea580c">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            RC 5-Step Method
+          </div>
+          <ul class="la-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Step 1:</strong> Read all questions quickly (don't read options yet)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Step 2:</strong> Read passage once, marking key points (underline keywords mentally)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Step 3:</strong> Answer direct fact questions first — easiest marks</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Step 4:</strong> For inference/tone questions — eliminate obviously wrong options</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Step 5:</strong> Main idea/title question — answer LAST, after understanding the whole passage</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WRITING SKILLS TAB -->
+    <div id="tab-writing" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fff7ed;color:#ea580c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3>Writing Skills — Para Jumbles &amp; Fill in the Blanks</h3>
+        </div>
+        <p>Para Jumbles (sentence rearrangement) and Fill in the Blanks account for <strong>6–10 questions</strong> in the English section.</p>
+
+        <h4>Para Jumbles — Solving Strategy</h4>
+        <ul class="la-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Find the opening sentence:</strong> It introduces the topic, has no pronoun reference from before, and does not start with "But/However/Therefore"</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Find the closing sentence:</strong> Contains conclusion words (thus, therefore, hence, finally, in conclusion)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Link by pronouns:</strong> "he, she, they, it, this, these" — find the noun they refer to in a preceding sentence</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Connectors:</strong> "However/But" = contrast. "Moreover/Furthermore" = addition. "Therefore/Thus" = result.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span><strong>Definite article:</strong> "a/an" introduces something new. "the" refers to something already mentioned — so "the X" must follow "a/an X"</span></li>
+        </ul>
+
+        <div class="la-law-box" style="border-left-color:#ea580c">
+          <div class="la-law-box-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Fill in the Blanks — Rules
+          </div>
+          <ul class="la-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Read the complete sentence first, identify the grammatical category needed (noun/verb/adjective/adverb)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Look for context clues — words like "but, however, although" signal contrast; "and, moreover" signal similarity</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;color:#ea580c;flex-shrink:0;margin-top:2px"><path d="M9 11l3 3L22 4"/></svg><span>Double blank questions: both blanks must fit together — eliminate options where one fits but the other doesn't</span></li>
+          </ul>
+        </div>
+
+        <h4>Error Spotting — Common Errors</h4>
+        <div class="la-info-grid">
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Double Comparative</span><span>"More better" ✗ → "Better" ✓. Never use "more" with -er forms.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Redundancy</span><span>"Return back" ✗, "revert back" ✗, "past history" ✗ — words already contain the meaning.</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Could / Was able to</span><span>"Could" = general ability. For specific instance: "I was able to finish it" (not "could finish it")</span></div>
+          <div class="la-info-item"><span class="la-art-badge" style="background:#fff7ed;color:#ea580c;border-color:#fed7aa">Look forward to</span><span>Always followed by -ing: "I look forward to meeting you" (not "to meet")</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLASHCARDS TAB -->
+    <div id="tab-flashcards" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fff7ed;color:#ea580c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
+          </div>
+          <h3>Flashcards — Click to Flip</h3>
+        </div>
+        <p style="margin-bottom:1.5rem">Click any card to reveal the answer. Track your progress above.</p>
+
+        <div class="la-fc-grid">
+          <div class="la-fc" data-index="1">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">What is the rule for using "Since" vs "For"?</div>
+              <div class="la-fc-back"><strong>"Since"</strong> = specific point in time (since 2020, since Monday). <strong>"For"</strong> = duration (for 5 years, for two hours). Both use Present Perfect tense.</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="2">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">What does "Mendacious" mean?</div>
+              <div class="la-fc-back"><strong>Mendacious</strong> = not telling the truth; dishonest, deceitful. Antonym: Truthful, Honest. Example: "The mendacious witness gave false testimony."</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="3">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">One word for: "One who loves books"</div>
+              <div class="la-fc-back"><strong>Bibliophile</strong>. Other book-related words: Bibliophobia = fear of books. Bibliography = list of books on a topic.</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="4">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">What article comes before "MBA", "MLA", "hour"?</div>
+              <div class="la-fc-back"><strong>"An"</strong> — because they start with vowel SOUNDS: "an em-bee-ay", "an em-el-ay", "an our" (h is silent). Sound matters, not spelling!</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="5">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">"The committee has/have given their decision" — which is correct?</div>
+              <div class="la-fc-back"><strong>"has"</strong> — collective nouns (committee, jury, team, board) take a singular verb when acting as a unit: "The committee <em>has</em> given its decision."</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="6">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">What is "Incorrigible"?</div>
+              <div class="la-fc-back"><strong>Incorrigible</strong> = one who cannot be corrected or reformed. Example: "He is an incorrigible liar." Synonyms: Hardened, Irredeemable.</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="7">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">"Between" vs "Among" — what is the rule?</div>
+              <div class="la-fc-back"><strong>Between</strong> = two entities. <strong>Among</strong> = three or more. "Divide the work between the two of them." "Distribute the sweets among all students."</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="8">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">Idiom: "Burn the midnight oil" — meaning?</div>
+              <div class="la-fc-back"><strong>To work or study very late into the night.</strong> Origin: before electricity, people used oil lamps and burning them at midnight meant working very late.</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="9">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">"More better" — is this correct? What is the rule?</div>
+              <div class="la-fc-back"><strong>Incorrect!</strong> "More better" is a double comparative. Use either "better" OR "more good" (though "better" is the correct comparative form). Never combine "more" with -er forms.</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="10">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">How to find the opening sentence in Para Jumbles?</div>
+              <div class="la-fc-back">Opening sentence: <strong>(1)</strong> Introduces the topic. <strong>(2)</strong> No pronoun referring to a previous sentence. <strong>(3)</strong> Does NOT start with "But, However, Therefore, Thus, So."</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="11">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">What does "Obdurate" mean?</div>
+              <div class="la-fc-back"><strong>Obdurate</strong> = stubbornly refusing to change one's opinion or course of action. Synonyms: Stubborn, Obstinate, Inflexible. Antonym: Compliant, Flexible.</div>
+            </div>
+          </div>
+          <div class="la-fc" data-index="12">
+            <div class="la-fc-inner">
+              <div class="la-fc-front">"I look forward to _____ (meet/meeting) you." Which is correct?</div>
+              <div class="la-fc-back"><strong>"meeting"</strong> — "Look forward to" is always followed by a gerund (-ing form), not infinitive. Similarly: "devoted to working", "used to doing", "accustomed to living."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ TAB -->
+    <div id="tab-quiz" class="la-panel" role="tabpanel">
+      <div class="la-content-card fade-in">
+        <div class="la-card-title-row">
+          <div class="la-card-icon" style="background:#fff7ed;color:#ea580c">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3>Practice Quiz — English Language</h3>
+        </div>
+        <p style="margin-bottom:1.5rem">15 questions covering Grammar, Vocabulary, Comprehension and Writing Skills. No negative marking.</p>
+
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q1</div>
+          <p class="la-q-text">Choose the correct sentence:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> She has been working here since five years.</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> She has been working here for five years.</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> She is working here since five years.</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> She has worked here since five years.</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q2</div>
+          <p class="la-q-text">The synonym of "Mendacious" is:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Truthful</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Generous</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Dishonest</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Diligent</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q3</div>
+          <p class="la-q-text">One word substitution: "One who cannot be corrected"</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Incorrigible</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Insolvent</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Infallible</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Inevitable</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="3">
+          <div class="la-qnum">Q4</div>
+          <p class="la-q-text">Choose the correctly filled blank: "I look forward to _____ you at the conference."</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> meet</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> have met</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> met</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> meeting</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q5</div>
+          <p class="la-q-text">Identify the error: "The committee have decided to cancel the event."</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> No error</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> "have" should be "has"</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> "cancel" should be "cancelled"</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> "decided" should be "decide"</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q6</div>
+          <p class="la-q-text">The idiom "Turn a blind eye" means:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> To look carefully at something</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> To be visually impaired</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> To deliberately ignore a problem</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> To view things negatively</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q7</div>
+          <p class="la-q-text">Choose the correct article: "She holds _____ MBA degree from a reputed university."</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> an</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> a</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> the</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> No article needed</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="3">
+          <div class="la-qnum">Q8</div>
+          <p class="la-q-text">Which word means "one who lives for the welfare of others"?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Bibliophile</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Misanthrope</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Numismatist</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Altruist</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q9</div>
+          <p class="la-q-text">Choose the correct preposition: "Divide the chocolates _____ all the children."</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> between</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> among</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> within</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> across</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q10</div>
+          <p class="la-q-text">Identify the error: "She is more better at English than her sister."</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> "more better" should be just "better"</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> "at" should be "in"</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> "than" should be "then"</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> No error</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q11</div>
+          <p class="la-q-text">In Reading Comprehension, what should you read FIRST?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> The passage completely</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> All options first</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> The questions (without options)</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> The last paragraph</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="1">
+          <div class="la-qnum">Q12</div>
+          <p class="la-q-text">The antonym of "Verbose" is:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Talkative</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Concise</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Eloquent</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Fluent</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="0">
+          <div class="la-qnum">Q13</div>
+          <p class="la-q-text">Which connector signals CONTRAST in a sentence?</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> However</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Moreover</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Therefore</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Furthermore</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="3">
+          <div class="la-qnum">Q14</div>
+          <p class="la-q-text">Choose the correct sentence:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Neither the boys nor the girl are ready.</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Each of the students are present.</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> The news are shocking.</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Neither the boys nor the girl is ready.</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-q fade-in" data-correct="2">
+          <div class="la-qnum">Q15</div>
+          <p class="la-q-text">"Posthumous" means:</p>
+          <div class="la-options">
+            <button class="la-opt" data-val="0"><span class="la-opt-lbl">A</span> Very famous during lifetime</button>
+            <button class="la-opt" data-val="1"><span class="la-opt-lbl">B</span> Written long after the event</button>
+            <button class="la-opt" data-val="2"><span class="la-opt-lbl">C</span> Published or occurring after the author's death</button>
+            <button class="la-opt" data-val="3"><span class="la-opt-lbl">D</span> Based on past memories</button>
+          </div>
+        </div>
+
+        <div class="la-quiz-controls">
+          <button class="btn btn-primary" id="submitQuizBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M9 11l3 3L22 4"/></svg> Submit Quiz
+          </button>
+          <button class="btn btn-ghost" id="resetQuizBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-1"/></svg> Reset
+          </button>
+        </div>
+        <div class="la-quiz-result" id="quizResult">
+          <div class="la-result-icon" id="resultIcon">🎉</div>
+          <div class="la-result-score" id="finalScore">0 / 15</div>
+          <p class="la-result-msg" id="resultMsg">Great job!</p>
+          <button class="btn btn-outline" id="retryBtn" style="margin-top:1rem">Try Again</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>MHT CET LAW Portal</h3>
+        <p>Maharashtra's most comprehensive prep hub for MHT CET LAW 3-Year &amp; 5-Year entrance exams.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Module Topics</h3>
+        <a href="#" onclick="switchTab('grammar');return false">Grammar</a>
+        <a href="#" onclick="switchTab('vocabulary');return false">Vocabulary</a>
+        <a href="#" onclick="switchTab('comprehension');return false">Comprehension</a>
+        <a href="#" onclick="switchTab('writing');return false">Writing Skills</a>
+      </div>
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <a href="modules.html">All Modules</a>
+        <a href="legal-aptitude.html">Module 1 — Legal Aptitude</a>
+        <a href="gk.html">Module 4 — GK</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <a href="https://t.me/ragexking" target="_blank" rel="noopener">Telegram: @ragexking</a>
+        <a href="mailto:mhtcetlawprepare@gmail.com">mhtcetlawprepare@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025–26 MHT CET LAW Portal. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="legal-aptitude.js"></script>
+</body>
+</html>

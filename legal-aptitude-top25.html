@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>⚖️ Legal Aptitude — Top 25 PYQ | MHT CET LAW</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── RESET & BASE ── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#0B0F1A;
+      --ink2:#1E2535;
+      --ink3:#374151;
+      --muted:#6B7280;
+      --border:#E5E7EB;
+      --border2:#D1D5DB;
+      --gold:#B8860B;
+      --gold-light:#F5E6A3;
+      --gold-bg:#FEFCE8;
+      --indigo:#3730A3;
+      --indigo-light:#EEF2FF;
+      --indigo-mid:#6366F1;
+      --green:#166534;
+      --green-bg:#F0FDF4;
+      --green-border:#BBF7D0;
+      --red:#991B1B;
+      --red-bg:#FEF2F2;
+      --paper:#FAFAF8;
+      --white:#FFFFFF;
+      --radius:10px;
+      --shadow:0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:var(--paper);
+      color:var(--ink);
+      min-height:100vh;
+      line-height:1.6;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar{
+      position:sticky;top:0;z-index:300;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 24px;height:56px;
+      background:rgba(250,250,248,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:.9rem}
+    .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--indigo-mid)}
+    .topbar-right{display:flex;align-items:center;gap:8px}
+    .btn{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:7px;font-size:.78rem;font-weight:600;cursor:pointer;border:none;font-family:inherit;text-decoration:none;transition:all .15s}
+    .btn-outline{background:transparent;color:var(--ink3);border:1.5px solid var(--border2)}
+    .btn-outline:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .btn-indigo{background:var(--indigo-mid);color:#fff}
+    .btn-indigo:hover{background:var(--indigo)}
+    .avatar{width:30px;height:30px;border-radius:50%;background:var(--indigo-mid);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;color:#fff;overflow:hidden;flex-shrink:0}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    /* ══════════════════════════════════════
+       GATE
+    ══════════════════════════════════════ */
+    #gate{
+      min-height:calc(100vh - 56px);
+      display:flex;align-items:center;justify-content:center;
+      padding:40px 20px;
+    }
+    .gate-wrap{
+      max-width:440px;width:100%;
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:40px 36px;
+      box-shadow:var(--shadow-lg);
+      text-align:center;
+    }
+    .gate-seal{
+      width:72px;height:72px;
+      border-radius:50%;
+      background:var(--indigo-light);
+      border:2px solid var(--indigo-mid);
+      display:flex;align-items:center;justify-content:center;
+      font-size:2rem;margin:0 auto 20px;
+    }
+    .gate-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--ink);margin-bottom:8px}
+    .gate-sub{color:var(--muted);font-size:.875rem;line-height:1.6;margin-bottom:24px}
+    .gate-features{text-align:left;margin-bottom:28px;display:flex;flex-direction:column;gap:9px}
+    .gate-feat{display:flex;align-items:flex-start;gap:10px;font-size:.83rem;color:var(--ink3)}
+    .feat-check{width:18px;height:18px;border-radius:50%;background:var(--green-bg);border:1.5px solid var(--green-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:.6rem;color:var(--green)}
+    .gate-cta{
+      display:block;width:100%;padding:13px;
+      background:var(--indigo-mid);color:#fff;
+      border-radius:9px;font-weight:700;font-size:.9rem;
+      text-decoration:none;transition:all .15s;margin-bottom:10px;
+      border:none;cursor:pointer;font-family:inherit;
+    }
+    .gate-cta:hover{background:var(--indigo);transform:translateY(-1px)}
+    .gate-cta.gold-cta{background:linear-gradient(135deg,#B8860B,#D4A017)}
+    .gate-cta.gold-cta:hover{background:linear-gradient(135deg,#996B00,#B8860B)}
+    .gate-note{font-size:.75rem;color:var(--muted)}
+    .gate-note a{color:var(--indigo-mid);font-weight:600;text-decoration:none}
+    .spinner{width:20px;height:20px;border:2px solid rgba(99,102,241,.2);border-top-color:var(--indigo-mid);border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* ══════════════════════════════════════
+       MAIN CONTENT
+    ══════════════════════════════════════ */
+    #content{display:none}
+
+    /* ── HERO BANNER ── */
+    .hero{
+      background:var(--ink2);
+      color:#fff;
+      padding:36px 32px 32px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:'⚖';
+      position:absolute;right:-20px;top:-20px;
+      font-size:10rem;opacity:.04;
+      pointer-events:none;line-height:1;
+    }
+    .hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.4);color:#A5B4FC;padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:10px}
+    .hero-title span{color:#A5B4FC}
+    .hero-sub{color:#94A3B8;font-size:.875rem;margin-bottom:20px;max-width:560px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:16px}
+    .meta-pill{display:flex;align-items:center;gap:6px;font-size:.78rem;color:#CBD5E1}
+    .meta-dot{width:6px;height:6px;border-radius:50%;background:#6366F1}
+
+    /* ── DOWNLOAD BAR ── */
+    .dlbar{
+      background:var(--gold-bg);
+      border-bottom:1px solid #F5D76E;
+      padding:10px 32px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:10px;
+      font-size:.82rem;
+      color:#78350F;
+    }
+    .dlbar strong{color:#92400E}
+    .dl-btn{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:7px 16px;background:#92400E;color:#fff;
+      border-radius:7px;font-size:.78rem;font-weight:700;
+      cursor:pointer;border:none;font-family:inherit;
+      transition:all .15s;text-decoration:none;
+    }
+    .dl-btn:hover{background:#78350F}
+
+    /* ── SECTION HEADER ── */
+    .section-header{
+      display:flex;align-items:center;gap:12px;
+      padding:20px 32px 12px;
+      border-bottom:1px solid var(--border);
+      background:var(--white);
+      position:sticky;top:56px;z-index:100;
+    }
+    .section-badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:5px 14px;border-radius:20px;
+      font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    }
+    .badge-fr{background:var(--indigo-light);color:var(--indigo);border:1px solid #C7D2FE}
+    .badge-sc{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+    .badge-tort{background:var(--red-bg);color:var(--red);border:1px solid #FECACA}
+    .section-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+    .section-count{margin-left:auto;font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace}
+
+    /* ── QUESTIONS LIST ── */
+    .questions-wrap{padding:16px 32px;display:flex;flex-direction:column;gap:14px}
+
+    /* ── SINGLE QUESTION CARD ── */
+    .qcard{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:box-shadow .2s;
+    }
+    .qcard:hover{box-shadow:var(--shadow-lg)}
+
+    .qcard-head{
+      display:flex;align-items:flex-start;gap:14px;
+      padding:18px 20px 14px;
+    }
+    .q-num{
+      width:32px;height:32px;border-radius:8px;
+      background:var(--indigo-light);
+      color:var(--indigo);
+      display:flex;align-items:center;justify-content:center;
+      font-family:'DM Mono',monospace;font-size:.8rem;font-weight:600;
+      flex-shrink:0;margin-top:1px;
+    }
+    .q-text{font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.55;flex:1}
+    .q-text em{font-style:italic;color:var(--indigo)}
+    .q-text strong{color:var(--indigo)}
+
+    /* options */
+    .options{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:6px;
+      padding:0 20px 14px 66px;
+    }
+    @media(max-width:580px){.options{grid-template-columns:1fr;padding-left:20px}}
+    .option{
+      display:flex;align-items:flex-start;gap:8px;
+      padding:8px 12px;border-radius:7px;
+      background:var(--paper);border:1.5px solid var(--border);
+      font-size:.82rem;color:var(--ink3);
+      cursor:default;transition:all .15s;
+    }
+    .option.correct{
+      background:var(--green-bg);
+      border-color:#86EFAC;
+      color:var(--green);
+      font-weight:600;
+    }
+    .opt-label{
+      width:20px;height:20px;border-radius:5px;
+      background:var(--border);
+      display:flex;align-items:center;justify-content:center;
+      font-size:.65rem;font-weight:700;flex-shrink:0;
+      font-family:'DM Mono',monospace;
+      color:var(--muted);margin-top:1px;
+    }
+    .option.correct .opt-label{background:#86EFAC;color:var(--green)}
+
+    /* answer box */
+    .answer-box{
+      margin:0 20px 12px 20px;
+      background:var(--green-bg);
+      border:1.5px solid var(--green-border);
+      border-radius:8px;
+      padding:12px 16px;
+      display:flex;align-items:flex-start;gap:10px;
+    }
+    .ans-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+    .ans-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);margin-bottom:3px}
+    .ans-text{font-size:.83rem;font-weight:600;color:var(--green)}
+
+    /* explanation */
+    .expl-box{
+      margin:0 20px 18px;
+      background:#F8FAFF;
+      border:1.5px solid #C7D2FE;
+      border-left:4px solid var(--indigo-mid);
+      border-radius:8px;
+      padding:12px 16px;
+    }
+    .expl-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--indigo-mid);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+    .expl-text{font-size:.82rem;color:var(--ink3);line-height:1.65}
+    .expl-text strong{color:var(--ink);font-weight:600}
+    .expl-text em{font-style:italic;color:var(--indigo)}
+
+    /* ── QUICK REF TABLES ── */
+    .ref-section{padding:0 32px 32px}
+    .ref-card{
+      background:var(--white);border:1px solid var(--border);
+      border-radius:12px;overflow:hidden;
+      box-shadow:var(--shadow);margin-bottom:16px;
+    }
+    .ref-head{
+      background:var(--ink2);color:#fff;
+      padding:14px 20px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .ref-head-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
+    table.ref-table{width:100%;border-collapse:collapse;font-size:.82rem}
+    table.ref-table th{
+      background:#F1F5F9;color:var(--ink3);
+      padding:9px 14px;text-align:left;font-weight:700;
+      border-bottom:1px solid var(--border);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;
+    }
+    table.ref-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--ink3);vertical-align:top}
+    table.ref-table tr:last-child td{border-bottom:none}
+    table.ref-table tr:nth-child(even) td{background:#FAFAFA}
+    table.ref-table td strong{color:var(--ink);font-weight:600}
+    table.ref-table td em{font-style:italic;color:var(--muted);font-size:.78rem}
+
+    /* answer key grid */
+    .ak-grid{
+      display:grid;grid-template-columns:repeat(5,1fr);
+      gap:8px;padding:16px 20px;
+    }
+    @media(max-width:480px){.ak-grid{grid-template-columns:repeat(3,1fr)}}
+    .ak-cell{
+      background:var(--indigo-light);
+      border:1px solid #C7D2FE;
+      border-radius:7px;padding:8px;text-align:center;
+    }
+    .ak-q{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);margin-bottom:2px}
+    .ak-a{font-family:'DM Mono',monospace;font-size:1rem;font-weight:700;color:var(--indigo)}
+
+    /* maxims */
+    .maxims-grid{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:8px;padding:14px 20px;
+    }
+    @media(max-width:500px){.maxims-grid{grid-template-columns:1fr}}
+    .maxim-pill{
+      background:var(--paper);border:1px solid var(--border);
+      border-radius:8px;padding:10px 14px;
+    }
+    .maxim-latin{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:600;color:var(--indigo-mid);margin-bottom:3px}
+    .maxim-meaning{font-size:.75rem;color:var(--ink3)}
+
+    /* footer */
+    .footer{
+      text-align:center;padding:24px;
+      border-top:1px solid var(--border);
+      font-size:.75rem;color:var(--muted);
+      background:var(--white);
+      margin-top:8px;
+    }
+
+    /* print styles */
+    @media print{
+      .topbar,.dlbar,.section-header{position:static!important}
+      #gate{display:none!important}
+      #content{display:block!important}
+      .qcard{break-inside:avoid;page-break-inside:avoid}
+      .hero{background:#0B0F1A!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    }
+
+    /* toast */
+    #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 20px;border-radius:20px;font-size:.8rem;font-weight:500;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;white-space:nowrap}
+    #toast.show{opacity:1}
+
+    @media(max-width:600px){
+      .questions-wrap,.ref-section{padding-left:14px;padding-right:14px}
+      .hero{padding:24px 16px}
+      .section-header{padding:14px 16px}
+      .dlbar{padding:10px 16px}
+    }
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- ── TOPBAR ── -->
+<header class="topbar">
+  <a href="index.html" class="topbar-brand">
+    <div class="brand-dot"></div>
+    MHT CET LAW Portal
+  </a>
+  <div class="topbar-right">
+    <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+    <div class="avatar" id="topAvatar"><span id="topInitial">?</span></div>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════
+     PREMIUM GATE
+══════════════════════════════════════════ -->
+<div id="gate">
+  <div class="gate-wrap" id="gateCard">
+    <div class="gate-seal">⏳</div>
+    <div class="gate-title">Verifying Access</div>
+    <div class="gate-sub"><span class="spinner"></span>Please wait...</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     MAIN CONTENT  — premium only
+══════════════════════════════════════════ -->
+<div id="content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">⚖ Legal Aptitude · Premium Resource</div>
+    <h1 class="hero-title">Top <span>25</span> Most-Asked Questions<br>from 5 Years of PYQs</h1>
+    <p class="hero-sub">Fundamental Rights · Landmark Supreme Court Cases · Law of Torts — with full explanations, exam tips, and answer key. MHT CET LAW 3-Year &amp; 5-Year (2019–2024)</p>
+    <div class="hero-meta">
+      <div class="meta-pill"><div class="meta-dot"></div>25 Questions</div>
+      <div class="meta-pill"><div class="meta-dot"></div>3 Sections</div>
+      <div class="meta-pill"><div class="meta-dot"></div>4 Options Each</div>
+      <div class="meta-pill"><div class="meta-dot"></div>Full Explanations</div>
+      <div class="meta-pill"><div class="meta-dot"></div>Answer Key Included</div>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD BAR -->
+  <div class="dlbar">
+    <div>💡 <strong>Tip:</strong> Save this page for offline study — press <strong>Ctrl+P → Save as PDF</strong></div>
+    <button class="dl-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+  </div>
+
+  <!-- ════════════════ SECTION A ════════════════ -->
+  <div class="section-header">
+    <span class="section-badge badge-fr">Section A</span>
+    <div class="section-title">Fundamental Rights (Art. 12–35)</div>
+    <span class="section-count">Q1 – Q8</span>
+  </div>
+
+  <div class="questions-wrap">
+
+    <!-- Q1 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">01</div>
+        <div class="q-text">Which Article of the Indian Constitution provides the <strong>Right to Constitutional Remedies</strong>?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Article 19</div>
+        <div class="option"><div class="opt-label">B</div>Article 21</div>
+        <div class="option correct"><div class="opt-label">C</div>Article 32</div>
+        <div class="option"><div class="opt-label">D</div>Article 226</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Article 32 — Right to Constitutional Remedies</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Dr. B.R. Ambedkar called Article 32 the <em>"heart and soul"</em> of the Constitution. It allows citizens to directly approach the <strong>Supreme Court</strong> for enforcement of Fundamental Rights. Article 226 is for High Courts — this distinction is extremely frequently tested.</div></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">02</div>
+        <div class="q-text">The Right to <strong>Privacy</strong> was declared a Fundamental Right under which Article by the Supreme Court in <em>Justice K.S. Puttaswamy v. Union of India</em> (2017)?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Article 19(1)(a)</div>
+        <div class="option correct"><div class="opt-label">B</div>Article 21</div>
+        <div class="option"><div class="opt-label">C</div>Article 14</div>
+        <div class="option"><div class="opt-label">D</div>Article 17</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Article 21 — Right to Life and Personal Liberty</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">A <strong>9-judge bench</strong> unanimously held that Privacy is an intrinsic part of Article 21. This overruled <em>M.P. Sharma (1954)</em> and <em>Kharak Singh (1962)</em>. One of the most important landmark cases for MHT CET LAW.</div></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">03</div>
+        <div class="q-text">Which of the following Fundamental Rights is available <strong>only to citizens</strong> and NOT to foreigners?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Right to Equality (Art. 14)</div>
+        <div class="option"><div class="opt-label">B</div>Right against Exploitation (Art. 23)</div>
+        <div class="option correct"><div class="opt-label">C</div>Freedom of Speech &amp; Expression (Art. 19)</div>
+        <div class="option"><div class="opt-label">D</div>Right to Life (Art. 21)</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Article 19 — exclusively for citizens</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Articles <strong>14, 20, 21, 22, 23, 24, 25, 26, 27, 28</strong> are available to <em>all persons</em> (citizens + foreigners). Articles <strong>15, 16, 17, 18, 19, 29, 30</strong> are available to <em>citizens only</em>. This classification is a very common PYQ.</div></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">04</div>
+        <div class="q-text">The <strong>"Golden Triangle"</strong> of the Indian Constitution refers to which combination of Articles?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Articles 12, 13, 14</div>
+        <div class="option correct"><div class="opt-label">B</div>Articles 14, 19, 21</div>
+        <div class="option"><div class="opt-label">C</div>Articles 19, 21, 32</div>
+        <div class="option"><div class="opt-label">D</div>Articles 32, 136, 226</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Articles 14, 19, and 21</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">The Supreme Court in <em>Maneka Gandhi v. Union of India (1978)</em> established the <strong>Golden Triangle</strong> — Articles 14 (Equality), 19 (Freedoms), and 21 (Life &amp; Liberty) must be read together. Any law affecting Art. 21 must also satisfy Arts. 14 and 19.</div></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">05</div>
+        <div class="q-text"><strong>Article 17</strong> of the Constitution abolishes which practice?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Bonded Labour</div>
+        <div class="option correct"><div class="opt-label">B</div>Untouchability</div>
+        <div class="option"><div class="opt-label">C</div>Child Labour</div>
+        <div class="option"><div class="opt-label">D</div>Trafficking of Persons</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Untouchability — abolished, practice is punishable</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Article 17 abolishes <strong>Untouchability</strong> in any form. The Protection of Civil Rights Act, 1955 gives statutory backing. Note: <strong>Article 23</strong> abolishes forced labour/trafficking; <strong>Article 24</strong> prohibits child labour below 14 years.</div></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">06</div>
+        <div class="q-text">Which Fundamental Right was deleted from the Constitution by the <strong>44th Constitutional Amendment Act, 1978</strong>?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Right to Religion</div>
+        <div class="option correct"><div class="opt-label">B</div>Right to Property</div>
+        <div class="option"><div class="opt-label">C</div>Right to Education</div>
+        <div class="option"><div class="opt-label">D</div>Right against Exploitation</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Right to Property (originally Article 31)</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">The <strong>44th Amendment (1978)</strong> under PM Morarji Desai removed the Right to Property from Part III and made it a legal right under <strong>Article 300-A</strong>: <em>"No person shall be deprived of his property save by authority of law."</em></div></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">07</div>
+        <div class="q-text"><strong>Article 21-A</strong>, inserted by the <strong>86th Constitutional Amendment (2002)</strong>, provides free and compulsory education to children of which age group?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>6 to 14 years</div>
+        <div class="option"><div class="opt-label">B</div>5 to 14 years</div>
+        <div class="option"><div class="opt-label">C</div>6 to 18 years</div>
+        <div class="option"><div class="opt-label">D</div>0 to 14 years</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) 6 to 14 years — Right to Education</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Article 21-A makes <strong>Right to Education</strong> a Fundamental Right. The <strong>RTE Act, 2009</strong> gives it effect. Tested almost every year in MHT CET LAW — memorise: <em>6–14 years, 86th Amendment, 2002</em>.</div></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">08</div>
+        <div class="q-text">The doctrine of <strong>"Procedure Established by Law"</strong> (Article 21) was interpreted broadly to mean <strong>"Due Process of Law"</strong> in which landmark case?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>A.K. Gopalan v. State of Madras (1950)</div>
+        <div class="option correct"><div class="opt-label">B</div>Maneka Gandhi v. Union of India (1978)</div>
+        <div class="option"><div class="opt-label">C</div>Kesavananda Bharati v. State of Kerala (1973)</div>
+        <div class="option"><div class="opt-label">D</div>Indira Gandhi v. Raj Narain (1975)</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Maneka Gandhi v. Union of India (1978)</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">In <em>A.K. Gopalan (1950)</em>, SC held Articles must be read independently. In <strong>Maneka Gandhi (1978)</strong>, SC overruled this — procedure must be <strong>fair, just and reasonable</strong>, effectively importing American "Due Process" into Article 21.</div></div>
+    </div>
+
+  </div><!-- /questions-wrap -->
+
+  <!-- ════════════════ SECTION B ════════════════ -->
+  <div class="section-header">
+    <span class="section-badge badge-sc">Section B</span>
+    <div class="section-title">Landmark Supreme Court Cases</div>
+    <span class="section-count">Q9 – Q16</span>
+  </div>
+
+  <div class="questions-wrap">
+
+    <!-- Q9 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">09</div>
+        <div class="q-text">In <em>Kesavananda Bharati v. State of Kerala (1973)</em>, the Supreme Court laid down which famous doctrine?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Doctrine of Colourable Legislation</div>
+        <div class="option correct"><div class="opt-label">B</div>Basic Structure Doctrine</div>
+        <div class="option"><div class="opt-label">C</div>Doctrine of Pith and Substance</div>
+        <div class="option"><div class="opt-label">D</div>Doctrine of Eclipse</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Basic Structure Doctrine</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">By a razor-thin <strong>7:6 majority</strong>, the 13-judge bench held Parliament can amend the Constitution but <strong>cannot alter its basic structure</strong>. Basic structure includes: Supremacy of Constitution, Republican &amp; Democratic form, Secular character, Separation of Powers, Judicial Review. The most cited Indian constitutional case.</div></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">10</div>
+        <div class="q-text"><em>Vishaka v. State of Rajasthan (1997)</em> is a landmark case related to:</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Right to Education</div>
+        <div class="option correct"><div class="opt-label">B</div>Sexual Harassment at Workplace</div>
+        <div class="option"><div class="opt-label">C</div>Reservation in Promotions</div>
+        <div class="option"><div class="opt-label">D</div>Custodial Torture</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Sexual Harassment at Workplace</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">The SC laid down the <strong>Vishaka Guidelines</strong> to prevent sexual harassment at workplace. These were eventually codified as the <strong>POSH Act, 2013</strong>. The case arose from the gang-rape of Bhanwari Devi in Rajasthan.</div></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">11</div>
+        <div class="q-text">Which case established that the <strong>right to food</strong> is part of the Right to Life under Article 21?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>People's Union for Civil Liberties v. Union of India (2001)</div>
+        <div class="option"><div class="opt-label">B</div>Olga Tellis v. Bombay Municipal Corporation (1985)</div>
+        <div class="option"><div class="opt-label">C</div>M.C. Mehta v. Union of India (1987)</div>
+        <div class="option"><div class="opt-label">D</div>Unni Krishnan v. State of A.P. (1993)</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) PUCL v. Union of India (2001)</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">SC held right to food, mid-day meals, and foodgrain distribution are part of <strong>Article 21</strong>. <em>Olga Tellis</em> = right to livelihood. <em>Unni Krishnan</em> = right to education. <em>M.C. Mehta</em> = environmental rights.</div></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">12</div>
+        <div class="q-text">In which case did the Supreme Court hold that <strong>Triple Talaq (Talaq-e-Biddat)</strong> is unconstitutional?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Shah Bano Case (1985)</div>
+        <div class="option correct"><div class="opt-label">B</div>Shayara Bano v. Union of India (2017)</div>
+        <div class="option"><div class="opt-label">C</div>Sarla Mudgal v. Union of India (1995)</div>
+        <div class="option"><div class="opt-label">D</div>John Vallamattom v. Union of India (2003)</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Shayara Bano v. Union of India (2017)</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">A <strong>5-judge bench</strong> held Triple Talaq void by <strong>3:2 majority</strong> as it violates Article 14. The <strong>Muslim Women (Protection of Rights on Marriage) Act, 2019</strong> then criminalised it. <em>Shah Bano (1985)</em> dealt with maintenance under CrPC Sec. 125.</div></div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">13</div>
+        <div class="q-text"><em>Navtej Singh Johar v. Union of India (2018)</em> decriminalised which provision of the IPC?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>Section 377 — Unnatural Offences</div>
+        <div class="option"><div class="opt-label">B</div>Section 497 — Adultery</div>
+        <div class="option"><div class="opt-label">C</div>Section 124-A — Sedition</div>
+        <div class="option"><div class="opt-label">D</div>Section 302 — Murder</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) Section 377 IPC — consensual same-sex relations between adults</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">A <strong>5-judge bench unanimously</strong> struck down Sec. 377 IPC for consensual adult acts — violated Arts. 14, 15, 19, 21. <em>Suresh Kumar Koushal (2013)</em> had reversed Delhi HC; <em>Navtej Johar</em> overruled it.</div></div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">14</div>
+        <div class="q-text"><em>M.C. Mehta v. Union of India (1986)</em> introduced which principle into Indian environmental law?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Precautionary Principle</div>
+        <div class="option"><div class="opt-label">B</div>Polluter Pays Principle</div>
+        <div class="option correct"><div class="opt-label">C</div>Absolute Liability Principle</div>
+        <div class="option"><div class="opt-label">D</div>Sustainable Development Principle</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Absolute Liability Principle</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text"><strong>Absolute Liability</strong> (Oleum Gas Leak case) = enterprise engaged in hazardous activity is liable <em>without any exceptions</em>. Unlike <strong>Strict Liability</strong> (Rylands v. Fletcher) which has exceptions like Act of God. Also applied in the Bhopal Gas Tragedy.</div></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">15</div>
+        <div class="q-text">In <em>S.R. Bommai v. Union of India (1994)</em>, the Supreme Court restricted misuse of which Constitutional provision?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Article 352 — National Emergency</div>
+        <div class="option correct"><div class="opt-label">B</div>Article 356 — President's Rule in States</div>
+        <div class="option"><div class="opt-label">C</div>Article 360 — Financial Emergency</div>
+        <div class="option"><div class="opt-label">D</div>Article 370 — Special Status of J&amp;K</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Article 356 — President's Rule</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">SC held imposition of President's Rule is subject to <strong>judicial review</strong>, floor test must be conducted before dismissing a state government. President's Proclamation under Art. 356 is <strong>not immune</strong> from judicial scrutiny.</div></div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">16</div>
+        <div class="q-text">Which case established the doctrine that <strong>"Directive Principles cannot override Fundamental Rights"</strong>?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>State of Madras v. Champakam Dorairajan (1951)</div>
+        <div class="option"><div class="opt-label">B</div>Golaknath v. State of Punjab (1967)</div>
+        <div class="option"><div class="opt-label">C</div>Minerva Mills v. Union of India (1980)</div>
+        <div class="option"><div class="opt-label">D</div>I.R. Coelho v. State of Tamil Nadu (2007)</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) Champakam Dorairajan (1951)</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">First major constitutional case post-independence. SC held <strong>Fundamental Rights prevail over Directive Principles</strong>. This led to the <strong>First Constitutional Amendment (1951)</strong> which added the Ninth Schedule.</div></div>
+    </div>
+
+  </div><!-- /questions-wrap -->
+
+  <!-- ════════════════ SECTION C ════════════════ -->
+  <div class="section-header">
+    <span class="section-badge badge-tort">Section C</span>
+    <div class="section-title">Law of Torts</div>
+    <span class="section-count">Q17 – Q25</span>
+  </div>
+
+  <div class="questions-wrap">
+
+    <!-- Q17 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">17</div>
+        <div class="q-text">The maxim <strong>"Volenti non fit injuria"</strong> means:</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>The master is liable for acts of servant</div>
+        <div class="option correct"><div class="opt-label">B</div>To a willing person, no injury is done</div>
+        <div class="option"><div class="opt-label">C</div>The act speaks for itself</div>
+        <div class="option"><div class="opt-label">D</div>Negligence of the plaintiff</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) To a willing person, no injury is done — complete defence in torts</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">If the plaintiff <strong>voluntarily consented</strong> to the risk, defendant is not liable. Example: A cricket match spectator hit by a ball cannot sue. Key: consent must be <strong>free and informed</strong>. Contrast with <em>Contributory Negligence</em> where both parties share fault.</div></div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">18</div>
+        <div class="q-text">The rule of <strong>Strict Liability</strong> was established in which landmark English case, also applied in India?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Donoghue v. Stevenson (1932)</div>
+        <div class="option correct"><div class="opt-label">B</div>Rylands v. Fletcher (1868)</div>
+        <div class="option"><div class="opt-label">C</div>Palsgraf v. Long Island Railroad (1928)</div>
+        <div class="option"><div class="opt-label">D</div>Bolton v. Stone (1951)</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Rylands v. Fletcher (1868)</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Rule: A person who brings on his land anything likely to do mischief if it escapes, must keep it at his peril. Exceptions: <strong>Act of God, Act of Plaintiff, Consent, Common Benefit, Third Party, Statutory Authority</strong>. India later evolved <strong>Absolute Liability</strong> in M.C. Mehta (no exceptions).</div></div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">19</div>
+        <div class="q-text">The maxim <strong>"Res Ipsa Loquitur"</strong> literally means and applies to which principle?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>The master is responsible</div>
+        <div class="option correct"><div class="opt-label">B</div>The thing speaks for itself — shifts burden of proof</div>
+        <div class="option"><div class="opt-label">C</div>Contributory negligence of plaintiff</div>
+        <div class="option"><div class="opt-label">D</div>Remoteness of damage</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) "The thing speaks for itself" — shifts burden of proof to defendant</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">When an accident could not have occurred <strong>without negligence</strong>, negligence is presumed. Burden of proof shifts from plaintiff to defendant. Classic case: <em>Scott v. London &amp; St. Katherine Docks (1865)</em> — bags of sugar fell from a crane.</div></div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">20</div>
+        <div class="q-text"><strong>Vicarious Liability</strong> in torts refers to:</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Liability of the State for its official acts</div>
+        <div class="option correct"><div class="opt-label">B</div>Liability for wrongful act of another due to special relationship</div>
+        <div class="option"><div class="opt-label">C</div>Liability arising from strict liability torts</div>
+        <div class="option"><div class="opt-label">D</div>Liability for defamatory statements</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Liability for acts of another — Master-Servant, Principal-Agent, Partners</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Requires: (1) Wrongful act, (2) Special relationship, (3) Act in course of employment. Key principle: <strong>"Respondeat superior"</strong> — Let the master answer. State's sovereign functions are exempt from vicarious liability in India.</div></div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">21</div>
+        <div class="q-text">Which of the following is <strong>NOT</strong> an essential element of the tort of <strong>negligence</strong>?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Duty of Care</div>
+        <div class="option"><div class="opt-label">B</div>Breach of Duty</div>
+        <div class="option correct"><div class="opt-label">C</div>Malicious Intention</div>
+        <div class="option"><div class="opt-label">D</div>Damage caused by the Breach</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Malicious Intention — negligence does NOT require intention</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">3 essentials of Negligence: (1) <strong>Duty of Care</strong> (Neighbour principle — <em>Donoghue v. Stevenson</em>), (2) <strong>Breach of duty</strong> (standard of reasonable man), (3) <strong>Damage</strong>. Malicious intention is irrelevant — negligence is an <em>unintentional</em> tort.</div></div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">22</div>
+        <div class="q-text">The tort of <strong>Defamation</strong> — Libel vs Slander. Which statement is correct?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Both Libel and Slander are crimes in India</div>
+        <div class="option correct"><div class="opt-label">B</div>Only Libel is actionable per se; Slander requires proof of damage</div>
+        <div class="option"><div class="opt-label">C</div>Only Slander is actionable per se in India</div>
+        <div class="option"><div class="opt-label">D</div>Both are identical under Indian law</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Libel is actionable per se; Slander requires proof of special damage</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text"><strong>Libel</strong> = permanent/written/broadcast form. <strong>Slander</strong> = spoken/transient form. Under <strong>Indian Law</strong>: Both are crimes under Sec. 499 IPC / BNS 2023. IPC Section 499 has <strong>10 exceptions</strong> to defamation.</div></div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">23</div>
+        <div class="q-text">The principle <strong>"Damnum sine injuria"</strong> means:</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Injury without legal remedy</div>
+        <div class="option"><div class="opt-label">B</div>Legal damage without actual damage</div>
+        <div class="option correct"><div class="opt-label">C</div>Actual damage without legal injury — no tort action lies</div>
+        <div class="option"><div class="opt-label">D</div>Negligence causing economic loss only</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Actual damage but no violation of legal right — no remedy</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text"><strong>Damnum sine injuria</strong> — actual loss, no legal right violated = no remedy (e.g., business competition). <strong>Injuria sine damno</strong> — legal right violated, no actual damage = remedy available (e.g., trespass). Classic case: <em>Gloucester Grammar School (1410)</em>.</div></div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">24</div>
+        <div class="q-text">Which defence applies when the <strong>plaintiff's own negligence</strong> contributes to the harm suffered?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Volenti non fit injuria</div>
+        <div class="option"><div class="opt-label">B</div>Act of God (Vis Major)</div>
+        <div class="option correct"><div class="opt-label">C</div>Contributory Negligence</div>
+        <div class="option"><div class="opt-label">D</div>Inevitable Accident</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Contributory Negligence — plaintiff's fault reduces/eliminates defendant's liability</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Old English rule = complete defence. Modern law = damages apportioned proportionally. <strong>Last Opportunity Rule</strong> (<em>Davies v. Mann, 1842</em>) — whoever had last chance to avoid accident is fully liable. Heavily tested!</div></div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">25</div>
+        <div class="q-text">Under the tort of <strong>Private Nuisance</strong>, which of the following is <strong>NOT</strong> a valid defence?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Prescription (long use for 20+ years)</div>
+        <div class="option"><div class="opt-label">B</div>Statutory Authority</div>
+        <div class="option correct"><div class="opt-label">C</div>Nuisance was beneficial to the public</div>
+        <div class="option"><div class="opt-label">D</div>Plaintiff came to the nuisance</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) "Public benefit" is NOT a valid defence for private nuisance</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Explanation</div><div class="expl-text">Valid defences: (1) <strong>Prescription</strong> — 20 years uninterrupted = right; (2) <strong>Statutory Authority</strong>; (3) <strong>Plaintiff came to nuisance</strong> — partially valid. Public benefit rejected as defence in <em>Bamford v. Turnley (1862)</em>.</div></div>
+    </div>
+
+  </div><!-- /questions-wrap -->
+
+  <!-- ════════════════ QUICK REFERENCE ════════════════ -->
+  <div class="ref-section">
+
+    <!-- ANSWER KEY -->
+    <div class="ref-card">
+      <div class="ref-head">
+        <span style="font-size:1.2rem">📋</span>
+        <div class="ref-head-title">Answer Key — Quick Reference</div>
+      </div>
+      <div class="ak-grid">
+        <div class="ak-cell"><div class="ak-q">Q1</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q2</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q3</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q4</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q5</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q6</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q7</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q8</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q9</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q10</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q11</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q12</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q13</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q14</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q15</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q16</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q17</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q18</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q19</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q20</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q21</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q22</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q23</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q24</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q25</div><div class="ak-a">C</div></div>
+      </div>
+    </div>
+
+    <!-- LATIN MAXIMS -->
+    <div class="ref-card">
+      <div class="ref-head">
+        <span style="font-size:1.2rem">⚖</span>
+        <div class="ref-head-title">Must-Know Latin Maxims</div>
+      </div>
+      <div class="maxims-grid">
+        <div class="maxim-pill"><div class="maxim-latin">Volenti non fit injuria</div><div class="maxim-meaning">Consent is a complete defence</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Res ipsa loquitur</div><div class="maxim-meaning">The thing speaks for itself</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Damnum sine injuria</div><div class="maxim-meaning">Damage without legal injury — no remedy</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Injuria sine damno</div><div class="maxim-meaning">Legal injury without damage — remedy available</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Respondeat superior</div><div class="maxim-meaning">Let the master answer (vicarious liability)</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Ubi jus ibi remedium</div><div class="maxim-meaning">Where there is a right, there is a remedy</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Sic utere tuo</div><div class="maxim-meaning">Use property so as not to harm others</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">De minimis non curat lex</div><div class="maxim-meaning">Law does not concern itself with trifles</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Actus reus</div><div class="maxim-meaning">Guilty act (criminal law)</div></div>
+        <div class="maxim-pill"><div class="maxim-latin">Mens rea</div><div class="maxim-meaning">Guilty mind (criminal law)</div></div>
+      </div>
+    </div>
+
+    <!-- LANDMARK CASES -->
+    <div class="ref-card">
+      <div class="ref-head">
+        <span style="font-size:1.2rem">🏛</span>
+        <div class="ref-head-title">Top 10 Landmark Cases — Flash Reference</div>
+      </div>
+      <table class="ref-table">
+        <thead><tr><th>Case</th><th>Year</th><th>Key Principle</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Kesavananda Bharati</strong></td><td>1973</td><td>Basic Structure Doctrine</td></tr>
+          <tr><td><strong>Maneka Gandhi</strong></td><td>1978</td><td>Art. 21 = Due Process; Golden Triangle</td></tr>
+          <tr><td><strong>A.K. Gopalan</strong></td><td>1950</td><td>Procedure est. by law <em>(overruled by Maneka)</em></td></tr>
+          <tr><td><strong>Vishaka</strong></td><td>1997</td><td>Sexual harassment guidelines at workplace</td></tr>
+          <tr><td><strong>M.C. Mehta</strong></td><td>1986</td><td>Absolute Liability — no exceptions</td></tr>
+          <tr><td><strong>S.R. Bommai</strong></td><td>1994</td><td>Art. 356 misuse curtailed; judicial review</td></tr>
+          <tr><td><strong>Shayara Bano</strong></td><td>2017</td><td>Triple Talaq unconstitutional</td></tr>
+          <tr><td><strong>K.S. Puttaswamy</strong></td><td>2017</td><td>Right to Privacy under Art. 21</td></tr>
+          <tr><td><strong>Navtej Singh Johar</strong></td><td>2018</td><td>Sec. 377 IPC decriminalised (consensual)</td></tr>
+          <tr><td><strong>Champakam Dorairajan</strong></td><td>1951</td><td>FR prevail over DPSP</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /ref-section -->
+
+  <div class="footer">
+    MHT CET LAW Portal &nbsp;·&nbsp; Legal Aptitude Top 25 PYQ Questions<br>
+    Based on MHT CET LAW papers 2019–2024 &nbsp;·&nbsp; For educational purposes only
+  </div>
+
+</div><!-- /content -->
+
+
+<!-- ══════════════════════════════════════════
+     AUTH + PREMIUM GATE LOGIC
+══════════════════════════════════════════ -->
+<script type="module">
+  import { auth, db, ADMIN_EMAILS, PREMIUM_EMAILS } from './firebase-config.js';
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const gate    = document.getElementById('gate');
+  const content = document.getElementById('content');
+  const card    = document.getElementById('gateCard');
+
+  onAuthStateChanged(auth, async (user) => {
+
+    // ── NOT LOGGED IN ──
+    if (!user) {
+      showGate('noauth');
+      return;
+    }
+
+    renderAvatar(user);
+
+    // ── ADMIN — instant ──
+    if (ADMIN_EMAILS.includes(user.email)) { grantAccess(); return; }
+
+    // ── HARDCODED PREMIUM ──
+    if (PREMIUM_EMAILS.includes(user.email)) { grantAccess(); return; }
+
+    // ── FIRESTORE CHECK ──
+    try {
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      const data = snap.exists() ? snap.data() : {};
+      if (data.plan === 'premium' || data.plan === 'admin' || data.isApproved) {
+        grantAccess();
+      } else {
+        showGate('nopremium', user);
+      }
+    } catch(e) {
+      showGate('nopremium', user);
+    }
+  });
+
+  function grantAccess() {
+    gate.style.display = 'none';
+    content.style.display = 'block';
+  }
+
+  function showGate(type, user) {
+    gate.style.display = 'flex';
+    content.style.display = 'none';
+
+    if (type === 'noauth') {
+      card.innerHTML = `
+        <div class="gate-seal">🔒</div>
+        <div class="gate-title">Login Required</div>
+        <div class="gate-sub">This is a premium resource. Please login to access it.</div>
+        <a href="auth.html" class="gate-cta">Sign In / Create Account</a>
+        <div class="gate-note">Already have premium? <a href="auth.html">Login here</a></div>`;
+    } else {
+      const name = user?.displayName?.split(' ')[0] || user?.email?.split('@')[0] || 'Student';
+      card.innerHTML = `
+        <div class="gate-seal">💎</div>
+        <div class="gate-title">Premium Only</div>
+        <div class="gate-sub">Hey <strong>${name}</strong>! Upgrade to unlock all study material — PDFs, PYQs, practice tests, notes and more.</div>
+        <div class="gate-features">
+          <div class="gate-feat"><div class="feat-check">✓</div>Top 25 Legal Aptitude PYQ Questions with Explanations</div>
+          <div class="gate-feat"><div class="feat-check">✓</div>All 9 Study Modules — Full Access</div>
+          <div class="gate-feat"><div class="feat-check">✓</div>Previous Year Papers 2019–2024</div>
+          <div class="gate-feat"><div class="feat-check">✓</div>Practice Tests, Guess Papers & Expert Notes</div>
+        </div>
+        <a href="https://t.me/ragexking" target="_blank" class="gate-cta gold-cta">⭐ Upgrade — Contact @ragexking on Telegram</a>
+        <button onclick="handleSignOut()" class="gate-cta" style="background:transparent;color:var(--muted);border:1.5px solid var(--border);font-size:.8rem;padding:8px">Sign out</button>`;
+    }
+  }
+
+  function renderAvatar(user) {
+    const initial = (user.displayName || user.email || 'U').charAt(0).toUpperCase();
+    document.getElementById('topInitial').textContent = initial;
+    if (user.photoURL) {
+      const img = document.createElement('img');
+      img.src = user.photoURL;
+      const av = document.getElementById('topAvatar');
+      av.innerHTML = ''; av.appendChild(img);
+    }
+  }
+
+  window.handleSignOut = async () => {
+    await signOut(auth);
+    window.location.href = 'auth.html';
+  };
+</script>
+
+</body>
+</html>

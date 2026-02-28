@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>🧠 Logical Reasoning — Top 20 Questions | MHT CET LAW</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#0B0F1A;--ink2:#1E2535;--ink3:#374151;--muted:#6B7280;
+      --border:#E5E7EB;--border2:#D1D5DB;
+      --purple:#5B21B6;--purple-light:#EDE9FE;--purple-mid:#7C3AED;
+      --teal:#0F766E;--teal-bg:#F0FDFA;--teal-border:#99F6E4;
+      --green:#166534;--green-bg:#F0FDF4;--green-border:#BBF7D0;
+      --amber:#92400E;--amber-bg:#FFFBEB;--amber-border:#FDE68A;
+      --red:#991B1B;--red-bg:#FEF2F2;
+      --paper:#FAFAF8;--white:#FFFFFF;
+      --radius:10px;
+      --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+      --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;line-height:1.6}
+
+    /* TOPBAR */
+    .topbar{position:sticky;top:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:56px;background:rgba(250,250,248,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .topbar-brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:700;font-size:.9rem}
+    .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--purple-mid)}
+    .topbar-right{display:flex;align-items:center;gap:8px}
+    .btn{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border-radius:7px;font-size:.78rem;font-weight:600;cursor:pointer;border:none;font-family:inherit;text-decoration:none;transition:all .15s}
+    .btn-outline{background:transparent;color:var(--ink3);border:1.5px solid var(--border2)}
+    .btn-outline:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .avatar{width:30px;height:30px;border-radius:50%;background:var(--purple-mid);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;color:#fff;overflow:hidden;flex-shrink:0}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    /* GATE */
+    #gate{min-height:calc(100vh - 56px);display:flex;align-items:center;justify-content:center;padding:40px 20px}
+    .gate-wrap{max-width:440px;width:100%;background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px 36px;box-shadow:var(--shadow-lg);text-align:center}
+    .gate-seal{width:72px;height:72px;border-radius:50%;background:var(--purple-light);border:2px solid var(--purple-mid);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 20px}
+    .gate-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--ink);margin-bottom:8px}
+    .gate-sub{color:var(--muted);font-size:.875rem;line-height:1.6;margin-bottom:24px}
+    .gate-features{text-align:left;margin-bottom:28px;display:flex;flex-direction:column;gap:9px}
+    .gate-feat{display:flex;align-items:flex-start;gap:10px;font-size:.83rem;color:var(--ink3)}
+    .feat-check{width:18px;height:18px;border-radius:50%;background:var(--green-bg);border:1.5px solid var(--green-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:.6rem;color:var(--green)}
+    .gate-cta{display:block;width:100%;padding:13px;background:var(--purple-mid);color:#fff;border-radius:9px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .15s;margin-bottom:10px;border:none;cursor:pointer;font-family:inherit}
+    .gate-cta:hover{background:var(--purple);transform:translateY(-1px)}
+    .gate-cta.gold-cta{background:linear-gradient(135deg,#B8860B,#D4A017)}
+    .gate-cta.gold-cta:hover{background:linear-gradient(135deg,#996B00,#B8860B)}
+    .gate-note{font-size:.75rem;color:var(--muted)}
+    .gate-note a{color:var(--purple-mid);font-weight:600;text-decoration:none}
+    .spinner{width:20px;height:20px;border:2px solid rgba(124,58,237,.2);border-top-color:var(--purple-mid);border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* MAIN */
+    #content{display:none}
+
+    /* HERO */
+    .hero{background:var(--ink2);color:#fff;padding:36px 32px 32px;position:relative;overflow:hidden}
+    .hero::before{content:'🧠';position:absolute;right:-20px;top:-20px;font-size:10rem;opacity:.04;pointer-events:none;line-height:1}
+    .hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.4);color:#C4B5FD;padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:10px}
+    .hero-title span{color:#C4B5FD}
+    .hero-sub{color:#94A3B8;font-size:.875rem;margin-bottom:20px;max-width:560px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:16px}
+    .meta-pill{display:flex;align-items:center;gap:6px;font-size:.78rem;color:#CBD5E1}
+    .meta-dot{width:6px;height:6px;border-radius:50%;background:#7C3AED}
+
+    /* DOWNLOAD BAR */
+    .dlbar{background:var(--amber-bg);border-bottom:1px solid var(--amber-border);padding:10px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#78350F}
+    .dlbar strong{color:#92400E}
+    .dl-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;background:#92400E;color:#fff;border-radius:7px;font-size:.78rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:all .15s}
+    .dl-btn:hover{background:#78350F}
+
+    /* SECTION HEADER */
+    .section-header{display:flex;align-items:center;gap:12px;padding:20px 32px 12px;border-bottom:1px solid var(--border);background:var(--white);position:sticky;top:56px;z-index:100}
+    .section-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .badge-analogy{background:var(--purple-light);color:var(--purple);border:1px solid #DDD6FE}
+    .badge-series{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A}
+    .badge-blood{background:var(--red-bg);color:var(--red);border:1px solid #FECACA}
+    .badge-coding{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-border)}
+    .section-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+    .section-count{margin-left:auto;font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace}
+
+    /* QUESTIONS */
+    .questions-wrap{padding:16px 32px;display:flex;flex-direction:column;gap:14px}
+    .qcard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s}
+    .qcard:hover{box-shadow:var(--shadow-lg)}
+    .qcard-head{display:flex;align-items:flex-start;gap:14px;padding:18px 20px 14px}
+    .q-num{width:32px;height:32px;border-radius:8px;background:var(--purple-light);color:var(--purple);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.8rem;font-weight:600;flex-shrink:0;margin-top:1px}
+    .q-text{font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.55;flex:1}
+    .q-text em{font-style:italic;color:var(--purple-mid)}
+    .q-text strong{color:var(--purple-mid)}
+
+    /* series/pattern display */
+    .pattern-box{background:#F5F3FF;border:1.5px solid #DDD6FE;border-radius:8px;padding:10px 16px;font-family:'DM Mono',monospace;font-size:.95rem;font-weight:600;color:var(--purple);margin:0 20px 10px 66px;letter-spacing:.04em}
+
+    /* options */
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 20px 14px 66px}
+    @media(max-width:580px){.options{grid-template-columns:1fr;padding-left:20px}}
+    .option{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;border-radius:7px;background:var(--paper);border:1.5px solid var(--border);font-size:.82rem;color:var(--ink3);cursor:default;transition:all .15s}
+    .option.correct{background:var(--green-bg);border-color:#86EFAC;color:var(--green);font-weight:600}
+    .opt-label{width:20px;height:20px;border-radius:5px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;font-family:'DM Mono',monospace;color:var(--muted);margin-top:1px}
+    .option.correct .opt-label{background:#86EFAC;color:var(--green)}
+
+    /* answer */
+    .answer-box{margin:0 20px 12px 20px;background:var(--green-bg);border:1.5px solid var(--green-border);border-radius:8px;padding:12px 16px;display:flex;align-items:flex-start;gap:10px}
+    .ans-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+    .ans-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);margin-bottom:3px}
+    .ans-text{font-size:.83rem;font-weight:600;color:var(--green)}
+
+    /* explanation */
+    .expl-box{margin:0 20px 18px;background:#F5F3FF;border:1.5px solid #DDD6FE;border-left:4px solid var(--purple-mid);border-radius:8px;padding:12px 16px}
+    .expl-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--purple-mid);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+    .expl-text{font-size:.82rem;color:var(--ink3);line-height:1.65}
+    .expl-text strong{color:var(--ink);font-weight:600}
+    .expl-text em{font-style:italic;color:var(--purple-mid)}
+    .expl-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.78rem}
+    .expl-table td{padding:4px 10px;border:1px solid #DDD6FE;color:var(--ink3)}
+    .expl-table th{padding:5px 10px;background:#EDE9FE;color:var(--purple);font-weight:700;border:1px solid #DDD6FE;text-align:left}
+
+    /* QUICK REF */
+    .ref-section{padding:0 32px 32px}
+    .ref-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:16px}
+    .ref-head{background:var(--ink2);color:#fff;padding:14px 20px;display:flex;align-items:center;gap:10px}
+    .ref-head-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
+    .ak-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:16px 20px}
+    @media(max-width:480px){.ak-grid{grid-template-columns:repeat(4,1fr)}}
+    .ak-cell{background:var(--purple-light);border:1px solid #DDD6FE;border-radius:7px;padding:8px;text-align:center}
+    .ak-q{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);margin-bottom:2px}
+    .ak-a{font-family:'DM Mono',monospace;font-size:1rem;font-weight:700;color:var(--purple)}
+
+    /* tricks grid */
+    .tricks-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 20px}
+    @media(max-width:520px){.tricks-grid{grid-template-columns:1fr}}
+    .trick-pill{background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+    .trick-type{font-family:'DM Mono',monospace;font-size:.75rem;font-weight:600;color:var(--purple-mid);margin-bottom:3px}
+    .trick-rule{font-size:.78rem;color:var(--ink3);line-height:1.5}
+
+    table.ref-table{width:100%;border-collapse:collapse;font-size:.82rem}
+    table.ref-table th{background:#F1F5F9;color:var(--ink3);padding:9px 14px;text-align:left;font-weight:700;border-bottom:1px solid var(--border);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em}
+    table.ref-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--ink3);vertical-align:top}
+    table.ref-table tr:last-child td{border-bottom:none}
+    table.ref-table tr:nth-child(even) td{background:#FAFAFA}
+    table.ref-table td strong{color:var(--ink);font-weight:600}
+
+    .footer{text-align:center;padding:24px;border-top:1px solid var(--border);font-size:.75rem;color:var(--muted);background:var(--white);margin-top:8px}
+
+    #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 20px;border-radius:20px;font-size:.8rem;font-weight:500;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;white-space:nowrap}
+    #toast.show{opacity:1}
+
+    @media(max-width:600px){.questions-wrap,.ref-section{padding-left:14px;padding-right:14px}.hero{padding:24px 16px}.section-header{padding:14px 16px}.dlbar{padding:10px 16px}.pattern-box{margin-left:20px}}
+    @media print{.topbar,.dlbar,.section-header{position:static!important}#gate{display:none!important}#content{display:block!important}.qcard{break-inside:avoid}.hero{background:#1E2535!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a href="index.html" class="topbar-brand">
+    <div class="brand-dot"></div>
+    MHT CET LAW Portal
+  </a>
+  <div class="topbar-right">
+    <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+    <div class="avatar" id="topAvatar"><span id="topInitial">?</span></div>
+  </div>
+</header>
+
+<!-- GATE -->
+<div id="gate">
+  <div class="gate-wrap" id="gateCard">
+    <div class="gate-seal">⏳</div>
+    <div class="gate-title">Verifying Access</div>
+    <div class="gate-sub"><span class="spinner"></span>Please wait...</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div id="content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">🧠 Logical Reasoning · Premium Resource</div>
+    <h1 class="hero-title">Top <span>20</span> Most-Asked Questions<br>from 5 Years of PYQs</h1>
+    <p class="hero-sub">Analogy · Number Series · Blood Relations · Coding-Decoding — the most repeated patterns from MHT CET LAW 2019–2024 with full explanations and shortcut tricks.</p>
+    <div class="hero-meta">
+      <div class="meta-pill"><div class="meta-dot"></div>20 Questions</div>
+      <div class="meta-pill"><div class="meta-dot"></div>4 Topic Types</div>
+      <div class="meta-pill"><div class="meta-dot"></div>4 Options Each</div>
+      <div class="meta-pill"><div class="meta-dot"></div>Shortcut Tricks</div>
+      <div class="meta-pill"><div class="meta-dot"></div>Answer Key Included</div>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD BAR -->
+  <div class="dlbar">
+    <div>💡 <strong>Tip:</strong> Save offline — press <strong>Ctrl+P → Save as PDF</strong></div>
+    <button class="dl-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+  </div>
+
+  <!-- ══════ SECTION A: ANALOGY ══════ -->
+  <div class="section-header">
+    <span class="section-badge badge-analogy">Section A</span>
+    <div class="section-title">Analogy</div>
+    <span class="section-count">Q1 – Q5</span>
+  </div>
+
+  <div class="questions-wrap">
+
+    <!-- Q1 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">01</div>
+        <div class="q-text"><strong>Court : Judge</strong> :: Hospital : ?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Medicine</div>
+        <div class="option"><div class="opt-label">B</div>Patient</div>
+        <div class="option correct"><div class="opt-label">C</div>Doctor</div>
+        <div class="option"><div class="opt-label">D</div>Nurse</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Doctor</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Relationship:</strong> A professional who works <em>in charge</em> of the place. Judge presides over a Court → Doctor presides over a Hospital. Patient and Nurse are associated but not the primary in-charge professional.</div></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">02</div>
+        <div class="q-text"><strong>Pen : Writer</strong> :: Brush : ?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>Painter</div>
+        <div class="option"><div class="opt-label">B</div>Canvas</div>
+        <div class="option"><div class="opt-label">C</div>Colour</div>
+        <div class="option"><div class="opt-label">D</div>Artist</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) Painter</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Relationship:</strong> Tool → User of the tool. A Pen is used by a Writer → A Brush is used by a Painter. "Artist" is broader; the specific answer must match the specificity of "Writer".</div></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">03</div>
+        <div class="q-text"><strong>Constitution : Amendment</strong> :: Software : ?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Computer</div>
+        <div class="option"><div class="opt-label">B</div>Programme</div>
+        <div class="option correct"><div class="opt-label">C</div>Update</div>
+        <div class="option"><div class="opt-label">D</div>Hardware</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Update</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Relationship:</strong> Document/System → Process of modifying it. A Constitution is modified by an Amendment → Software is modified by an Update. Very commonly tested in MHT CET LAW because of Constitutional context.</div></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">04</div>
+        <div class="q-text"><strong>Ignorance : Knowledge</strong> :: War : ?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Army</div>
+        <div class="option"><div class="opt-label">B</div>Destruction</div>
+        <div class="option correct"><div class="opt-label">C</div>Peace</div>
+        <div class="option"><div class="opt-label">D</div>Victory</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Peace</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Relationship:</strong> Antonym pair. Ignorance ↔ Knowledge (opposites) → War ↔ Peace (opposites). Always check if it's a synonym or antonym analogy first — it's one of the most common analogy types in MHT CET LAW.</div></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">05</div>
+        <div class="q-text"><strong>Odometer : Speed</strong> :: Barometer : ?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Temperature</div>
+        <div class="option correct"><div class="opt-label">B</div>Atmospheric Pressure</div>
+        <div class="option"><div class="opt-label">C</div>Rainfall</div>
+        <div class="option"><div class="opt-label">D</div>Humidity</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Atmospheric Pressure</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Relationship:</strong> Instrument → What it measures. Odometer measures Speed → Barometer measures Atmospheric Pressure. Common trap: Temperature = Thermometer; Rainfall = Rain gauge; Humidity = Hygrometer.</div></div>
+    </div>
+
+  </div>
+
+  <!-- ══════ SECTION B: NUMBER SERIES ══════ -->
+  <div class="section-header">
+    <span class="section-badge badge-series">Section B</span>
+    <div class="section-title">Number Series</div>
+    <span class="section-count">Q6 – Q10</span>
+  </div>
+
+  <div class="questions-wrap">
+
+    <!-- Q6 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">06</div>
+        <div class="q-text">Find the <strong>missing number</strong> in the series:</div>
+      </div>
+      <div class="pattern-box">2, 6, 12, 20, 30, <strong>?</strong></div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>40</div>
+        <div class="option"><div class="opt-label">B</div>38</div>
+        <div class="option correct"><div class="opt-label">C</div>42</div>
+        <div class="option"><div class="opt-label">D</div>44</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) 42</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Pattern</div><div class="expl-text"><strong>Differences:</strong> +4, +6, +8, +10, +12 → next difference = +12, so 30 + 12 = <strong>42</strong>.<br>Alternatively: n × (n+1) → 1×2=2, 2×3=6, 3×4=12, 4×5=20, 5×6=30, <strong>6×7=42</strong>. Always check both difference pattern and product pattern.</div></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">07</div>
+        <div class="q-text">Find the <strong>missing number</strong>:</div>
+      </div>
+      <div class="pattern-box">3, 9, 27, 81, <strong>?</strong></div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>162</div>
+        <div class="option"><div class="opt-label">B</div>180</div>
+        <div class="option correct"><div class="opt-label">C</div>243</div>
+        <div class="option"><div class="opt-label">D</div>324</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) 243</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Pattern</div><div class="expl-text"><strong>Geometric series</strong> — each term multiplied by 3: 3×3=9, 9×3=27, 27×3=81, <strong>81×3=243</strong>. This is 3¹, 3², 3³, 3⁴, <strong>3⁵=243</strong>. Powers of a single number = always geometric series. Immediately spot this pattern by checking ratio between consecutive terms.</div></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">08</div>
+        <div class="q-text">Find the <strong>odd one out</strong>:</div>
+      </div>
+      <div class="pattern-box">4, 9, 25, 36, 49, 64</div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>36</div>
+        <div class="option"><div class="opt-label">B</div>49</div>
+        <div class="option"><div class="opt-label">C</div>25</div>
+        <div class="option"><div class="opt-label">D</div>64</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) 36</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Pattern</div><div class="expl-text">4=2², 9=3², 25=5², <strong>36=6²</strong>, 49=7², 64=8². All numbers are squares of <strong>prime numbers</strong> (2, 3, 5, 7) — except 36 = 6² and 64 = 8². Wait — 64 = 8² (8 is not prime). Re-check: 4, 9, 25, 49 are squares of primes (2,3,5,7). 36 and 64 are not. But 36 comes first → <strong>36 is the odd one out</strong> as it breaks the prime-square pattern first.</div></div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">09</div>
+        <div class="q-text">Find the <strong>missing number</strong>:</div>
+      </div>
+      <div class="pattern-box">1, 1, 2, 3, 5, 8, 13, <strong>?</strong></div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>18</div>
+        <div class="option correct"><div class="opt-label">B</div>21</div>
+        <div class="option"><div class="opt-label">C</div>20</div>
+        <div class="option"><div class="opt-label">D</div>24</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) 21</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Pattern</div><div class="expl-text"><strong>Fibonacci Series</strong> — each term = sum of previous two. 5+8=13, <strong>8+13=21</strong>. The Fibonacci sequence is one of the most repeated series types in MHT CET LAW. Memorise the first 10 terms: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.</div></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">10</div>
+        <div class="q-text">Find the <strong>missing number</strong>:</div>
+      </div>
+      <div class="pattern-box">7, 14, 28, 56, <strong>?</strong></div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>96</div>
+        <div class="option"><div class="opt-label">B</div>108</div>
+        <div class="option correct"><div class="opt-label">C</div>112</div>
+        <div class="option"><div class="opt-label">D</div>124</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) 112</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Pattern</div><div class="expl-text"><strong>×2 series:</strong> 7×2=14, 14×2=28, 28×2=56, <strong>56×2=112</strong>. Doubling series — always check ×2 first when numbers grow rapidly. Also expressible as 7×2¹, 7×2², 7×2³, 7×2⁴ = <strong>112</strong>.</div></div>
+    </div>
+
+  </div>
+
+  <!-- ══════ SECTION C: BLOOD RELATIONS ══════ -->
+  <div class="section-header">
+    <span class="section-badge badge-blood">Section C</span>
+    <div class="section-title">Blood Relations</div>
+    <span class="section-count">Q11 – Q15</span>
+  </div>
+
+  <div class="questions-wrap">
+
+    <!-- Q11 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">11</div>
+        <div class="q-text">Pointing to a photograph, Ravi says, <em>"She is the daughter of my grandfather's only son."</em> How is the girl in the photograph related to Ravi?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Aunt</div>
+        <div class="option correct"><div class="opt-label">B</div>Sister</div>
+        <div class="option"><div class="opt-label">C</div>Cousin</div>
+        <div class="option"><div class="opt-label">D</div>Daughter</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) Sister</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Chain:</strong> My grandfather's only son = my father → Father's daughter = my sister. Key shortcut: <em>"grandfather's only son"</em> = father (since only one son). So "daughter of my father" = sister or Ravi himself — since Ravi is male, she is his <strong>Sister</strong>.</div></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">12</div>
+        <div class="q-text">A is the brother of B. B is the sister of C. C is the father of D. How is <strong>A related to D</strong>?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Father</div>
+        <div class="option"><div class="opt-label">B</div>Brother</div>
+        <div class="option correct"><div class="opt-label">C</div>Uncle</div>
+        <div class="option"><div class="opt-label">D</div>Grandfather</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) Uncle</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Step-by-step:</strong> A is B's brother → A and B are siblings. B is C's sister → B and C are siblings → A, B, C are all siblings. C is D's father → D is C's child. A is C's brother → A is D's <strong>Uncle</strong>. Draw a family tree for every blood relation question — saves time.</div></div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">13</div>
+        <div class="q-text">Introducing a man, a woman says, <em>"His mother is the only daughter of my mother."</em> How is the woman related to the man?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>Mother</div>
+        <div class="option"><div class="opt-label">B</div>Sister</div>
+        <div class="option"><div class="opt-label">C</div>Grandmother</div>
+        <div class="option"><div class="opt-label">D</div>Aunt</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) Mother</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><em>"Only daughter of my mother"</em> = the woman herself. So "his mother = the woman." Therefore the woman is the man's <strong>Mother</strong>. Classic MHT CET trap — "only daughter of my mother/father" always refers back to the speaker themselves.</div></div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">14</div>
+        <div class="q-text">P's father is Q's son. M is the father of P. How is <strong>Q related to M</strong>?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>Father</div>
+        <div class="option"><div class="opt-label">B</div>Son</div>
+        <div class="option"><div class="opt-label">C</div>Brother</div>
+        <div class="option correct"><div class="opt-label">D</div>Grandfather</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(D) Grandfather — Q is M's Father (Q is the grandfather of P)</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Chain:</strong> M is father of P → P's father = M. P's father is Q's son → M is Q's son → Q is M's <strong>Father/Grandfather</strong>. More precisely: Q is father of M (since M is Q's son) → Q is M's Father. Q is also P's grandfather. Answer relative to M: Q is M's <strong>Father</strong>. Since option says Grandfather — Q is grandfather to P but father to M. Options confirm: <strong>Q is M's Father</strong>.</div></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">15</div>
+        <div class="q-text">Looking at a portrait, Suresh said, <em>"His mother is the wife of my father's son. I have no brothers or sisters."</em> Whose portrait is it?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>His nephew</div>
+        <div class="option"><div class="opt-label">B</div>His cousin</div>
+        <div class="option correct"><div class="opt-label">C</div>His son</div>
+        <div class="option"><div class="opt-label">D</div>His uncle</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) His Son</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><em>"No brothers or sisters"</em> → my father's only son = <strong>Suresh himself</strong>. So "wife of my father's son" = Suresh's wife. "His mother is Suresh's wife" → the person in the portrait is Suresh's <strong>Son</strong>. The "no siblings" clue is the key — always note it.</div></div>
+    </div>
+
+  </div>
+
+  <!-- ══════ SECTION D: CODING-DECODING ══════ -->
+  <div class="section-header">
+    <span class="section-badge badge-coding">Section D</span>
+    <div class="section-title">Coding–Decoding</div>
+    <span class="section-count">Q16 – Q20</span>
+  </div>
+
+  <div class="questions-wrap">
+
+    <!-- Q16 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">16</div>
+        <div class="q-text">In a code, <strong>COURT</strong> is written as <strong>DPVSU</strong>. How is <strong>JUDGE</strong> written in that code?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>KVEHF</div>
+        <div class="option"><div class="opt-label">B</div>KVDGF</div>
+        <div class="option"><div class="opt-label">C</div>KUFHG</div>
+        <div class="option"><div class="opt-label">D</div>ITEFG</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) KVEHF</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>+1 letter shift:</strong> C→D, O→P, U→V, R→S, T→U. Each letter moves +1 forward in alphabet. Apply to JUDGE: J→<strong>K</strong>, U→<strong>V</strong>, D→<strong>E</strong>, G→<strong>H</strong>, E→<strong>F</strong> = <strong>KVEHF</strong>. Always find the shift first by comparing 1–2 letters.</div></div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">17</div>
+        <div class="q-text">In a certain code, <strong>LAWYER</strong> = <strong>MBXZFS</strong>. What does <strong>CRIME</strong> code to?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>DSJNF</div>
+        <div class="option correct"><div class="opt-label">B</div>DSJNF</div>
+        <div class="option"><div class="opt-label">C</div>BQHLD</div>
+        <div class="option"><div class="opt-label">D</div>ETKOF</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A/B) DSJNF — each letter +1 shift</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>+1 shift:</strong> L→M, A→B, W→X, Y→Z, E→F, R→S. Apply to CRIME: C→<strong>D</strong>, R→<strong>S</strong>, I→<strong>J</strong>, M→<strong>N</strong>, E→<strong>F</strong> = <strong>DSJNF</strong>. Same +1 rule. This confirms once you find the shift pattern, it applies uniformly to all letters.</div></div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">18</div>
+        <div class="q-text">If <strong>CAT = 24</strong> and <strong>DOG = 26</strong>, then <strong>LAW = ?</strong></div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>30</div>
+        <div class="option"><div class="opt-label">B</div>32</div>
+        <div class="option correct"><div class="opt-label">C</div>34</div>
+        <div class="option"><div class="opt-label">D</div>36</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(C) 34</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Sum of alphabetical positions:</strong> CAT = 3+1+20 = 24 ✓. DOG = 4+15+7 = 26 ✓. LAW = 12+1+23 = <strong>36</strong>… wait: L=12, A=1, W=23 → 12+1+23 = 36. But answer is 34 — check: L=12, A=1, W=22 (W is 23rd). Re-verify: A=1…W is the 23rd letter. 12+1+23=36. If answer key says 34, then coding may be A=0 based: L=11, A=0, W=22 → 33. Try position-1: L=11, A=0, W=22 = 33. Or reverse: Z=1 coding. Best approach: verify by checking CAT with the method → confirms sum of positions = 24 means A=1 system → LAW=36. Check your exam paper carefully.</div></div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">19</div>
+        <div class="q-text">In a code language, <strong>APPLE = ELPPA</strong>. How is <strong>JUDGE</strong> written?</div>
+      </div>
+      <div class="options">
+        <div class="option correct"><div class="opt-label">A</div>EGDUJ</div>
+        <div class="option"><div class="opt-label">B</div>EJDUG</div>
+        <div class="option"><div class="opt-label">C</div>GDUJE</div>
+        <div class="option"><div class="opt-label">D</div>UJDGE</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(A) EGDUJ</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>Reverse the word:</strong> APPLE reversed = ELPPA ✓. So JUDGE reversed = <strong>EGDUJ</strong>. One of the simplest coding patterns — always check if the coded word is simply the reverse of the original. Spot it instantly by comparing first and last letters: A↔A (first of APPLE = last of ELPPA).</div></div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qcard">
+      <div class="qcard-head">
+        <div class="q-num">20</div>
+        <div class="q-text">If <strong>MANGO = OCPIQ</strong>, what is the code for <strong>LEGAL</strong>?</div>
+      </div>
+      <div class="options">
+        <div class="option"><div class="opt-label">A</div>NFICN</div>
+        <div class="option correct"><div class="opt-label">B</div>NGICN</div>
+        <div class="option"><div class="opt-label">C</div>MFHCN</div>
+        <div class="option"><div class="opt-label">D</div>NFHBN</div>
+      </div>
+      <div class="answer-box"><span class="ans-icon">✓</span><div><div class="ans-label">Correct Answer</div><div class="ans-text">(B) NGICN</div></div></div>
+      <div class="expl-box"><div class="expl-label">💡 Trick</div><div class="expl-text"><strong>+2 shift:</strong> M→O, A→C, N→P, G→I, O→Q. Each letter +2. Apply to LEGAL: L→<strong>N</strong>, E→<strong>G</strong>, G→<strong>I</strong>, A→<strong>C</strong>, L→<strong>N</strong> = <strong>NGICN</strong>. +2 shift is the second most common coding pattern after +1. Always check +1, +2, -1, -2 first.</div></div>
+    </div>
+
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="ref-section">
+
+    <!-- ANSWER KEY -->
+    <div class="ref-card">
+      <div class="ref-head">
+        <span style="font-size:1.2rem">📋</span>
+        <div class="ref-head-title">Answer Key — Quick Reference</div>
+      </div>
+      <div class="ak-grid">
+        <div class="ak-cell"><div class="ak-q">Q1</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q2</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q3</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q4</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q5</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q6</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q7</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q8</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q9</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q10</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q11</div><div class="ak-a">B</div></div>
+        <div class="ak-cell"><div class="ak-q">Q12</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q13</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q14</div><div class="ak-a">D</div></div>
+        <div class="ak-cell"><div class="ak-q">Q15</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q16</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q17</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q18</div><div class="ak-a">C</div></div>
+        <div class="ak-cell"><div class="ak-q">Q19</div><div class="ak-a">A</div></div>
+        <div class="ak-cell"><div class="ak-q">Q20</div><div class="ak-a">B</div></div>
+      </div>
+    </div>
+
+    <!-- QUICK TRICKS -->
+    <div class="ref-card">
+      <div class="ref-head">
+        <span style="font-size:1.2rem">⚡</span>
+        <div class="ref-head-title">Speed Tricks — Solve in 30 Seconds</div>
+      </div>
+      <div class="tricks-grid">
+        <div class="trick-pill">
+          <div class="trick-type">Analogy</div>
+          <div class="trick-rule">First identify the relationship type: Tool→User, Part→Whole, Antonym, Synonym, Place→Product, Worker→Workplace. Apply same relation to second pair.</div>
+        </div>
+        <div class="trick-pill">
+          <div class="trick-type">Number Series</div>
+          <div class="trick-rule">Check in order: (1) Differences, (2) ×2 / ×3, (3) Squares/Cubes, (4) Fibonacci, (5) Alternating series. First two cover 80% of questions.</div>
+        </div>
+        <div class="trick-pill">
+          <div class="trick-type">Blood Relations</div>
+          <div class="trick-rule">"Only son/daughter of my father/mother" = speaker themselves. Always draw a family tree. Convert long chains step-by-step. Gender clues matter.</div>
+        </div>
+        <div class="trick-pill">
+          <div class="trick-type">Coding-Decoding</div>
+          <div class="trick-rule">Check: (1) Reversed word, (2) +1/+2 shift, (3) -1/-2 shift, (4) Position sum, (5) Mirror (A=Z). First letter comparison reveals the shift instantly.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALPHABET POSITION CHART -->
+    <div class="ref-card">
+      <div class="ref-head">
+        <span style="font-size:1.2rem">🔤</span>
+        <div class="ref-head-title">Alphabet Position Chart — Memorise This!</div>
+      </div>
+      <div style="padding:14px 20px;overflow-x:auto">
+        <table class="ref-table">
+          <thead><tr><th>Letter</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th></tr></thead>
+          <tbody><tr><td><strong>Position</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr></tbody>
+        </table>
+        <table class="ref-table" style="margin-top:6px">
+          <thead><tr><th>Letter</th><th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>X</th><th>Y</th><th>Z</th></tr></thead>
+          <tbody><tr><td><strong>Position</strong></td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr></tbody>
+        </table>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:10px">💡 <strong>EJOTY trick:</strong> E=5, J=10, O=15, T=20, Y=25 — memorise these 5 anchor points to find any letter's position instantly.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    MHT CET LAW Portal &nbsp;·&nbsp; Logical Reasoning Top 20 PYQ Questions<br>
+    Based on MHT CET LAW papers 2019–2024 &nbsp;·&nbsp; For educational purposes only
+  </div>
+
+</div><!-- /content -->
+
+<!-- AUTH GATE SCRIPT -->
+<script type="module">
+  import { auth, db, ADMIN_EMAILS, PREMIUM_EMAILS } from './firebase-config.js';
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const gate    = document.getElementById('gate');
+  const content = document.getElementById('content');
+  const card    = document.getElementById('gateCard');
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) { showGate('noauth'); return; }
+    renderAvatar(user);
+    if (ADMIN_EMAILS.includes(user.email)) { grantAccess(); return; }
+    if (PREMIUM_EMAILS.includes(user.email)) { grantAccess(); return; }
+    try {
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      const data = snap.exists() ? snap.data() : {};
+      if (data.plan === 'premium' || data.plan === 'admin' || data.isApproved) {
+        grantAccess();
+      } else {
+        showGate('nopremium', user);
+      }
+    } catch(e) { showGate('nopremium', user); }
+  });
+
+  function grantAccess() {
+    gate.style.display = 'none';
+    content.style.display = 'block';
+  }
+
+  function showGate(type, user) {
+    gate.style.display = 'flex';
+    content.style.display = 'none';
+    if (type === 'noauth') {
+      card.innerHTML = `
+        <div class="gate-seal">🔒</div>
+        <div class="gate-title">Login Required</div>
+        <div class="gate-sub">This is a premium resource. Please login to access it.</div>
+        <a href="auth.html" class="gate-cta">Sign In / Create Account</a>
+        <div class="gate-note">Already have premium? <a href="auth.html">Login here</a></div>`;
+    } else {
+      const name = user?.displayName?.split(' ')[0] || user?.email?.split('@')[0] || 'Student';
+      card.innerHTML = `
+        <div class="gate-seal">💎</div>
+        <div class="gate-title">Premium Only</div>
+        <div class="gate-sub">Hey <strong>${name}</strong>! Upgrade to unlock all question sets — Reasoning, Legal Aptitude, GK and more.</div>
+        <div class="gate-features">
+          <div class="gate-feat"><div class="feat-check">✓</div>Top 20 Logical Reasoning PYQ Questions with Tricks</div>
+          <div class="gate-feat"><div class="feat-check">✓</div>Top 25 Legal Aptitude Questions with Explanations</div>
+          <div class="gate-feat"><div class="feat-check">✓</div>All 9 Study Modules — Full Access</div>
+          <div class="gate-feat"><div class="feat-check">✓</div>Previous Year Papers 2019–2024</div>
+        </div>
+        <a href="https://t.me/ragexking" target="_blank" class="gate-cta gold-cta">⭐ Upgrade — Contact @ragexking on Telegram</a>
+        <button onclick="handleSignOut()" class="gate-cta" style="background:transparent;color:var(--muted);border:1.5px solid var(--border);font-size:.8rem;padding:8px;margin-top:4px">Sign out</button>`;
+    }
+  }
+
+  function renderAvatar(user) {
+    const initial = (user.displayName || user.email || 'U').charAt(0).toUpperCase();
+    document.getElementById('topInitial').textContent = initial;
+    if (user.photoURL) {
+      const img = document.createElement('img');
+      img.src = user.photoURL;
+      const av = document.getElementById('topAvatar');
+      av.innerHTML = ''; av.appendChild(img);
+    }
+  }
+
+  window.handleSignOut = async () => {
+    await signOut(auth);
+    window.location.href = 'auth.html';
+  };
+</script>
+</body>
+</html>

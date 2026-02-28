@@ -27,7 +27,8 @@ export const ADMIN_EMAILS = [
 // Premium exception emails — hardcoded premium access (no Firestore check needed)
 // Add any student email here to give them permanent premium access
 export const PREMIUM_EMAILS = [
-  "udayaglave@gmail.com"
+  "udayaglave@gmail.com",
+  "oojhas07@gmail.com"
 ];
 
 export default app;

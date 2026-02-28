@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin Control Panel — MHT CET LAW</title>
+  <meta name="robots" content="noindex,nofollow"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0f172a;--surface:#1e293b;--surface2:#263347;--border:#334155;
+      --primary:#6366f1;--primary-h:#4f46e5;--accent:#22d3ee;
+      --text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;
+      --success:#22c55e;--error:#ef4444;--warning:#f59e0b;
+      --radius:14px;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+    /* TOPBAR */
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px;background:rgba(15,23,42,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .topbar-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem}
+    .admin-badge{background:rgba(245,158,11,.15);color:#fcd34d;border:1px solid rgba(245,158,11,.3);padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:700}
+    .btn-sm{padding:7px 14px;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .2s}
+    .btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
+    .btn-ghost:hover{background:var(--surface);color:var(--text)}
+    .btn-danger{background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+    .btn-danger:hover{background:rgba(239,68,68,.2)}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-h)}
+    .btn-success{background:rgba(34,197,94,.15);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+    .btn-success:hover{background:rgba(34,197,94,.25)}
+
+    /* ACCESS DENIED */
+    #accessDenied{display:none;min-height:calc(100vh - 60px);align-items:center;justify-content:center;flex-direction:column;gap:16px;text-align:center;padding:40px}
+
+    /* LAYOUT */
+    .layout{display:flex;min-height:calc(100vh - 60px)}
+    .sidebar{width:230px;flex-shrink:0;border-right:1px solid var(--border);padding:20px 0;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto}
+    .content{flex:1;padding:28px 32px;overflow-y:auto}
+    @media(max-width:768px){.sidebar{display:none}.content{padding:16px}}
+
+    .nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:.875rem;color:var(--text2);cursor:pointer;transition:all .2s;border-left:3px solid transparent}
+    .nav-item:hover,.nav-item.active{color:var(--text);background:var(--surface2)}
+    .nav-item.active{color:var(--primary);background:rgba(99,102,241,.08);border-left-color:var(--primary)}
+    .nav-item svg{width:16px;height:16px;flex-shrink:0}
+    .nav-section{padding:14px 20px 6px;font-size:.7rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em}
+
+    /* PANELS */
+    .panel{display:none}.panel.active{display:block}
+
+    /* CARDS / TABLES */
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px}
+    .page-title{font-size:1.4rem;font-weight:700;margin-bottom:4px}
+    .page-sub{color:var(--text2);font-size:.875rem;margin-bottom:24px}
+
+    /* STATS GRID */
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:24px}
+    .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;transition:border-color .2s}
+    .stat-box:hover{border-color:var(--primary)}
+    .stat-num{font-size:1.6rem;font-weight:800}
+    .stat-lbl{font-size:.75rem;color:var(--text2);margin-top:4px}
+
+    /* FILTER BAR */
+    .filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+    .filter-btn{padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);font-family:inherit;transition:all .2s}
+    .filter-btn.active,.filter-btn:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+    .admin-search{padding:8px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.82rem;outline:none;flex:1;min-width:180px;transition:border-color .2s}
+    .admin-search:focus{border-color:var(--primary)}
+
+    /* TABLE */
+    .table-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:.85rem}
+    th{padding:10px 12px;text-align:left;color:var(--text2);font-weight:600;border-bottom:2px solid var(--border);white-space:nowrap}
+    td{padding:10px 12px;border-bottom:1px solid rgba(51,65,85,.5);vertical-align:middle}
+    tr.premium-row{background:rgba(99,102,241,.04)}
+    tr:hover{background:rgba(255,255,255,.02)}
+
+    /* BADGES / PILLS */
+    .plan-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:700}
+    .pill-premium{background:rgba(99,102,241,.15);color:#a5b4fc;border:1px solid rgba(99,102,241,.3)}
+    .pill-free{background:rgba(100,116,139,.1);color:var(--text2);border:1px solid var(--border)}
+    .pill-admin{background:rgba(245,158,11,.1);color:#fcd34d;border:1px solid rgba(245,158,11,.3)}
+    .status-approved{background:rgba(34,197,94,.1);color:#86efac;border:1px solid rgba(34,197,94,.25);padding:3px 8px;border-radius:10px;font-size:.72rem;white-space:nowrap}
+    .status-pending{background:rgba(245,158,11,.1);color:#fcd34d;border:1px solid rgba(245,158,11,.25);padding:3px 8px;border-radius:10px;font-size:.72rem;white-space:nowrap}
+
+    /* AVATAR */
+    .user-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;overflow:hidden}
+    .user-avatar img{width:100%;height:100%;object-fit:cover}
+
+    /* SPINNER */
+    .spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,.2);border-top-color:#6366f1;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* TOAST */
+    #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e293b;border:1px solid #334155;color:#f1f5f9;padding:10px 22px;border-radius:25px;font-size:.875rem;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;white-space:nowrap;box-shadow:0 4px 24px rgba(0,0,0,.5)}
+    #toast.show{opacity:1}
+    #toast.toast-ok{border-color:rgba(34,197,94,.4);color:#86efac}
+    #toast.toast-err{border-color:rgba(239,68,68,.4);color:#fca5a5}
+
+    /* MSG MODAL */
+    #msgModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:998;align-items:center;justify-content:center;padding:16px}
+    .modal-box{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:28px;width:100%;max-width:480px;position:relative}
+
+    /* MESSAGES */
+    .msg-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;border-left:3px solid var(--primary)}
+    .msg-card.read{border-left-color:#334155}
+    .msg-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+    .msg-source-tag{background:var(--surface2);color:var(--text3);font-size:.68rem;padding:2px 7px;border-radius:4px}
+
+    /* APPROVE BULK */
+    .bulk-bar{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.2);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+    .bulk-count{font-size:.875rem;font-weight:600;color:#a5b4fc}
+
+    select.inline-select{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:3px 6px;border-radius:6px;font-size:.72rem;font-family:inherit;outline:none;cursor:pointer;margin-top:5px;width:100%}
+    select.inline-select:focus{border-color:var(--primary)}
+
+    .empty-state{text-align:center;padding:40px;color:var(--text3)}
+    .empty-state svg{width:40px;height:40px;margin-bottom:12px;opacity:.4}
+
+    label.cb-row{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.82rem;color:var(--text2);padding:4px 0}
+    input[type=checkbox]{width:15px;height:15px;accent-color:var(--primary);cursor:pointer}
+  </style>
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;color:#6366f1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    MHT CET LAW — Admin
+    <span class="admin-badge">⭐ Control Panel</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <a href="dashboard.html" class="btn-sm btn-ghost">← Dashboard</a>
+    <button class="btn-sm btn-danger" onclick="handleLogout()">Sign Out</button>
+  </div>
+</header>
+
+<!-- ACCESS DENIED -->
+<div id="accessDenied" style="display:none;min-height:calc(100vh - 60px);align-items:center;justify-content:center;flex-direction:column;gap:16px;text-align:center;padding:40px">
+  <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width:60px;height:60px"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+  <div style="font-size:1.4rem;font-weight:700;color:#fca5a5">Access Denied</div>
+  <div style="color:var(--text2)">You don't have admin permissions to view this page.</div>
+  <a href="dashboard.html" class="btn-sm btn-primary">Go to Dashboard</a>
+</div>
+
+<!-- MAIN LAYOUT (shown only to admins) -->
+<div class="layout" id="adminLayout" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="nav-section">Overview</div>
+    <div class="nav-item active" onclick="showPanel('users',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Manage Users
+    </div>
+    <div class="nav-item" onclick="showPanel('pending',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Pending Approvals
+      <span id="pendingBadge" style="display:none;background:#f59e0b;color:#000;border-radius:10px;font-size:.65rem;padding:1px 6px;margin-left:auto;font-weight:700"></span>
+    </div>
+    <div class="nav-section">Messages</div>
+    <div class="nav-item" onclick="showPanel('contacts',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Contact Messages
+      <span id="contactBadge" style="display:none;background:#ef4444;color:#fff;border-radius:10px;font-size:.65rem;padding:1px 6px;margin-left:auto;font-weight:700"></span>
+    </div>
+    <div class="nav-item" onclick="showPanel('sendmsg',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      Send Message
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- ════ USERS PANEL ════ -->
+    <div id="usersPanel" class="panel active">
+      <div class="page-title">👥 User Management</div>
+      <div class="page-sub">View all users, change plans, approve or revoke access</div>
+
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-box"><div class="stat-num" id="sTotal" style="color:var(--primary)">—</div><div class="stat-lbl">Total Users</div></div>
+        <div class="stat-box"><div class="stat-num" id="sPremium" style="color:#a5b4fc">—</div><div class="stat-lbl">Premium</div></div>
+        <div class="stat-box"><div class="stat-num" id="sPending" style="color:#fcd34d">—</div><div class="stat-lbl">Pending</div></div>
+        <div class="stat-box"><div class="stat-num" id="sFree">—</div><div class="stat-lbl">Free</div></div>
+      </div>
+
+      <div class="card">
+        <div class="filter-bar">
+          <input class="admin-search" id="userSearch" placeholder="🔍 Search name, email, phone..." oninput="filterUsers()"/>
+          <button class="filter-btn active" id="fAll" onclick="setFilter('all',this)">All</button>
+          <button class="filter-btn" id="fPremium" onclick="setFilter('premium',this)">💎 Premium</button>
+          <button class="filter-btn" id="fFree" onclick="setFilter('free',this)">Free</button>
+          <button class="filter-btn" id="fPending" onclick="setFilter('pending',this)">⏳ Pending</button>
+          <button class="btn-sm btn-ghost" onclick="loadAllUsers()" style="display:flex;align-items:center;gap:5px;white-space:nowrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-9.18"/></svg> Refresh
+          </button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Plan</th>
+                <th>Status</th>
+                <th>Joined</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <tr><td colspan="7" style="padding:30px;text-align:center;color:var(--text3)"><span class="spinner"></span> Loading users...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ PENDING PANEL ════ -->
+    <div id="pendingPanel" class="panel">
+      <div class="page-title">⏳ Pending Approvals</div>
+      <div class="page-sub">Users waiting for premium access approval</div>
+      <div id="pendingContainer">
+        <div class="card" style="text-align:center;color:var(--text3)">Loading...</div>
+      </div>
+    </div>
+
+    <!-- ════ CONTACTS PANEL ════ -->
+    <div id="contactsPanel" class="panel">
+      <div class="page-title">📬 Contact Messages</div>
+      <div class="page-sub">Messages from users via contact form and dashboard message box</div>
+      <div id="contactsContainer">
+        <div class="card" style="text-align:center;color:var(--text3)">Loading...</div>
+      </div>
+    </div>
+
+    <!-- ════ SEND MESSAGE PANEL ════ -->
+    <div id="sendmsgPanel" class="panel">
+      <div class="page-title">✉️ Send Message to Student</div>
+      <div class="page-sub">Send a direct message to any student's dashboard inbox</div>
+      <div class="card" style="max-width:520px">
+        <div style="margin-bottom:16px">
+          <label style="display:block;font-size:.78rem;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Student Email</label>
+          <input type="email" id="smEmail" placeholder="student@gmail.com" style="width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none"/>
+        </div>
+        <div style="margin-bottom:16px">
+          <label style="display:block;font-size:.78rem;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Message</label>
+          <textarea id="smText" rows="5" placeholder="e.g. Your premium access has been activated! Welcome aboard 🎉" style="width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;resize:vertical"></textarea>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <button class="btn-sm btn-primary" id="smSendBtn" onclick="sendDirectMessage()" style="padding:10px 24px">Send Message</button>
+          <span id="smStatus" style="font-size:.82rem"></span>
+        </div>
+        <p style="font-size:.72rem;color:var(--text3);margin-top:12px">Message will appear in student's Dashboard → Messages tab and Notifications tab.</p>
+      </div>
+
+      <div class="card" style="max-width:520px">
+        <div style="font-weight:600;margin-bottom:14px;font-size:.95rem">📋 Quick Message Templates</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button onclick="useTemplate('premium')" class="btn-sm btn-ghost" style="text-align:left;padding:10px 14px">💎 Premium access activated</button>
+          <button onclick="useTemplate('pending')" class="btn-sm btn-ghost" style="text-align:left;padding:10px 14px">⏳ Payment verification pending</button>
+          <button onclick="useTemplate('revoked')" class="btn-sm btn-ghost" style="text-align:left;padding:10px 14px">❌ Access revoked — contact admin</button>
+          <button onclick="useTemplate('welcome')" class="btn-sm btn-ghost" style="text-align:left;padding:10px 14px">👋 Welcome to MHT CET LAW Portal</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- SEND MESSAGE MODAL (from user table) -->
+<div id="msgModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:998;align-items:center;justify-content:center;padding:16px">
+  <div class="modal-box">
+    <button onclick="closeMsgModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.1rem;line-height:1">✕</button>
+    <div style="margin-bottom:20px">
+      <div style="font-size:1rem;font-weight:700;margin-bottom:4px">📨 Send Message</div>
+      <div style="font-size:.85rem;color:#94a3b8">To: <strong id="mmName"></strong> · <span id="mmEmail" style="color:#6366f1"></span></div>
+    </div>
+    <input type="hidden" id="mmTo"/>
+    <textarea id="mmText" rows="4" placeholder="Type your message here..." style="width:100%;padding:10px 12px;background:#0f172a;border:1px solid #334155;border-radius:9px;color:#f1f5f9;font-family:inherit;font-size:.875rem;outline:none;resize:vertical;margin-bottom:14px"></textarea>
+    <div id="mmAlert" style="display:none;font-size:.82rem;margin-bottom:10px"></div>
+    <div style="display:flex;gap:10px">
+      <button id="mmSendBtn" onclick="sendFromModal()" style="flex:1;padding:11px;background:#6366f1;border:none;border-radius:9px;color:#fff;font-family:inherit;font-size:.875rem;font-weight:600;cursor:pointer">Send</button>
+      <button onclick="closeMsgModal()" style="padding:11px 20px;background:transparent;border:1px solid #334155;border-radius:9px;color:#94a3b8;font-family:inherit;font-size:.875rem;cursor:pointer">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { auth, db, ADMIN_EMAILS } from './firebase-config.js';
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import {
+    collection, getDocs, doc, updateDoc, addDoc,
+    query, orderBy, serverTimestamp, getDoc
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  let currentUser = null;
+  let allUsers = [];
+  let activeFilter = 'all';
+
+  // ── AUTH CHECK ──────────────────────────────────────────
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) { window.location.href = 'auth.html'; return; }
+    currentUser = user;
+
+    if (!ADMIN_EMAILS.includes(user.email)) {
+      document.getElementById('accessDenied').style.display = 'flex';
+      return;
+    }
+
+    document.getElementById('adminLayout').style.display = 'flex';
+    await loadAllUsers();
+    await loadContactMessages();
+  });
+
+  // ── LOAD ALL USERS ──────────────────────────────────────
+  window.loadAllUsers = async function() {
+    const tbody = document.getElementById('usersTableBody');
+    tbody.innerHTML = '<tr><td colspan="7" style="padding:30px;text-align:center;color:var(--text3)"><span class="spinner"></span> Loading users...</td></tr>';
+    try {
+      const snap = await getDocs(collection(db, 'users'));
+      allUsers = [];
+      snap.forEach(d => {
+        const data = d.data();
+        // ✅ FIX: Normalise all fields so nothing shows as "undefined"
+        allUsers.push({
+          id: d.id,
+          uid: data.uid || d.id,
+          displayName: data.displayName || data.name || '',
+          email: data.email || '',
+          phone: data.phone || '',
+          college: data.college || '',
+          plan: data.plan || 'free',
+          isApproved: data.isApproved || false,
+          isAdmin: data.isAdmin || false,
+          photoURL: data.photoURL || '',
+          createdAt: data.createdAt || null,
+          lastLogin: data.lastLogin || null,
+          targetExam: data.targetExam || '',
+          socialTelegram: data.socialTelegram || '',
+        });
+      });
+      allUsers.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+
+      // Update stats
+      const premium = allUsers.filter(u => u.plan === 'premium').length;
+      const pending = allUsers.filter(u => !u.isApproved && !u.isAdmin).length;
+      const free = allUsers.filter(u => u.plan === 'free' || !u.plan).length;
+      document.getElementById('sTotal').textContent = allUsers.length;
+      document.getElementById('sPremium').textContent = premium;
+      document.getElementById('sPending').textContent = pending;
+      document.getElementById('sFree').textContent = free;
+
+      // Pending badge in sidebar
+      const pb = document.getElementById('pendingBadge');
+      if (pending > 0) { pb.textContent = pending; pb.style.display = 'inline-flex'; }
+      else pb.style.display = 'none';
+
+      renderUsers(allUsers);
+      renderPending(allUsers);
+    } catch(e) {
+      tbody.innerHTML = `<tr><td colspan="7" style="padding:20px;text-align:center;color:#fca5a5">❌ Error loading users: ${e.message}<br><small style="color:#64748b">Check Firestore rules — admin must have read access to /users</small></td></tr>`;
+    }
+  };
+
+  function renderUsers(users) {
+    const tbody = document.getElementById('usersTableBody');
+    tbody.innerHTML = '';
+    if (!users.length) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-state">No users found</td></tr>';
+      return;
+    }
+    users.forEach(u => {
+      const tr = document.createElement('tr');
+      if (u.plan === 'premium') tr.className = 'premium-row';
+      const joined = u.createdAt?.toDate?.()?.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}) || '—';
+      const lastLogin = u.lastLogin?.toDate?.()?.toLocaleDateString('en-IN',{day:'2-digit',month:'short'}) || '—';
+
+      // Name fallback chain
+      const displayName = u.displayName || (u.email ? u.email.split('@')[0] : 'Unknown');
+      const initial = displayName.charAt(0).toUpperCase();
+      const avatarBg = u.plan === 'premium' ? 'linear-gradient(135deg,#6366f1,#22d3ee)' : '#334155';
+
+      const planPill = u.plan === 'premium'
+        ? `<span class="plan-pill pill-premium">💎 Premium</span>`
+        : u.plan === 'admin'
+        ? `<span class="plan-pill pill-admin">⭐ Admin</span>`
+        : `<span class="plan-pill pill-free">Free</span>`;
+
+      const statusSpan = u.isApproved || u.isAdmin
+        ? `<span class="status-approved">✓ Approved</span>`
+        : `<span class="status-pending">⏳ Pending</span>`;
+
+      const approveBtn = !u.isApproved && !u.isAdmin
+        ? `<button onclick="approveUser('${u.id}',this)" class="btn-sm btn-success" style="font-size:.7rem;padding:4px 10px">Approve</button>`
+        : '';
+
+      const revokeBtn = !u.isAdmin
+        ? `<button onclick="revokeUser('${u.id}',this)" class="btn-sm btn-danger" style="font-size:.7rem;padding:4px 8px">Revoke</button>`
+        : '';
+
+      tr.innerHTML = `
+        <td>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="user-avatar" style="background:${avatarBg}">
+              ${u.photoURL ? `<img src="${u.photoURL}" onerror="this.style.display='none'">` : ''}
+              <span>${initial}</span>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:.85rem">${displayName}</div>
+              ${u.college ? `<div style="font-size:.68rem;color:var(--text3)">${u.college}</div>` : ''}
+              <div style="font-size:.65rem;color:var(--text3)">Last: ${lastLogin}</div>
+            </div>
+          </div>
+        </td>
+        <td style="color:var(--text2);font-size:.82rem;max-width:200px;word-break:break-all">${u.email || '<em style="color:#475569">No email</em>'}</td>
+        <td style="color:var(--text2);font-size:.82rem">${u.phone || '—'}</td>
+        <td>
+          ${planPill}
+          <select class="inline-select" onchange="updatePlan('${u.id}',this.value,this)">
+            <option value="free" ${u.plan==='free'||!u.plan?'selected':''}>→ Free</option>
+            <option value="premium" ${u.plan==='premium'?'selected':''}>→ Premium</option>
+            <option value="admin" ${u.plan==='admin'?'selected':''}>→ Admin</option>
+          </select>
+        </td>
+        <td>${statusSpan}</td>
+        <td style="color:var(--text3);font-size:.75rem">${joined}</td>
+        <td>
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            ${approveBtn}
+            <button onclick="openMsgModal('${u.email}','${displayName.replace(/'/g,'')}')" class="btn-sm btn-ghost" style="font-size:.7rem;padding:4px 8px;display:flex;align-items:center;gap:3px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:11px;height:11px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Msg
+            </button>
+            ${revokeBtn}
+          </div>
+        </td>`;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderPending(users) {
+    const container = document.getElementById('pendingContainer');
+    const pending = users.filter(u => !u.isApproved && !u.isAdmin);
+    if (!pending.length) {
+      container.innerHTML = '<div class="card empty-state">🎉 No pending approvals!</div>';
+      return;
+    }
+    container.innerHTML = `<div class="bulk-bar"><span class="bulk-count">${pending.length} user${pending.length>1?'s':''} waiting</span><button class="btn-sm btn-success" onclick="approveAll()">✅ Approve All</button></div>`;
+    pending.forEach(u => {
+      const displayName = u.displayName || (u.email ? u.email.split('@')[0] : 'Unknown');
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.id = `pending-${u.id}`;
+      card.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="user-avatar" style="background:#334155;width:42px;height:42px;font-size:.9rem">${displayName.charAt(0).toUpperCase()}</div>
+            <div>
+              <div style="font-weight:700;font-size:.95rem">${displayName}</div>
+              <div style="color:var(--text2);font-size:.82rem">${u.email || 'No email'}</div>
+              ${u.phone ? `<div style="color:var(--text3);font-size:.75rem">📱 ${u.phone}</div>` : ''}
+              ${u.college ? `<div style="color:var(--text3);font-size:.75rem">🏫 ${u.college}</div>` : ''}
+              ${u.socialTelegram ? `<div style="color:#6366f1;font-size:.75rem">✈️ ${u.socialTelegram}</div>` : ''}
+              <div style="color:var(--text3);font-size:.72rem;margin-top:4px">
+                Joined: ${u.createdAt?.toDate?.()?.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}) || 'Unknown'}
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onclick="approveUser('${u.id}',this)" class="btn-sm btn-success">✅ Approve & Give Premium</button>
+            <button onclick="openMsgModal('${u.email}','${displayName.replace(/'/g,'')}')" class="btn-sm btn-ghost">💬 Message</button>
+            <button onclick="revokeUser('${u.id}',this)" class="btn-sm btn-danger">❌ Revoke</button>
+          </div>
+        </div>`;
+      container.appendChild(card);
+    });
+  }
+
+  window.approveAll = async function() {
+    const pending = allUsers.filter(u => !u.isApproved && !u.isAdmin);
+    if (!pending.length) return;
+    if (!confirm(`Approve all ${pending.length} pending users and give them Premium access?`)) return;
+    for (const u of pending) {
+      try {
+        await updateDoc(doc(db, 'users', u.id), { isApproved: true, plan: 'premium' });
+      } catch(e) { console.error('Could not approve', u.email, e); }
+    }
+    toast('✅ All pending users approved with Premium!', 'ok');
+    await loadAllUsers();
+  };
+
+  window.approveUser = async function(uid, btn) {
+    if (btn) { btn.disabled = true; btn.textContent = '...'; }
+    try {
+      await updateDoc(doc(db, 'users', uid), { isApproved: true, plan: 'premium' });
+      toast('✅ Approved! User now has Premium access.', 'ok');
+      await loadAllUsers();
+    } catch(e) {
+      toast('❌ Error: ' + e.message, 'err');
+      if (btn) { btn.disabled = false; btn.textContent = 'Approve'; }
+    }
+  };
+
+  window.revokeUser = async function(uid, btn) {
+    if (!confirm('Revoke access and set user to Free plan?')) return;
+    if (btn) { btn.disabled = true; btn.textContent = '...'; }
+    try {
+      await updateDoc(doc(db, 'users', uid), { isApproved: false, plan: 'free' });
+      toast('🔓 Access revoked — set to Free.', 'ok');
+      await loadAllUsers();
+    } catch(e) {
+      toast('❌ Error: ' + e.message, 'err');
+      if (btn) { btn.disabled = false; btn.textContent = 'Revoke'; }
+    }
+  };
+
+  window.updatePlan = async function(uid, plan, selectEl) {
+    if (selectEl) { selectEl.disabled = true; }
+    try {
+      const updateData = { plan };
+      updateData.isApproved = (plan === 'premium' || plan === 'admin');
+      await updateDoc(doc(db, 'users', uid), updateData);
+      if (plan === 'premium') toast('💎 Premium activated!', 'ok');
+      else if (plan === 'admin') toast('⭐ Admin access granted!', 'ok');
+      else toast('Plan set to Free — access revoked.', 'ok');
+      await loadAllUsers();
+    } catch(e) {
+      toast('❌ Error: ' + e.message, 'err');
+      if (selectEl) { selectEl.disabled = false; }
+    }
+  };
+
+  // ── FILTER & SEARCH ─────────────────────────────────────
+  window.setFilter = function(filter, btn) {
+    activeFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    filterUsers();
+  };
+
+  window.filterUsers = function() {
+    const search = (document.getElementById('userSearch')?.value || '').toLowerCase();
+    let filtered = allUsers;
+    if (activeFilter === 'premium') filtered = filtered.filter(u => u.plan === 'premium');
+    else if (activeFilter === 'free') filtered = filtered.filter(u => u.plan === 'free' || !u.plan);
+    else if (activeFilter === 'pending') filtered = filtered.filter(u => !u.isApproved && !u.isAdmin);
+    if (search) filtered = filtered.filter(u =>
+      (u.displayName||'').toLowerCase().includes(search) ||
+      (u.email||'').toLowerCase().includes(search) ||
+      (u.phone||'').includes(search) ||
+      (u.college||'').toLowerCase().includes(search)
+    );
+    renderUsers(filtered);
+  };
+
+  // ── CONTACT MESSAGES ────────────────────────────────────
+  async function loadContactMessages() {
+    const container = document.getElementById('contactsContainer');
+    try {
+      const q = query(collection(db, 'messages'), orderBy('createdAt','desc'));
+      const snap = await getDocs(q);
+      container.innerHTML = '';
+      let unread = 0;
+      snap.forEach(d => {
+        const m = d.data();
+        if (!m.read) unread++;
+        const card = document.createElement('div');
+        card.className = `msg-card${m.read?' read':''}`;
+        card.innerHTML = `
+          <div class="msg-meta">
+            <div>
+              <strong>${m.name || 'Unknown'}</strong>
+              <span style="color:var(--text2);font-size:.8rem;margin-left:8px">${m.email || ''}</span>
+              ${m.source ? `<span class="msg-source-tag" style="margin-left:8px">${m.source}</span>` : ''}
+              ${!m.read ? '<span style="background:#6366f1;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;margin-left:8px">New</span>' : ''}
+            </div>
+            <span style="font-size:.72rem;color:var(--text3)">${m.createdAt?.toDate?.()?.toLocaleString('en-IN') || ''}</span>
+          </div>
+          <p style="color:var(--text2);font-size:.875rem;line-height:1.6;padding:10px;background:var(--bg);border-radius:8px">${m.message}</p>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <button onclick="openMsgModal('${m.email}','${(m.name||'User').replace(/'/g,'')}')" class="btn-sm btn-primary" style="font-size:.75rem">💬 Reply via Dashboard</button>
+            <a href="mailto:${m.email}" class="btn-sm btn-ghost" style="font-size:.75rem">📧 Email</a>
+            ${!m.read ? `<button onclick="markRead('${d.id}',this)" class="btn-sm btn-ghost" style="font-size:.75rem">Mark Read</button>` : '<span style="font-size:.75rem;color:var(--text3);padding:4px 8px">✓ Read</span>'}
+          </div>`;
+        container.appendChild(card);
+      });
+      if (snap.empty) container.innerHTML = '<div class="card empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>No contact messages yet</div>';
+      if (unread > 0) {
+        const cb = document.getElementById('contactBadge');
+        cb.textContent = unread; cb.style.display = 'inline-flex';
+      }
+    } catch(e) {
+      container.innerHTML = `<div class="card" style="color:#fca5a5">❌ Error: ${e.message}</div>`;
+    }
+  }
+
+  window.markRead = async function(id, btn) {
+    try {
+      await updateDoc(doc(db, 'messages', id), { read: true });
+      btn.textContent = '✓ Read'; btn.disabled = true;
+      const cb = document.getElementById('contactBadge');
+      const cur = parseInt(cb.textContent||'0') - 1;
+      if (cur <= 0) cb.style.display = 'none'; else cb.textContent = cur;
+    } catch(e) { toast('Error: ' + e.message, 'err'); }
+  };
+
+  // ── SEND MESSAGE (Direct Panel) ──────────────────────────
+  window.sendDirectMessage = async function() {
+    const email = document.getElementById('smEmail')?.value?.trim();
+    const text = document.getElementById('smText')?.value?.trim();
+    const btn = document.getElementById('smSendBtn');
+    const status = document.getElementById('smStatus');
+    if (!email) { status.textContent = '⚠ Enter student email'; status.style.color = '#fca5a5'; return; }
+    if (!text) { status.textContent = '⚠ Write a message'; status.style.color = '#fca5a5'; return; }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      await addDoc(collection(db, 'adminMessages'), {
+        to: email,
+        from: currentUser.email,
+        fromName: currentUser.displayName || 'Admin',
+        message: text, read: false, createdAt: serverTimestamp()
+      });
+      status.textContent = '✓ Sent successfully!'; status.style.color = '#86efac';
+      document.getElementById('smText').value = '';
+      setTimeout(() => { status.textContent = ''; }, 4000);
+    } catch(e) {
+      status.textContent = '❌ Error: ' + e.message; status.style.color = '#fca5a5';
+    }
+    btn.disabled = false; btn.textContent = 'Send Message';
+  };
+
+  window.useTemplate = function(type) {
+    const templates = {
+      premium: '💎 Great news! Your premium access has been activated. You now have full access to all study modules, PYQs, practice tests, and more. Study hard! — Admin',
+      pending: '⏳ Hi! Your payment is under verification. It usually takes 1–2 hours. Please share your payment screenshot on Telegram @ragexking if you haven\'t already. — Admin',
+      revoked: '⚠️ Your premium access has been temporarily revoked. Please contact admin on Telegram @ragexking to resolve this. — Admin',
+      welcome: '👋 Welcome to MHT CET LAW Portal! We\'re glad to have you. Explore study modules, PYQs, and practice tests. For any help, reach us on Telegram @ragexking. Good luck! — Admin'
+    };
+    const ta = document.getElementById('smText');
+    if (ta) ta.value = templates[type] || '';
+  };
+
+  // ── MSG MODAL ────────────────────────────────────────────
+  window.openMsgModal = function(email, name) {
+    document.getElementById('mmName').textContent = name;
+    document.getElementById('mmEmail').textContent = email;
+    document.getElementById('mmTo').value = email;
+    document.getElementById('mmText').value = '';
+    document.getElementById('mmAlert').style.display = 'none';
+    document.getElementById('msgModal').style.display = 'flex';
+  };
+  window.closeMsgModal = function() {
+    document.getElementById('msgModal').style.display = 'none';
+  };
+  window.sendFromModal = async function() {
+    const to = document.getElementById('mmTo').value;
+    const text = document.getElementById('mmText').value.trim();
+    const btn = document.getElementById('mmSendBtn');
+    const alert = document.getElementById('mmAlert');
+    if (!text) { alert.style.cssText='display:block;color:#fca5a5'; alert.textContent='Please write a message.'; return; }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    try {
+      await addDoc(collection(db, 'adminMessages'), {
+        to, from: currentUser.email,
+        fromName: currentUser.displayName || 'Admin',
+        message: text, read: false, createdAt: serverTimestamp()
+      });
+      alert.style.cssText = 'display:block;color:#86efac';
+      alert.textContent = '✓ Sent! Student will see it in their dashboard.';
+      document.getElementById('mmText').value = '';
+      setTimeout(closeMsgModal, 1800);
+    } catch(e) {
+      alert.style.cssText = 'display:block;color:#fca5a5';
+      alert.textContent = 'Error: ' + e.message;
+    }
+    btn.disabled = false; btn.textContent = 'Send';
+  };
+
+  // ── PANEL SWITCHER ───────────────────────────────────────
+  window.showPanel = function(name, el) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById(name + 'Panel');
+    if (panel) panel.classList.add('active');
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    if (el) el.classList.add('active');
+  };
+
+  // ── LOGOUT ───────────────────────────────────────────────
+  window.handleLogout = async function() {
+    try { sessionStorage.clear(); } catch(e) {}
+    await signOut(auth);
+    window.location.href = 'index.html';
+  };
+
+  // ── TOAST ────────────────────────────────────────────────
+  function toast(msg, type='ok') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = `show toast-${type}`;
+    setTimeout(() => t.className = '', 3000);
+  }
+  window.toast = toast;
+</script>
+</body>
+</html>

@@ -162,6 +162,11 @@
       Pending Approvals
       <span id="pendingBadge" style="display:none;background:#f59e0b;color:#000;border-radius:10px;font-size:.65rem;padding:1px 6px;margin-left:auto;font-weight:700"></span>
     </div>
+    <div class="nav-item" onclick="showPanel('manual',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+      Manual Approve
+      <span style="background:rgba(34,197,94,.2);color:#86efac;border-radius:10px;font-size:.62rem;padding:1px 6px;margin-left:auto;font-weight:700">NEW</span>
+    </div>
     <div class="nav-section">Messages</div>
     <div class="nav-item" onclick="showPanel('contacts',this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -271,6 +276,72 @@
       </div>
     </div>
 
+    <!-- ════ MANUAL APPROVE PANEL ════ -->
+    <div id="manualPanel" class="panel">
+      <div class="page-title">➕ Manual Approve / Fix Users</div>
+      <div class="page-sub">Approve users directly using their UID or email — even if name/email is missing in the table</div>
+
+      <!-- HOW TO FIND UID BOX -->
+      <div style="background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.25);border-radius:12px;padding:16px 20px;margin-bottom:24px;font-size:.85rem;line-height:1.7;color:var(--text2)">
+        <div style="font-weight:700;color:var(--text);margin-bottom:8px">📌 Kaise pata karo UID?</div>
+        <ol style="padding-left:18px;display:flex;flex-direction:column;gap:4px">
+          <li>Firebase Console → <strong>Authentication</strong> → Users list open karo</li>
+          <li>Wahan har user ka <strong>UID</strong> column hota hai — copy karo</li>
+          <li>Ya phir neeche "All Users (Raw)" table dekho — wahan UID bhi hai</li>
+          <li>Ya user ka phone number/name puch ke "Fix Missing Email" button use karo</li>
+        </ol>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px">
+
+        <!-- APPROVE BY UID -->
+        <div class="card">
+          <div style="font-weight:700;font-size:1rem;margin-bottom:4px">🎯 Approve by UID</div>
+          <div style="color:var(--text2);font-size:.8rem;margin-bottom:16px">Firebase UID paste karo aur direct premium do</div>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">User UID</label>
+          <input type="text" id="manualUid" placeholder="e.g. u5QfvWTsGcftsMmx4yFVdNWtEhi1" style="width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:monospace;font-size:.8rem;outline:none;margin-bottom:12px"/>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Plan to Set</label>
+          <select id="manualPlan" style="width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;margin-bottom:16px">
+            <option value="premium">💎 Premium (Approved)</option>
+            <option value="free">🔓 Free (Revoke)</option>
+            <option value="admin">⭐ Admin</option>
+          </select>
+          <button onclick="approveByUid()" class="btn-sm btn-success" style="width:100%;padding:11px;font-size:.875rem">✅ Approve User</button>
+          <div id="manualUidStatus" style="margin-top:10px;font-size:.8rem;min-height:20px"></div>
+        </div>
+
+        <!-- APPROVE BY EMAIL -->
+        <div class="card">
+          <div style="font-weight:700;font-size:1rem;margin-bottom:4px">📧 Approve by Email</div>
+          <div style="color:var(--text2);font-size:.8rem;margin-bottom:16px">Email se user dhundho aur approve karo</div>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">User Email</label>
+          <input type="email" id="manualEmail" placeholder="student@gmail.com" style="width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;margin-bottom:12px"/>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Plan to Set</label>
+          <select id="manualEmailPlan" style="width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;margin-bottom:16px">
+            <option value="premium">💎 Premium (Approved)</option>
+            <option value="free">🔓 Free (Revoke)</option>
+            <option value="admin">⭐ Admin</option>
+          </select>
+          <button onclick="approveByEmail()" class="btn-sm btn-primary" style="width:100%;padding:11px;font-size:.875rem">🔍 Find & Approve</button>
+          <div id="manualEmailStatus" style="margin-top:10px;font-size:.8rem;min-height:20px"></div>
+        </div>
+      </div>
+
+      <!-- FIX MISSING DATA -->
+      <div class="card" style="border-color:rgba(245,158,11,.3)">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+          <div>
+            <div style="font-weight:700;font-size:1rem;margin-bottom:4px">🔧 Fix "Unknown" Users — Patch Missing Email</div>
+            <div style="color:var(--text2);font-size:.8rem">Jo users "Unknown / No email" dikh rahe hain, unhe manually patch karo</div>
+          </div>
+          <button onclick="loadRawUsers()" class="btn-sm btn-ghost">🔄 Load Raw List</button>
+        </div>
+        <div id="rawUsersContainer">
+          <div style="text-align:center;color:var(--text3);padding:20px;font-size:.85rem">Click "Load Raw List" to see all users with their UIDs</div>
+        </div>
+      </div>
+    </div>
+
   </main>
 </div>
 
@@ -296,7 +367,7 @@
   import { auth, db, ADMIN_EMAILS } from './firebase-config.js';
   import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
   import {
-    collection, getDocs, doc, updateDoc, addDoc,
+    collection, getDocs, doc, updateDoc, addDoc, getDoc, setDoc,
     query, orderBy, serverTimestamp, getDoc
   } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -682,7 +753,209 @@
     btn.disabled = false; btn.textContent = 'Send';
   };
 
-  // ── PANEL SWITCHER ───────────────────────────────────────
+  // ── MANUAL APPROVE BY UID ────────────────────────────────
+  window.approveByUid = async function() {
+    const uid = document.getElementById('manualUid')?.value?.trim();
+    const plan = document.getElementById('manualPlan')?.value;
+    const status = document.getElementById('manualUidStatus');
+    if (!uid) { status.style.color='#fca5a5'; status.textContent='⚠ UID daalo pehle'; return; }
+    status.style.color='#94a3b8'; status.textContent='Processing...';
+    try {
+      const ref = doc(db, 'users', uid);
+      const snap = await getDoc(ref);
+      const isApproved = plan === 'premium' || plan === 'admin';
+      if (snap.exists()) {
+        await updateDoc(ref, { plan, isApproved, updatedAt: serverTimestamp() });
+        status.style.color='#86efac';
+        status.textContent=`✅ Done! User (${snap.data().email || snap.data().displayName || uid.slice(0,8)+'...'}) → ${plan} set!`;
+      } else {
+        // Document doesn't exist — create it
+        await setDoc(ref, {
+          uid, plan, isApproved,
+          email: '', displayName: '',
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp()
+        });
+        status.style.color='#fcd34d';
+        status.textContent=`⚠ UID ka document nahi tha — naya banaya. User ko login karna hoga.`;
+      }
+      document.getElementById('manualUid').value = '';
+      await loadAllUsers();
+    } catch(e) {
+      status.style.color='#fca5a5';
+      status.textContent='❌ Error: ' + e.message;
+    }
+  };
+
+  // ── MANUAL APPROVE BY EMAIL ───────────────────────────────
+  window.approveByEmail = async function() {
+    const email = document.getElementById('manualEmail')?.value?.trim().toLowerCase();
+    const plan = document.getElementById('manualEmailPlan')?.value;
+    const status = document.getElementById('manualEmailStatus');
+    if (!email) { status.style.color='#fca5a5'; status.textContent='⚠ Email daalo pehle'; return; }
+    status.style.color='#94a3b8'; status.textContent='🔍 Searching...';
+    try {
+      // Search all users for matching email
+      const snap = await getDocs(collection(db, 'users'));
+      let found = null;
+      snap.forEach(d => {
+        const data = d.data();
+        if ((data.email||'').toLowerCase() === email) found = { id: d.id, ...data };
+      });
+      if (!found) {
+        status.style.color='#fca5a5';
+        status.textContent=`❌ "${email}" — koi user nahi mila Firestore me. Wo pehle login kare.`;
+        return;
+      }
+      const isApproved = plan === 'premium' || plan === 'admin';
+      await updateDoc(doc(db, 'users', found.id), { plan, isApproved, updatedAt: serverTimestamp() });
+      status.style.color='#86efac';
+      status.textContent=`✅ ${found.displayName || email} → ${plan} set! Approved: ${isApproved}`;
+      document.getElementById('manualEmail').value = '';
+      await loadAllUsers();
+    } catch(e) {
+      status.style.color='#fca5a5';
+      status.textContent='❌ Error: ' + e.message;
+    }
+  };
+
+  // ── LOAD RAW USERS (with UID + patch option) ─────────────
+  window.loadRawUsers = async function() {
+    const container = document.getElementById('rawUsersContainer');
+    container.innerHTML = '<div style="text-align:center;padding:20px"><span class="spinner"></span></div>';
+    try {
+      const snap = await getDocs(collection(db, 'users'));
+      const users = [];
+      snap.forEach(d => users.push({ id: d.id, ...d.data() }));
+      users.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+
+      container.innerHTML = `
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:.8rem">
+            <thead>
+              <tr style="border-bottom:2px solid var(--border);color:var(--text2)">
+                <th style="padding:8px;text-align:left">UID (copy karo)</th>
+                <th style="padding:8px;text-align:left">Name</th>
+                <th style="padding:8px;text-align:left">Email (patch karo)</th>
+                <th style="padding:8px;text-align:left">Plan</th>
+                <th style="padding:8px;text-align:left">Status</th>
+                <th style="padding:8px;text-align:left">Quick Actions</th>
+              </tr>
+            </thead>
+            <tbody id="rawTbody"></tbody>
+          </table>
+        </div>`;
+
+      const tbody = document.getElementById('rawTbody');
+      users.forEach(u => {
+        const displayName = u.displayName || '—';
+        const email = u.email || '';
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid rgba(51,65,85,.4)';
+        tr.innerHTML = `
+          <td style="padding:8px">
+            <code style="background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:2px 7px;font-size:.72rem;color:#a5b4fc;cursor:pointer;display:block;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" 
+              title="${u.id}" onclick="copyUID('${u.id}',this)">${u.id.slice(0,16)}...</code>
+          </td>
+          <td style="padding:8px;font-weight:600">${displayName}</td>
+          <td style="padding:8px">
+            ${email
+              ? `<span style="color:var(--text2)">${email}</span>`
+              : `<div style="display:flex;gap:5px;align-items:center">
+                  <input type="email" placeholder="email daalo" 
+                    id="patch-${u.id}"
+                    style="padding:4px 8px;background:var(--bg);border:1px solid #f59e0b;border-radius:6px;color:var(--text);font-size:.75rem;width:160px;outline:none;font-family:inherit"/>
+                  <button onclick="patchEmail('${u.id}')" 
+                    style="padding:4px 8px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#fcd34d;border-radius:6px;font-size:.72rem;cursor:pointer;font-family:inherit;white-space:nowrap">
+                    💾 Save
+                  </button>
+                </div>`
+            }
+          </td>
+          <td style="padding:8px">
+            <select onchange="updatePlan('${u.id}',this.value,this)" 
+              style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 7px;border-radius:6px;font-size:.72rem;font-family:inherit">
+              <option value="free" ${u.plan==='free'||!u.plan?'selected':''}>Free</option>
+              <option value="premium" ${u.plan==='premium'?'selected':''}>💎 Premium</option>
+              <option value="admin" ${u.plan==='admin'?'selected':''}>⭐ Admin</option>
+            </select>
+          </td>
+          <td style="padding:8px">
+            <span style="padding:3px 8px;border-radius:8px;font-size:.72rem;${u.isApproved?'background:rgba(34,197,94,.1);color:#86efac':'background:rgba(245,158,11,.1);color:#fcd34d'}">
+              ${u.isApproved ? '✓ Approved' : '⏳ Pending'}
+            </span>
+          </td>
+          <td style="padding:8px">
+            <div style="display:flex;gap:5px;flex-wrap:wrap">
+              ${!u.isApproved && !u.isAdmin
+                ? `<button onclick="approveUserRaw('${u.id}',this)" 
+                    class="btn-sm btn-success" style="font-size:.7rem;padding:4px 10px">✅ Approve</button>`
+                : `<button onclick="revokeUserRaw('${u.id}',this)" 
+                    class="btn-sm btn-danger" style="font-size:.7rem;padding:4px 8px">Revoke</button>`}
+              <button onclick="openMsgModal('${email||''}','${(displayName).replace(/'/g,'')}')" 
+                class="btn-sm btn-ghost" style="font-size:.7rem;padding:4px 8px">💬</button>
+            </div>
+          </td>`;
+        tbody.appendChild(tr);
+      });
+    } catch(e) {
+      container.innerHTML = `<div style="color:#fca5a5;padding:16px">❌ Error: ${e.message}</div>`;
+    }
+  };
+
+  window.copyUID = function(uid, el) {
+    navigator.clipboard.writeText(uid).then(() => {
+      const orig = el.textContent;
+      el.textContent = '✅ Copied!';
+      el.style.color = '#86efac';
+      setTimeout(() => { el.textContent = uid.slice(0,16)+'...'; el.style.color = '#a5b4fc'; }, 1500);
+    });
+  };
+
+  window.patchEmail = async function(uid) {
+    const input = document.getElementById('patch-' + uid);
+    const email = input?.value?.trim().toLowerCase();
+    if (!email || !email.includes('@')) { input.style.borderColor='#ef4444'; return; }
+    input.disabled = true;
+    try {
+      await updateDoc(doc(db, 'users', uid), { email, updatedAt: serverTimestamp() });
+      toast('✅ Email saved: ' + email, 'ok');
+      // Refresh raw list
+      await loadRawUsers();
+      await loadAllUsers();
+    } catch(e) {
+      toast('❌ Error: ' + e.message, 'err');
+      input.disabled = false;
+    }
+  };
+
+  window.approveUserRaw = async function(uid, btn) {
+    if (btn) { btn.disabled=true; btn.textContent='...'; }
+    try {
+      await updateDoc(doc(db, 'users', uid), { isApproved: true, plan: 'premium', updatedAt: serverTimestamp() });
+      toast('✅ Approved! Premium activated.', 'ok');
+      await loadRawUsers();
+      await loadAllUsers();
+    } catch(e) {
+      toast('❌ ' + e.message, 'err');
+      if (btn) { btn.disabled=false; btn.textContent='✅ Approve'; }
+    }
+  };
+
+  window.revokeUserRaw = async function(uid, btn) {
+    if (!confirm('Revoke karna chahte ho?')) return;
+    if (btn) { btn.disabled=true; btn.textContent='...'; }
+    try {
+      await updateDoc(doc(db, 'users', uid), { isApproved: false, plan: 'free', updatedAt: serverTimestamp() });
+      toast('Revoked — Free plan set.', 'ok');
+      await loadRawUsers();
+      await loadAllUsers();
+    } catch(e) {
+      toast('❌ ' + e.message, 'err');
+      if (btn) { btn.disabled=false; btn.textContent='Revoke'; }
+    }
+  };
+
   window.showPanel = function(name, el) {
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     const panel = document.getElementById(name + 'Panel');

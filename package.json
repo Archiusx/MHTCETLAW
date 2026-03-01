@@ -1,0 +1,8 @@
+{
+  "name": "mhtcetlaw",
+  "version": "1.0.0",
+  "description": "Secure PDF backend",
+  "dependencies": {
+    "googleapis": "^127.0.0"
+  }
+}

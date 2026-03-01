@@ -61,10 +61,13 @@ exports.handler = async (event) => {
       isBase64Encoded: true,
     };
 
-  } catch (err) {
-    return {
-      statusCode: 500,
-      body: "Error loading image",
-    };
-  }
+ } catch (err) {
+  return {
+    statusCode: 500,
+    body: JSON.stringify({
+      message: err.message,
+      stack: err.stack
+    })
+  };
+}
 };

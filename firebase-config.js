@@ -28,7 +28,8 @@ export const ADMIN_EMAILS = [
 // Add any student email here to give them permanent premium access
 export const PREMIUM_EMAILS = [
   "udayaglave@gmail.com",
-  "oojhas07@gmail.com"
+  "oojhas07@gmail.com",
+  "kawlenavnath0909@gmail.com"
 ];
 
 export default app;

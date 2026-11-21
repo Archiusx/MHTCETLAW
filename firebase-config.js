@@ -29,7 +29,8 @@ export const ADMIN_EMAILS = [
 export const PREMIUM_EMAILS = [
   "udayaglave@gmail.com",
   "oojhas07@gmail.com",
-  "kawlenavnath0909@gmail.com"
+  "kawlenavnath0909@gmail.com,
+  "asmitapawar4119@gmail.com"
 ];
 
 export default app;
